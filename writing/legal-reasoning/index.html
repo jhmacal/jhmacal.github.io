@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Reasoning as a Strategic Asset | Julio Macedo</title>
+  <meta name="description" content="Our judgment will sit in a system that the next generation can query. On AI, legal reasoning, and a new class of intangible asset.">
+  <meta property="og:title" content="Legal Reasoning as a Strategic Asset | Julio Macedo">
+  <meta property="og:description" content="Our judgment will sit in a system that the next generation can query. On AI, legal reasoning, and a new class of intangible asset.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://www.jhmacal.com/writing/legal-reasoning/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .article__byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(244, 237, 224, 0.55);
+      margin: 0 0 2.5rem;
+    }
+    .article__cta {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.15);
+    }
+    .timeline-wrap {
+      margin: 2.5rem 0;
+    }
+    #year-slider { -webkit-appearance: none; appearance: none; background: transparent; }
+    #year-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #c9a961; cursor: grab; border: 2px solid #0a1628; margin-top: -7.5px; }
+    #year-slider::-webkit-slider-thumb:active { cursor: grabbing; }
+    #year-slider::-webkit-slider-runnable-track { height: 3px; background: transparent; border: none; }
+    #year-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #c9a961; cursor: grab; border: 2px solid #0a1628; }
+    #year-slider::-moz-range-track { height: 3px; background: transparent; border: none; }
+    .tnode { transition: opacity 0.2s ease; }
+    .tnode:hover .tdot { stroke-width: 3; }
+    #legal-detail { transition: opacity 0.4s ease; opacity: 0; }
+    #legal-cover { transition: opacity 0.5s ease; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/" class="active">Writing</a></li>
+        <li><a href="/studies/">Studies</a></li>
+        <li><a href="/ai/">AI</a></li>
+        <li><a href="/resume/">Resume</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="page-header__eyebrow">Artificial Intelligence</p>
+      <h1 class="page-header__title">Legal Reasoning as a Strategic Asset</h1>
+      <p class="page-header__sub">Our judgment will sit in a system that the next generation can query.</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <article class="article">
+        <div class="article__body">
+
+          <p class="article__byline">By Julio Macedo</p>
+
+          <p class="lede">The senior counsel who retired in 2010 took everything with them. The attorney who retires in 2035 will leave behind a system that can answer in their voice, draft in their style, and pull from forty years of their judgment: that is not replacement; it is preservation.</p>
+
+          <h2>The Past, Present, and Future of the Legal Practice</h2>
+
+          <p>Knowledge transfer in legal practice has always been mostly verbal, mostly osmotic, mostly lost: you sat in the room; you watched the partner work; you wrote down what you could. Most of their judgment, workflow, and knowledge did not survive the meeting. None of it survived their retirement. The case strategies the younger partners still reference but can no longer fully reconstruct. The instinct for when to push, when to settle, when to walk.</p>
+
+          <p>With AI, the lawyer who indexes their own work is doing something the profession has never been able to do before. They are leaving behind an addressable mind. The attorney who writes prompts that capture how they think about a problem, who feeds their past reasoning into a system that can hold it, who builds a workflow that absorbs their voice as it operates, is preserving a layer of practice that has always been ephemeral.</p>
+
+          <p>The tools already exist, but the driving force of legal products is built on top of the data, patterns, prompts, and workflows that teams are quietly capturing right now.</p>
+
+          <h2>A New Asset Class</h2>
+
+          <p>If an attorney's reasoning can be preserved, it can also be valued. Workflows that capture how a firm handles an M&amp;A, a litigation, an appeal, a regulatory filing, are becoming proprietary assets in a way they have never been before.</p>
+
+          <p>In late 2023, Allen &amp; Overy, one of the world's leading law firms, sold the majority of its regulatory compliance subscription platform aosphere to private equity for approximately &pound;200 million. Aosphere had grown from a service line built inside the firm in 2002 into a standalone business with 725 blue-chip clients including major banks and asset managers, generating &pound;5.4M profit on &pound;21M revenue.</p>
+
+          <p>The firm's accumulated regulatory analysis had been productized, capitalized, and sold as a separate balance-sheet asset. The lawyers who built it remained at A&amp;O. The reasoning they had encoded into the platform left, and was valued at nine figures.</p>
+
+          <div class="timeline-wrap">
+
+            <div style="position: relative; background: #0a1628; border-radius: 12px; padding: 1rem 1.25rem 0.75rem;">
+
+              <svg viewBox="0 0 700 100" style="width: 100%; height: auto; display: block; margin-bottom: 0.5rem;">
+                <line x1="40" y1="78" x2="660" y2="78" stroke="rgba(240,230,210,0.15)" stroke-width="1"/>
+
+                <g class="tnode active" data-panel="burford" style="cursor:pointer;">
+                  <circle cx="60" cy="78" r="25" fill="transparent"/>
+                  <circle cx="60" cy="78" r="11" fill="#c9a961" stroke="#c9a961" stroke-width="2" class="tdot"/>
+                  <text x="60" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">Burford</text>
+                  <text x="60" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(240,230,210,0.55)" letter-spacing="0.06em">FOUNDED 2009</text>
+                </g>
+
+                <g class="tnode" data-panel="adoption" style="cursor:pointer;">
+                  <circle cx="205" cy="78" r="25" fill="transparent"/>
+                  <circle cx="205" cy="78" r="9" fill="#0a1628" stroke="#c9a961" stroke-width="2" class="tdot"/>
+                  <text x="205" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">Legal finance</text>
+                  <text x="205" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(240,230,210,0.55)" letter-spacing="0.06em">ADOPTION 2012-2024</text>
+                </g>
+
+                <g class="tnode" data-panel="firmtech" style="cursor:pointer;">
+                  <circle cx="495" cy="78" r="25" fill="transparent"/>
+                  <circle cx="495" cy="78" r="9" fill="#0a1628" stroke="#c9a961" stroke-width="2" class="tdot"/>
+                  <text x="495" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">Tech ownership</text>
+                  <text x="495" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(240,230,210,0.55)" letter-spacing="0.06em">FIRMS AS BUILDERS</text>
+                </g>
+
+                <g class="tnode" data-panel="aosphere" style="cursor:pointer;">
+                  <circle cx="640" cy="78" r="25" fill="transparent"/>
+                  <circle cx="640" cy="78" r="9" fill="#0a1628" stroke="#c9a961" stroke-width="2" class="tdot"/>
+                  <text x="640" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">aosphere</text>
+                  <text x="640" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(240,230,210,0.55)" letter-spacing="0.06em">SOLD 2023</text>
+                </g>
+              </svg>
+
+              <div id="legal-detail" style="min-height: 220px;"></div>
+
+              <div style="text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 0.5px solid rgba(201, 169, 97, 0.15); font-size: 10px; color: rgba(240, 230, 210, 0.4); letter-spacing: 0.04em; font-style: italic;">sources: Burford Capital, Allen &amp; Overy / aosphere disclosures</div>
+
+              <div id="legal-cover" style="position: absolute; inset: 0; background: #0a1628; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;">
+                <div style="text-align: center; padding: 1rem 2rem;">
+                  <div style="font-size: 12px; letter-spacing: 0.2em; color: rgba(201, 169, 97, 0.85); text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;">Intangible legal assets &middot; the receipts</div>
+                  <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-style: italic; color: rgba(240, 230, 210, 0.75); line-height: 1.4;">click through to explore</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p>A BigLaw firm with a refined transactional workflow is no longer just selling lawyer hours. They have something to license. A specialist with a refined approach to cross-border transactions, complex litigation, or tax structuring has something to sell beyond their time.</p>
+
+          <p>The intellectual property frame is real. The software may be outsourced, but the data belong to the legal team. The reasoning is the practitioner's. This is a new category of intangible asset: not the firm's brand, not the firm's book of business, but the practitioner's judgment itself. And this is a layer beyond plain legal knowledge, practice playbooks, or proprietary knowledge bases.</p>
+
+          <p>For in-house legal teams, the implication is more direct. A multinational with a refined approach to global regulatory filings, a financial institution with proprietary anti-money-laundering decision logic, a pharmaceutical company with twenty years of FDA submission methodology, each is sitting on something that has been organizational memory and is now becoming organizational asset.</p>
+
+          <p>In acquisition due diligence, that asset is being valued. In litigation, it is being introduced as evidence of consistent decision-making. In restructuring, it is being licensed to peer firms the same way patents and trademarks are. A financial institution facing distress can monetize its proprietary risk-management methodology by licensing it, the way it would monetize any other intellectual property. Internal reasoning that had been carried in attorney memory is now portable, sellable, and capitalizable.</p>
+
+          <p>None of this was possible before. All of it is possible now.</p>
+
+          <h2>The Practice That Outlives You</h2>
+
+          <p>The lawyer at the end of a thirty-year career has accumulated something irreplaceable. For the first time in the history of the profession, that something is preservable. This changes succession, mentorship, the legacy of a legal professional. It also changes what it means to practice now, as work you do today is not only for today. The practice you build is the practice that outlives you.</p>
+
+          <p>The infrastructure is being built right now by firms that have allocated capital to it. By general counsels who recognized early what kind of asset their teams were sitting on. By practitioners who started indexing their work three years ago and have not stopped. The market is forming in real time, and what gets captured this decade will set the standard for the next. Reasoning that does not get encoded will not be reconstructed. Workflows that do not get preserved will be reinvented by competitors who got there first.</p>
+
+          <p>The firms and legal teams capturing their reasoning now are building inventory. The firms that wait will be the ones licensing it back.</p>
+
+          <div class="article__cta">
+            <a href="/contact/" class="btn">Discuss this analysis</a>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+  <script>
+  (function(){
+    let activeChart = null;
+    let activePanel = null;
+
+    const aospherePanel = `<div style="display:flex;align-items:center;gap:1.5rem;padding:0.75rem 0.5rem;flex-wrap:wrap;"><div style="flex:0 0 220px;text-align:left;"><div id="ao-counter" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:64px;font-weight:500;color:#c9a961;line-height:1;margin-bottom:0.4rem;font-variant-numeric:tabular-nums;">&pound;0M</div><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-style:italic;color:#f0e6d2;line-height:1.2;margin-bottom:0.3rem;">aosphere</div><div style="font-size:11px;color:rgba(240,230,210,0.55);line-height:1.4;">Allen &amp; Overy regulatory subscription platform, sold to private equity in 2023</div></div><div style="flex:1;min-width:240px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;"><div class="ao-stat" style="opacity:0;transform:translateY(8px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;padding:0.85rem 0.4rem;border-top:0.5px solid rgba(201,169,97,0.35);text-align:center;"><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:#c9a961;line-height:1;font-weight:500;">725+</div><div style="font-size:10px;color:rgba(240,230,210,0.6);margin-top:6px;line-height:1.3;">blue-chip clients</div></div><div class="ao-stat" style="opacity:0;transform:translateY(8px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;padding:0.85rem 0.4rem;border-top:0.5px solid rgba(201,169,97,0.35);text-align:center;"><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:#c9a961;line-height:1;font-weight:500;">&pound;21M</div><div style="font-size:10px;color:rgba(240,230,210,0.6);margin-top:6px;line-height:1.3;">annual revenue</div></div><div class="ao-stat" style="opacity:0;transform:translateY(8px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;padding:0.85rem 0.4rem;border-top:0.5px solid rgba(201,169,97,0.35);text-align:center;"><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:#c9a961;line-height:1;font-weight:500;">&pound;5.4M</div><div style="font-size:10px;color:rgba(240,230,210,0.6);margin-top:6px;line-height:1.3;">annual profit</div></div><div class="ao-stat" style="opacity:0;transform:translateY(8px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;padding:0.85rem 0.4rem;border-top:0.5px solid rgba(201,169,97,0.35);text-align:center;"><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:#c9a961;line-height:1;font-weight:500;">9-fig</div><div style="font-size:10px;color:rgba(240,230,210,0.6);margin-top:6px;line-height:1.3;">exit valuation</div></div></div></div>`;
+
+    const adoptionPanel = `<div style="display:flex;align-items:center;gap:2rem;padding:0.75rem 0.5rem;flex-wrap:wrap;"><div style="flex:0 0 220px;text-align:left;"><div style="font-size:13px;color:rgba(240,230,210,0.7);margin-bottom:0.3rem;letter-spacing:0.04em;">in <span id="year-display" style="color:#f0e6d2;font-weight:500;">2012</span>,</div><div id="pct-display" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:500;color:#c9a961;line-height:1;margin-bottom:0.3rem;font-variant-numeric:tabular-nums;">9%</div><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-style:italic;color:#f0e6d2;line-height:1.4;">of lawyers reported using legal finance</div></div><div style="flex:1;min-width:260px;"><div style="position:relative;padding:12px 0;height:24px;"><div style="position:absolute;top:50%;transform:translateY(-50%);left:0;right:0;height:3px;background:rgba(240,230,210,0.15);border-radius:2px;"></div><div id="slider-fill" style="position:absolute;top:50%;transform:translateY(-50%);left:0;height:3px;background:#c9a961;border-radius:2px;width:0%;"></div><input type="range" id="year-slider" min="2012" max="2024" value="2012" step="1" style="position:relative;z-index:2;width:100%;height:24px;outline:none;margin:0;padding:0;"></div><div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:rgba(240,230,210,0.6);letter-spacing:0.05em;"><span>2012</span><span style="color:rgba(240,230,210,0.35);">2018</span><span>2024</span></div><div style="margin-top:0.75rem;font-size:10px;color:rgba(201,169,97,0.55);letter-spacing:0.05em;font-style:italic;text-align:center;">drag to scrub through the curve</div></div></div>`;
+
+    const burfordPanel = `<div style="display:flex;align-items:center;gap:1.5rem;padding:0.5rem 0.5rem;flex-wrap:wrap;"><div style="flex:0 0 200px;text-align:left;"><div id="b-counter" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:56px;font-weight:500;color:#c9a961;line-height:1;margin-bottom:0.4rem;font-variant-numeric:tabular-nums;">$0.0B</div><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;font-style:italic;color:#f0e6d2;line-height:1.3;margin-bottom:0.3rem;">Burford Capital portfolio</div><div style="font-size:11px;color:rgba(240,230,210,0.55);letter-spacing:0.03em;">2009 to 2025 &middot; $130M &rarr; $7.5B</div><div style="margin-top:0.75rem;display:flex;flex-direction:column;gap:4px;font-size:10px;color:rgba(240,230,210,0.65);"><span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#c9a961;display:inline-block;"></span>2009 &middot; $130M IPO</span><span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#c9a961;display:inline-block;"></span>2020 &middot; NYSE listing</span><span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;border-radius:50%;background:#c9a961;display:inline-block;"></span>2025 &middot; $7.5B portfolio</span></div></div><div style="flex:1;min-width:260px;height:180px;position:relative;"><canvas id="b-chart" role="img" aria-label="Burford Capital portfolio growth from 2009 to 2025"></canvas></div></div>`;
+
+    const firmtechPanel = `<div style="padding:0.5rem 0.25rem;"><svg viewBox="0 0 700 280" style="width:100%;height:auto;display:block;"><text x="105" y="10" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(240,230,210,0.45)" letter-spacing="0.1em">LAW FIRMS</text><text x="595" y="10" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(240,230,210,0.45)" letter-spacing="0.1em">TECH PLATFORMS</text><g id="ft-connections" stroke-width="1.5" fill="none"><line class="ft-conn" data-firm="ao" data-tech="aosphere" x1="200" y1="32" x2="500" y2="32" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="cms" data-tech="lupl" x1="200" y1="68" x2="500" y2="104" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="cooley" data-tech="lupl" x1="200" y1="104" x2="500" y2="104" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="rt" data-tech="lupl" x1="200" y1="140" x2="500" y2="104" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="sm" data-tech="luminance" x1="200" y1="176" x2="500" y2="176" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="cc" data-tech="reynen" x1="200" y1="212" x2="500" y2="230" stroke="rgba(201,169,97,0.45)"/><line class="ft-conn" data-firm="lk" data-tech="reynen" x1="200" y1="248" x2="500" y2="230" stroke="rgba(201,169,97,0.45)"/></g><g class="ft-firm" data-id="ao" data-tech="aosphere" style="cursor:pointer;"><rect x="10" y="20" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Allen &amp; Overy</text></g><g class="ft-firm" data-id="cms" data-tech="lupl" style="cursor:pointer;"><rect x="10" y="56" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">CMS</text></g><g class="ft-firm" data-id="cooley" data-tech="lupl" style="cursor:pointer;"><rect x="10" y="92" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="108" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Cooley</text></g><g class="ft-firm" data-id="rt" data-tech="lupl" style="cursor:pointer;"><rect x="10" y="128" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="144" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Rajah &amp; Tann Asia</text></g><g class="ft-firm" data-id="sm" data-tech="luminance" style="cursor:pointer;"><rect x="10" y="164" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Slaughter and May</text></g><g class="ft-firm" data-id="cc" data-tech="reynen" style="cursor:pointer;"><rect x="10" y="200" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="216" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Clifford Chance</text></g><g class="ft-firm" data-id="lk" data-tech="reynen" style="cursor:pointer;"><rect x="10" y="236" width="190" height="24" fill="rgba(201,169,97,0.05)" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" rx="5"/><text x="105" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2">Linklaters</text></g><g class="ft-tech" data-id="aosphere" data-firms="ao" style="cursor:pointer;"><rect x="500" y="20" width="190" height="24" fill="rgba(201,169,97,0.12)" stroke="#c9a961" stroke-width="0.5" rx="5"/><text x="595" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2" font-style="italic">aosphere</text></g><g class="ft-tech" data-id="lupl" data-firms="cms,cooley,rt" style="cursor:pointer;"><rect x="500" y="92" width="190" height="24" fill="rgba(201,169,97,0.12)" stroke="#c9a961" stroke-width="0.5" rx="5"/><text x="595" y="108" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2" font-style="italic">Lupl</text></g><g class="ft-tech" data-id="luminance" data-firms="sm" style="cursor:pointer;"><rect x="500" y="164" width="190" height="24" fill="rgba(201,169,97,0.12)" stroke="#c9a961" stroke-width="0.5" rx="5"/><text x="595" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2" font-style="italic">Luminance</text></g><g class="ft-tech" data-id="reynen" data-firms="cc,lk" style="cursor:pointer;"><rect x="500" y="218" width="190" height="24" fill="rgba(201,169,97,0.12)" stroke="#c9a961" stroke-width="0.5" rx="5"/><text x="595" y="234" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#f0e6d2" font-style="italic">Reynen Court</text></g></svg><div id="ft-detail" style="text-align:center;margin-top:0.4rem;padding-top:0.4rem;border-top:0.5px solid rgba(201,169,97,0.18);min-height:36px;"><div style="font-size:11px;color:rgba(240,230,210,0.5);font-style:italic;">hover a firm or platform to see the relationship</div></div></div>`;
+
+    const panels = { aosphere: aospherePanel, adoption: adoptionPanel, burford: burfordPanel, firmtech: firmtechPanel };
+
+    function easeOutQuart(t){ return 1 - Math.pow(1 - t, 4); }
+
+    function initAosphere(){
+      const counter = document.getElementById('ao-counter');
+      const stats = document.querySelectorAll('.ao-stat');
+      const startTime = performance.now();
+      function step(now){
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / 2200, 1);
+        counter.textContent = '\u00A3' + Math.round(200 * easeOutQuart(progress)) + 'M';
+        if (progress < 1) requestAnimationFrame(step);
+        else stats.forEach((s, i) => setTimeout(() => { s.style.opacity='1'; s.style.transform='translateY(0)'; }, i*220));
+      }
+      requestAnimationFrame(step);
+    }
+
+    function initAdoption(){
+      const slider = document.getElementById('year-slider');
+      const yearDisplay = document.getElementById('year-display');
+      const pctDisplay = document.getElementById('pct-display');
+      const fill = document.getElementById('slider-fill');
+      function update(){
+        const year = parseInt(slider.value, 10);
+        const normalized = (year - 2012) / 12;
+        yearDisplay.textContent = year;
+        pctDisplay.textContent = Math.round(9 + 73 * normalized) + '%';
+        fill.style.width = (normalized * 100) + '%';
+      }
+      slider.addEventListener('input', update);
+      update();
+    }
+
+    function initBurford(){
+      const counter = document.getElementById('b-counter');
+      if (!counter) return;
+      const startTime = performance.now();
+      function counterStep(now){
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / 2200, 1);
+        counter.textContent = '$' + (7.5 * easeOutQuart(progress)).toFixed(1) + 'B';
+        if (progress < 1) requestAnimationFrame(counterStep);
+        else counter.textContent = '$7.5B';
+      }
+      requestAnimationFrame(counterStep);
+
+      function tryChart(){
+        if (!window.Chart) { setTimeout(tryChart, 50); return; }
+        const data = [
+          {year:2009,value:0.13,milestone:'Founded \u00B7 $130M IPO'},{year:2010,value:0.18},{year:2011,value:0.25},{year:2012,value:0.35},{year:2013,value:0.50},{year:2014,value:0.70},{year:2015,value:1.00},{year:2016,value:1.40},{year:2017,value:1.90},{year:2018,value:2.50},{year:2019,value:3.20},{year:2020,value:4.00,milestone:'NYSE listing'},{year:2021,value:4.70},{year:2022,value:5.30},{year:2023,value:6.00},{year:2024,value:6.80},{year:2025,value:7.50,milestone:'Current portfolio'}
+        ];
+        const labels = data.map(d=>d.year), values = data.map(d=>d.value), milestones = data.map(d=>d.milestone);
+        const pointRadii = data.map(d=>d.milestone?5:0);
+        const pointBgs = data.map(d=>d.milestone?'#c9a961':'rgba(0,0,0,0)');
+        const canvas = document.getElementById('b-chart');
+        if (!canvas) return;
+        activeChart = new Chart(canvas, {
+          type:'line',
+          data:{labels,datasets:[{label:'Portfolio',data:values,borderColor:'#c9a961',backgroundColor:'rgba(201,169,97,0.1)',borderWidth:2,fill:true,tension:0.3,pointRadius:pointRadii,pointHoverRadius:7,pointBackgroundColor:pointBgs,pointBorderColor:pointBgs,pointHoverBackgroundColor:'#c9a961',pointHoverBorderColor:'#f0e6d2',pointHoverBorderWidth:2}]},
+          options:{responsive:true,maintainAspectRatio:false,animation:{duration:2200,easing:'easeOutQuart'},interaction:{intersect:false,mode:'index'},plugins:{legend:{display:false},tooltip:{backgroundColor:'#0d1a30',titleColor:'#f0e6d2',bodyColor:'#c9a961',borderColor:'rgba(201,169,97,0.3)',borderWidth:1,padding:8,callbacks:{title:i=>i[0].label,label:c=>'$'+c.parsed.y.toFixed(2)+'B portfolio',afterLabel:c=>milestones[c.dataIndex]||''}}},scales:{x:{ticks:{color:'rgba(240,230,210,0.7)',font:{size:10},autoSkip:true,maxRotation:0,maxTicksLimit:9},grid:{display:false},border:{color:'rgba(201,169,97,0.3)'}},y:{beginAtZero:true,max:8,ticks:{color:'rgba(240,230,210,0.55)',font:{size:10},callback:v=>'$'+v+'B'},grid:{color:'rgba(240,230,210,0.08)',drawTicks:false},border:{display:false}}}}
+        });
+      }
+      tryChart();
+    }
+
+    function initFirmTech(){
+      const detail = document.getElementById('ft-detail');
+      const defaultHTML = '<div style="font-size:11px;color:rgba(240,230,210,0.5);font-style:italic;">hover a firm or platform to see the relationship</div>';
+      const rels = {
+        'ao-aosphere':'Allen &amp; Overy founded aosphere in 2002, sold majority stake to private equity in 2023 for ~\u00A3200M',
+        'cms-lupl':'CMS co-founded Lupl in 2019 with Cooley and Rajah &amp; Tann Asia',
+        'cooley-lupl':'Cooley co-founded Lupl in 2019 with CMS and Rajah &amp; Tann Asia',
+        'rt-lupl':'Rajah &amp; Tann Asia co-founded Lupl in 2019 with CMS and Cooley',
+        'sm-luminance':'Slaughter and May is an existing investor in Luminance ($75M Series C, March 2026)',
+        'cc-reynen':'Clifford Chance is among 19 founding law firms supporting Reynen Court',
+        'lk-reynen':'Linklaters is among 19 founding law firms supporting Reynen Court'
+      };
+      function clearHL(){
+        document.querySelectorAll('.ft-firm,.ft-tech').forEach(el=>el.style.opacity='1');
+        document.querySelectorAll('.ft-conn').forEach(el=>{el.style.opacity='1';el.setAttribute('stroke','rgba(201,169,97,0.45)');el.setAttribute('stroke-width','1.5');});
+        detail.innerHTML = defaultHTML;
+      }
+      function highlight(focusType, focusId){
+        let connectedIds=[], connectionEls=[];
+        if (focusType==='firm') {
+          const tech = document.querySelector('.ft-firm[data-id="'+focusId+'"]').getAttribute('data-tech');
+          connectedIds = [tech];
+          connectionEls = document.querySelectorAll('.ft-conn[data-firm="'+focusId+'"]');
+        } else {
+          connectedIds = document.querySelector('.ft-tech[data-id="'+focusId+'"]').getAttribute('data-firms').split(',');
+          connectionEls = document.querySelectorAll('.ft-conn[data-tech="'+focusId+'"]');
+        }
+        document.querySelectorAll('.ft-firm,.ft-tech').forEach(el=>el.style.opacity='0.25');
+        document.querySelectorAll('.ft-conn').forEach(el=>{el.style.opacity='0.12';});
+        const focusClass = focusType==='firm'?'ft-firm':'ft-tech';
+        document.querySelector('.'+focusClass+'[data-id="'+focusId+'"]').style.opacity='1';
+        const otherClass = focusType==='firm'?'ft-tech':'ft-firm';
+        connectedIds.forEach(id=>{const el=document.querySelector('.'+otherClass+'[data-id="'+id+'"]');if(el)el.style.opacity='1';});
+        connectionEls.forEach(c=>{c.style.opacity='1';c.setAttribute('stroke','#c9a961');c.setAttribute('stroke-width','2.5');});
+        let txt = focusType==='firm' ? (rels[focusId+'-'+connectedIds[0]]||'') : connectedIds.map(f=>rels[f+'-'+focusId]||'').filter(Boolean).join('<br>');
+        detail.innerHTML = '<div style="font-size:12px;color:#f0e6d2;line-height:1.5;max-width:540px;margin:0 auto;">'+txt+'</div>';
+      }
+      document.querySelectorAll('.ft-firm').forEach(el=>{el.addEventListener('mouseenter',()=>highlight('firm',el.getAttribute('data-id')));el.addEventListener('mouseleave',clearHL);});
+      document.querySelectorAll('.ft-tech').forEach(el=>{el.addEventListener('mouseenter',()=>highlight('tech',el.getAttribute('data-id')));el.addEventListener('mouseleave',clearHL);});
+    }
+
+    function setActive(id){
+      document.querySelectorAll('.tnode').forEach(n => {
+        const isActive = n.getAttribute('data-panel') === id;
+        n.classList.toggle('active', isActive);
+        const dot = n.querySelector('.tdot');
+        if (isActive) { dot.setAttribute('r','11'); dot.setAttribute('fill','#c9a961'); }
+        else { dot.setAttribute('r','9'); dot.setAttribute('fill','#0a1628'); }
+      });
+    }
+
+    function runInit(id){
+      if (id === 'aosphere') initAosphere();
+      else if (id === 'adoption') initAdoption();
+      else if (id === 'burford') initBurford();
+      else if (id === 'firmtech') initFirmTech();
+    }
+
+    function showPanel(id){
+      if (id === activePanel) return;
+      if (activeChart) { activeChart.destroy(); activeChart = null; }
+      const detail = document.getElementById('legal-detail');
+      detail.style.opacity = '0';
+      setTimeout(() => {
+        detail.innerHTML = panels[id];
+        detail.style.opacity = '1';
+        setActive(id);
+        activePanel = id;
+        runInit(id);
+      }, 220);
+    }
+
+    document.getElementById('legal-detail').innerHTML = panels['burford'];
+    setActive('burford');
+    activePanel = 'burford';
+
+    const cover = document.getElementById('legal-cover');
+    cover.addEventListener('click', () => {
+      cover.style.opacity = '0';
+      cover.style.pointerEvents = 'none';
+      document.getElementById('legal-detail').style.opacity = '1';
+      setTimeout(() => runInit('burford'), 400);
+    });
+
+    document.querySelectorAll('.tnode').forEach(n => {
+      n.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPanel(n.getAttribute('data-panel'));
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
