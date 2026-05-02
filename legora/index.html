@@ -1731,107 +1731,96 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <table style="font-size:12px">
       <thead>
-        <tr><th>Visa Category</th><th>Nationality / Profile</th><th>Processing</th><th>Key Notes</th><th>Annual Est. Vol.</th></tr>
+        <tr><th>Visa Category</th><th>Profile</th><th>Processing</th><th>Notes</th><th>Est. Vol.</th></tr>
       </thead>
       <tbody>
-        <!-- NIV — NONIMMIGRANT VISAS -->
+        <!-- NIV TRADITIONAL -->
         <tr>
-          <td colspan="5" style="background:var(--dark-card); font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--green); padding:8px 12px;">NIV — Nonimmigrant Visas · Traditional Route</td>
+          <td style="border-left:2px solid rgba(201,169,97,0.55)"><span class="badge warn">H-1B</span></td>
+          <td class="highlight">New international hires</td>
+          <td class="danger">Lottery closed</td>
+          <td class="muted">Standard specialty occupation pathway. FY2028 lottery opens March 2027. No new cap-subject H-1B available for 2026 hiring. All future hiring routes cap-exempt.</td>
+          <td class="danger">0 (2026)</td>
         </tr>
+        <!-- NIV ALTERNATIVE -->
         <tr>
-          <td><span class="badge green">H-1B</span></td>
-          <td class="highlight">New International Hires</td>
-          <td class="danger">Lottery closed, reopens in 2027</td>
-          <td class="muted">The historical default for international hires in specialty occupations — software engineers, data scientists, legal professionals. The problem: at a 35% selection rate, the majority of registrants are rejected by lottery. Top talent does not wait 18 months for a second chance. Must be introduced alongside alternative pathways from the moment of offer.</td>
-          <td class="warn">15–25</td>
-        </tr>
-        <!-- NIV — ALTERNATIVE ROUTES -->
-        <tr>
-          <td colspan="5" style="background:var(--dark-card); font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue); padding:8px 12px;">NIV — Nonimmigrant Visas · Alternative Routes</td>
-        </tr>
-        <tr>
-          <td><span class="badge green">H-1B CE</span></td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge green">H-1B CE</span></td>
           <td class="highlight">Current H-1B holders</td>
           <td class="green">2–4 mos</td>
-          <td class="muted">Change of Employer — cap-exempt. Engineers and legal professionals currently at BigLaw, enterprise tech, and legal tech firms already holding valid H-1B status. Large accessible pool. No lottery exposure.</td>
-          <td class="green">10–20</td>
+          <td class="muted">Cap-exempt transfer for professionals already in valid H-1B status. No lottery.</td>
+          <td class="green">10–18</td>
         </tr>
         <tr>
-          <td><span class="badge green">L-1B</span></td>
-          <td class="highlight">Swedish nationals</td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge green">L-1B</span></td>
+          <td class="highlight">International Office Professionals</td>
           <td class="warn">3–6 mos</td>
-          <td class="muted">Intracompany transferee — specialized knowledge. Cap-exempt. Requires 1 year of continuous Legora employment in Sweden within the 3 years preceding application. Most efficient path for Stockholm engineers relocating to the NYC hub. Direct pipeline from headquarters.</td>
-          <td class="green">10–20</td>
+          <td class="muted">Intracompany transfer, specialized knowledge. Requires 12+ months at an international office within the last 3 years. Cap-exempt.</td>
+          <td class="green">8–15</td>
         </tr>
         <tr>
-          <td><span class="badge green">L-1A</span></td>
-          <td class="highlight">Swedish nationals — management</td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge green">L-1A</span></td>
+          <td class="highlight">International Office Managers</td>
           <td class="warn">1–3 mos</td>
-          <td class="muted">Intracompany transferee — executive or managerial capacity. Co-founders, VPs, and senior leaders relocating to run or build the US entity. Direct path to EB-1C green card sponsorship without PERM labor certification.</td>
-          <td class="green">3–8</td>
+          <td class="muted">Intracompany transfer, executive or managerial capacity. Cap-exempt. Direct path to EB-1C (Green Card) without labor certification.</td>
+          <td class="green">3–6</td>
         </tr>
         <tr>
-          <td><span class="badge blue">E-3</span></td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge blue">E-3</span></td>
           <td class="highlight">Australian nationals</td>
           <td class="green">2–3 wks</td>
-          <td class="muted">Treaty visa for Australian citizens in specialty occupations — engineers, legal professionals, product managers. 10,500 annual cap; historically ~2,000 used. Consular processing only — fastest turnaround of any work visa category. Ironclad used it actively. Structurally underused in legal tech.</td>
+          <td class="muted">Treaty pathway, specialty occupations. 10,500 annual cap, historically underutilized. Fastest turnaround of any work authorization category.</td>
           <td class="warn">5–10</td>
         </tr>
         <tr>
-          <td><span class="badge blue">H-1B1-SG</span></td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge blue">H-1B1-SG</span></td>
           <td class="highlight">Singapore nationals</td>
           <td class="green">3–6 mos</td>
-          <td class="muted">Treaty visa for Singapore citizens. 5,400 annual cap; rarely exhausted. Engineers, legal professionals, and enterprise software talent. Ironclad's #2 visa category by filing volume — 16 certified cases. Legora's APAC client base creates a natural Singapore talent pipeline worth activating.</td>
-          <td class="warn">5–10</td>
+          <td class="muted">Treaty pathway, specialty occupations. 5,400 annual cap, rarely exhausted.</td>
+          <td class="warn">4–8</td>
         </tr>
         <tr>
-          <td><span class="badge muted">TN</span></td>
-          <td class="highlight">Canadian nationals</td>
-          <td class="green">Same day border</td>
-          <td class="muted">USMCA trade visa for Canadian citizens. No annual cap. Renewable indefinitely in 3-year increments. Available for engineers, lawyers, accountants, and scientific professionals at the border with employer letter — no petition required. Toronto office staff moving between US and Canadian locations.</td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge muted">TN</span></td>
+          <td class="highlight">Canadian/Mexican nationals</td>
+          <td class="green">Same day</td>
+          <td class="muted">USMCA treaty pathway. No cap. No petition required. Renewable in 3-year increments.</td>
           <td class="green">10–20</td>
         </tr>
         <tr>
-          <td><span class="badge warn">O-1A</span></td>
-          <td class="highlight">Senior Professionals</td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge warn">O-1A</span></td>
+          <td class="highlight">Senior AI and legal professionals</td>
           <td class="warn">3–4 mos</td>
-          <td class="muted">Extraordinary ability in sciences, business, or a field of sustained national acclaim. No cap. No labor market test. Available to senior AI researchers, published engineers, and legal professionals with demonstrable recognition. Engineers recruited from frontier AI labs frequently carry qualifying profiles. Chronically underused in legal tech despite being the most appropriate path for top-of-market talent.</td>
-          <td class="green">5–12</td>
+          <td class="muted">Extraordinary ability. No cap. Historically underused pathway for top-of-market talent.</td>
+          <td class="warn">5–10</td>
         </tr>
         <tr>
-          <td><span class="badge blue">OPT / STEM OPT</span></td>
-          <td class="highlight">US STEM graduates</td>
+          <td style="border-left:2px solid rgba(29,184,107,0.5)"><span class="badge blue">OPT/STEM</span></td>
+          <td class="highlight">US graduates</td>
           <td class="green">2–4 mos</td>
-          <td class="muted">12 months OPT + 24-month STEM extension = up to 3 years of cap-exempt US work authorization for F-1 graduates in qualifying STEM fields. No LCA. No federal filing trail. Engineers and legal engineers graduating from US universities — an underutilized pipeline that requires no visa petition, only USCIS EAD renewal and employer participation in E-Verify.</td>
+          <td class="muted">Up to 3 years cap-exempt authorization for F-1 STEM graduates. No LCA. No petition. Requires E-Verify.</td>
           <td class="warn">5–15</td>
         </tr>
-        <!-- IV — IMMIGRANT VISAS -->
+        <!-- IV TRADITIONAL -->
         <tr>
-          <td colspan="5" style="background:var(--dark-card); font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--danger); padding:8px 12px;">IV — Immigrant Visas (Green Card) · Traditional Route</td>
+          <td style="border-left:2px solid rgba(224,92,92,0.55)"><span class="badge danger">PERM</span></td>
+          <td class="highlight">All nationalities</td>
+          <td class="danger">18–36 mos</td>
+          <td class="muted">Standard employer-sponsored green card path. Required before EB-2 and EB-3. India and China nationals face decade-long backlogs at current priority dates.</td>
+          <td class="warn">5–10</td>
         </tr>
+        <!-- IV PREMIUM -->
         <tr>
-          <td><span class="badge danger">PERM</span></td>
-          <td class="highlight">All nationalities — standard GC track</td>
-          <td class="danger">18–36 mos minimum</td>
-          <td class="muted">Labor certification through the DOL — the standard green card path for most employer-sponsored hires. Required before EB-2 or EB-3 petition. India and China nationals face decades-long backlogs under current EB-2 priority dates (India EB-2: July 2014). Green card offered at the offer stage — not after years of employment — is among the highest-leverage retention tools available to a growth-stage company competing against established employers. Ironclad filed its first PERM in FY2021, year 3 of operations. Legora is at the same inflection point. The window to start is now.</td>
-          <td class="warn">5–15</td>
-        </tr>
-        <tr>
-          <td colspan="5" style="background:var(--dark-card); font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--danger); padding:8px 12px;">IV — Immigrant Visas (Green Card) · Premium Routes</td>
-        </tr>
-        <tr>
-          <td><span class="badge warn">EB-1A</span></td>
-          <td class="highlight">Senior AI &amp; legal tech talent</td>
+          <td style="border-left:2px solid rgba(180,120,20,0.55)"><span class="badge warn">EB-1A</span></td>
+          <td class="highlight">Senior talent</td>
           <td class="warn">6–12 mos</td>
-          <td class="muted">Extraordinary ability green card — employer-sponsored. Bypasses PERM labor certification entirely. No recruitment process required. Available to senior engineers, published AI researchers, and recognized legal professionals whose work has received sustained national or international acclaim. Fastest employer-sponsored green card path. Priority dates current for all nationalities including India and China. Highest-impact retention tool for the profiles Legora is competing hardest to attract.</td>
-          <td class="green">3–8</td>
+          <td class="muted">Extraordinary ability green card. Bypasses labor certification. Priority dates current for all nationalities. Highest-impact retention tool for senior profiles.</td>
+          <td class="green">3–6</td>
         </tr>
         <tr>
-          <td><span class="badge warn">EB-2 NIW</span></td>
-          <td class="highlight">Technical &amp; legal professionals</td>
+          <td style="border-left:2px solid rgba(180,120,20,0.55)"><span class="badge warn">EB-2 NIW</span></td>
+          <td class="highlight">Technical professionals</td>
           <td class="warn">8–14 mos</td>
-          <td class="muted">National Interest Waiver — bypasses PERM and the standard labor certification requirement. Available to professionals whose work is in the national interest and who have exceptional ability in their field. No specific employer required; can be employer-assisted. Engineers working on AI infrastructure, legal engineers building systems that improve access to justice, and compliance professionals with cross-jurisdictional expertise are strong candidates. India and China nationals benefit from EB-2 NIW priority dates that move faster than the standard EB-2 PERM track.</td>
-          <td class="green">3–6</td>
+          <td class="muted">National interest waiver. Bypasses labor certification. No specific employer required. Faster than standard EB-2 PERM track for backlogged nationalities.</td>
+          <td class="green">2–4</td>
         </tr>
       </tbody>
     </table>
@@ -1840,15 +1829,12 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="urgency-icon">⚠️</div>
     <div class="urgency-text">
       <h4>The H-1B Cap Problem Is Structural — Not Temporary</h4>
-      <p>At 35.3% selection rate (FY2026), approximately <strong>65%</strong> of cap-subject registrations are rejected by lottery. For every 10 international engineers Legora tries to hire who need cap-subject H-1B, 6–7 would not be selected. Without alternative pathways built into the recruitment process from day one, Legora would systematically lose the majority of its international candidate pipeline to lottery risk.</p>
-      <p>Starting in FY2027, the lottery is not purely random. DOL classifies H-1B prevailing wages at four levels. When USCIS implemented wage-preference selection, Levels III and IV — which represent a smaller share of total cap-subject registrations — were selected at materially higher rates than Levels I and II.</p>
-      <p>What determines wage level? SOC code selection. The same role — a senior engineer, a product attorney, a legal technologist — can be mapped to different Standard Occupational Classification codes, each with its own prevailing wage floor and corresponding wage level. The occupational classification choice made at LCA stage sets the wage level that applies to the petition.</p>
-      <p>In FY2027, a global mobility function would audit every role before registration: match it to the optimal SOC code, position wage levels at III or IV where the role genuinely supports it, and file deliberately rather than by default. This would improve petition defensibility, reduce RFE exposure, and — because higher-wage registrations now have better lottery odds — meaningfully improve selection outcomes for Legora's cap-subject pipeline. This is not a legal workaround. It is program design.</p>
+      <p>Historically, approximately <strong>65%</strong> of cap-subject registrations were rejected in the lottery. For every 10 international engineers Legora tries to hire who need cap-subject H-1B, 6–7 would not be selected. Without alternative pathways built into the recruitment process from day one, Legora would systematically lose the majority of its international candidate pipeline to lottery risk.</p>
+      <p>Starting in FY2027, the lottery is not purely random. DOL classifies H-1B prevailing wages at four levels. When USCIS implemented wage-preference selection, Levels III and IV, which represent a smaller share of total cap-subject registrations, were selected at materially higher rates than Levels I and II.</p>
+      <p>What determines wage level? SOC code selection. The same role can be mapped to different Standard Occupational Classification codes, each with its own prevailing wage floor and corresponding wage level.</p>
+      <p>For FY2028, a global mobility function should audit every role before registration: match it to the optimal SOC code, position wage levels at III or IV where the role genuinely supports it, and file deliberately rather than by default. This would improve petition defensibility, reduce RFE exposure, and meaningfully improve selection outcomes for Legora's cap-subject pipeline.</p>
+      <p>This is not a legal workaround. It is program design.</p>
     </div>
-  </div>
-
-  <div class="callout" style="margin-top:20px; margin-bottom:0;">
-    <p><strong>The program is always larger than the filing record:</strong> O-1A petitions carry no labor market test. OPT and STEM OPT authorizations require no sponsorship filing. EB-1A and EB-2 NIW bypass labor certification entirely. Cap-exempt transfers in certain circumstances require no new filing if wages are unchanged. A well-designed global mobility program at Legora will be <em>significantly larger</em> than what any external analysis can see -- which is also why competitor benchmarking systematically understates actual program sophistication at companies like Ironclad.</p>
   </div>
 
   <div class="page-foot">
