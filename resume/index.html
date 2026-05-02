@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Julio Macedo</title>
+  <meta name="description" content="Senior Immigration and Global Mobility Attorney. GMS-T Certified. EB-1A Permanent Resident. New York and Brazil Bar. 13 years of practice.">
+  <link rel="canonical" href="https://www.jhmacal.com/resume/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resume | Julio Macedo">
+  <meta property="og:description" content="Senior Immigration and Global Mobility Attorney. GMS-T Certified. EB-1A Permanent Resident. New York and Brazil Bar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.jhmacal.com/resume/">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Julio Macedo",
+      "jobTitle": "Senior Immigration and Global Mobility Attorney",
+      "url": "https://www.jhmacal.com",
+      "sameAs": ["https://www.linkedin.com/in/juliomacedoesq"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY"
+      }
+    }
+  }
+  </script>
+
+  <!-- Print Styles -->
+  <style>
+    @media print {
+      .nav, .resume-nav, .resume-download, .footer, .page-header__sub { display: none; }
+      body { background: white; color: #111; }
+      .resume-layout { display: block; }
+      .resume-role__title { color: #111; }
+      .resume-role__org { color: #444; }
+      .resume-role__bullets li { color: #222; }
+      .resume-role__bullets li::before { background: #444; }
+      a { color: #111; text-decoration: none; }
+      .resume-content__section { border-bottom: 1px solid #ddd; }
+    }
+  </style>
+
+  <!-- Page-scoped styles -->
+  <style>
+    /* ============================================================
+       RESUME PAGE STYLES
+       ============================================================ */
+
+    /* Page header
+    ------------------------------------------------------------ */
+    .page-header {
+      padding-top: calc(var(--nav-height) + var(--space-16));
+      padding-bottom: var(--space-12);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.18);
+    }
+
+    .page-header__inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .page-header__eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-3);
+    }
+
+    .page-header__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: var(--space-3);
+    }
+
+    .page-header__sub {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.65);
+      letter-spacing: 0.02em;
+    }
+
+    /* Download button
+    ------------------------------------------------------------ */
+    .resume-download {
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 2px;
+      transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn--solid {
+      background-color: var(--gold);
+      color: var(--navy);
+      border: 1px solid var(--gold);
+    }
+
+    .btn--solid:hover,
+    .btn--solid:focus-visible {
+      background-color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    /* Resume layout (two-column)
+    ------------------------------------------------------------ */
+    .resume-outer {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-32);
+    }
+
+    .resume-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+
+    /* Left sidebar nav
+    ------------------------------------------------------------ */
+    .resume-nav {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--space-8));
+    }
+
+    .resume-nav__label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244, 237, 224, 0.35);
+      margin-bottom: var(--space-4);
+    }
+
+    .resume-nav__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .resume-nav__link {
+      display: block;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.5);
+      padding: var(--space-2) var(--space-3);
+      border-left: 2px solid transparent;
+      letter-spacing: 0.01em;
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+
+    .resume-nav__link:hover {
+      color: var(--cream);
+      border-left-color: rgba(201, 169, 97, 0.4);
+    }
+
+    .resume-nav__link.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Right content column
+    ------------------------------------------------------------ */
+    .resume-content {
+      min-width: 0;
+    }
+
+    /* Section
+    ------------------------------------------------------------ */
+    .resume-content__section {
+      padding-bottom: var(--space-16);
+      margin-bottom: var(--space-16);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.12);
+    }
+
+    .resume-content__section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .resume-section__eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-8);
+    }
+
+    /* Role
+    ------------------------------------------------------------ */
+    .resume-role {
+      margin-bottom: var(--space-10);
+    }
+
+    .resume-role:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-role__header {
+      margin-bottom: var(--space-3);
+    }
+
+    .resume-role__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .resume-role__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .resume-role__org {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+    }
+
+    .resume-role__sep {
+      color: rgba(244, 237, 224, 0.25);
+      font-size: var(--text-xs);
+    }
+
+    .resume-role__location {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.55);
+    }
+
+    .resume-role__period {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.45);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .resume-role__tag {
+      display: inline-block;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background-color: rgba(201, 169, 97, 0.1);
+      border: 1px solid rgba(201, 169, 97, 0.25);
+      padding: 2px var(--space-2);
+      border-radius: 2px;
+    }
+
+    .resume-role__note {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.4);
+      margin-top: var(--space-2);
+      font-style: italic;
+    }
+
+    /* Sub-role (second title, same employer)
+    ------------------------------------------------------------ */
+    .resume-role__sub {
+      padding-left: var(--space-4);
+      border-left: 2px solid rgba(201, 169, 97, 0.2);
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    .resume-role__sub-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.75);
+      line-height: 1.2;
+    }
+
+    .resume-role__sub-period {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.4);
+      margin-top: var(--space-1);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Bullets
+    ------------------------------------------------------------ */
+    .resume-role__bullets {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-5) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .resume-role__bullets li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(244, 237, 224, 0.8);
+      padding-left: var(--space-5);
+      position: relative;
+    }
+
+    .resume-role__bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* Education entries
+    ------------------------------------------------------------ */
+    .resume-edu {
+      margin-bottom: var(--space-8);
+    }
+
+    .resume-edu:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-edu__degree {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .resume-edu__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .resume-edu__school {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    .resume-edu__sep {
+      color: rgba(244, 237, 224, 0.25);
+      font-size: var(--text-xs);
+    }
+
+    .resume-edu__location {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.55);
+    }
+
+    .resume-edu__period {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.45);
+    }
+
+    .resume-edu__note {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: var(--gold);
+      margin-top: var(--space-2);
+      letter-spacing: 0.02em;
+    }
+
+    /* Credentials
+    ------------------------------------------------------------ */
+    .resume-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .resume-credential {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding-left: var(--space-4);
+      border-left: 2px solid rgba(201, 169, 97, 0.18);
+    }
+
+    .resume-credential__name {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
+
+    .resume-credential__detail {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.5);
+      line-height: 1.6;
+    }
+
+    /* Languages
+    ------------------------------------------------------------ */
+    .resume-languages {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .resume-language {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+    }
+
+    .resume-language__name {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--cream);
+      min-width: 100px;
+    }
+
+    .resume-language__level {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(244, 237, 224, 0.55);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    /* 1024px */
+    @media (max-width: 1024px) {
+      .resume-layout {
+        grid-template-columns: 200px 1fr;
+        gap: var(--space-10);
+      }
+    }
+
+    /* 768px */
+    @media (max-width: 768px) {
+      .resume-nav {
+        display: none;
+      }
+
+      .resume-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .page-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-6);
+      }
+
+      .resume-role__title {
+        font-size: var(--text-xl);
+      }
+
+      .resume-edu__degree {
+        font-size: var(--text-xl);
+      }
+    }
+
+    /* 380px */
+    @media (max-width: 380px) {
+      .resume-outer {
+        padding-top: var(--space-8);
+      }
+
+      .resume-role__title {
+        font-size: var(--text-lg);
+      }
+
+      .resume-edu__degree {
+        font-size: var(--text-lg);
+      }
+
+      .page-header {
+        padding-top: calc(var(--nav-height) + var(--space-10));
+        padding-bottom: var(--space-8);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">JM</a>
+      <ul class="nav__links">
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/studies/">Studies</a></li>
+        <li><a href="/ai/">AI</a></li>
+        <li><a href="/resume/" class="active">Resume</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div class="page-header__inner">
+        <div class="page-header__text">
+          <p class="page-header__eyebrow">Resume</p>
+          <h1 class="page-header__title">Julio Macedo</h1>
+          <p class="page-header__sub">Senior Immigration and Global Mobility Attorney. New York.</p>
+        </div>
+        <div class="resume-download">
+          <a href="/resume/julio-macedo-resume.pdf" class="btn btn--solid">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESUME BODY -->
+  <main class="resume-outer">
+    <div class="container">
+      <div class="resume-layout">
+
+        <!-- LEFT: Sticky Section Nav -->
+        <aside class="resume-nav" aria-label="Resume sections">
+          <p class="resume-nav__label">Sections</p>
+          <ul class="resume-nav__list">
+            <li>
+              <a href="#experience" class="resume-nav__link active" data-section="experience">Experience</a>
+            </li>
+            <li>
+              <a href="#education" class="resume-nav__link" data-section="education">Education</a>
+            </li>
+            <li>
+              <a href="#credentials" class="resume-nav__link" data-section="credentials">Credentials</a>
+            </li>
+            <li>
+              <a href="#languages" class="resume-nav__link" data-section="languages">Languages</a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- RIGHT: Resume Content -->
+        <div class="resume-content">
+
+          <!-- EXPERIENCE -->
+          <section class="resume-content__section" id="experience">
+            <p class="resume-section__eyebrow">Experience</p>
+
+            <!-- Role 1: Reinhardt Savic Foley -->
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">Senior Attorney, Global Mobility and Immigration</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__org">Reinhardt Savic Foley LLP</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__location">New York, NY</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">Aug 2025 &ndash; Present</span>
+                </div>
+                <!-- Sub-role: previous title at same firm -->
+                <div class="resume-role__sub">
+                  <p class="resume-role__sub-title">Attorney, Business Immigration and Global Mobility</p>
+                  <p class="resume-role__sub-period">Oct 2020 &ndash; Aug 2025</p>
+                </div>
+              </div>
+              <ul class="resume-role__bullets">
+                <li>Became essential to the firm's global mobility and immigration practice expansion through high performance and strategic contribution, recognized through EB-1A sponsorship, employer-funded GMS-T certification, and consistent elevation to lead client mandates across technology, financial services, and professional services.</li>
+                <li>Manages employment-based immigration matters spanning all major nonimmigrant and immigrant visa categories, directing a team of attorneys and paralegals with a culture of mentorship and operational excellence, sustaining a high volume of quarterly filings with a high approval rate on RFEs and NOIDs.</li>
+                <li>Delivers concierge immigration counsel to senior executives, VIP transferees, and high-profile individuals with direct attorney access, bespoke strategic guidance, and real-time responsiveness to time-sensitive global mobility needs.</li>
+                <li>Advises corporate HR teams, Talent Acquisition leaders, and C-suite stakeholders on immigration strategy, LCA compliance, and global workforce risk management. Functions as de facto Global Mobility and Immigration Manager, building cross-functional partnerships with People Operations, Legal, Finance, and Tax to align immigration programs with business objectives and international expansion timelines.</li>
+                <li>Designed and deployed a tiered I-9 and LCA compliance framework calibrated to client size, achieving near-universal adoption across the corporate client base. Trained internal team and client HR staff, developed policy books and audit-readiness protocols.</li>
+              </ul>
+            </article>
+
+            <!-- Role 2: Mindrift / Toloka -->
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">Immigration and Mobility AI Subject Matter Expert</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__org">Mindrift / Toloka</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">Feb 2026 &ndash; Present</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__tag">Concurrent, Contract</span>
+                </div>
+              </div>
+              <ul class="resume-role__bullets">
+                <li>Selected as a senior domain expert, negotiating above-standard compensation, to design and evaluate AI training environments for complex legal reasoning tasks in immigration and federal administrative law.</li>
+                <li>Builds multi-authority case narratives, ground-truth answers, and grading specifications that encode attorney-level reasoning into machine-evaluable form.</li>
+                <li>Evaluates and calibrates AI-generated legal outputs against expert standards, applying structured scoring rubrics to assess multi-step legal reasoning, statutory interpretation, and regulatory analysis.</li>
+              </ul>
+            </article>
+
+            <!-- Role 3: Columbus Consulting -->
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">Immigration and Mobility Associate</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__org">Columbus Consulting Group</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__location">New York, NY</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">Jul 2020 &ndash; Oct 2020</span>
+                </div>
+              </div>
+              <ul class="resume-role__bullets">
+                <li>Advised foreign executives and multinational organizations on U.S. immigration strategy, compliance structuring, and employment-based pathways including EB-1, O-1, E-2, and national interest-based filings.</li>
+              </ul>
+            </article>
+
+            <!-- Role 4: Zamenhof, Gurgel and Macedo -->
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">Senior Attorney / Attorney / Paralegal</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__org">Zamenhof, Gurgel and Macedo</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__location">Natal, Brazil</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">Feb 2013 &ndash; Aug 2019</span>
+                </div>
+                <p class="resume-role__note">Rose from Paralegal to Senior Attorney (2013&ndash;2019)</p>
+              </div>
+              <ul class="resume-role__bullets">
+                <li>Rose from Paralegal to Senior Attorney at a recognized Brazilian law firm, advising multinational clients on cross-border regulatory matters, business structuring, and compliance frameworks spanning Brazilian, U.S., and international law.</li>
+                <li>Led a team of seven attorneys and staff across hiring, performance management, and quality oversight in a high-volume, multi-practice environment.</li>
+                <li>Built the professional profile underlying EB-1A classification as an Individual of Extraordinary Ability in Law: published scholarly articles, served as Director at a selective International Law association, received sustained major Brazilian media coverage, and authored judicial arguments adjudicated at Brazil's Supreme Courts.</li>
+              </ul>
+            </article>
+
+          </section>
+
+          <!-- EDUCATION -->
+          <section class="resume-content__section" id="education">
+            <p class="resume-section__eyebrow">Education</p>
+
+            <div class="resume-edu">
+              <h2 class="resume-edu__degree">LL.M., Intellectual Property and Entertainment Law</h2>
+              <div class="resume-edu__meta">
+                <span class="resume-edu__school">Fordham University School of Law</span>
+                <span class="resume-edu__sep">&middot;</span>
+                <span class="resume-edu__location">New York, NY</span>
+                <span class="resume-edu__sep">&middot;</span>
+                <span class="resume-edu__period">2020</span>
+              </div>
+              <p class="resume-edu__note">Merit-Based Scholarship Recipient</p>
+            </div>
+
+            <div class="resume-edu">
+              <h2 class="resume-edu__degree">Bachelor of Laws (J.D. equivalent)</h2>
+              <div class="resume-edu__meta">
+                <span class="resume-edu__school">Federal University of Rio Grande do Norte</span>
+                <span class="resume-edu__sep">&middot;</span>
+                <span class="resume-edu__location">Natal, Brazil</span>
+                <span class="resume-edu__sep">&middot;</span>
+                <span class="resume-edu__period">2015</span>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- CREDENTIALS -->
+          <section class="resume-content__section" id="credentials">
+            <p class="resume-section__eyebrow">Credentials</p>
+
+            <div class="resume-credentials">
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">EB-1A Recipient, Extraordinary Ability in Law</span>
+                <span class="resume-credential__detail">USCIS Permanent Resident</span>
+              </div>
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">Global Mobility Specialist (GMS-T)</span>
+                <span class="resume-credential__detail">Worldwide ERC</span>
+              </div>
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">I-9 Employment Eligibility Verification Certificate</span>
+                <span class="resume-credential__detail">Form I-9 completion, audit procedures, E-Verify administration</span>
+              </div>
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">AI in Legal Practice</span>
+                <span class="resume-credential__detail">Reframe.lawyer, Member</span>
+              </div>
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">New York State Bar</span>
+              </div>
+
+              <div class="resume-credential">
+                <span class="resume-credential__name">OAB, Ordem dos Advogados do Brasil</span>
+                <span class="resume-credential__detail">Brazil Bar</span>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- LANGUAGES -->
+          <section class="resume-content__section" id="languages">
+            <p class="resume-section__eyebrow">Languages</p>
+
+            <div class="resume-languages">
+              <div class="resume-language">
+                <span class="resume-language__name">English</span>
+                <span class="resume-language__level">Fluent</span>
+              </div>
+              <div class="resume-language">
+                <span class="resume-language__name">Portuguese</span>
+                <span class="resume-language__level">Native</span>
+              </div>
+              <div class="resume-language">
+                <span class="resume-language__name">Spanish</span>
+                <span class="resume-language__level">Proficient</span>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /.resume-content -->
+      </div><!-- /.resume-layout -->
+    </div><!-- /.container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/resume/julio-macedo-resume.pdf">PDF</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/resume/resume.js"></script>
+
+</body>
+</html>
