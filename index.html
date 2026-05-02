@@ -186,14 +186,10 @@
 
       <form
         class="contact__form fade-in"
-        action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
-        method="POST"
+        id="contact-form"
+        action="#"
         novalidate
       >
-        <!-- Honeypot -->
-        <div style="display:none" aria-hidden="true">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-        </div>
 
         <div class="contact__grid">
 
@@ -298,6 +294,37 @@
         if (opt) opt.selected = true;
       }
     }
+  </script>
+
+  <!-- Contact form: mailto handler -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name    = (this.querySelector('[name="name"]').value || '').trim();
+      var email   = (this.querySelector('[name="email"]').value || '').trim();
+      var company = (this.querySelector('[name="company"]').value || '').trim();
+      var role    = (this.querySelector('[name="role"]').value || '').trim();
+      var message = (this.querySelector('[name="message"]').value || '').trim();
+
+      if (!name || !email) {
+        this.querySelector('[name="name"]').reportValidity();
+        return;
+      }
+
+      var subject = role ? role + ' inquiry' : 'Inquiry';
+      var body = [
+        'Name: ' + name,
+        'Email: ' + email,
+        company ? 'Company: ' + company : '',
+        role    ? 'Re: ' + role : '',
+        '',
+        message
+      ].filter(Boolean).join('\n');
+
+      window.location.href = 'mailto:jhmacal91@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+    });
   </script>
 
   <script src="/js/nav.js"></script>
