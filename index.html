@@ -311,7 +311,6 @@
         return;
       }
 
-      var subject = role ? role + ' inquiry' : 'Inquiry';
       var body = [
         'Name: ' + name,
         'Email: ' + email,
@@ -322,8 +321,7 @@
       ].filter(Boolean).join('\n');
 
       window.location.href = 'mailto:jhmacal91@gmail.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body='    + encodeURIComponent(body);
+        + '?body=' + encodeURIComponent(body);
     });
   </script>
 
