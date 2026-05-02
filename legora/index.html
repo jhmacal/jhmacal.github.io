@@ -2244,10 +2244,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function hide() { indicator.style.opacity = '0'; }
 
   // Per-slide scroll: hide when scrolled down, show when back at top
+  // Scroll happens on section.slide itself (overflow-y: auto)
   slides.forEach(function (slideEl) {
-    var page = slideEl.querySelector('.page') || slideEl;
-    page.addEventListener('scroll', function () {
-      page.scrollTop > 60 ? hide() : show();
+    slideEl.addEventListener('scroll', function () {
+      slideEl.scrollTop > 60 ? hide() : show();
     }, { passive: true });
   });
 
@@ -2255,8 +2255,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var obs = new MutationObserver(function (mutations) {
     mutations.forEach(function (m) {
       if (m.attributeName === 'class' && m.target.classList.contains('active-slide')) {
-        var page = m.target.querySelector('.page') || m.target;
-        if (page.scrollTop <= 60) show();
+        if (m.target.scrollTop <= 60) show();
       }
     });
   });
