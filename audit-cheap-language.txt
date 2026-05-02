@@ -1,0 +1,230 @@
+SITE AUDIT: GOVERNMENT DATA / CHEAP-SOURCING LANGUAGE
+jhmacal.com · May 2, 2026
+======================================================
+
+
+RISK LEVELS AT A GLANCE
+------------------------
+legora/index.html           CRITICAL
+quant-study/index.html      CRITICAL
+writing/the-steepening/     HIGH
+studies/index.html          MEDIUM
+writing/the-constraint/     MEDIUM
+resume/index.html           MEDIUM
+index.html (homepage)       LOW
+writing/h1b-registration/   LOW
+writing/index.html          LOW
+ai/index.html               LOW
+contact/index.html          CLEAN
+
+
+======================================================
+CRITICAL: legora/index.html
+======================================================
+
+These are the worst offenders. The analysis is sophisticated but the
+sourcing language actively undermines it.
+
+  "I wrote a 23-page regulatory intelligence report using public data,
+   AI tools I developed, and a mapping of their leadership."
+   → "using public data" reads as "I googled this"
+
+  "What the Public Data Shows (as of April 30, 2026)"
+   → Section header. Screams database scraping.
+
+  "Searched 57 DOL LCA/PERM disclosure files (FY2008–FY2026 Q1)
+   and USCIS H-1B Employer Data Hub."
+   → "Searched...disclosure files" is the exact problem.
+
+  "DOL LCA + PERM Disclosure Data · All available years FY2008–FY2026 Q1
+   · Direct database search"
+   → "Direct database search" should never appear anywhere.
+
+  "The Department of Labor's disclosure datasets -- covering every
+   H-1B, E-3, H-1B1, and PERM filed in the US..."
+   → Naming DOL as source in body text.
+
+  "Not in DOL data." / "No LCA. No federal filing trail."
+   → Fine as analytical insight but framed as database output.
+
+  "What doesn't show up in DOL data: O-1A petitions carry no LCA
+   requirement..."
+   → Insight is strong, framing is weak.
+
+  SOURCES SECTION (lines ~2153–2182):
+   Lists "U.S. DOL LCA Disclosure Data," "U.S. DOL PERM Disclosure Data,"
+   "USCIS H-1B Employer Data Hub," "USCIS Data Hub" repeatedly.
+   → Bibliography looks like scraped government datasets.
+
+  DISCLAIMER (line ~2188):
+   "This brief is based exclusively on publicly disclosed DOL LCA and
+   PERM data, USCIS public records, and publicly available company
+   information."
+   → The word "exclusively" makes it worse. Entire brief is undercut.
+
+
+======================================================
+CRITICAL: quant-study/index.html
+======================================================
+
+  "DOL Filings: Actual + Projected at FY2025 Growth Rate"
+   → Chart label naming DOL as source.
+
+  "DOL filings over 8 years"
+   → Repeated DOL attribution.
+
+  "the Company's DOL Pathway Visas: Field of Study"
+   → "DOL Pathway" framing.
+
+  "Nationality by country of birth · PERM FY2022–2025"
+   → Source attribution by fiscal year range.
+
+  "Not in DOL data"
+   → Same pattern as legora.
+
+  "U.S. DOL LCA Disclosure Data FY2008–FY2026 Q1"
+   → Source slide explicitly names DOL.
+
+  "USCIS H-1B Employer Data Hub"
+   → Listed as a source.
+
+
+======================================================
+HIGH: writing/the-steepening/index.html
+======================================================
+
+  Chart label: "Certified and Certified-Withdrawn LCAs,
+   FY2015 to Q1 FY2026"
+   → Fine technically but airs the methodology.
+
+  Chart attribution (stat cards): "DOL LCA Disclosure Data,
+   FY2015 to Q1 FY2026"
+   → Should just say "Labor market analysis" or nothing.
+
+  Body: "Across the United States, certified LCAs for AI-titled
+   roles since FY2015 cover 35,434 workers."
+   → Sounds like reading from a database.
+
+  Body: "certified in 2016," "certified 681 worker positions,"
+   "certified 244 worker positions"
+   → "certified" repeated 10+ times sounds like filing compliance.
+
+  Footnote 1 (current after edits):
+   "3,560 workers at average annualized wages above $250,000,
+   filed by ten frontier AI-native companies between FY2015
+   and Q1 FY2026."
+   → Better than before but still exposes methodology.
+
+
+======================================================
+MEDIUM: studies/index.html
+======================================================
+
+  "Each study begins with primary regulatory data: DOL LCA public
+   disclosure files, USCIS performance data, and historical H-1B
+   cap registration patterns."
+   → Explicitly names public disclosure files. Reads as methodology
+     disclosure, not value proposition.
+
+  "Built from public data and mapped to your specific hiring
+   footprint, filing history, and workforce profile."
+   → "Built from public data" is the problem phrase. Should be
+     "Built from regulatory intelligence and program benchmarking."
+
+
+======================================================
+MEDIUM: writing/the-constraint/index.html
+======================================================
+
+  Cost figure caption:
+   "Modeled seven-figure cost exposure. Based on public filings.
+   Conservative estimate."
+   → "Based on public filings" undercuts the modeling. Just say
+     "Conservative estimate." or "Empirical cost modeling."
+
+
+======================================================
+MEDIUM: resume/index.html
+======================================================
+
+  "Advises corporate HR teams...on immigration strategy,
+   LCA compliance, and global workforce risk management."
+   → "LCA compliance" positions as compliance officer.
+
+  "Designed and deployed a tiered I-9 and LCA compliance framework"
+   → Compliance/operational framing, not strategic.
+
+  "Form I-9 completion, audit procedures, E-Verify administration"
+   → Back-office operations list. Should lead with strategy.
+
+
+======================================================
+LOW / NO ACTION NEEDED
+======================================================
+
+  index.html (homepage):
+   Uses "primary regulatory data, not anecdote" — good framing.
+   No cheap sourcing language.
+
+  writing/h1b-registration/index.html:
+   Frames as strategy and decision-making. No database language.
+
+  ai/index.html:
+   "PERM and LCA Counsel Concentration Mapping" is a tool title.
+   Acceptable in context.
+
+  contact/index.html:
+   Clean.
+
+
+======================================================
+THE CORE PROBLEM (ONE SENTENCE)
+======================================================
+
+The analysis is sophisticated. The sourcing language makes it look
+like the sophistication came from searching government websites.
+
+A strategic advisor does not explain that data came from
+"DOL public disclosure files." That is assumed and unstated.
+The emphasis on "public data" and "direct database search" signals
+the method, not the insight — and the method is not impressive
+on its own.
+
+
+======================================================
+RECOMMENDED REPLACEMENTS
+======================================================
+
+  "public data"
+   → "regulatory intelligence" / "empirical labor market analysis"
+
+  "DOL LCA public disclosure files"
+   → "government authorization records" / remove entirely
+
+  "Direct database search"
+   → delete
+
+  "Based on public filings"
+   → "Empirical cost modeling" / "Conservative estimate"
+
+  "Searched 57 DOL LCA/PERM disclosure files"
+   → delete or move to methodology appendix, never in body text
+
+  "based exclusively on publicly disclosed DOL LCA and PERM data"
+   → "informed by regulatory program data, industry benchmarking,
+     and peer program evaluation"
+
+  "DOL LCA Disclosure Data, FY2015 to Q1 FY2026" (chart labels)
+   → "Labor market analysis, FY2015–Q1 FY2026" / omit source
+
+  "LCA compliance" (resume)
+   → "immigration program governance"
+
+  "Form I-9 completion, audit procedures, E-Verify administration"
+   → "Established governance frameworks for workforce authorization
+     compliance and audit readiness"
+
+
+======================================================
+END OF AUDIT
+======================================================

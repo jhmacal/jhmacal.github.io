@@ -160,11 +160,25 @@
   }
 
   /* ============================================================
+     SECTION 3: Scroll indicator — fades out on scroll
+  ============================================================ */
+  function initScrollIndicator() {
+    var indicator = document.querySelector('.scroll-indicator');
+    if (!indicator) return;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        indicator.classList.add('is-hidden');
+      }
+    }, { passive: true });
+  }
+
+  /* ============================================================
      INIT
   ============================================================ */
   document.addEventListener('DOMContentLoaded', function () {
     initFadeIn();
     initCountUp();
+    initScrollIndicator();
   });
 
   /* Expose countUp globally for optional manual invocation */
