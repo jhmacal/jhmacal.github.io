@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Julio Macedo</title>
+  <meta name="description" content="Get in touch with Julio Macedo — Senior Immigration and Global Mobility Attorney based in New York.">
+  <meta property="og:title" content="Contact | Julio Macedo">
+  <meta property="og:description" content="Senior Immigration and Global Mobility Attorney. New York.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.jhmacal.com/contact/">
+  <link rel="canonical" href="https://www.jhmacal.com/contact/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">JM</a>
+      <ul class="nav__links">
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/studies/">Studies</a></li>
+        <li><a href="/ai/">AI</a></li>
+        <li><a href="/resume/">Resume</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" style="padding-top: 120px; min-height: calc(100vh - 80px);">
+    <div class="container container--narrow">
+      <p class="section-eyebrow fade-in">Contact</p>
+      <h2 class="contact__heading fade-in">Start a conversation.</h2>
+      <form
+        class="contact__form fade-in"
+        id="contact-form"
+        action="#"
+        novalidate
+      >
+
+        <div class="contact__grid">
+
+          <div class="form-group form-group--half">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <div class="form-group form-group--half">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="subject" class="form-label">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-input"
+            >
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="10"
+            ></textarea>
+          </div>
+
+          <div class="form-group form-group--full">
+            <button type="submit" class="btn btn--solid">Send</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact form: mailto handler -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name    = (this.querySelector('[name="name"]').value || '').trim();
+      var email   = (this.querySelector('[name="email"]').value || '').trim();
+      var subject = (this.querySelector('[name="subject"]').value || '').trim();
+      var message = (this.querySelector('[name="message"]').value || '').trim();
+
+      if (!name || !email) {
+        this.querySelector('[name="name"]').reportValidity();
+        return;
+      }
+
+      var body = [
+        'Name: ' + name,
+        'Email: ' + email,
+        '',
+        message
+      ].filter(Boolean).join('\n');
+
+      window.location.href = 'mailto:jhmacal91@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+
+</body>
+</html>
