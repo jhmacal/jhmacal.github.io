@@ -165,10 +165,15 @@
   function initScrollIndicator() {
     var indicator = document.querySelector('.scroll-indicator');
     if (!indicator) return;
+
+    // Fade in after delay using JS so transition fires cleanly
+    setTimeout(function () {
+      indicator.style.opacity = '1';
+    }, 1800);
+
+    // Fade out on scroll
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 60) {
-        indicator.classList.add('is-hidden');
-      }
+      indicator.style.opacity = window.scrollY > 60 ? '0' : '1';
     }, { passive: true });
   }
 
