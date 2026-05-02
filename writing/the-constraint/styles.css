@@ -1,0 +1,14 @@
+/*
+ * writing/the-constraint/styles.css
+ * Page-specific overrides. Base styles live in /style.css.
+ */
+
+.article__cta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 169, 97, 0.15);
+}
+
+#calculator-container {
+  margin: 2.5rem 0;
+}
