@@ -1,0 +1,87 @@
+<div class="ts-industry-chart" style="background: #0a1628; border-radius: 12px; padding: 1.5rem 1.5rem 1rem; margin: 2rem 0;">
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; gap: 1rem; flex-wrap: wrap;">
+    <div>
+      <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; color: #f0e6d2; line-height: 1.2;">Workers certified for AI-titled roles in the U.S.</div>
+      <div style="font-size: 12px; color: rgba(240, 230, 210, 0.6); margin-top: 4px;">Certified and Certified-Withdrawn LCAs, FY2015 to Q1 FY2026</div>
+    </div>
+    <div style="text-align: right;">
+      <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; color: #c9a961; font-weight: 500; line-height: 1;">35,434</div>
+      <div style="font-size: 11px; color: rgba(240, 230, 210, 0.6);">total workers</div>
+    </div>
+  </div>
+
+  <div style="position: relative; width: 100%; height: 320px; margin-top: 1.25rem;">
+    <canvas id="ts-industry-chart-canvas" role="img" aria-label="Annual worker positions certified under AI job titles, FY2015 through Q1 FY2026">FY2015: 123. FY2016: 77. FY2017: 326. FY2018: 990. FY2019: 2220. FY2020: 3878. FY2021: 3788. FY2022: 4920. FY2023: 5822. FY2024: 3971. FY2025: 6183. FY2026 Q1: 3136.</canvas>
+  </div>
+
+  <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 0.5px solid rgba(201, 169, 97, 0.2);">
+    <div style="font-size: 11px; color: rgba(201, 169, 97, 0.85);">FY2026 reflects Q1 only</div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function() {
+  const labels = ['FY2015','FY2016','FY2017','FY2018','FY2019','FY2020','FY2021','FY2022','FY2023','FY2024','FY2025','FY2026'];
+  const data = [123, 77, 326, 990, 2220, 3878, 3788, 4920, 5822, 3971, 6183, 3136];
+  const colors = data.map((_, i) => i === 11 ? 'rgba(201, 169, 97, 0.45)' : '#c9a961');
+
+  function init() {
+    const canvas = document.getElementById('ts-industry-chart-canvas');
+    if (!canvas || !window.Chart) return;
+    new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Workers',
+          data: data,
+          backgroundColor: colors,
+          borderColor: colors,
+          borderWidth: 0,
+          borderRadius: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0d1a30',
+            titleColor: '#f0e6d2',
+            bodyColor: '#c9a961',
+            borderColor: 'rgba(201, 169, 97, 0.3)',
+            borderWidth: 1,
+            padding: 10,
+            callbacks: {
+              label: (ctx) => ctx.parsed.y.toLocaleString() + ' workers' + (ctx.dataIndex === 11 ? ' (Q1 only)' : '')
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: 'rgba(240, 230, 210, 0.7)', font: { size: 11 }, autoSkip: false, maxRotation: 0 },
+            grid: { display: false },
+            border: { color: 'rgba(201, 169, 97, 0.3)' }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: 'rgba(240, 230, 210, 0.55)', font: { size: 11 }, callback: (v) => v.toLocaleString() },
+            grid: { color: 'rgba(240, 230, 210, 0.08)', drawTicks: false },
+            border: { display: false }
+          }
+        }
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
