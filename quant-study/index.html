@@ -324,7 +324,7 @@
   .s6h-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.2); align-self:flex-end; }
 
   /* BODY */
-  .s6-body { flex:1; width:100%; max-width:1080px; padding:14px 36px 14px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+  .s6-body { flex:1; width:100%; max-width:1080px; padding:14px 36px 76px; display:flex; flex-direction:column; gap:12px; min-height:0; overflow-y:auto; }
 
   /* SLIDERS ROW */
   .s6-sliders { display:grid; grid-template-columns:1fr 1fr; gap:12px; flex-shrink:0; }
@@ -1445,7 +1445,7 @@
     <!-- BOTTOM: Millennium reference + closing -->
     <div style="text-align:center;border-top:1px solid #E2E6EF;padding-top:13px;width:100%;">
       <div style="font-family:'Barlow',sans-serif;font-size:15px;color:var(--js-dark);line-height:1.65;max-width:760px;margin:0 auto 8px;">
-        Employment counsel present does not <strong>necessarily</strong> create immigration privilege.
+        Let's talk about privilege
       </div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--js-grey);margin-top:6px;">The full legal analysis is in Section 05 &rarr;</div>
     </div>
@@ -1472,7 +1472,7 @@
 
         <div class="s5-slider-row">
           <div class="s5-slider-label">
-            <span class="s5-slider-name">Immigration threads per week</span>
+            <span class="s5-slider-name">Mobility threads per week</span>
             <span class="s5-slider-val" id="v1">8</span>
           </div>
           <input type="range" min="1" max="40" value="8" id="s1" oninput="calc5()">
@@ -1507,8 +1507,8 @@
         </div>
 
         <div class="s5-warning" id="warn">
-          <div class="s5-warning-title">This does not necessarily create immigration privilege</div>
-          <div class="s5-warning-text">Attorney-client privilege protects only communications made for the purpose of obtaining legal advice in the attorney's area of practice. A counsel advising on immigration matters, if outside their scope, might not only fail to extend privilege to those communications — it may trigger ethical proceedings if they have no experience in the field.</div>
+          <div class="s5-warning-title">THIS DOES NOT NECESSARILY CREATE PRIVILEGE</div>
+          <div class="s5-warning-text">Attorney-client privilege protects only communications made for the purpose of obtaining legal advice in the attorney's area of practice. A counsel advising on matters outside their scope might fail to extend privilege to those communications. And it may trigger ethical proceedings if they have no experience in the field.</div>
           <div class="s5-warning-cite">Upjohn Co. v. United States, 449 U.S. 383 (1981) &nbsp;&middot;&nbsp; CPLR §4503 &nbsp;&middot;&nbsp; Georgia Pacific Corp. (S.D.N.Y. 1996) &nbsp;&middot;&nbsp; N.Y. Rules of Professional Conduct, Rule 1.1 (Competence)</div>
         </div>
       </div>
@@ -1536,8 +1536,8 @@
       </div>
 
       <div class="s5-explainer">
-        <div class="s5-ex-title">What privilege actually protects</div>
-        <div class="s5-ex-text">When a licensed immigration attorney directs a communication on this subject matter, it is protected from compelled disclosure in litigation, regulatory proceedings, and government audits. Without that direction, every strategy discussion, every internal assessment of a case, and every deliberation about whether to file or withdraw is a potential exhibit. <strong style="color:var(--js-teal);">Immigration threads routinely contain sensitive proprietary information — compensation data, headcount plans, the company’s priorities — that has nothing to do with immigration and everything to lose in discovery.</strong> The question is not whether the communication exists. The question is whether it can be used.</div>
+        <div class="s5-ex-title">WHAT PRIVILEGE ACTUALLY PROTECTS</div>
+        <div class="s5-ex-text">A specialized licensed attorney directs a communication on mobility matters: it is protected from compelled disclosure in litigation, regulatory proceedings, and government audits. Without that direction, every strategy discussion, every internal assessment of a case, and every deliberation about whether to file or withdraw is a potential exhibit. <strong style="color:var(--js-teal);">These threads routinely contain sensitive proprietary information — compensation data, headcount plans, the company’s priorities — that has nothing to do with the function and everything to lose in discovery.</strong> The question is not whether the communication exists. The question is whether it can be used.</div>
       </div>
 
     </div>
@@ -1776,11 +1776,9 @@
       <div style="font-family:'Barlow',sans-serif;font-size:clamp(14px,1.6vw,18px);font-weight:300;color:rgba(255,255,255,0.5);line-height:1.95;margin-bottom:28px;">
         A demo for the Proprietary Program was presented to the leadership team of one of the largest quantitative finance firms in the world. Reviewed at the leadership level.
       </div>
-      <div style="font-family:'Barlow',sans-serif;font-size:clamp(14px,1.6vw,18px);color:rgba(255,255,255,0.72);line-height:1.95;margin-bottom:28px;">
-        The demonstration ran in real time. A single employee profile was loaded into the system. Pathways were identified. The evidentiary record for an extraordinary-ability designation was built, criterion by criterion, as the session progressed. Each threshold opened the next.
-      </div>
       <div style="font-family:'Barlow',sans-serif;font-size:clamp(14px,1.6vw,18px);color:rgba(255,255,255,0.72);line-height:1.95;margin-bottom:44px;">
-        The candidate entered on F-1 OPT. The system mapped a direct route to O-1A, independent of the H-1B lottery, then to EB-1A permanent residence. Timeline compressed by years. No cap exposure. No backlog dependency.
+        The evidentiary record was mapped as the session progressed. Each threshold opened the next.<br><br>
+        The system offered different pathways. Timeline was compressed by years. More than cost analysis: company culture, mission, and a talent attraction and retention program.
       </div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(16px,2vw,24px);font-weight:900;text-transform:uppercase;color:var(--white);letter-spacing:0.1em;line-height:1.3;border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;">
         The methodology is proprietary.<br>The outcome is not.
@@ -1834,13 +1832,9 @@
           </div>
           <div style="padding:18px 20px;background:#F5F8FF;">
             <div style="font-family:'Barlow',sans-serif;font-size:15px;color:var(--js-dark);line-height:1.8;padding-left:16px;margin-bottom:16px;">
-              Attorney-client privilege over all strategic communications<br>
-              Retention of company intelligence<br>
-              Real-time I-9 and Public Access File compliance<br>
-              Outside counsel managed as peer<br>
-              Portfolio-level workforce planning across all visa types<br>
-              Proactive modeling before every policy change<br>
-              Regulatory updates<br>
+              Company intelligence stays internal<br>
+              Workforce planning connected company-wide in real time<br>
+              Policy changes anticipated, not absorbed<br>
               Proprietary Program: (redacted)
             </div>
             <div style="background:rgba(23,82,204,0.08);border-radius:3px;padding:14px 16px;">
@@ -2759,10 +2753,9 @@ function toggleCard(cardEl) {
 
 <!-- PROPRIETARY MODAL -->
 <div id="prop-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:300;align-items:center;justify-content:center;">
-  <div style="max-width:520px;width:100%;text-align:center;padding:64px 48px;">
+  <div style="max-width:520px;width:100%;text-align:center;padding:48px;display:flex;flex-direction:column;align-items:center;">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:20px;">Section 9b</div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,8vw,96px);font-weight:900;text-transform:uppercase;color:#ffffff;letter-spacing:.06em;line-height:.88;margin-bottom:10px;">CENTRALIZE</div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(14px,1.8vw,20px);font-weight:400;text-transform:uppercase;color:rgba(255,255,255,.28);letter-spacing:.26em;margin-bottom:28px;">Proprietary</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,8vw,96px);font-weight:900;text-transform:uppercase;color:#ffffff;letter-spacing:.06em;line-height:.88;margin-bottom:28px;">PROPRIETARY</div>
     <div style="width:44px;height:2px;background:rgba(255,255,255,.18);margin:0 auto 28px;border-radius:1px;"></div>
     <div style="font-family:'Barlow',sans-serif;font-size:15px;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:40px;">The implementation architecture is not part of this presentation.<br>The right conversation starts with the right room.</div>
     <button onclick="closePropModal()" style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.38);background:none;border:1px solid rgba(255,255,255,.14);padding:10px 28px;border-radius:2px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,.14)'">Close &times;</button>
