@@ -1126,7 +1126,7 @@
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;width:100%;margin-bottom:6px;flex-shrink:0;">
       <div id="s2box1" class="s2box" onclick="s2toggle(1)" style="background:#F5F7FA;border:2px solid #E2E6EF;border-radius:4px;padding:9px 10px;text-align:center;">
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,6vw,76px);font-weight:900;color:var(--js-near-black);line-height:1;">220</div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--js-blue);margin-top:4px;">DOL Filings</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--js-blue);margin-top:4px;">Sponsored Filings</div>
         <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--js-grey);margin-top:2px;">FY2022 to 2025</div>
         <div style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--js-blue);margin-top:8px;opacity:.55;letter-spacing:.05em;">tap to expand</div>
       </div>
@@ -1158,13 +1158,13 @@
       <div id="s2p2" style="display:none;">
         <div style="display:flex;gap:20px;align-items:flex-start;">
           <div style="flex:1;min-width:0;">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;">DOL Filings: Actual + Projected at FY2025 Growth Rate (+30.8%)</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;">Filings: Actual + Projected at FY2025 Growth Rate (+30.8%)</div>
             <svg id="s2chart" viewBox="0 0 560 148" preserveAspectRatio="xMidYMid meet" style="width:100%;display:block;overflow:visible;"></svg>
           </div>
           <div style="width:148px;flex-shrink:0;text-align:center;padding-top:6px;">
             <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:4px;">Cumulative<br>2022 to 2029</div>
             <div style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--white);line-height:1;">789</div>
-            <div style="font-family:'Barlow',sans-serif;font-size:11px;color:rgba(255,255,255,.3);margin-top:3px;">DOL filings over 8 years</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:11px;color:rgba(255,255,255,.3);margin-top:3px;">Filings over 8 years</div>
             <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;">
               <div style="display:flex;align-items:center;gap:5px;"><div style="width:9px;height:9px;background:#1752CC;border-radius:2px;flex-shrink:0;"></div><div style="font-family:'Barlow',sans-serif;font-size:11px;color:rgba(255,255,255,.42);">Actual</div></div>
               <div style="display:flex;align-items:center;gap:5px;"><div style="width:9px;height:9px;background:rgba(23,82,204,.3);border-radius:2px;flex-shrink:0;border:1px solid #1752CC;"></div><div style="font-family:'Barlow',sans-serif;font-size:11px;color:rgba(255,255,255,.42);">Projected</div></div>
@@ -1173,7 +1173,7 @@
         </div>
       </div>
       <div id="s2p3" style="display:none;">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px;">the Company's DOL Pathway Visas: Field of Study</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px;">the Company's Sponsored Workforce: Field of Study</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin-bottom:12px;">
           <div>
             <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--js-teal);margin-bottom:7px;">Academic Field</div>
@@ -2071,7 +2071,7 @@
         var el=document.createElement('div'); el.style.cssText='background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;opacity:0;transition:opacity .35s;flex:0 0 auto;';
         var t=document.createElement('div'); t.style.cssText='font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;'; t.textContent=v.code;
         var d=document.createElement('div'); d.style.cssText='font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;'; d.textContent=v.name;
-        var g=document.createElement('div'); g.style.cssText='display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:'+v.color+';'; g.textContent='Not in DOL data';
+        var g=document.createElement('div'); g.style.cssText='display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:'+v.color+';'; g.textContent='No public filing required';
         el.appendChild(t); el.appendChild(d); el.appendChild(g); list.appendChild(el);
         setTimeout(function(){ el.style.opacity='1'; },30);
         if(i===visas.length-1) setTimeout(function(){ document.getElementById('s2visnote').style.display='block'; },(visas.length)*130+200);
