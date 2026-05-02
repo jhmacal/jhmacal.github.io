@@ -950,12 +950,12 @@ section.slide.active-slide {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(201, 169, 97, 0.55);
+  color: rgba(29, 184, 107, 0.6);
 }
 .scroll-indicator__line {
   width: 1px;
   height: 36px;
-  background: linear-gradient(to bottom, rgba(201, 169, 97, 0.55), transparent);
+  background: linear-gradient(to bottom, rgba(29, 184, 107, 0.6), transparent);
   animation: scrollPulseLegora 2s ease-in-out infinite;
 }
 @keyframes scrollPulseLegora {
@@ -2228,8 +2228,13 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 
+<div class="scroll-indicator" aria-hidden="true">
+  <span class="scroll-indicator__text">Scroll</span>
+  <div class="scroll-indicator__line"></div>
+</div>
+
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var indicator = document.querySelector('.scroll-indicator');
   if (!indicator) return;
 
@@ -2259,13 +2264,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initial fade-in
   setTimeout(show, 1800);
-})();
+});
 </script>
-
-<div class="scroll-indicator" aria-hidden="true">
-  <span class="scroll-indicator__text">Scroll</span>
-  <div class="scroll-indicator__line"></div>
-</div>
 
 </body>
 </html>
