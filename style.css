@@ -621,18 +621,14 @@ p {
 /* ============================================================
    11b. PRACTICE COLUMNS (side-by-side layout)
    ============================================================ */
+.practice-section {
+  border-top: 1px solid rgba(201, 169, 97, 0.1);
+  padding-block: var(--space-20);
+}
+
 .practice-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: var(--space-8);
-  padding-block: var(--space-20);
-  border-top: 1px solid rgba(201, 169, 97, 0.1);
-}
-
-.practice-col {
-  padding-block: 0;
 }
 
 .practice-col:first-child {
@@ -647,7 +643,6 @@ p {
 @media (max-width: 900px) {
   .practice-columns {
     grid-template-columns: 1fr;
-    padding-inline: var(--space-6);
   }
 
   .practice-col:first-child {
