@@ -619,42 +619,55 @@ p {
 }
 
 /* ============================================================
-   11b. PRACTICE COLUMNS (side-by-side layout)
+   11b. SECTION RULE / DIVIDER
+   ============================================================ */
+.section-hr {
+  border: none;
+  border-top: 1px solid rgba(201, 169, 97, 0.15);
+  margin: 0;
+}
+
+/* ============================================================
+   11c. PRACTICE COLUMNS (side-by-side layout)
    ============================================================ */
 .practice-section {
-  border-top: 1px solid rgba(201, 169, 97, 0.1);
   padding-block: var(--space-20);
 }
 
 .practice-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  position: relative;
 }
 
-.practice-col:first-child {
-  padding-right: var(--space-12);
-  border-right: 1px solid rgba(201, 169, 97, 0.1);
-}
-
-.practice-col:last-child {
-  padding-left: var(--space-12);
+/* Vertical divider between columns */
+.practice-columns::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: rgba(201, 169, 97, 0.12);
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
   .practice-columns {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .practice-columns::after {
+    display: none;
   }
 
   .practice-col:first-child {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.12);
     padding-bottom: var(--space-12);
     margin-bottom: var(--space-12);
-  }
-
-  .practice-col:last-child {
-    padding-left: 0;
   }
 }
 
