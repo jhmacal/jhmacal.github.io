@@ -13,6 +13,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <style>
+    @keyframes goldShimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    .tool-card--gold {
+      border-color: rgba(201, 169, 97, 0.45);
+    }
+    .tool-card--gold .tool-card__title,
+    .tool-card--gold .tool-card__body {
+      background: linear-gradient(90deg, #c9a961, #e8c97a, #f0d98a, #c9a961);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 250% auto;
+      animation: goldShimmer 3s linear infinite;
+    }
+    .tool-card--gold .tool-card__status {
+      color: #c9a961;
+      background: rgba(201, 169, 97, 0.1);
+      border-color: rgba(201, 169, 97, 0.35);
+    }
+  </style>
 </head>
 <body>
 
@@ -68,16 +91,16 @@
             <h3 class="tool-card__title">Quant Firm Study</h3>
             <span class="tool-card__status tool-card__status--live">Live</span>
           </div>
-          <p class="tool-card__body">Six-section analytical presentation built for senior leadership at a quantitative finance firm. Custom interactive components throughout.</p>
+          <p class="tool-card__body">Data analytical presentation built for a quantitative finance firm operating at the highest scale. Regulatory risk exposure, governance strategy, cost optimization. An answer given before the question was asked. A program built for a top performing company.</p>
         </a>
 
-        <!-- Tool 3: PERM and LCA Mapping (Internal, not linked) -->
-        <div class="tool-card fade-in fade-in-delay-2">
+        <!-- Tool 3: Practitioner-built Code -->
+        <div class="tool-card tool-card--gold fade-in fade-in-delay-2">
           <div class="tool-card__header">
-            <h3 class="tool-card__title">PERM and LCA Counsel Concentration Mapping</h3>
-            <span class="tool-card__status tool-card__status--internal">Internal</span>
+            <h3 class="tool-card__title">Practitioner-built Code</h3>
+            <span class="tool-card__status">Live, not commissioned</span>
           </div>
-          <p class="tool-card__body">Pipelines that map outside-counsel dependency across an employer's full filing history, identifying single-firm risk and pricing leverage.</p>
+          <p class="tool-card__body">This site, the data pipelines behind the studies, the interactive components inside the articles, all built by hand in Python, HTML, CSS, and Markdown. The vocabulary follows the work. New term every project. New fluency every week.</p>
         </div>
 
         <!-- Tool 4: Workforce-scale Program Reporting (Internal, not linked) -->
@@ -95,7 +118,7 @@
             <h3 class="tool-card__title">AI-augmented Case Research</h3>
             <span class="tool-card__status tool-card__status--internal">Internal</span>
           </div>
-          <p class="tool-card__body">Agentic research pipelines for AAO precedent, RFE strategy, and pathway-comparison analysis. Built on current frontier models.</p>
+          <p class="tool-card__body">Agentic research pipelines for precedents, response strategy, and strategy-comparison analysis. Built on current frontier models.</p>
         </div>
 
         <!-- Tool 6: AI Reasoning Environment Design (Live engagement, not linked) -->
