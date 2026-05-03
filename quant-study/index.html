@@ -2071,7 +2071,7 @@
         var el=document.createElement('div'); el.style.cssText='background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;opacity:0;transition:opacity .35s;flex:0 0 auto;';
         var t=document.createElement('div'); t.style.cssText='font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;'; t.textContent=v.code;
         var d=document.createElement('div'); d.style.cssText='font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;'; d.textContent=v.name;
-        var g=document.createElement('div'); g.style.cssText='display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:'+v.color+';'; g.textContent='No public filing required';
+        var g=document.createElement('div'); g.style.cssText='display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:'+v.color+';'; g.textContent='No public exposure';
         el.appendChild(t); el.appendChild(d); el.appendChild(g); list.appendChild(el);
         setTimeout(function(){ el.style.opacity='1'; },30);
         if(i===visas.length-1) setTimeout(function(){ document.getElementById('s2visnote').style.display='block'; },(visas.length)*130+200);
