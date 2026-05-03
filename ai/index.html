@@ -18,41 +18,34 @@
       0%   { background-position: 200% center; }
       100% { background-position: -200% center; }
     }
-    .tool-card--gold {
-      border-color: rgba(201, 169, 97, 0.45);
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.3), 0 4px 24px rgba(201, 169, 97, 0.08); }
+      50%       { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.55), 0 4px 32px rgba(201, 169, 97, 0.18); }
     }
-    .tool-card--gold .tool-card__title,
+    .tool-card--gold {
+      border-color: rgba(201, 169, 97, 0.5);
+      animation: goldPulse 3.5s ease-in-out infinite;
+    }
+    .tool-card--gold .tool-card__title {
+      background: linear-gradient(90deg, #a87c2a, #e8c97a, #f5e49a, #c9a961, #a87c2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 300% auto;
+      animation: goldShimmer 2.8s linear infinite;
+    }
     .tool-card--gold .tool-card__body {
       background: linear-gradient(90deg, #c9a961, #e8c97a, #f0d98a, #c9a961);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 250% auto;
-      animation: goldShimmer 3s linear infinite;
+      animation: goldShimmer 3.6s linear infinite;
     }
     .tool-card--gold .tool-card__status {
       color: #c9a961;
       background: rgba(201, 169, 97, 0.1);
       border-color: rgba(201, 169, 97, 0.35);
-    }
-    .tool-card--legal-reasoning {
-      transition: border-color 200ms ease;
-    }
-    .tool-card--legal-reasoning .tool-card__title,
-    .tool-card--legal-reasoning .tool-card__body {
-      transition: color 200ms ease;
-    }
-    .tool-card--legal-reasoning:hover {
-      border-color: rgba(201, 169, 97, 0.5);
-    }
-    .tool-card--legal-reasoning:hover .tool-card__title,
-    .tool-card--legal-reasoning:hover .tool-card__body {
-      background: linear-gradient(90deg, #c9a961, #e8c97a, #f0d98a, #c9a961);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size: 250% auto;
-      animation: goldShimmer 2.4s linear infinite;
     }
   </style>
 </head>
@@ -80,13 +73,6 @@
       <h1 class="page-header__title fade-in fade-in-delay-1">Designing the next decade of legal practice</h1>
       <div class="article__body fade-in fade-in-delay-2">
         <p class="lede">The next decade of legal practice will not be defined by AI tools. It will be defined by the practitioners who design how AI is applied within the law.</p>
-        <a href="/writing/legal-reasoning/" class="tool-card tool-card--legal-reasoning" style="display: block; text-decoration: none; margin: 2rem 0;">
-          <div class="tool-card__header">
-            <h3 class="tool-card__title">Legal Reasoning as a Strategic Asset</h3>
-            <span class="tool-card__status tool-card__status--live">Live</span>
-          </div>
-          <p class="tool-card__body">On the productization of legal reasoning. Aosphere, Burford, and the emergence of practitioner judgment as a new asset class. Interactive data sequence built in code.</p>
-        </a>
         <p>Most attorneys will be users. They will learn the products, deploy them in client work, and treat AI as a productivity layer that lives outside their actual reasoning. A small number will be designers. They will encode legal reasoning into the systems themselves, define what those systems should consider authoritative, and shape how AI engages with regulatory law, agency precedent, and the actual work of running an immigration program.</p>
         <p>The distinction is not academic. Users and designers operate at different points in the value chain. Users absorb tools. Designers shape what tools become.</p>
         <p><strong>I sit in the second group.</strong></p>
@@ -103,8 +89,8 @@
       <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4vw, var(--text-4xl)); font-weight: 300; color: var(--cream); line-height: 1.15; margin-bottom: var(--space-10);" class="fade-in fade-in-delay-1">Built tools, not just capabilities.</h2>
       <div class="tools-grid">
 
-        <!-- Tool 0: Legal Reasoning (Live, linked, gold hover) -->
-        <a href="/writing/legal-reasoning/" class="tool-card tool-card--legal-reasoning fade-in" style="display: block; text-decoration: none;">
+        <!-- Tool 0: Legal Reasoning (Live, linked, gold gleam) -->
+        <a href="/writing/legal-reasoning/" class="tool-card tool-card--gold fade-in" style="display: block; text-decoration: none;">
           <div class="tool-card__header">
             <h3 class="tool-card__title">Legal Reasoning as a Strategic Asset</h3>
             <span class="tool-card__status tool-card__status--live">Live</span>
