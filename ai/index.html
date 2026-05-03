@@ -35,6 +35,25 @@
       background: rgba(201, 169, 97, 0.1);
       border-color: rgba(201, 169, 97, 0.35);
     }
+    .tool-card--legal-reasoning {
+      transition: border-color 200ms ease;
+    }
+    .tool-card--legal-reasoning .tool-card__title,
+    .tool-card--legal-reasoning .tool-card__body {
+      transition: color 200ms ease;
+    }
+    .tool-card--legal-reasoning:hover {
+      border-color: rgba(201, 169, 97, 0.5);
+    }
+    .tool-card--legal-reasoning:hover .tool-card__title,
+    .tool-card--legal-reasoning:hover .tool-card__body {
+      background: linear-gradient(90deg, #c9a961, #e8c97a, #f0d98a, #c9a961);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 250% auto;
+      animation: goldShimmer 2.4s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -43,9 +62,9 @@
     <div class="nav__inner">
       <a href="/" class="nav__monogram">Home</a>
       <ul class="nav__links">
-        <li><a href="/writing/">Writing</a></li>
-        <li><a href="/studies/">Studies</a></li>
-        <li><a href="/ai/" class="active">AI</a></li>
+        <li><a href="/writing/">Articles</a></li>
+        <li><a href="/studies/">Case Studies</a></li>
+        <li><a href="/ai/" class="active">AI Tools</a></li>
         <li><a href="/resume/">Resume</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation">
@@ -76,6 +95,15 @@
       <p class="page-header__eyebrow fade-in">Portfolio</p>
       <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4vw, var(--text-4xl)); font-weight: 300; color: var(--cream); line-height: 1.15; margin-bottom: var(--space-10);" class="fade-in fade-in-delay-1">Built tools, not just capabilities.</h2>
       <div class="tools-grid">
+
+        <!-- Tool 0: Legal Reasoning (Live, linked, gold hover) -->
+        <a href="/writing/legal-reasoning/" class="tool-card tool-card--legal-reasoning fade-in" style="display: block; text-decoration: none;">
+          <div class="tool-card__header">
+            <h3 class="tool-card__title">Legal Reasoning as a Strategic Asset</h3>
+            <span class="tool-card__status tool-card__status--live">Live</span>
+          </div>
+          <p class="tool-card__body">On the productization of legal reasoning. Aosphere, Burford, and the emergence of practitioner judgment as a new asset class. Interactive data sequence built in code.</p>
+        </a>
 
         <!-- Tool 1: Privilege Exposure Calculator (Live, linked) -->
         <a href="/writing/the-constraint/" class="tool-card fade-in" style="display: block; text-decoration: none;">

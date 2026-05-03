@@ -14,6 +14,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <style>
+    .hiw-item {
+      border-bottom: 1px solid rgba(201, 169, 97, 0.12);
+    }
+    .hiw-item:first-child {
+      border-top: 1px solid rgba(201, 169, 97, 0.12);
+    }
+    .hiw-item__header {
+      padding-block: var(--space-6);
+    }
+    .hiw-item__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+    .hiw-item__body {
+      padding-bottom: var(--space-8);
+    }
+    .hiw-item__body p {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-sm);
+      color: rgba(244, 237, 224, 0.72);
+      max-width: 680px;
+      line-height: 1.75;
+    }
+  </style>
 </head>
 <body>
 
@@ -22,9 +50,9 @@
     <div class="nav__inner">
       <a href="/" class="nav__monogram">Home</a>
       <ul class="nav__links">
-        <li><a href="/writing/">Writing</a></li>
-        <li><a href="/studies/">Studies</a></li>
-        <li><a href="/ai/">AI</a></li>
+        <li><a href="/writing/">Articles</a></li>
+        <li><a href="/studies/">Case Studies</a></li>
+        <li><a href="/ai/">AI Tools</a></li>
         <li><a href="/resume/">Resume</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation">
@@ -37,7 +65,7 @@
   <section class="hero" id="hero">
     <div class="hero__inner fade-in">
       <h1 class="hero-name">Julio Macedo</h1>
-      <p class="hero-tagline">Senior Business Immigration and Global Mobility Attorney</p>
+      <p class="hero-tagline">Senior legal operator | AI-native programs at scale.</p>
       <p class="hero__eyebrow" style="font-style:italic; margin-top:var(--space-2)">Programs built to run the business.</p>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
@@ -61,13 +89,13 @@
       <div class="credentials-row fade-in">
         <span>EB-1A Extraordinary Ability in Law</span>
         <span class="dot">●</span>
+        <span>Fordham LLM, IP and IT Law</span>
+        <span class="dot">●</span>
         <span>GMS-T Certified</span>
         <span class="dot">●</span>
         <span>New York Bar</span>
         <span class="dot">●</span>
         <span>Brazilian Bar</span>
-        <span class="dot">●</span>
-        <span>I-9 Compliance Certificate</span>
       </div>
     </div>
   </section>
@@ -85,27 +113,73 @@
 
         <div class="differentiator fade-in" style="--stagger: 0.2s">
           <span class="differentiator__number">02</span>
-          <h3 class="differentiator__title">Data-driven</h3>
-          <p class="differentiator__body">Decisions backed by primary data. Pathway forecasting, risk modeling, and quantitative reporting drawn from competitive structure intelligence.</p>
+          <h3 class="differentiator__title">Legal AI practitioner</h3>
+          <p class="differentiator__body">Builds AI tooling end to end. Custom research pipelines, agentic systems, reporting automation, and the data infrastructure behind them. Practitioner-built, in production, on real client work. <a href="/writing/legal-reasoning/" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,169,97,0.35);">Published thinking on legal reasoning as an emerging asset class.</a></p>
         </div>
 
         <div class="differentiator fade-in" style="--stagger: 0.3s">
           <span class="differentiator__number">03</span>
-          <h3 class="differentiator__title">Multinational practice</h3>
-          <p class="differentiator__body">Cross-border casework that moves faster because the attorney already knows the systems on both sides.</p>
+          <h3 class="differentiator__title">Data-driven</h3>
+          <p class="differentiator__body">Decisions backed by primary data. Pathway forecasting, risk modeling, and quantitative reporting drawn from competitive structure intelligence.</p>
         </div>
 
         <div class="differentiator fade-in" style="--stagger: 0.4s">
           <span class="differentiator__number">04</span>
-          <h3 class="differentiator__title">Legal AI practitioner</h3>
-          <p class="differentiator__body">Builds custom research pipelines, case-strategy agents, and reporting automation. Designs AI reasoning environments for federal administrative law.</p>
+          <h3 class="differentiator__title">Multinational practice</h3>
+          <p class="differentiator__body">Cross-border casework that moves faster because the attorney already knows the systems on both sides.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: PRACTICE GRID -->
+  <!-- SECTION 5: HOW I WORK -->
+  <section class="practice" id="how-i-work">
+    <div class="container">
+      <p class="section-eyebrow fade-in">Operating Mode</p>
+      <div class="practice-grid fade-in">
+
+        <div class="hiw-item">
+          <div class="hiw-item__header">
+            <span class="hiw-item__title">Embedded, not consulted</span>
+          </div>
+          <div class="hiw-item__body">
+            <p>Operates inside the client's decision-making, not adjacent to it. Present when the hire is proposed, when the strategy is set, when the regulatory question is raised. Decisions get made with full portfolio visibility and legal authority, not after the fact through a billable engagement. The function shifts from reactive filings to proactive judgment.</p>
+          </div>
+        </div>
+
+        <div class="hiw-item">
+          <div class="hiw-item__header">
+            <span class="hiw-item__title">Programs that scale</span>
+          </div>
+          <div class="hiw-item__body">
+            <p>Builds end-to-end legal programs designed to absorb growth, regulatory shifts, and team transitions without breaking. Workflow architecture, compliance infrastructure, governance protocols, and the cross-functional structure that holds them together. Hires, develops, and manages the team that runs them.</p>
+          </div>
+        </div>
+
+        <div class="hiw-item">
+          <div class="hiw-item__header">
+            <span class="hiw-item__title">AI-native delivery</span>
+          </div>
+          <div class="hiw-item__body">
+            <p>Builds AI tooling as part of the practice, not as a separate experiment. Custom research pipelines, agentic systems, reporting automation, and the data infrastructure behind them. Practitioner-built, in production, on real client work. Privilege-safe by design.</p>
+          </div>
+        </div>
+
+        <div class="hiw-item">
+          <div class="hiw-item__header">
+            <span class="hiw-item__title">Translation across audiences</span>
+          </div>
+          <div class="hiw-item__body">
+            <p>Translates dense regulatory and legal complexity into decisions that C-suite executives, General Counsels, HR leaders, recruiters, engineers, and candidates can act on. The communication layer is part of the legal work, not a separate skill. Strategy lands when the people who need to act on it understand it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: PRACTICE GRID -->
   <section class="practice">
     <div class="container">
       <p class="section-eyebrow fade-in">Practice</p>
