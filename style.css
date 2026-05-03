@@ -1332,8 +1332,22 @@ input[type='range']::-moz-range-track {
   border-top: 1px solid rgba(201, 169, 97, 0.1);
 }
 
-.writing-item:hover {
-  opacity: 0.75;
+.writing-item__link {
+  display: block;
+  text-decoration: none;
+}
+
+.writing-item__link:hover .writing-item__title {
+  color: var(--gold, #c9a961);
+}
+
+.writing-item__arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.writing-item__link:hover .writing-item__arrow {
+  transform: translateX(4px);
 }
 
 .writing-item__eyebrow {
@@ -1353,6 +1367,7 @@ input[type='range']::-moz-range-track {
   color: var(--cream);
   line-height: 1.15;
   margin-bottom: var(--space-3);
+  transition: color 200ms ease;
 }
 
 .writing-item__excerpt {
