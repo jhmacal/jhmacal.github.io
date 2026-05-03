@@ -2083,9 +2083,9 @@
     var svg=document.getElementById('s2chart');
     if(svg.innerHTML!=='') return;
     var data=[{yr:'2022',v:55},{yr:'2023',v:58},{yr:'2024',v:52},{yr:'2025',v:68,accent:true},{yr:'2026',v:89,proj:true},{yr:'2027',v:116,proj:true},{yr:'2028',v:152,proj:true},{yr:'2029',v:199,proj:true}];
-    var maxV=380,chartH=92,bW=42,gap=23,ox=28,oy=24;
+    var maxV=220,chartH=92,bW=42,gap=23,ox=28,oy=24;
     var tw=ox+data.length*(bW+gap), html='';
-    [100,200,300].forEach(function(g){ var y=oy+chartH-(g/maxV)*chartH; html+='<line x1="'+ox+'" y1="'+y+'" x2="'+tw+'" y2="'+y+'" stroke="rgba(255,255,255,.07)" stroke-width="1"/><text x="'+(ox-4)+'" y="'+(y+3)+'" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">'+g+'</text>'; });
+    [50,100,150,200].forEach(function(g){ var y=oy+chartH-(g/maxV)*chartH; html+='<line x1="'+ox+'" y1="'+y+'" x2="'+tw+'" y2="'+y+'" stroke="rgba(255,255,255,.07)" stroke-width="1"/><text x="'+(ox-4)+'" y="'+(y+3)+'" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">'+g+'</text>'; });
     var dx=ox+4*(bW+gap)-gap/2;
     html+='<line x1="'+dx+'" y1="'+oy+'" x2="'+dx+'" y2="'+(oy+chartH+18)+'" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="3,3"/><text x="'+(dx+3)+'" y="'+(oy+chartH+30)+'" fill="rgba(255,255,255,.22)" font-size="8.5" font-family="Barlow">projected</text>';
     data.forEach(function(d,i){
