@@ -339,36 +339,15 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Bullets
+    /* Description
     ------------------------------------------------------------ */
-    .resume-role__bullets {
-      list-style: none;
-      padding: 0;
-      margin: var(--space-5) 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-
-    .resume-role__bullets li {
+    .resume-role__desc {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: var(--text-sm);
       font-weight: 400;
       line-height: 1.75;
-      color: rgba(244, 237, 224, 0.8);
-      padding-left: var(--space-5);
-      position: relative;
-    }
-
-    .resume-role__bullets li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 5px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
+      color: rgba(244, 237, 224, 0.7);
+      margin-top: var(--space-4);
     }
 
     /* Education entries
@@ -618,86 +597,47 @@
           <section class="resume-content__section" id="experience">
             <p class="resume-section__eyebrow">Experience</p>
 
-            <!-- Role 1: Reinhardt Savic Foley -->
             <article class="resume-role">
               <div class="resume-role__header">
-                <h2 class="resume-role__title">Senior Attorney, Global Mobility and Immigration</h2>
+                <h2 class="resume-role__title">Business Immigration and Global Mobility</h2>
                 <div class="resume-role__meta">
-                  <span class="resume-role__org">Reinhardt Savic Foley LLP</span>
+                  <span class="resume-role__org">Licensed Attorney</span>
                   <span class="resume-role__sep">&middot;</span>
                   <span class="resume-role__location">New York, NY</span>
                   <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__period">Aug 2025 &ndash; Present</span>
+                  <span class="resume-role__period">2020 &ndash; Present</span>
                 </div>
-                <!-- Sub-role: previous title at same firm -->
+              </div>
+              <p class="resume-role__desc">Mobility and Immigration Program Management and Building. End-to-end. Cross-functional partnership.</p>
+            </article>
+
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">AI Consultant</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__location">New York, NY</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">Concurrent</span>
+                </div>
+              </div>
+              <p class="resume-role__desc">Evaluates and calibrates AI-generated legal outputs against expert standards, applying structured scoring rubrics to assess multi-step legal reasoning, statutory interpretation, and regulatory analysis.</p>
+            </article>
+
+            <article class="resume-role">
+              <div class="resume-role__header">
+                <h2 class="resume-role__title">Cross-Border Regulatory / Compliance</h2>
+                <div class="resume-role__meta">
+                  <span class="resume-role__org">Licensed Attorney</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__location">Natal, BR</span>
+                  <span class="resume-role__sep">&middot;</span>
+                  <span class="resume-role__period">2015 &ndash; 2019</span>
+                </div>
                 <div class="resume-role__sub">
-                  <p class="resume-role__sub-title">Attorney, Business Immigration and Global Mobility</p>
-                  <p class="resume-role__sub-period">Oct 2020 &ndash; Aug 2025</p>
+                  <p class="resume-role__sub-title">Paralegal</p>
+                  <p class="resume-role__sub-period">2013 &ndash; 2015</p>
                 </div>
               </div>
-              <ul class="resume-role__bullets">
-                <li>Became essential to the firm's global mobility and immigration practice expansion through high performance and strategic contribution, recognized through EB-1A sponsorship, employer-funded GMS-T certification, and consistent elevation to lead client mandates across technology, financial services, and professional services.</li>
-                <li>Manages employment-based immigration matters spanning all major nonimmigrant and immigrant visa categories, directing a team of attorneys and paralegals with a culture of mentorship and operational excellence, sustaining a high volume of quarterly filings with a high approval rate on RFEs and NOIDs.</li>
-                <li>Delivers concierge immigration counsel to senior executives, VIP transferees, and high-profile individuals with direct attorney access, bespoke strategic guidance, and real-time responsiveness to time-sensitive global mobility needs.</li>
-                <li>Advises corporate HR teams, Talent Acquisition leaders, and C-suite stakeholders on immigration strategy, program governance, and global workforce risk management. Functions as de facto Global Mobility and Immigration Manager, building cross-functional partnerships with People Operations, Legal, Finance, and Tax to align immigration programs with business objectives and international expansion timelines.</li>
-                <li>Designed and deployed a tiered employment eligibility and immigration program governance framework calibrated to client size, achieving near-universal adoption across the corporate client base. Trained internal team and client HR staff, developed policy books and audit-readiness protocols.</li>
-              </ul>
-            </article>
-
-            <!-- Role 2: Mindrift / Toloka -->
-            <article class="resume-role">
-              <div class="resume-role__header">
-                <h2 class="resume-role__title">Immigration and Mobility AI Subject Matter Expert</h2>
-                <div class="resume-role__meta">
-                  <span class="resume-role__org">Mindrift / Toloka</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__period">Feb 2026 &ndash; Present</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__tag">Concurrent, Contract</span>
-                </div>
-              </div>
-              <ul class="resume-role__bullets">
-                <li>Selected as a senior domain expert, negotiating above-standard compensation, to design and evaluate AI training environments for complex legal reasoning tasks in immigration and federal administrative law.</li>
-                <li>Builds multi-authority case narratives, ground-truth answers, and grading specifications that encode attorney-level reasoning into machine-evaluable form.</li>
-                <li>Evaluates and calibrates AI-generated legal outputs against expert standards, applying structured scoring rubrics to assess multi-step legal reasoning, statutory interpretation, and regulatory analysis.</li>
-              </ul>
-            </article>
-
-            <!-- Role 3: Columbus Consulting -->
-            <article class="resume-role">
-              <div class="resume-role__header">
-                <h2 class="resume-role__title">Immigration and Mobility Associate</h2>
-                <div class="resume-role__meta">
-                  <span class="resume-role__org">Columbus Consulting Group</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__location">New York, NY</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__period">Jul 2020 &ndash; Oct 2020</span>
-                </div>
-              </div>
-              <ul class="resume-role__bullets">
-                <li>Advised foreign executives and multinational organizations on U.S. immigration strategy, compliance structuring, and employment-based pathways including EB-1, O-1, E-2, and national interest-based filings.</li>
-              </ul>
-            </article>
-
-            <!-- Role 4: Zamenhof, Gurgel and Macedo -->
-            <article class="resume-role">
-              <div class="resume-role__header">
-                <h2 class="resume-role__title">Senior Attorney / Attorney / Paralegal</h2>
-                <div class="resume-role__meta">
-                  <span class="resume-role__org">Zamenhof, Gurgel and Macedo</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__location">Natal, Brazil</span>
-                  <span class="resume-role__sep">&middot;</span>
-                  <span class="resume-role__period">Feb 2013 &ndash; Aug 2019</span>
-                </div>
-                <p class="resume-role__note">Rose from Paralegal to Senior Attorney (2013&ndash;2019)</p>
-              </div>
-              <ul class="resume-role__bullets">
-                <li>Rose from Paralegal to Senior Attorney at a recognized Brazilian law firm, advising multinational clients on cross-border regulatory matters, business structuring, and compliance frameworks spanning Brazilian, U.S., and international law.</li>
-                <li>Led a team of seven attorneys and staff across hiring, performance management, and quality oversight in a high-volume, multi-practice environment.</li>
-                <li>Built the professional profile underlying EB-1A classification as an Individual of Extraordinary Ability in Law: published scholarly articles, served as Director at a selective International Law association, received sustained major Brazilian media coverage, and authored judicial arguments adjudicated at Brazil's Supreme Courts.</li>
-              </ul>
             </article>
 
           </section>
