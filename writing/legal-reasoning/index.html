@@ -101,7 +101,7 @@
               <svg viewBox="0 0 700 100" style="width: 100%; height: auto; display: block; margin-bottom: 0.5rem;">
                 <line x1="40" y1="78" x2="660" y2="78" stroke="rgba(240,230,210,0.15)" stroke-width="1"/>
 
-                <g class="tnode active" data-panel="burford" style="cursor:pointer;">
+                <g class="tnode" data-panel="burford" style="cursor:pointer;">
                   <circle cx="60" cy="78" r="25" fill="transparent"/>
                   <circle cx="60" cy="78" r="11" fill="#c9a961" stroke="#c9a961" stroke-width="2" class="tdot"/>
                   <text x="60" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">Burford</text>
@@ -122,7 +122,7 @@
                   <text x="495" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(240,230,210,0.55)" letter-spacing="0.06em">FIRMS AS BUILDERS</text>
                 </g>
 
-                <g class="tnode" data-panel="aosphere" style="cursor:pointer;">
+                <g class="tnode active" data-panel="aosphere" style="cursor:pointer;">
                   <circle cx="640" cy="78" r="25" fill="transparent"/>
                   <circle cx="640" cy="78" r="9" fill="#0a1628" stroke="#c9a961" stroke-width="2" class="tdot"/>
                   <text x="640" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#f0e6d2" font-weight="500">aosphere</text>
@@ -144,6 +144,8 @@
             </div>
 
           </div>
+
+          <p>Founded in 2009 with no law firm parent, Burford Capital funds lawsuits in exchange for a share of the recovery. The pending claim, an intangible legal asset, sits on Burford's balance sheet. The company is now publicly traded on NYSE and LSE, with a $7.5B portfolio. In 2012, only 9% of lawyers reported using legal finance. The current data above shows a different reality.</p>
 
           <p>A BigLaw firm with a refined transactional workflow is no longer just selling lawyer hours. They have something to license. A specialist with a refined approach to cross-border transactions, complex litigation, or tax structuring has something to sell beyond their time.</p>
 
@@ -342,16 +344,16 @@
       }, 220);
     }
 
-    document.getElementById('legal-detail').innerHTML = panels['burford'];
-    setActive('burford');
-    activePanel = 'burford';
+    document.getElementById('legal-detail').innerHTML = panels['aosphere'];
+    setActive('aosphere');
+    activePanel = 'aosphere';
 
     const cover = document.getElementById('legal-cover');
     cover.addEventListener('click', () => {
       cover.style.opacity = '0';
       cover.style.pointerEvents = 'none';
       document.getElementById('legal-detail').style.opacity = '1';
-      setTimeout(() => runInit('burford'), 400);
+      setTimeout(() => runInit('aosphere'), 400);
     });
 
     document.querySelectorAll('.tnode').forEach(n => {
