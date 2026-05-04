@@ -670,14 +670,14 @@ blockquote cite {
 .legora-nav {
   position: fixed;
   top: 8px;
-  left: 14px;
-  right: 14px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 40px;
+  width: fit-content;
   background: var(--dark);
-  border: 1px solid var(--dark-border);
   border-bottom: 2px solid #1DB86B;
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  box-shadow: 0 2px 14px rgba(0,0,0,0.10);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -744,21 +744,28 @@ blockquote cite {
 
 .nav-item.active .nav-label { color: var(--green); }
 
-.nav-home-link {
-  position: absolute;
-  right: 10px;
+.nav-home-bubble {
+  position: fixed;
+  top: 8px;
+  right: 14px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--dark);
+  border-bottom: 2px solid #1DB86B;
+  border-radius: 8px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+  z-index: 1000;
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   letter-spacing: 0.12em;
   color: var(--muted);
   text-decoration: none;
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 100px;
-  padding: 3px 10px;
-  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  transition: color 0.15s;
 }
-.nav-home-link:hover { color: var(--green); border-color: rgba(0,82,48,0.35); }
+.nav-home-bubble:hover { color: var(--green); }
 
 
 /* ── SLIDE DECK LAYOUT ── */
@@ -1108,9 +1115,10 @@ section.slide.active-slide {
     <span class="nav-label">Close</span>
   </a>
 
-  <a href="https://www.jhmacal.com" class="nav-home-link">jhmacal.com</a>
 
 </nav>
+
+<a href="https://www.jhmacal.com" class="nav-home-bubble">jhmacal.com</a>
 
 <section id="cover" class="slide">
 <div class="cover">
