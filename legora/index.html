@@ -672,7 +672,9 @@ blockquote cite {
   top: 0; left: 0; right: 0;
   height: 40px;
   background: var(--dark);
+  border-top: 1px solid var(--dark-border);
   border-bottom: 2px solid #1DB86B;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2253,14 +2255,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var obs = new MutationObserver(function (mutations) {
     mutations.forEach(function (m) {
       if (m.attributeName === 'class' && m.target.classList.contains('active-slide')) {
+        if (m.target.id === 'cover') { hide(); return; }
         if (m.target.scrollTop <= 60) show();
       }
     });
   });
   slides.forEach(function (s) { obs.observe(s, { attributes: true }); });
 
-  // Initial fade-in
-  setTimeout(show, 1800);
+  // Initial: cover is first slide, keep indicator hidden
+  setTimeout(function () {
+    var coverSlide = document.getElementById('cover');
+    if (coverSlide && coverSlide.classList.contains('active-slide')) return;
+    show();
+  }, 1800);
 });
 </script>
 
