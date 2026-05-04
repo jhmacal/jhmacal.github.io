@@ -19,33 +19,53 @@
       100% { background-position: -200% center; }
     }
     @keyframes goldPulse {
-      0%, 100% { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.3), 0 4px 24px rgba(201, 169, 97, 0.08); }
-      50%       { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.55), 0 4px 32px rgba(201, 169, 97, 0.18); }
+      0%, 100% { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.45), 0 4px 28px rgba(201, 169, 97, 0.12); }
+      50%       { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.75), 0 4px 36px rgba(201, 169, 97, 0.22); }
+    }
+    /* Single slow gleam pass — one sweep every ~6s, mostly idle */
+    @keyframes goldGleam {
+      0%   { background-position: 220% center; }
+      18%  { background-position: -220% center; }
+      100% { background-position: -220% center; }
     }
     .tool-card--gold {
-      border-color: rgba(201, 169, 97, 0.5);
-      animation: goldPulse 3.5s ease-in-out infinite;
+      background: linear-gradient(135deg,
+        rgba(180, 140, 50, 0.82) 0%,
+        rgba(201, 169, 97, 0.78) 35%,
+        rgba(160, 120, 38, 0.85) 70%,
+        rgba(190, 155, 70, 0.80) 100%
+      );
+      border: 1px solid rgba(230, 195, 110, 0.75);
+      animation: goldPulse 5s ease-in-out infinite;
     }
     .tool-card--gold .tool-card__title {
-      background: linear-gradient(90deg, #a87c2a, #e8c97a, #f5e49a, #c9a961, #a87c2a);
+      color: #fff;
+      -webkit-text-fill-color: unset;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0.55) 0%,
+        #fff 45%,
+        rgba(255,248,220,0.90) 55%,
+        #fff 65%,
+        rgba(255,255,255,0.55) 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      background-size: 300% auto;
-      animation: goldShimmer 2.8s linear infinite;
+      background-size: 400% auto;
+      animation: goldGleam 6s ease-in-out infinite;
     }
     .tool-card--gold .tool-card__body {
-      background: linear-gradient(90deg, #c9a961, #e8c97a, #f0d98a, #c9a961);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size: 250% auto;
-      animation: goldShimmer 3.6s linear infinite;
+      color: rgba(255, 248, 225, 0.88);
+      -webkit-text-fill-color: rgba(255, 248, 225, 0.88);
+      background: none;
+      background-clip: unset;
+      -webkit-background-clip: unset;
+      animation: none;
     }
     .tool-card--gold .tool-card__status {
-      color: #c9a961;
-      background: rgba(201, 169, 97, 0.1);
-      border-color: rgba(201, 169, 97, 0.35);
+      color: rgba(255, 240, 180, 0.95);
+      background: rgba(0, 0, 0, 0.18);
+      border-color: rgba(255, 220, 120, 0.45);
     }
   </style>
 </head>
