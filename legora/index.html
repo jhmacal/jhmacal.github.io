@@ -694,8 +694,6 @@ blockquote cite {
   height: 40px;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.15s;
 }
 
 .nav-item svg {
@@ -706,19 +704,19 @@ blockquote cite {
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: stroke 0.15s;
   overflow: visible;
+  transition: stroke 0.2s ease, transform 0.2s ease, stroke-width 0.2s ease;
+  transform-origin: center;
 }
 
 .nav-item .logo-mark-svg {
   fill: var(--muted);
   stroke: none;
-  transition: fill 0.15s;
+  transition: fill 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
 }
 
 .nav-item:hover .logo-mark-svg { fill: var(--green); }
-
-.nav-item.active .logo-mark-svg { fill: var(--green); }
 
 .nav-label {
   font-family: 'JetBrains Mono', monospace;
@@ -732,14 +730,19 @@ blockquote cite {
 }
 
 .nav-item:hover svg        { stroke: var(--green); }
-
 .nav-item:hover .nav-label { color: var(--green); }
 
-.nav-item.active {
-  border-bottom-color: var(--green);
+.nav-item.active svg {
+  stroke: #1DB86B;
+  stroke-width: 2;
+  transform: scale(1.5);
 }
 
-.nav-item.active svg        { stroke: var(--green); }
+.nav-item.active .logo-mark-svg {
+  fill: #1DB86B;
+  stroke: none;
+  transform: scale(1.5);
+}
 
 .nav-item.active .nav-label { color: var(--green); }
 
@@ -787,6 +790,7 @@ section.slide {
 
 section.slide#cover {
   overflow: hidden;
+  padding-top: 0;
 }
 
 /* ══════════════════════════════
