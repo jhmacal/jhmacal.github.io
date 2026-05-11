@@ -1795,3 +1795,209 @@ input[type='range']::-moz-range-track {
     widows: 3;
   }
 }
+
+
+/* === BOOKS PAGE === */
+
+.books__header {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.08);
+  margin-bottom: 4rem;
+}
+
+.books__eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a961);
+  margin: 0 0 1rem 0;
+}
+
+.books__penname {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(244, 237, 224, 0.7);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.books__penname em {
+  font-style: italic;
+}
+
+.books__list {
+  padding-bottom: 8rem;
+}
+
+/* Single book entry. Grid handles the cover/no-cover asymmetry. */
+.book {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.08);
+  align-items: start;
+}
+
+.book:last-child {
+  border-bottom: none;
+}
+
+/* Manuscripts have no cover. The left column collapses but the grid stays.
+   This keeps the body column aligned with the covered entry above. */
+.book--manuscript {
+  grid-template-columns: 240px 1fr;
+}
+
+.book--manuscript .book__body {
+  grid-column: 2;
+}
+
+/* Cover image styling. Subtle shadow, no border. */
+.book__cover {
+  width: 100%;
+  max-width: 240px;
+}
+
+.book__cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Body column. Same for both covered and uncovered. */
+.book__body {
+  max-width: 600px;
+}
+
+.book__status {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a961);
+  margin: 0 0 1.5rem 0;
+}
+
+.book__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--cream, #f4ede0);
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.book__line {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(244, 237, 224, 0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Pull-quote. Only on Shiver. */
+.book__quote {
+  margin: 2rem 0 0 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid var(--gold, #c9a961);
+}
+
+.book__quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream, #f4ede0);
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+}
+
+.book__quote cite {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.6);
+  font-style: normal;
+  display: block;
+}
+
+/* Link to where it sells. */
+.book__link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--gold, #c9a961);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.book__link:hover {
+  border-bottom-color: var(--gold, #c9a961);
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .books__header {
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .books__penname {
+    font-size: 1.25rem;
+  }
+
+  .book {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  .book--manuscript {
+    grid-template-columns: 1fr;
+  }
+
+  .book--manuscript .book__body {
+    grid-column: 1;
+  }
+
+  /* Cover gets smaller on mobile, centered with the text. */
+  .book__cover {
+    max-width: 180px;
+  }
+
+  .book__title {
+    font-size: 2rem;
+  }
+
+  .book__line {
+    font-size: 1.125rem;
+  }
+
+  .book__quote p {
+    font-size: 1.125rem;
+  }
+
+  .books__list {
+    padding-bottom: 4rem;
+  }
+}
