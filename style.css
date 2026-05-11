@@ -2001,3 +2001,48 @@ input[type='range']::-moz-range-track {
     padding-bottom: 4rem;
   }
 }
+
+
+/* === MOBILE NAV FIX === */
+@media (max-width: 768px) {
+  .nav__links {
+    z-index: 200;
+  }
+
+  .nav__toggle {
+    z-index: 201;
+    position: relative;
+  }
+
+  body:has(.nav__links.open) .nav,
+  body:has(.nav__links.open) .nav--scrolled {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+
+  .nav__links.open {
+    background-color: var(--navy);
+    padding-top: var(--nav-height);
+  }
+
+  .nav__toggle.open {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav__toggle.open span {
+    width: 28px;
+    background-color: var(--gold);
+    height: 2px;
+  }
+
+  .nav__toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
