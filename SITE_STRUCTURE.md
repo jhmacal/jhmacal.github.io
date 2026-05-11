@@ -45,8 +45,6 @@
 │   └── index.html                      # Contact/form page
 ├── quant-study/
 │   └── index.html                      # Interactive quantitative finance presentation
-├── legora/
-│   └── index.html
 ├── legal-reasoning/
 │   └── legal-assets-master-timeline.html
 └── js/
@@ -125,7 +123,6 @@
 ### Other Pages
 | File | URL | Purpose |
 |------|-----|---------|
-| `/legora/index.html` | `/legora/` | Special presentation page |
 | `/legal-reasoning/legal-assets-master-timeline.html` | N/A | Timeline component |
 
 ---
