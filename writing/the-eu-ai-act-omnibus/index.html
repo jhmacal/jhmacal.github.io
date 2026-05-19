@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The European Union AI Act, Omnibus, and a Market Read | Julio Macedo</title>
+  <meta name="description" content="The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The misread is that the delay is a pause. A market read of what is in force now, what arrives before December 2027, and where regulated institutions already operate.">
+  <meta property="og:title" content="The European Union AI Act, Omnibus, and a Market Read | Julio Macedo">
+  <meta property="og:description" content="The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The misread is that the delay is a pause. A market read.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
+  <link rel="canonical" href="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Article-local rules only. Anything global lives in /style.css. */
+
+    .article__byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(240, 230, 210, 0.55);
+      margin: 0 0 2.5rem;
+    }
+
+    .article__footnotes {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 0.5px solid rgba(201, 169, 97, 0.2);
+    }
+    .article__footnotes ol {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .article__footnotes li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(240, 230, 210, 0.55);
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .article__footnotes a {
+      color: rgba(201, 169, 97, 0.7);
+      text-decoration: none;
+    }
+    .article__footnotes a:hover {
+      color: #c9a961;
+    }
+    sup a {
+      color: var(--gold, #c9a961);
+      text-decoration: none;
+      font-size: 0.75em;
+    }
+    sup a:hover {
+      text-decoration: underline;
+    }
+    .article__cta {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.15);
+    }
+
+    /* ===== Interactive seven-node timeline ===== */
+    .omnibus-timeline {
+      background: #0d1a30;
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem 1.25rem;
+      margin: 2.5rem 0;
+    }
+    .omnibus-timeline__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: rgba(201, 169, 97, 0.85);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 0.4rem;
+      font-weight: 500;
+    }
+    .omnibus-timeline__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: rgba(240, 230, 210, 0.75);
+      text-align: center;
+      margin: 0 0 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .omnibus-timeline__track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0;
+      padding-top: 0.5rem;
+    }
+    .omnibus-timeline__track::before {
+      content: '';
+      position: absolute;
+      top: calc(0.5rem + 9px);
+      left: 7.14%;
+      right: 7.14%;
+      height: 1px;
+      background: rgba(201, 169, 97, 0.25);
+      z-index: 0;
+    }
+    .timeline-node {
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 0.15rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: inherit;
+      transition: transform 0.25s ease;
+    }
+    .timeline-node:hover {
+      transform: translateY(-2px);
+    }
+    .timeline-node .node-circle {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(201, 169, 97, 0.6);
+      border-radius: 50%;
+      background: #0d1a30;
+      transition: all 0.25s ease;
+      margin-bottom: 0.65rem;
+    }
+    .timeline-node.active .node-circle {
+      background: #c9a961;
+      border-color: #c9a961;
+      box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.18);
+    }
+    .timeline-node:not(.active):hover .node-circle {
+      border-color: #c9a961;
+      background: rgba(201, 169, 97, 0.18);
+    }
+    .timeline-node .node-year {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #c9a961;
+      margin-bottom: 0.1rem;
+      line-height: 1.1;
+    }
+    .timeline-node .node-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: rgba(240, 230, 210, 0.55);
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .timeline-node.active .node-label {
+      color: #f0e6d2;
+    }
+    .omnibus-timeline__detail {
+      margin: 1.5rem 0 0;
+      padding: 1.3rem 1.5rem;
+      background: rgba(244, 237, 224, 0.025);
+      border: 0.5px solid rgba(201, 169, 97, 0.18);
+      border-radius: 6px;
+      min-height: 170px;
+      transition: opacity 0.25s ease;
+    }
+    .omnibus-timeline__detail .detail-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: #c9a961;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+      font-weight: 500;
+    }
+    .omnibus-timeline__detail h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      color: #f0e6d2;
+      font-weight: 400;
+      margin: 0 0 0.55rem;
+      line-height: 1.25;
+    }
+    .omnibus-timeline__detail p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(240, 230, 210, 0.82);
+      line-height: 1.65;
+      margin: 0;
+      text-align: left;
+      hyphens: none;
+    }
+    .omnibus-timeline__source {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: rgba(240, 230, 210, 0.4);
+      text-align: center;
+      margin: 0.9rem 0 0;
+      padding-top: 0.6rem;
+      border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+    }
+    @media (max-width: 640px) {
+      .timeline-node .node-label { font-size: 0.52rem; }
+      .timeline-node .node-year { font-size: 0.78rem; }
+    }
+
+    /* ===== What moved / what stayed ===== */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    @media (max-width: 640px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+    .compare-panel {
+      background: #0d1a30;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .compare-panel__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin: 0 0 0.7rem;
+    }
+    .compare-panel.moved .compare-panel__label { color: rgba(240, 230, 210, 0.45); }
+    .compare-panel.stayed .compare-panel__label { color: #c9a961; }
+    .compare-panel h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #f0e6d2;
+      margin: 0 0 0.9rem;
+      line-height: 1.3;
+    }
+    .compare-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .compare-panel li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: rgba(240, 230, 210, 0.82);
+      padding: 0.55rem 0 0.55rem 0.95rem;
+      position: relative;
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.06);
+    }
+    .compare-panel li:last-child { border-bottom: none; }
+    .compare-panel li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.05rem;
+      width: 5px;
+      height: 1px;
+      background: #c9a961;
+      opacity: 0.6;
+    }
+    .compare-panel li strong {
+      color: #f0e6d2;
+      font-weight: 500;
+    }
+    .compare-panel li .li-date {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: rgba(201, 169, 97, 0.8);
+      margin-top: 0.2rem;
+    }
+
+    /* ===== Regulatory stack SVG ===== */
+    .stack-figure {
+      background: #0d1a30;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .stack-figure svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .stack-figure__caption {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(240, 230, 210, 0.55);
+      margin: 1rem auto 0;
+      max-width: 540px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/" class="active">Articles</a></li>
+        <li><a href="/studies/">Case Studies</a></li>
+        <li><a href="/ai/">AI Portfolio</a></li>
+        <li><a href="/resume/">Resume</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="page-header__eyebrow">Data Governance &amp; Privacy</p>
+      <h1 class="page-header__title">The European Union AI Act, Omnibus, and a Market Read</h1>
+      <p class="page-header__sub">The Digital Omnibus delayed the Act's high-risk obligations to December 2027. The reading that the delay is a pause is a reading worth correcting. A market read of what is in force today, what arrives before December 2027, and where regulated institutions already operate.</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <article class="article">
+        <div class="article__body">
+
+          <p class="article__byline">By Julio Macedo</p>
+
+          <h2>What the Act is</h2>
+
+          <p>The European Union's Artificial Intelligence Act, formally Regulation (EU) 2024/1689, is the first comprehensive horizontal artificial intelligence law adopted by a major jurisdiction.<sup><a href="#fn1" id="ref1">1</a></sup> Its risk-based architecture sorts AI systems into four categories. Unacceptable-risk systems are banned outright, with narrow exemptions. High-risk systems, listed in Annex III, trigger the Act's core obligation stack: risk management, data governance, technical documentation, record-keeping, transparency, human oversight, accuracy, and robustness. Limited-risk systems carry transparency obligations only. Minimal-risk systems are unregulated under the Act. A separate category covers general-purpose AI models, including the foundation models that power most consumer-facing generative AI products.<sup><a href="#fn1">1</a></sup></p>
+
+          <p>The Act applies to providers placing AI systems on the European Union market, to deployers established or located in the Union, and to providers and deployers whose AI system output is used in the Union.<sup><a href="#fn1">1</a></sup> The territorial scope captures any global firm whose AI activity touches a European customer, employee, or counterparty. A United States bank running a credit-scoring model that produces decisions for a European subsidiary's customers is inside the perimeter. A global investment manager using an AI hiring tool that screens candidates in Frankfurt is inside the perimeter. The scope is broader than the headline category labels suggest, and the high-risk classifications under Annex III map directly to financial services activities: creditworthiness and credit scoring, biometric identification, employment systems, and other categories where the obligation stack will eventually attach.<sup><a href="#fn1">1</a></sup></p>
+
+          <p>The Act's structure is not novel. It follows the European Union's product-safety regulatory tradition: classify by risk, impose proportional obligations, require conformity assessment, register, monitor, and sanction. The mechanism is familiar to anyone who has worked with medical devices, machinery, or chemicals under EU law. What is novel is the subject matter. AI is the first general-purpose digital technology that Brussels has chosen to regulate horizontally, and the regulatory approach Brussels has chosen will set the operational reference for AI governance well beyond the European market.</p>
+
+          <div class="omnibus-timeline">
+            <p class="omnibus-timeline__label">The Act in Seven Moves</p>
+            <p class="omnibus-timeline__title">From Commission proposal to where we are now</p>
+
+            <div class="omnibus-timeline__track" role="tablist">
+              <button class="timeline-node active" data-step="1" role="tab" aria-selected="true">
+                <span class="node-circle"></span>
+                <span class="node-year">2021</span>
+                <span class="node-label">Proposed</span>
+              </button>
+              <button class="timeline-node" data-step="2" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">2022&ndash;23</span>
+                <span class="node-label">Negotiated</span>
+              </button>
+              <button class="timeline-node" data-step="3" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">May 2024</span>
+                <span class="node-label">Adopted</span>
+              </button>
+              <button class="timeline-node" data-step="4" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">Jul 2024</span>
+                <span class="node-label">Published</span>
+              </button>
+              <button class="timeline-node" data-step="5" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">2024&ndash;25</span>
+                <span class="node-label">Reaction</span>
+              </button>
+              <button class="timeline-node" data-step="6" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">2025&ndash;26</span>
+                <span class="node-label">Brussels Rule</span>
+              </button>
+              <button class="timeline-node" data-step="7" role="tab" aria-selected="false">
+                <span class="node-circle"></span>
+                <span class="node-year">May 2026</span>
+                <span class="node-label">Omnibus</span>
+              </button>
+            </div>
+
+            <div class="omnibus-timeline__detail" id="timeline-detail">
+              <div class="detail-date">21 April 2021</div>
+              <h4>The Commission proposes a horizontal AI regulation</h4>
+              <p>The European Commission publishes its proposal for a Regulation laying down harmonised rules on artificial intelligence. The proposal introduces the risk-based architecture that will survive the legislative process largely intact: unacceptable, high, limited, and minimal risk, with conformity assessment and CE-marking modelled on existing product-safety regimes. The proposal is the first attempt by a major jurisdiction to legislate AI horizontally rather than sector by sector.</p>
+            </div>
+
+            <p class="omnibus-timeline__source">sources: Regulation (EU) 2024/1689; Council and Parliament trilogue records</p>
+          </div>
+
+          <p>Each stage of the process matters operationally. The 2021 proposal set the architecture. The 2022 and 2023 negotiations added the general-purpose AI chapter, which did not exist in the original Commission text and was added in response to the public release of ChatGPT in November 2022.<sup><a href="#fn2" id="ref2">2</a></sup> The May 2024 Council adoption made the Act binding European Union law. The July 2024 Official Journal publication started the clock on the staggered application calendar that the Act itself sets out. The 2024 and 2025 market reaction produced both the AI Pact (a voluntary compliance forum) and the standards-development work at CEN-CENELEC that the Act's compliance regime depends on.<sup><a href="#fn3" id="ref3">3</a></sup> The Brussels Effect, the phenomenon by which European Union regulation becomes the global operational reference, has begun to take hold for AI in the same way it did for personal data after the General Data Protection Regulation took effect in 2018. And the May 2026 Digital Omnibus political agreement deferred the high-risk obligations by sixteen months, from August 2026 to December 2027.<sup><a href="#fn4" id="ref4">4</a></sup></p>
+
+          <h2>The Brussels Effect on AI</h2>
+
+          <p>The General Data Protection Regulation entered into force in May 2018 and produced an effect that Anu Bradford named the year before: when European Union regulation of a digital activity is the strictest in the world, the cost of regional fragmentation for a global firm exceeds the cost of compliance with the European regime, and the European regime becomes the firm's global standard.<sup><a href="#fn5" id="ref5">5</a></sup> The General Data Protection Regulation became the de facto privacy operating reference for global firms with European operations within eighteen months of taking effect. The same dynamic has begun for AI.</p>
+
+          <p>The mechanism is straightforward. A global investment bank with European subsidiaries, a global asset manager with European customers, or a global technology firm with European users cannot reasonably maintain two AI governance architectures: a stricter one inside the European perimeter and a looser one outside it. The operational cost of running two regimes, the audit complexity of explaining to any other supervisor why two standards exist for the same technology, and the reputational cost of being seen as governing AI to different standards in different jurisdictions exceed the cost of building the function to the stricter regime once and operating it globally. That is the choice most large regulated institutions are making, and the Act is the reference they are building to.<sup><a href="#fn6" id="ref6">6</a></sup></p>
+
+          <blockquote class="article__pullquote">"The companies that will be in the strongest and most defensible position by the time the new deadlines apply are those that use this additional time strategically." Dastra, advising clients after the May 2026 Omnibus agreement.<sup><a href="#fn7" id="ref7">7</a></sup></blockquote>
+
+          <p>The same logic explains why other jurisdictions reference the European Union's approach when developing their own AI regimes. The United Kingdom's pro-innovation framework, Singapore's Model AI Governance Framework, Brazil's AI bill (which adopted a risk-based structure modelled on the European text), and the United States' sector-by-sector guidance under the Federal Reserve, the Office of the Comptroller of the Currency, and other regulators all sit in conversation with the European regime.<sup><a href="#fn8" id="ref8">8</a></sup> A global firm that builds to satisfy the European Union's standards has, in practice, built to satisfy most of what the other regimes will ask for. A firm that builds to satisfy only its home regulator builds for one supervisor and then builds again for the European one. The Brussels Effect is not a normative claim about which approach is right. It is an operational claim about how global firms allocate compliance investment when one regime is stricter than the others.</p>
+
+          <h2>The Omnibus delay, accurately read</h2>
+
+          <p>On 7 May 2026, in the third political trilogue under the Cypriot Presidency, the Council of the European Union and the European Parliament reached provisional political agreement on the Digital Omnibus on AI.<sup><a href="#fn4">4</a></sup> The agreement defers the application of the Act's high-risk obligations: standalone Annex III high-risk systems now apply from 2 December 2027, and high-risk AI systems embedded in Annex I regulated products apply from 2 August 2028. The Article 50(2) watermarking and transparency obligations for generative AI providers move from 2 August 2026 to 2 December 2026, a three-month grace rather than the six the Commission originally proposed. The provisional agreement is subject to formal adoption by the European Parliament and the Council. The Official Journal has not yet published. Until it does, the original deadlines remain the legally binding ones.<sup><a href="#fn9" id="ref9">9</a></sup></p>
+
+          <p>The legislators were explicit about why the delay was granted. The Hogan Lovells advisory of May 2026 quotes the official framing directly: <em>"acknowledges that AI Act compliance requires significant preparation and the introduction of supporting technical standards. The delay is intended to provide businesses with additional time to achieve compliance, while underscoring the expectation that implementation efforts should already be underway."</em><sup><a href="#fn10" id="ref10">10</a></sup> Dastra's client advisory of the same period states the point even more plainly: <em>"The extension of certain deadlines under the Omnibus should not be interpreted as an invitation to pause AI governance efforts until 2027."</em><sup><a href="#fn7">7</a></sup> Modulos, advising compliance teams the week of the agreement, was blunter still: <em>"If you paused your AI Act preparation on the assumption that Brussels would keep moving the goalposts, the goalposts have stopped moving."</em><sup><a href="#fn11" id="ref11">11</a></sup></p>
+
+          <p>Three independent advisories naming the same misread are direct evidence the misread is happening at scale. The shape of the misread is the same in each: firms reading the delay as a pause, recalibrating their internal timelines downward, and producing the late-stage scramble the legislators were trying to avoid. The market read is the opposite. Institutions that use the eighteen-month window to mature their governance function are the institutions that will arrive at December 2027 with a function already in production and capable of being examined. Institutions that read the window as time off arrive at December 2027 with neither the function nor the documentation, and the supervisor will read both absences as the same finding.</p>
+
+          <h2>What moved and what did not</h2>
+
+          <div class="compare-grid">
+            <div class="compare-panel moved">
+              <p class="compare-panel__label">What moved</p>
+              <h4>Deferred under the Omnibus agreement</h4>
+              <ul>
+                <li><strong>Annex III standalone high-risk obligations</strong><span class="li-date">August 2026 to December 2027</span></li>
+                <li><strong>Annex I product-embedded high-risk obligations</strong><span class="li-date">August 2027 to August 2028</span></li>
+                <li><strong>Article 50(2) generative AI watermarking</strong><span class="li-date">August 2026 to December 2026</span></li>
+                <li><strong>National AI regulatory sandboxes</strong><span class="li-date">August 2026 to August 2027</span></li>
+              </ul>
+            </div>
+            <div class="compare-panel stayed">
+              <p class="compare-panel__label">What stayed</p>
+              <h4>In force today, or arriving on schedule</h4>
+              <ul>
+                <li><strong>Article 4 AI literacy obligation</strong><span class="li-date">Applicable since February 2025</span></li>
+                <li><strong>Article 5 prohibitions on unacceptable AI</strong><span class="li-date">Applicable since February 2025</span></li>
+                <li><strong>General-purpose AI provider obligations</strong><span class="li-date">Applicable from August 2026</span></li>
+                <li><strong>Other Article 50 transparency obligations for deployers</strong><span class="li-date">Applicable from August 2026</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <p>The Article 4 AI literacy obligation has been applicable since 2 February 2025.<sup><a href="#fn1">1</a></sup> It requires providers and deployers of AI systems to take measures to ensure, to their best extent, a sufficient level of AI literacy among staff and other persons dealing with the operation and use of AI systems on their behalf. The obligation is proportionate to the role, the context, and the systems involved. It is not a checkbox training requirement. It is a documented training program with role-appropriate content for every employee or contractor whose work touches AI. Most firms with firmwide AI deployments are already past the threshold at which the obligation attaches to thousands of people simultaneously, and the documentation regime that proves compliance is not something a firm can produce after the fact.<sup><a href="#fn12" id="ref12">12</a></sup></p>
+
+          <p>The Article 5 prohibitions on unacceptable AI practices have been in force since the same February 2025 date. The general-purpose AI provider obligations apply from August 2026, not delayed by the Omnibus, with the legacy carve-out under Article 111(3) giving providers of models placed on the market before that date until August 2027 to comply.<sup><a href="#fn13" id="ref13">13</a></sup> The Article 50 transparency obligations that apply to deployers (the obligations to inform users when they are interacting with an AI system, when they are seeing content that has been generated or modified by AI, or when they are subject to an emotion-recognition or biometric-categorisation system) continue to apply from August 2026 as the Act originally provided. None of those moved.</p>
+
+          <h2>What the supervisor reads without the AI Act</h2>
+
+          <p>The most consequential operational fact about the Omnibus delay is that the AI Act is not the only regulatory regime under which a supervisor can engage with a regulated institution's AI governance. Four standing regimes apply today, none of them dependent on the AI Act's timeline.</p>
+
+          <div class="stack-figure">
+            <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The standing regulatory stack governing AI in regulated institutions today">
+              <defs>
+                <linearGradient id="layerGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#c9a961" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#c9a961" stop-opacity="0.02"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="60" y="20" width="580" height="44" rx="3" fill="rgba(244,237,224,0.03)" stroke="rgba(201,169,97,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="80" y="47" font-family="'Cormorant Garamond', Georgia, serif" font-size="17" font-style="italic" fill="rgba(240,230,210,0.55)">EU AI Act high-risk obligations</text>
+              <text x="620" y="47" font-family="'Inter', sans-serif" font-size="11" fill="#c9a961" text-anchor="end" letter-spacing="1.5">DEC 2027</text>
+
+              <line x1="350" y1="64" x2="350" y2="86" stroke="rgba(201,169,97,0.3)" stroke-width="1" stroke-dasharray="2,2"/>
+
+              <rect x="60" y="90" width="580" height="50" rx="3" fill="url(#layerGrad)" stroke="rgba(201,169,97,0.45)" stroke-width="1"/>
+              <text x="80" y="120" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="500" fill="#f0e6d2">General Data Protection Regulation</text>
+              <text x="620" y="120" font-family="'Inter', sans-serif" font-size="11" fill="#c9a961" text-anchor="end" letter-spacing="1.5">IN FORCE SINCE 2018</text>
+              <text x="80" y="135" font-family="'Inter', sans-serif" font-size="11" fill="rgba(240,230,210,0.55)">Articles 5, 6, 22, 35 (automated decision-making, training data, DPIA)</text>
+
+              <rect x="60" y="150" width="580" height="50" rx="3" fill="url(#layerGrad)" stroke="rgba(201,169,97,0.45)" stroke-width="1"/>
+              <text x="80" y="180" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="500" fill="#f0e6d2">EBA Guidelines on internal governance</text>
+              <text x="620" y="180" font-family="'Inter', sans-serif" font-size="11" fill="#c9a961" text-anchor="end" letter-spacing="1.5">EBA/GL/2021/05</text>
+              <text x="80" y="195" font-family="'Inter', sans-serif" font-size="11" fill="rgba(240,230,210,0.55)">Robust governance arrangements over all material activities</text>
+
+              <rect x="60" y="210" width="580" height="50" rx="3" fill="url(#layerGrad)" stroke="rgba(201,169,97,0.45)" stroke-width="1"/>
+              <text x="80" y="240" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="500" fill="#f0e6d2">EBA Guidelines on outsourcing arrangements</text>
+              <text x="620" y="240" font-family="'Inter', sans-serif" font-size="11" fill="#c9a961" text-anchor="end" letter-spacing="1.5">EBA/GL/2019/02</text>
+              <text x="80" y="255" font-family="'Inter', sans-serif" font-size="11" fill="rgba(240,230,210,0.55)">Third-party risk for any externally-provided function</text>
+
+              <rect x="60" y="270" width="580" height="50" rx="3" fill="url(#layerGrad)" stroke="rgba(201,169,97,0.45)" stroke-width="1"/>
+              <text x="80" y="300" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="500" fill="#f0e6d2">Digital Operational Resilience Act</text>
+              <text x="620" y="300" font-family="'Inter', sans-serif" font-size="11" fill="#c9a961" text-anchor="end" letter-spacing="1.5">APPLICABLE JAN 2025</text>
+              <text x="80" y="315" font-family="'Inter', sans-serif" font-size="11" fill="rgba(240,230,210,0.55)">ICT risk, third-party ICT risk, operational resilience</text>
+
+              <text x="350" y="345" font-family="'Inter', sans-serif" font-size="10" fill="rgba(240,230,210,0.4)" text-anchor="middle" letter-spacing="2">STANDING SUPERVISORY AUTHORITY &middot; ENGAGED TODAY</text>
+            </svg>
+            <p class="stack-figure__caption">The European Union AI Act is one layer on a regulatory stack the regulated institution already operates under. The supervisor's authority to examine AI governance does not depend on when the AI Act high-risk obligations begin to apply.</p>
+          </div>
+
+          <p>The General Data Protection Regulation has been in force since May 2018.<sup><a href="#fn14" id="ref14">14</a></sup> Article 22 governs solely automated decision-making with legal or similarly significant effect, which is what credit decisioning, certain candidate-screening systems, and other regulated AI outputs produce. Article 35 requires a Data Protection Impact Assessment for high-risk processing, and the European Data Protection Board and national data protection authorities have been engaging on automated decision-making and on AI training data continuously since the Regulation took effect. None of this is delayed. None of it depends on the AI Act.</p>
+
+          <p>The European Banking Authority's Guidelines on internal governance require regulated credit institutions to maintain robust governance arrangements over all material activities.<sup><a href="#fn15" id="ref15">15</a></sup> An AI deployment operating at firmwide scale across a bank is a material activity by any reasonable reading. The supervisor can examine the governance of that activity today under the existing internal-governance framework. The European Banking Authority's Guidelines on outsourcing arrangements require third-party risk management for any function that relies on external providers, which captures every firmwide AI tool that integrates externally-provided foundation models.<sup><a href="#fn16" id="ref16">16</a></sup> The Digital Operational Resilience Act has been applicable since 17 January 2025 and governs information and communication technology risk, third-party ICT risk management, and operational resilience for financial entities.<sup><a href="#fn17" id="ref17">17</a></sup> AI systems sit inside the perimeter as ICT services.</p>
+
+          <p>The European Central Bank's published supervisory priorities for 2026 through 2028, released 11 November 2025, name banks' AI strategies, governance, and risk management as a medium-term strategic focus across the three-year cycle.<sup><a href="#fn18" id="ref18">18</a></sup> That document is the supervisor announcing where it intends to look. The announcement is not contingent on the AI Act timeline. The supervisor's authority to examine an institution's AI governance arrangements during 2026 and 2027 derives from the standing regimes already in force.</p>
+
+          <h2>Where institutions are already operating</h2>
+
+          <div class="ts-stat-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 2rem 0;">
+
+            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
+              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">3</div>
+              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">Independent law-firm and vendor advisories warning clients in May 2026 against treating the Omnibus delay as a pause.</div>
+              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Hogan Lovells, Dastra, Modulos</div>
+            </div>
+
+            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
+              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">2&thinsp;Dec&thinsp;2027</div>
+              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">New fixed application date for Annex III standalone high-risk AI obligations under the Digital Omnibus agreement.</div>
+              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Council and Parliament agreement, 7 May 2026</div>
+            </div>
+
+            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
+              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">Feb&thinsp;2025</div>
+              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">Article 4 AI literacy and Article 5 prohibitions already in force. Compliance is examinable today.</div>
+              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689</div>
+            </div>
+
+          </div>
+
+          <p>The institutions reading the regulatory landscape accurately are not waiting. Major global banks have already moved on the operating function the Act describes, building it under the standing regimes rather than waiting for the Act's high-risk obligations to bite. The reasoning is straightforward: the function the supervisor reads in 2027 is the function the institution has been operating during 2026. A bank that begins building its AI governance regime in mid-2027 produces nothing the supervisor can examine in early 2028 except the absence of a function and the explanation for the absence. A bank that began building in 2025 produces, as a continuous output of the way the technology is procured, deployed, and operated, the documentation the supervisor expected to find.</p>
+
+          <p>The work the function ships is the same regardless of when the AI Act bites. A model-risk inventory mapping every system in production to its regulatory classification and obligation set. A decision-rights matrix allocating procurement approval, deployment authorization, training-data review, change management, and incident escalation across Legal, Compliance, Risk, Engineering, and the model-owner business line. A vendor-contracting standard built on Article 25(4) of the Act, specifying the information, capabilities, and access the deployer needs from third-party AI providers. A data-flow regime mapping training, validation, and testing datasets against Article 5 of the General Data Protection Regulation and Article 10 of the Act, including the bias detection and correction record. An incident-response playbook calibrated to the reporting timelines the Act will impose. An AI literacy program documenting proportionate training by role, system, and risk tier. Each of these deliverables has a non-AI-Act predecessor under the standing regimes. The build is the alignment of the existing governance arrangements with the Act's formats, not the creation of new arrangements from scratch.</p>
+
+          <h2>The market read</h2>
+
+          <p>The market read of the Omnibus delay is that the legislators bought the market sixteen months of additional preparation time, paired with the explicit expectation that the preparation would be used. The institutions reading the delay as a pause are reading one regulatory layer in isolation from the stack the institution sits inside. The institutions reading the delay as a maturation window are reading the stack correctly.</p>
+
+          <p>The sixteen months between June 2026 and December 2027 are enough time to build the function correctly if the work begins now. They are not enough time to build the function from scratch starting in mid-2027. The legislators know this. The supervisor knows this. The advisories warning the market not to pause are written by people who watch the supervisor read what institutions produce, and they are telling clients now that the supervisor will read the eighteen months between the Omnibus agreement and the new application date as the test. Built early, the function is the documentation the supervisor expected to find. Built late, it is the explanation the supervisor did not. The Omnibus is not a deadline that moved. It is a window during which the institutions that intend to operate AI at scale build the function that lets them defend the operation when the supervisor arrives.</p>
+
+          <div class="article__footnotes">
+            <ol>
+              <li id="fn1">Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), OJ L of 12 July 2024. <a href="#ref1">&#8617;</a></li>
+              <li id="fn2">European Parliament, AI Act implementation timeline briefing, 2025. <a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/772906/EPRS_ATA(2025)772906_EN.pdf" target="_blank" rel="noopener">europarl.europa.eu</a> <a href="#ref2">&#8617;</a></li>
+              <li id="fn3">European Committee for Standardisation (CEN) and European Committee for Electrotechnical Standardisation (CENELEC), standards mandate for the AI Act issued by the European Commission in May 2023; accelerated procedures adopted October 2025. <a href="#ref3">&#8617;</a></li>
+              <li id="fn4">Council of the European Union and European Parliament, provisional political agreement on the Digital Omnibus on AI, 7 May 2026 (third trilogue, Cypriot Presidency). <a href="#ref4">&#8617;</a></li>
+              <li id="fn5">Anu Bradford, <em>The Brussels Effect: How the European Union Rules the World</em> (Oxford University Press, 2020); see also Bradford's earlier article of the same title, Northwestern University Law Review, 2012. <a href="#ref5">&#8617;</a></li>
+              <li id="fn6">For the parallel adoption of GDPR-style structures in non-EU regimes, see Graham Greenleaf, "Global Data Privacy Laws 2021: Despite COVID Delays, 145 Laws Show GDPR Dominance," Privacy Laws &amp; Business International Report (2021). <a href="#ref6">&#8617;</a></li>
+              <li id="fn7">Dastra, "Simpler, Safer, Stricter Where It Counts: Inside the EU AI Omnibus Deal," May 2026. <a href="https://www.dastra.eu/en/blog/simpler-safer-stricter-where-it-counts-inside-the-eu-ai-omnibus-deal/60025" target="_blank" rel="noopener">dastra.eu</a> <a href="#ref7">&#8617;</a></li>
+              <li id="fn8">United Kingdom Department for Science, Innovation and Technology, <em>A pro-innovation approach to AI regulation</em>, White Paper, 2023; Monetary Authority of Singapore, <em>Model AI Governance Framework</em>, 2nd ed., 2020; Brazilian Senate Bill 2338/2023. <a href="#ref8">&#8617;</a></li>
+              <li id="fn9">DLA Piper, "The Digital AI Omnibus: Proposed deferral of high-risk AI obligations under the AI Act," May 2026; A-LIGN, "What the EU AI Act Enforcement Delay Actually Means for Your Organization," April 2026. <a href="#ref9">&#8617;</a></li>
+              <li id="fn10">Hogan Lovells, "EU legislators agree to delay for high-risk AI rules," May 2026. <a href="https://www.hoganlovells.com/en/publications/eu-legislators-agree-to-delay-for-highrisk-ai-rules" target="_blank" rel="noopener">hoganlovells.com</a> <a href="#ref10">&#8617;</a></li>
+              <li id="fn11">Modulos, "EU AI Act Delayed: The Omnibus Deal Closed on 7 May 2026," May 2026. <a href="https://www.modulos.ai/blog/eu-ai-act-omnibus-deal/" target="_blank" rel="noopener">modulos.ai</a> <a href="#ref11">&#8617;</a></li>
+              <li id="fn12">AI Act, Article 4 (AI Literacy), applicable since 2 February 2025; European Commission, AI Office, draft AI literacy guidance, 2025. <a href="#ref12">&#8617;</a></li>
+              <li id="fn13">AI Act, Article 111(3), legacy general-purpose AI model carve-out; Travers Smith, "EU agrees to delay key AI Act compliance deadlines," May 2026. <a href="#ref13">&#8617;</a></li>
+              <li id="fn14">Regulation (EU) 2016/679 (General Data Protection Regulation), OJ L 119/1; in force since 25 May 2018. <a href="#ref14">&#8617;</a></li>
+              <li id="fn15">European Banking Authority, Guidelines on internal governance under Directive 2013/36/EU, EBA/GL/2021/05, July 2021. <a href="#ref15">&#8617;</a></li>
+              <li id="fn16">European Banking Authority, Guidelines on outsourcing arrangements, EBA/GL/2019/02, 25 February 2019. <a href="#ref16">&#8617;</a></li>
+              <li id="fn17">Regulation (EU) 2022/2554 (Digital Operational Resilience Act), OJ L 333/1; applicable from 17 January 2025. <a href="#ref17">&#8617;</a></li>
+              <li id="fn18">European Central Bank, Banking Supervision, <em>Supervisory priorities 2026-2028</em>, published 11 November 2025. <a href="#ref18">&#8617;</a></li>
+            </ol>
+          </div>
+
+          <div class="article__cta">
+            <a href="/contact/" class="btn">Discuss this analysis</a>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var timelineData = {
+      '1': {
+        date: '21 April 2021',
+        title: 'The Commission proposes a horizontal AI regulation',
+        text: 'The European Commission publishes its proposal for a Regulation laying down harmonised rules on artificial intelligence. The proposal introduces the risk-based architecture that will survive the legislative process largely intact: unacceptable, high, limited, and minimal risk, with conformity assessment and CE-marking modelled on existing product-safety regimes. The proposal is the first attempt by a major jurisdiction to legislate AI horizontally rather than sector by sector.'
+      },
+      '2': {
+        date: '2022 to December 2023',
+        title: 'Council and Parliament negotiate; GPAI is added',
+        text: 'The Council of the European Union adopts its general approach in December 2022. The European Parliament adopts its negotiating position in June 2023. The trilogue produces a provisional agreement on 9 December 2023, after the public release of ChatGPT in November 2022 forces the legislators to add a chapter on general-purpose AI models that did not exist in the original Commission proposal. The negotiations also tighten the high-risk Annex III categories and reshape the conformity-assessment architecture.'
+      },
+      '3': {
+        date: '13 March to 21 May 2024',
+        title: 'The Act is adopted',
+        text: 'The European Parliament approves the Act on 13 March 2024 by 499 votes to 28 with 93 abstentions. The Council of the European Union unanimously adopts the Act on 21 May 2024. The Act becomes binding European Union law. The European Artificial Intelligence Office, launched in February 2024 within the European Commission, begins building the implementation infrastructure.'
+      },
+      '4': {
+        date: '12 July 2024 to 1 August 2024',
+        title: 'The Act is published and enters into force',
+        text: 'The Act is published in the Official Journal of the European Union on 12 July 2024 as Regulation (EU) 2024/1689. It enters into force twenty days later, on 1 August 2024. The application calendar begins running: Articles 4 and 5 apply from 2 February 2025, general-purpose AI provider obligations from 2 August 2026, Annex III high-risk obligations from 2 August 2026, and Annex I product-embedded high-risk obligations from 2 August 2027.'
+      },
+      '5': {
+        date: '2024 through 2025',
+        title: 'The market reacts and standards are commissioned',
+        text: 'The European Commission requests harmonised technical standards from CEN-CENELEC in May 2023, with an initial 2025 deadline. The standards work proves more complex than anticipated and extends into 2026. The AI Pact, a voluntary compliance forum, launches. The European Artificial Intelligence Office publishes draft guidance on general-purpose AI models in July 2025. In October 2025, CEN-CENELEC adopts accelerated procedures to try to deliver key standards by the end of 2026. The standards problem becomes the operational reason the legislators eventually grant the delay.'
+      },
+      '6': {
+        date: '2025 to 2026',
+        title: 'The Brussels Effect takes hold',
+        text: 'Global firms with European operations begin building their AI governance architectures to satisfy the Act, on the same logic that produced the global adoption of GDPR-equivalent regimes after 2018. The United Kingdom publishes its pro-innovation framework. Brazil moves a risk-based AI bill through Congress. United States supervisors (the Federal Reserve, the Office of the Comptroller of the Currency) issue AI-related guidance referencing the European architecture. The Act becomes the de facto global operational reference for AI governance, in the same way the General Data Protection Regulation became the de facto global reference for personal data.'
+      },
+      '7': {
+        date: '19 November 2025 to 7 May 2026',
+        title: 'The Digital Omnibus delays the high-risk obligations',
+        text: 'The European Commission publishes the Digital Omnibus on AI on 19 November 2025, proposing to defer the high-risk compliance deadlines. After three trilogues, the second collapsing on 28 April 2026, the Council and the Parliament reach provisional political agreement on 7 May 2026. Annex III standalone high-risk obligations move from August 2026 to December 2027. Annex I product-embedded obligations move to August 2028. Article 50(2) watermarking moves to December 2026. The Article 4 literacy obligation, the Article 5 prohibitions, and the general-purpose AI provider obligations are not delayed. Formal adoption by the Council and the Parliament is pending; the Official Journal has not yet published.'
+      }
+    };
+
+    var nodes  = document.querySelectorAll('.timeline-node');
+    var detail = document.getElementById('timeline-detail');
+    if (!detail || !nodes.length) return;
+
+    detail.style.transition = 'opacity 0.25s ease';
+
+    nodes.forEach(function (node) {
+      node.addEventListener('click', function () {
+        var step = this.getAttribute('data-step');
+        var data = timelineData[step];
+        if (!data) return;
+
+        nodes.forEach(function (n) {
+          n.classList.remove('active');
+          n.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+
+        detail.style.opacity = '0';
+        setTimeout(function () {
+          detail.innerHTML =
+            '<div class="detail-date">' + data.date + '</div>' +
+            '<h4>' + data.title + '</h4>' +
+            '<p>' + data.text + '</p>';
+          detail.style.opacity = '1';
+        }, 180);
+      });
+    });
+  }());
+  </script>
+</body>
+</html>
