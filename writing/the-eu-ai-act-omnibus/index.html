@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The European Union AI Act | Julio Macedo</title>
-  <meta name="description" content="The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The misread is that the delay is a pause. A market read of what is in force now, what arrives before December 2027, and where regulated institutions already operate.">
-  <meta property="og:title" content="The European Union AI Act | Julio Macedo">
-  <meta property="og:description" content="The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The misread is that the delay is a pause. A market read.">
+  <title>The AI Act After the Omnibus | Julio Macedo</title>
+  <meta name="description" content="The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The legal deadline changed, but regulated institutions still need to build the governance record that supervisors will read.">
+  <meta property="og:title" content="The AI Act After the Omnibus | Julio Macedo">
+  <meta property="og:description" content="The Digital Omnibus changed the AI Act calendar. The harder question is what regulated institutions need to build before the new dates arrive.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
   <link rel="canonical" href="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
@@ -57,6 +57,24 @@
     }
     sup a:hover {
       text-decoration: underline;
+    }
+    .article__body p,
+    .article__body .lede {
+      text-align: left;
+      hyphens: none;
+    }
+    .article__body h2 {
+      margin-top: 2.8rem;
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 97, 0.86);
+    }
+    .article__body .article__byline + h2 {
+      margin-top: 1.2rem;
     }
     .article__cta {
       margin-top: 3rem;
@@ -208,8 +226,28 @@
       border-top: 0.5px solid rgba(201, 169, 97, 0.15);
     }
     @media (max-width: 640px) {
+      .omnibus-timeline {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        overflow: hidden;
+      }
+      .timeline-node {
+        min-width: 0;
+        padding: 0;
+      }
       .timeline-node .node-label { font-size: 0.52rem; }
       .timeline-node .node-year { font-size: 0.78rem; }
+    }
+    @media (max-width: 430px) {
+      .timeline-node .node-label { display: none; }
+      .timeline-node .node-year { font-size: 0.68rem; }
+      .timeline-node .node-circle {
+        width: 14px;
+        height: 14px;
+      }
+      .omnibus-timeline__track::before {
+        top: calc(0.5rem + 7px);
+      }
     }
 
     /* ===== What moved / what stayed ===== */
@@ -331,8 +369,8 @@
   <section class="page-header">
     <div class="container">
       <p class="page-header__eyebrow">Data Governance &amp; Privacy</p>
-      <h1 class="page-header__title">The European Union AI Act</h1>
-      <p class="page-header__sub">Did Omnibus pause obligations for high-risk AI?</p>
+      <h1 class="page-header__title">The AI Act After the Omnibus</h1>
+      <p class="page-header__sub">The clock is still ticking.</p>
     </div>
   </section>
 
@@ -343,13 +381,19 @@
 
           <p class="article__byline">By Julio Macedo</p>
 
-          <h2>What the Act is</h2>
+          <h2>What the delay means</h2>
 
-          <p>The European Union's Artificial Intelligence Act, formally Regulation (EU) 2024/1689, is the first comprehensive horizontal artificial intelligence law adopted by a major jurisdiction. Its risk-based architecture sorts AI systems into four categories. Unacceptable-risk systems are banned outright, with narrow exemptions. High-risk systems, listed in Annex III, trigger the Act's core obligation stack: risk management, data governance, technical documentation, record-keeping, transparency, human oversight, accuracy, and robustness. Limited-risk systems carry transparency obligations only. Minimal-risk systems are unregulated under the Act. A separate category covers general-purpose AI models, including the foundation models that power most consumer-facing generative AI products.</p>
+          <p class="lede">The Digital Omnibus gives regulated companies a tempting sentence to repeat in meetings: high-risk AI obligations now land in December 2027.</p>
+
+          <p>Many companies will read that sentence as permission to wait, but the operating picture already says something else.</p>
+
+          <p>Deadlines move budgets, staffing plans, board attention, and the internal politics of who gets to own a new compliance problem. A sixteen-month shift changes the rhythm of implementation, but regulated institutions do not live by one calendar. They live inside overlapping regimes, supervisory priorities, audit trails, vendor contracts, risk committees, and the slow evidence of what the company actually did before someone asked for proof. That is the part of the Omnibus story most likely to get lost.</p>
+
+          <p>The EU failed to finalize the standards and support measures in time, which bought companies more time to build cleanly. The institutions that use that time well will not treat AI governance as a 2027 project.</p>
 
           <div class="omnibus-timeline">
-            <p class="omnibus-timeline__label">The Act in Seven Moves</p>
-            <p class="omnibus-timeline__title">From Commission proposal to where we are now</p>
+            <p class="omnibus-timeline__label">Seven Moves</p>
+            <p class="omnibus-timeline__title">How the deadline moved, and what did not</p>
 
             <div class="omnibus-timeline__track" role="tablist">
               <button class="timeline-node active" data-step="1" role="tab" aria-selected="true">
@@ -359,7 +403,7 @@
               </button>
               <button class="timeline-node" data-step="2" role="tab" aria-selected="false">
                 <span class="node-circle"></span>
-                <span class="node-year">2022&ndash;23</span>
+                <span class="node-year">2022 to 23</span>
                 <span class="node-label">Negotiated</span>
               </button>
               <button class="timeline-node" data-step="3" role="tab" aria-selected="false">
@@ -374,12 +418,12 @@
               </button>
               <button class="timeline-node" data-step="5" role="tab" aria-selected="false">
                 <span class="node-circle"></span>
-                <span class="node-year">2024&ndash;25</span>
+                <span class="node-year">2024 to 25</span>
                 <span class="node-label">Reaction</span>
               </button>
               <button class="timeline-node" data-step="6" role="tab" aria-selected="false">
                 <span class="node-circle"></span>
-                <span class="node-year">2025&ndash;26</span>
+                <span class="node-year">2025 to 26</span>
                 <span class="node-label">Brussels Rule</span>
               </button>
               <button class="timeline-node" data-step="7" role="tab" aria-selected="false">
@@ -391,38 +435,44 @@
 
             <div class="omnibus-timeline__detail" id="timeline-detail">
               <div class="detail-date">21 April 2021</div>
-              <h4>The Commission proposes a horizontal AI regulation</h4>
-              <p>The European Commission publishes its proposal for a Regulation laying down harmonised rules on artificial intelligence. The proposal introduces the risk-based architecture that will survive the legislative process largely intact: unacceptable, high, limited, and minimal risk, with conformity assessment and CE-marking modelled on existing product-safety regimes. The proposal is the first attempt by a major jurisdiction to legislate AI horizontally rather than sector by sector.</p>
+              <h4>Brussels decides AI will not stay abstract</h4>
+              <p>The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.</p>
             </div>
 
-            <p class="omnibus-timeline__source">sources: Regulation (EU) 2024/1689; Council and Parliament trilogue records</p>
+            <p class="omnibus-timeline__source">sources: Regulation (EU) 2024/1689; Council, Parliament, and Commission materials</p>
           </div>
 
-          <p>The Act applies to providers placing AI systems on the European Union market, to deployers established or located in the Union, and to providers and deployers whose AI system output is used in the Union. The territorial scope captures any global firm whose AI activity touches a European customer, employee, or counterparty. A United States bank running a credit-scoring model that produces decisions for a European subsidiary's customers is inside the perimeter. A global investment manager using an AI hiring tool that screens candidates in Frankfurt is inside the perimeter. The scope is broader than the headline category labels suggest, and the high-risk classifications under Annex III map directly to financial services activities: creditworthiness and credit scoring, biometric identification, employment systems, and other categories where the obligation stack will eventually attach.</p>
+          <h2>What the Act demands</h2>
 
-          <p>The Act follows the European Union's product-safety regulatory tradition: classify by risk, impose proportional obligations, require conformity assessment, register, monitor, sanction. The mechanism is familiar to anyone who has worked with medical devices, machinery, or chemicals under EU law. AI is the first general-purpose digital technology Brussels has chosen to regulate horizontally, and the regulatory approach will set the operational reference for AI governance well beyond the European market.</p>
+          <p>The European Union's Artificial Intelligence Act, formally Regulation (EU) 2024/1689, is the first comprehensive AI law that regulates the technology across sectors instead of one industry at a time. It sorts AI systems by risk: some systems are banned, some carry transparency duties, and high-risk systems carry the serious stack of risk management, data governance, technical documentation, record-keeping, transparency, human oversight, accuracy, robustness, and cybersecurity, while general-purpose AI models get their own layer.</p>
 
-          <p>Each stage of the process matters operationally. The 2021 proposal set the architecture. The 2022 and 2023 negotiations added the general-purpose AI chapter, which did not exist in the original Commission text and was added in response to the public release of ChatGPT in November 2022. The May 2024 Council adoption made the Act binding European Union law. The July 2024 Official Journal publication started the clock on the staggered application calendar that the Act itself sets out. The 2024 and 2025 market reaction produced both the AI Pact (a voluntary compliance forum) and the standards-development work at CEN-CENELEC that the Act's compliance regime depends on. The Brussels Effect, the phenomenon by which European Union regulation becomes the global operational reference, has begun to take hold for AI in the same way it did for personal data after the General Data Protection Regulation took effect in 2018. And the May 2026 Digital Omnibus political agreement deferred the high-risk obligations by sixteen months, from August 2026 to December 2027.</p>
+          <p>The architecture matters because it turns AI governance into an operating problem, not only a legal classification exercise. The work lands across legal, compliance, risk, engineering, procurement, human resources, and the business line; in other words, a firm cannot answer the Act with one policy, one committee, or one vendor questionnaire.</p>
 
-          <h2>The Brussels Effect on AI</h2>
+          <p>The territorial scope is also broader than the usual shorthand suggests. The Act reaches providers placing AI systems on the EU market, deployers established or located in the EU, and providers or deployers whose AI system output is used in the EU. In sum, if the AI touches a European customer, employee, or counterparty, the firm should not assume the issue belongs somewhere else.</p>
 
-          <p>The General Data Protection Regulation entered into force in May 2018 and produced an effect that Anu Bradford named the year before: when European Union regulation of a digital activity is the strictest in the world, the cost of regional fragmentation for a global firm exceeds the cost of compliance with the European regime, and the European regime becomes the firm's global standard. The General Data Protection Regulation became the de facto privacy operating reference for global firms with European operations within eighteen months of taking effect. The same dynamic has begun for AI.</p>
+          <p>From there, the practical question becomes less dramatic and more expensive: is a global firm really going to run one AI governance model for Europe and another for everyone else?</p>
 
-          <p>A global investment bank with European subsidiaries, a global asset manager with European customers, or a global technology firm with European users cannot reasonably maintain two AI governance architectures: a stricter one inside the European perimeter and a looser one outside it. The cost of running two regimes, the audit complexity of explaining to any supervisor why two standards exist for the same technology, and the reputational cost of governing AI to different standards in different jurisdictions all exceed the cost of building the function once to the stricter regime and operating it globally. Large regulated institutions with European exposure face that calculus.</p>
+          <h2>Why the standard travels</h2>
 
-          <blockquote class="article__pullquote">"The companies that will be in the strongest and most defensible position by the time the new deadlines apply are those that use this additional time strategically." Dastra, advising clients after the May 2026 Omnibus agreement.</blockquote>
+          <p>People talk about the Brussels Effect like it is a theory, but for global companies it is more ordinary than that: paperwork becoming an operating model.</p>
 
-          <p>Other jurisdictions reference the European Union's approach when developing their own AI regimes. The United Kingdom's pro-innovation framework, Singapore's Model AI Governance Framework, Brazil's AI bill (which adopted a risk-based structure modelled on the European text), and the United States' sector-by-sector guidance under the Federal Reserve, the Office of the Comptroller of the Currency, and other regulators all sit in conversation with the European regime. A global firm that builds to satisfy the European Union's standards has, in practice, built to satisfy most of what the other regimes will ask for. A firm that builds to satisfy only its home regulator pays twice.</p>
+          <p>The GDPR case was the lesson. Once the European privacy regime began to apply in May 2018, global firms with European exposure had to decide whether privacy would be managed as a regional exception or as a global baseline. Many chose the baseline because the alternative was operationally ugly: two audit trails, two explanations, two sets of controls, and a permanent question about why one group of people receives weaker protection than another.</p>
 
-          <h2>The Omnibus delay, accurately read</h2>
+          <p>AI is moving into the same kind of operating logic. The United Kingdom, Singapore, Brazil, and the United States are not copying the EU word for word, and they do not need to. The grammar is converging anyway: inventory the systems, classify the risk, govern the data, document who can decide what, monitor the model, and explain where the human being sits.</p>
 
-          <p>On 7 May 2026, in the third political trilogue under the Cypriot Presidency, the Council of the European Union and the European Parliament reached provisional political agreement on the Digital Omnibus on AI. The agreement defers the application of the Act's high-risk obligations: standalone Annex III high-risk systems now apply from 2 December 2027, and high-risk AI systems embedded in Annex I regulated products apply from 2 August 2028. The Article 50(2) watermarking and transparency obligations for generative AI providers move from 2 August 2026 to 2 December 2026, a four-month grace rather than the six the Commission originally proposed. The provisional agreement is subject to formal adoption by the European Parliament and the Council. The Official Journal has not yet published. Until it does, the original deadlines remain the legally binding ones.</p>
+          <p>For multinational institutions, that convergence gives the AI Act its force even before every provision applies: it becomes a reference point for building the internal architecture once, instead of rebuilding the same architecture every time another regulator catches up.</p>
 
-          <p>The legislators were explicit about why the delay was granted. The Hogan Lovells advisory of May 2026 quotes the official framing directly: <em>"acknowledges that AI Act compliance requires significant preparation and the introduction of supporting technical standards. The delay is intended to provide businesses with additional time to achieve compliance, while underscoring the expectation that implementation efforts should already be underway."</em> Dastra's client advisory of the same period states the point even more plainly: <em>"The extension of certain deadlines under the Omnibus should not be interpreted as an invitation to pause AI governance efforts until 2027."</em> Modulos, advising compliance teams the week of the agreement, was blunter still: <em>"If you paused your AI Act preparation on the assumption that Brussels would keep moving the goalposts, the goalposts have stopped moving."</em></p>
+          <h2>What changed</h2>
 
-          <p>Three independent advisories naming the same misread suggest the misread is widespread. The shape of the misread is the same in each: firms reading the delay as a pause, recalibrating their internal timelines downward, and producing the late-stage scramble the legislators were trying to avoid. The supervisor reads what an institution operated during 2026 and 2027.</p>
+          <p>On 7 May 2026, the Council of the European Union and the European Parliament reached provisional political agreement on the Digital Omnibus on AI. Under the agreement, standalone Annex III high-risk systems would apply from 2 December 2027, high-risk AI systems embedded in regulated products would apply from 2 August 2028, and the Article 50(2) watermarking obligation for AI-generated content would apply from 2 December 2026.</p>
 
-          <h2>What moved and what did not</h2>
+          <p>A delayed deadline changes how quickly institutions need to finalize specific AI Act controls, especially where the compliance program depends on standards that are still being completed.</p>
+
+          <p>The deeper implementation problem remains the same. A firm still has to know which AI systems it uses, where those systems sit in the business, what data they touch, who owns the decision, which third parties sit underneath them, and what evidence would show that the system has been governed rather than merely purchased.</p>
+
+          <p>The provisional agreement still requires formal adoption by the European Parliament and the Council, and the Official Journal has not yet published the amendments. Until that happens, the original deadlines remain the legally binding ones.</p>
+
+          <h2>What is already live</h2>
 
           <div class="compare-grid">
             <div class="compare-panel moved">
@@ -431,7 +481,7 @@
               <ul>
                 <li><strong>Annex III standalone high-risk obligations</strong><span class="li-date">August 2026 to December 2027</span></li>
                 <li><strong>Annex I product-embedded high-risk obligations</strong><span class="li-date">August 2027 to August 2028</span></li>
-                <li><strong>Article 50(2) generative AI watermarking</strong><span class="li-date">August 2026 to December 2026</span></li>
+                <li><strong>Article 50(2) watermarking for AI-generated content</strong><span class="li-date">August 2026 to December 2026</span></li>
                 <li><strong>National AI regulatory sandboxes</strong><span class="li-date">August 2026 to August 2027</span></li>
               </ul>
             </div>
@@ -447,28 +497,30 @@
             </div>
           </div>
 
-          <p>The Article 4 AI literacy obligation has been applicable since 2 February 2025. It requires providers and deployers of AI systems to ensure a sufficient level of AI literacy among staff and contractors handling those systems. The obligation is proportionate to the role, the context, and the system. It requires a documented training program with role-appropriate content for every employee or contractor whose work touches AI. Most firms with firmwide AI deployments are already past the threshold at which the obligation attaches to thousands of people simultaneously. A firm cannot produce the documentation regime that proves compliance after the fact.</p>
+          <p>Article 4 AI literacy has applied since 2 February 2025, and although the obligation sounds soft on paper, it becomes evidentiary once a company has to explain who touched the system, what they knew, what they were trained to understand, and what the company told them about the system's limits, risks, and escalation path.</p>
 
-          <p>The Article 5 prohibitions on unacceptable AI practices have been in force since the same February 2025 date. The general-purpose AI provider obligations entered into application on 2 August 2025, with Commission enforcement powers attaching from 2 August 2026. Neither was delayed by the Omnibus. The Article 111(3) legacy carve-out gives providers of general-purpose models placed on the market before 2 August 2025 until 2 August 2027 to comply. The Article 50 transparency obligations that apply to deployers (the obligations to inform users when they are interacting with an AI system, when they are seeing content that has been generated or modified by AI, or when they are subject to an emotion-recognition or biometric-categorisation system) continue to apply from August 2026 as the Act originally provided. None of those moved.</p>
+          <p>A company cannot create that record at the moment a regulator asks for it. Training logs, escalation paths, role-based guidance, and actual usage discipline need time to become real.</p>
 
-          <h2>What the supervisor reads without the AI Act</h2>
+          <p>Article 5 prohibitions on unacceptable AI practices have also applied since February 2025. General-purpose AI provider obligations began applying on 2 August 2025, with Commission enforcement powers attaching from 2 August 2026. The Article 111(3) legacy carve-out gives providers of general-purpose models placed on the market before 2 August 2025 until 2 August 2027 to comply. Article 50 transparency obligations for deployers still arrive on their own schedule.</p>
 
-          <p>The AI Act is not the only regulatory regime under which a supervisor engages with a regulated institution's AI governance. Four standing regimes apply today, none of them dependent on the AI Act's timeline.</p>
+          <h2>The supervisor can get there first</h2>
 
-          <p>The General Data Protection Regulation has been in force since May 2018. Article 22 governs solely automated decision-making with legal or similarly significant effect, which is what credit decisioning, certain candidate-screening systems, and other regulated AI outputs produce. Article 35 requires a Data Protection Impact Assessment for high-risk processing, and the European Data Protection Board and national data protection authorities have been engaging on automated decision-making and on AI training data continuously since the Regulation took effect. None of this is delayed. None of it depends on the AI Act.</p>
+          <p>The AI Act is not the only doorway into AI governance. Banks, insurers, and large employers already operate under regimes that let supervisors examine risk management, outsourcing, operational resilience, automated decision-making, and worker or customer protection before the high-risk AI Act deadline arrives.</p>
 
-          <p>The European Banking Authority's Guidelines on internal governance require regulated credit institutions to maintain robust governance arrangements over all material activities. An AI deployment operating at firmwide scale across a bank is a material activity by any reasonable reading. The supervisor can examine the governance of that activity today under the existing internal-governance framework. The European Banking Authority's Guidelines on outsourcing arrangements require third-party risk management for any function that relies on external providers, which captures every firmwide AI tool that integrates externally-provided foundation models. The Digital Operational Resilience Act has been applicable since 17 January 2025 and governs information and communication technology risk, third-party ICT risk management, and operational resilience for financial entities. AI systems sit inside the perimeter as ICT services.</p>
+          <p>GDPR Article 22 already governs solely automated decision-making with legal or similarly significant effect, and GDPR Article 35 already requires Data Protection Impact Assessments for high-risk processing. For banks, the European Banking Authority's internal governance rules require firms to govern material activities, which means a firmwide AI deployment cannot be treated as a side experiment. The same logic runs through the EBA outsourcing rules for third-party providers, while DORA has applied since 17 January 2025 and already governs ICT risk, third-party ICT risk, and operational resilience for financial entities.</p>
 
-          <p>The European Central Bank's published supervisory priorities for 2026 through 2028, released 11 November 2025, name banks' AI strategies, governance, and risk management as a medium-term strategic focus across the three-year cycle. That document is the supervisor announcing where it intends to look. The announcement is not contingent on the AI Act timeline. The supervisor's authority to examine an institution's AI governance arrangements during 2026 and 2027 derives from the standing regimes already in force.</p>
+          <p>A supervisor does not need to wait for the high-risk AI Act deadline to ask whether a bank knows what its models are doing, who owns the decision, what vendor sits underneath it, and what happens when something breaks.</p>
 
-          <h2>Where institutions are already operating</h2>
+          <p>The European Central Bank's supervisory priorities for 2026 through 2028 name banks' digital and AI-related strategies, governance, and risk management as a medium-term focus. The supervisor has already told the market where it intends to look, and the Omnibus calendar does not control that attention.</p>
+
+          <h2>What the extra time is for</h2>
 
           <div class="ts-stat-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 2rem 0;">
 
             <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
               <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">3</div>
-              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">Independent law-firm and vendor advisories warning clients in May 2026 against treating the Omnibus delay as a pause.</div>
-              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Hogan Lovells, Dastra, Modulos</div>
+              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">The delay has one practical reason: the standards and support measures were not ready. Companies still have governance work to do.</div>
+              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Commission, Parliament, Council</div>
             </div>
 
             <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
@@ -491,11 +543,18 @@
 
           </div>
 
-          <p>Major global banks already have to operate the function under the standing regimes. What the supervisor reads in 2027 is what the institution has been operating during 2026. Start in mid-2027 and there is nothing for the supervisor to examine in early 2028. Start in 2025 and the documentation arrives by itself.</p>
+          <p>Companies with serious AI exposure already have to operate governance under the standing regimes. By 2027, the strongest institutions will not be introducing an AI governance program for the first time; they will be showing how the program has been operating through system inventories, decision-rights matrices across Legal, Compliance, Risk, Engineering, Human Resources, Procurement, and the business line, contractual allocation across the AI value chain under Article 25, data-flow discipline against GDPR Article 5 and AI Act Article 10, incident-response playbooks, and AI literacy programs by role.</p>
 
-          <p>The work is the same regardless of when the Act bites. Model-risk inventory. Decision-rights matrix across Legal, Compliance, Risk, Engineering, and the business line. Contractual allocation across the AI value chain (Article 25). Data-flow regime against GDPR Article 5 and Act Article 10. Incident-response playbook. AI literacy program by role. Each one has a non-AI-Act predecessor under the standing regimes.</p>
+          <p>Most of that work will happen in meetings, registers, vendor files, training records, and governance minutes, which is exactly why the extra time matters. It gives institutions room to make the system real before the legal deadline becomes the easy headline.</p>
 
-          <p>The Omnibus did not buy the market sixteen months. The Article 111(3) carve-out extends to August 2027 for grandfathered general-purpose AI models. The standing stack continues to engage everyone else. Article 4 literacy and Article 5 prohibitions have been applicable since February 2025. GDPR Article 22 governs automated decision-making with legal effect. The EBA Guidelines on internal governance and outsourcing cover credit institutions today. DORA covers ICT risk and operational resilience today. The ECB named banks' AI strategies, governance, and risk management a medium-term strategic focus for 2026 through 2028.</p>
+          <p>The market will want the Omnibus to mean delay, but the more serious read is sequencing. Use the time to build the record while the standards catch up to the law.</p>
+
+          <div class="article__footnotes">
+            <ol>
+              <li>Principal sources checked: Regulation (EU) 2024/1689, Article 113; European Parliament press release, 7 May 2026; Council of the EU press release, 7 May 2026; European Commission press release IP/26/1024, 7 May 2026; European Commission AI Act standardisation page; ECB Banking Supervision supervisory priorities 2026 to 2028.</li>
+              <li>The Digital Omnibus agreement remained subject to formal adoption and Official Journal publication when this piece was updated on 20 May 2026.</li>
+            </ol>
+          </div>
 
           <div class="article__cta">
             <a href="/contact/" class="btn">Discuss this analysis</a>
@@ -533,38 +592,38 @@
     var timelineData = {
       '1': {
         date: '21 April 2021',
-        title: 'The Commission proposes a horizontal AI regulation',
-        text: 'The European Commission publishes its proposal for a Regulation laying down harmonised rules on artificial intelligence. The proposal introduces the risk-based architecture that will survive the legislative process largely intact: unacceptable, high, limited, and minimal risk, with conformity assessment and CE-marking modelled on existing product-safety regimes. The proposal is the first attempt by a major jurisdiction to legislate AI horizontally rather than sector by sector.'
+        title: 'Brussels decides AI will not stay abstract',
+        text: 'The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.'
       },
       '2': {
         date: '2022 to December 2023',
-        title: 'Council and Parliament negotiate; GPAI is added',
-        text: 'The Council of the European Union adopts its general approach in December 2022. The European Parliament adopts its negotiating position in June 2023. The trilogue produces a provisional agreement on 9 December 2023, after the public release of ChatGPT in November 2022 forces the legislators to add a chapter on general-purpose AI models that did not exist in the original Commission proposal. The negotiations also tighten the high-risk Annex III categories and reshape the conformity-assessment architecture.'
+        title: 'ChatGPT changes the center of gravity',
+        text: 'The original proposal did not really know the generative AI moment was coming.<br><br>And then ChatGPT arrived.<br><br>The negotiations had to absorb general-purpose AI models, and the Act became something broader than the 2021 draft.'
       },
       '3': {
         date: '13 March to 21 May 2024',
-        title: 'The Act is adopted',
-        text: 'The European Parliament approves the Act on 13 March 2024 by 499 votes to 28 with 93 abstentions. The Council of the European Union unanimously adopts the Act on 21 May 2024. The Act becomes binding European Union law. The European Artificial Intelligence Office, launched in February 2024 within the European Commission, begins building the implementation infrastructure.'
+        title: 'The Act becomes law',
+        text: 'Parliament approved the Act in March 2024, with the Council adopting it in May. The legal debate becomes an implementation problem, which is where most companies start to feel the temperature change.'
       },
       '4': {
         date: '12 July 2024 to 1 August 2024',
-        title: 'The Act is published and enters into force',
-        text: 'The Act is published in the Official Journal of the European Union on 12 July 2024 as Regulation (EU) 2024/1689. It enters into force twenty days later, on 1 August 2024. The application calendar begins running: Articles 4 and 5 apply from 2 February 2025, general-purpose AI provider obligations from 2 August 2025, Annex III high-risk obligations from 2 August 2026, and Annex I product-embedded high-risk obligations from 2 August 2027.'
+        title: 'The clock starts',
+        text: 'Publication in the Official Journal starts the staggered calendar. Some obligations arrive quickly, others wait. The mistake is treating the later dates as the only dates that matter.'
       },
       '5': {
         date: '2024 through 2025',
-        title: 'The market reacts and standards are commissioned',
-        text: 'The European Commission requests harmonised technical standards from CEN-CENELEC in May 2023, with an initial 2025 deadline. The standards work proves more complex than anticipated and extends into 2026. The AI Pact, a voluntary compliance forum, launches. The European Artificial Intelligence Office publishes draft guidance on general-purpose AI models in July 2025. In October 2025, CEN-CENELEC adopts accelerated procedures to try to deliver key standards by the end of 2026. The standards problem becomes the operational reason the legislators eventually grant the delay.'
+        title: 'The hard becomes visible',
+        text: 'The standards work proves harder than the politics made it sound: companies cannot build clean compliance programs if the technical rails are still unfinished.'
       },
       '6': {
         date: '2025 to 2026',
-        title: 'The Brussels Effect takes hold',
-        text: 'Global firms with European operations begin building their AI governance architectures to satisfy the Act, on the same logic that produced the global adoption of GDPR-equivalent regimes after 2018. The United Kingdom publishes its pro-innovation framework. Brazil moves a risk-based AI bill through Congress. United States supervisors (the Federal Reserve, the Office of the Comptroller of the Currency) issue AI-related guidance referencing the European architecture. The Act becomes the de facto global operational reference for AI governance, in the same way the General Data Protection Regulation became the de facto global reference for personal data.'
+        title: 'The EU standard starts traveling',
+        text: 'Global firms do what global firms usually do when Europe sets a stricter digital rule: they start asking whether one global operating model is cheaper than regional fragmentation.'
       },
       '7': {
         date: '19 November 2025 to 7 May 2026',
-        title: 'The Digital Omnibus delays the high-risk obligations',
-        text: 'The European Commission publishes the Digital Omnibus on AI on 19 November 2025, proposing to defer the high-risk compliance deadlines. After three trilogues, the second collapsing on 28 April 2026, the Council and the Parliament reach provisional political agreement on 7 May 2026. Annex III standalone high-risk obligations move from August 2026 to December 2027. Annex I product-embedded obligations move to August 2028. Article 50(2) watermarking moves to December 2026. The Article 4 literacy obligation, the Article 5 prohibitions, and the general-purpose AI provider obligations are not delayed. Formal adoption by the Council and the Parliament is pending; the Official Journal has not yet published.'
+        title: 'The Omnibus moves the date',
+        text: 'The political agreement moves the high-risk deadlines. It does not move Article 4 literacy, Article 5 prohibitions, GDPR, DORA, EBA governance, and all the supervisory attention already gathering around AI.'
       }
     };
 
