@@ -578,13 +578,7 @@ p {
 }
 
 .differentiator__number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: var(--text-4xl);
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: var(--space-2);
-  display: block;
+  display: none;
 }
 
 .differentiator__title {
@@ -594,6 +588,18 @@ p {
   color: var(--cream);
   margin-bottom: var(--space-3);
   line-height: 1.2;
+  position: relative;
+  padding-top: var(--space-4);
+}
+
+.differentiator__title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 66.67%;
+  height: 1px;
+  background-color: var(--gold);
 }
 
 .differentiator__body {
