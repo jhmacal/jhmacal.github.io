@@ -1234,6 +1234,37 @@ input[type='range']::-moz-range-track {
   border: 1px solid rgba(212, 176, 104, 0.25);
 }
 
+/* Tools list (editorial layout) */
+.tools-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+}
+
+.tools-list__item {
+  display: block;
+}
+
+.tools-list__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+
+.tools-list__body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--text-sm);
+  color: rgba(244, 237, 224, 0.65);
+  line-height: 1.7;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
 /* ============================================================
    19. RESUME LAYOUT
    ============================================================ */
