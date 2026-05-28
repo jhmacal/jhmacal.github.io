@@ -64,17 +64,18 @@
       hyphens: none;
     }
     .article__body h2 {
-      margin-top: 2.8rem;
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 650;
-      letter-spacing: 0.04em;
-      font-variant: small-caps;
-      color: rgba(201, 169, 97, 0.86);
+      margin-top: 3.2rem;
+      margin-bottom: 1.2rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      font-variant: normal;
+      color: #c9a961;
+      line-height: 1.2;
     }
     .article__body .article__byline + h2 {
-      margin-top: 1.2rem;
+      margin-top: 1.6rem;
     }
     .article__cta {
       margin-top: 3rem;
@@ -346,6 +347,260 @@
       max-width: 540px;
       line-height: 1.5;
     }
+
+    /* ===== Article 4 verbatim quote ===== */
+    .article__quote {
+      margin: 1.6rem 0 1.8rem;
+      padding: 0.4rem 1.4rem;
+      border-left: 2px solid rgba(201, 169, 97, 0.5);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.55;
+      color: rgba(240, 230, 210, 0.86);
+    }
+
+    /* ===== Dual independent carousels ===== */
+    .dual-carousels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2.5rem 0 0.8rem;
+    }
+    .carousel {
+      background: #0d1a30;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+    .carousel__head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.07);
+    }
+    .carousel__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.22rem 0.55rem;
+      border-radius: 3px;
+    }
+    .carousel__label--live {
+      color: #0d1a30;
+      background: #c9a961;
+    }
+    .carousel__label--postponed {
+      color: #f0e6d2;
+      background: rgba(184, 120, 60, 0.85);
+    }
+    .carousel__sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(240, 230, 210, 0.55);
+    }
+    .carousel__viewport {
+      overflow: hidden;
+      flex: 1;
+      position: relative;
+    }
+    .carousel__track {
+      display: flex;
+      transition: transform 0.35s ease;
+      will-change: transform;
+    }
+    .carousel__card {
+      flex: 0 0 100%;
+      min-width: 0;
+      padding: 0.4rem 0.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .carousel__article-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: 1.05;
+      color: #f0e6d2;
+      letter-spacing: -0.005em;
+    }
+    .carousel__obligation {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(240, 230, 210, 0.62);
+      font-weight: 500;
+    }
+    .carousel__definition {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(240, 230, 210, 0.85);
+      margin: 0.15rem 0 0;
+    }
+    .carousel__date {
+      margin-top: auto;
+      padding-top: 0.7rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #c9a961;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+    }
+    .carousel__nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 0.5px solid rgba(244, 237, 224, 0.07);
+    }
+    .carousel__arrow {
+      background: transparent;
+      border: 0.5px solid rgba(201, 169, 97, 0.45);
+      color: #c9a961;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .carousel__arrow:hover {
+      background: rgba(201, 169, 97, 0.16);
+      border-color: #c9a961;
+      color: #f0e6d2;
+    }
+    .carousel__arrow:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .carousel__counter {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: rgba(240, 230, 210, 0.55);
+      font-variant-numeric: tabular-nums;
+    }
+    .carousel__counter [data-current] { color: #c9a961; }
+
+    /* Block-level watermark used under carousels and the 2x2 grid */
+    .block-watermark {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.72rem;
+      line-height: 1.55;
+      color: rgba(240, 230, 210, 0.35);
+      text-align: right;
+      margin: 0.4rem 0 2.5rem;
+    }
+    .block-watermark--right { text-align: right; }
+
+    /* ===== Four-move governance 2x2 hover-reveal quadrant ===== */
+    .gov-reveal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+      margin: 2.6rem 0 0.4rem;
+    }
+    .gov-reveal__card {
+      position: relative;
+      background: #0d1a30;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      border-radius: 12px;
+      padding: 1.6rem 1.6rem 1.4rem;
+      min-height: 230px;
+      overflow: hidden;
+      cursor: default;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .gov-reveal__card:hover,
+    .gov-reveal__card:focus-within {
+      border-color: rgba(201, 169, 97, 0.6);
+      background: #0e1c34;
+    }
+    .gov-reveal__card:focus-visible { outline: none; }
+    .gov-reveal__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #c9a961;
+      line-height: 1.1;
+      margin: 0;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      transition: opacity 0.28s ease;
+      pointer-events: none;
+    }
+    .gov-reveal__content {
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .gov-reveal__body {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(240, 230, 210, 0.86);
+      margin: 0;
+      flex: 1;
+    }
+    .gov-reveal__source {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.76rem;
+      line-height: 1.45;
+      color: rgba(240, 230, 210, 0.5);
+      margin: 0.9rem 0 0;
+      padding-top: 0.5rem;
+      border-top: 0.5px solid rgba(244, 237, 224, 0.05);
+    }
+    .gov-reveal__card:hover .gov-reveal__title,
+    .gov-reveal__card:focus-within .gov-reveal__title { opacity: 0; }
+    .gov-reveal__card:hover .gov-reveal__content,
+    .gov-reveal__card:focus-within .gov-reveal__content { opacity: 1; }
+
+    @media (max-width: 720px) {
+      .dual-carousels { grid-template-columns: 1fr; }
+      .carousel { min-height: 320px; }
+      .carousel__article-name { font-size: 1.9rem; }
+      .gov-reveal { grid-template-columns: 1fr; }
+    }
+    /* Touch-first fallback: no hover available -> show body by default */
+    @media (hover: none) {
+      .gov-reveal__card { min-height: auto; }
+      .gov-reveal__title {
+        position: static;
+        inset: auto;
+        display: block;
+        text-align: left;
+        padding: 0;
+        margin: 0 0 0.7rem;
+        font-size: 1.7rem;
+      }
+      .gov-reveal__content { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -383,17 +638,16 @@
 
           <h2>What the delay means</h2>
 
-          <p class="lede">The Digital Omnibus gives regulated companies a tempting sentence to repeat in meetings: high-risk AI obligations now land in December 2027.</p>
+          <p class="lede">The Digital Omnibus gives regulated companies a tempting sentence to repeat in meetings: high-risk AI obligations only land in December 2027.</p>
 
           <p>Many will read that sentence as permission to wait, but the operating picture already says something else.</p>
 
-          <p>Deadlines move budgets, staffing plans, board attention, and the internal politics of who gets to own a new compliance problem. A sixteen-month shift changes the rhythm of implementation, but regulated institutions do not live by one calendar. They live inside overlapping regimes, supervisory priorities, audit trails, vendor contracts, risk committees, and the slow evidence of what the company actually did before someone asked for proof. That is the part of the Omnibus story most likely to get lost.</p>
+          <p>Deadlines move budgets, staffing plans, board attention, and the internal politics of who gets to own a new compliance problem. A sixteen-month shift changes the rhythm of implementation, but regulated institutions do not live by one calendar. They live inside overlapping regimes, supervisory priorities, audit trails, vendor contracts, risk committees, and the slow evidence of what the company actually did before someone asked for proof.</p>
 
           <p>The EU failed to finalize the standards and support measures in time, which bought companies more time to build cleanly. The institutions that use that time well will not treat AI governance as a 2027 project.</p>
 
           <div class="omnibus-timeline">
-            <p class="omnibus-timeline__label">Seven Moves</p>
-            <p class="omnibus-timeline__title">How the deadline moved, and what did not</p>
+            <p class="omnibus-timeline__title" style="margin-top: 0.2rem; margin-bottom: 1.4rem; font-style: normal; font-size: 1.45rem; color: #c9a961; font-weight: 500;">The EU AI Act in Seven Moves</p>
 
             <div class="omnibus-timeline__track" role="tablist">
               <button class="timeline-node active" data-step="1" role="tab" aria-selected="true">
@@ -439,32 +693,47 @@
               <p>The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.</p>
             </div>
 
-            <p class="omnibus-timeline__source">sources: Regulation (EU) 2024/1689; Council, Parliament, and Commission materials</p>
           </div>
 
           <h2>What the Act demands</h2>
 
-          <p>The European Union's Artificial Intelligence Act, formally Regulation (EU) 2024/1689, is the first comprehensive AI law that regulates the technology across sectors instead of one industry at a time. It sorts AI systems by risk: some systems are banned, some carry transparency duties, and high-risk systems carry the serious stack of risk management, data governance, technical documentation, record-keeping, transparency, human oversight, accuracy, robustness, and cybersecurity, while general-purpose AI models get their own layer.</p>
+          <p>The European Union's Artificial Intelligence Act, formally Regulation (EU) 2024/1689, is the first comprehensive AI law that regulates the technology across sectors instead of one industry at a time. It sorts AI systems by risk: unacceptable, high, limited, minimal.</p>
+
+          <p>Article 5 prohibited practices are the Act's banned category, and they have applied since 2 February 2025. They include harmful manipulative or exploitative techniques, certain forms of social scoring, untargeted scraping for facial-recognition databases, certain emotion-recognition uses in workplaces and schools, and some predictive-policing practices. The ban is real, but some categories carry narrow statutory exceptions.</p>
+
+          <p>High-risk AI, listed in the Annexes III and I of the Act, are systems whose failure or misuse could cause significant harm to health, safety, or fundamental rights. Examples: AI in employment decisions, essential public and private services (including credit scoring), law enforcement, the administration of justice (Annex III), and AI embedded in regulated products like medical devices, machinery, and vehicles (Annex I).</p>
+
+          <p>Both must have a structure in place for risk management, data governance, technical documentation, record-keeping, transparency, human oversight, accuracy, robustness, and cybersecurity.</p>
+
+          <p>Limited-risk AI are systems that interact with humans or generate content in ways that could mislead without proper disclosure, such as chatbots and AI-generated or manipulated image, audio, video, or text content including deepfakes. For these, the user has to be told they are interacting with AI or viewing AI-generated content.</p>
+
+          <p>Article 50 of the Act regulates on "Transparency Obligations for Providers and Deployers of Certain AI Systems". Paragraph (2) establishes the watermarking obligation, which requires providers of AI systems generating synthetic audio, image, video, or text to mark those outputs in a machine-readable format and ensure they are detectable as artificially generated or manipulated. Paragraph (4) puts the deployer-side obligation on deepfakes specifically, and a parallel obligation applies to AI-generated text published to inform the public on matters of public interest, except where the content has undergone human review or editorial responsibility has been assumed by a natural or legal person.</p>
+
+          <p>Minimal-risk AI is everything else, such as spam filters, AI in video games and basic recommendation engines. These are largely unregulated under the Act, though they remain subject to other applicable law (GDPR, sectoral rules, consumer protection).</p>
+
+          <p>General-purpose AI models sit outside the four-risk taxonomy. These are models trained on broad data and capable of competently performing a wide range of tasks regardless of the domain in which they are eventually deployed.</p>
 
           <p>The architecture matters because it turns AI governance into an operating problem, not only a legal classification exercise. The work lands across legal, compliance, risk, engineering, procurement, human resources, and the business line; in other words, a firm cannot answer the Act with one policy, one committee, or one vendor questionnaire.</p>
 
           <p>The territorial scope is also broader than the usual shorthand suggests. The Act reaches providers placing AI systems on the EU market, deployers established or located in the EU, and providers or deployers whose AI system output is used in the EU. In sum, if the AI touches a European customer, employee, or counterparty, the firm should not assume the issue belongs somewhere else.</p>
 
-          <p>From there, the practical question becomes less dramatic and more expensive: is a global firm really going to run one AI governance model for Europe and another for everyone else?</p>
-
           <h2>Why the standard travels</h2>
 
-          <p>People talk about the Brussels Effect like it is a theory, but for global companies it is more ordinary than that: paperwork becoming an operating model.</p>
+          <p>Simply put, the Brussels Effect.</p>
 
-          <p>The GDPR case was the lesson. Once the European privacy regime began to apply in May 2018, global firms with European exposure had to decide whether privacy would be managed as a regional exception or as a global baseline. Many chose the baseline because the alternative was operationally ugly: two audit trails, two explanations, two sets of controls, and a permanent question about why one group of people receives weaker protection than another.</p>
+          <p>In definition, it is the EU's ability to set rules that companies operating across borders adopt worldwide rather than maintain two systems.</p>
 
-          <p>AI is moving into the same kind of operating logic. The United Kingdom, Singapore, Brazil, and the United States are not copying the EU word for word, and they do not need to. The grammar is converging anyway: inventory the systems, classify the risk, govern the data, document who can decide what, monitor the model, and explain where the human being sits.</p>
+          <p>The clearest was the GDPR - General Data Protection Regulation. Once the European privacy regime began to apply in May 2018, global firms with European exposure had to decide whether privacy would be managed as a regional exception or as a global baseline. Many chose the baseline because the alternative was operationally ugly: two audit trails, two explanations, two sets of controls, and a permanent question about why one group of people receives weaker protection than another.</p>
 
-          <p>For multinational institutions, that convergence gives the AI Act its force even before every provision applies: it becomes a reference point for building the internal architecture once, instead of rebuilding the same architecture every time another regulator catches up.</p>
+          <p>AI is moving into the same kind of operating logic. The United Kingdom, Singapore, Brazil, and the United States are not copying the EU word for word. Even so, the grammar is converging: inventory the systems, classify the risk, govern the data, document who can decide what, monitor the model, and explain where the human being sits.</p>
+
+          <p>For multinational institutions, that convergence gives the AI Act its force even before every provision applies. It becomes the reference point for building the internal architecture once, instead of rebuilding the same architecture every time another regulator catches up.</p>
 
           <h2>What changed</h2>
 
-          <p>On 7 May 2026, the Council of the European Union and the European Parliament reached provisional political agreement on the Digital Omnibus on AI. Under the agreement, standalone Annex III high-risk systems would apply from 2 December 2027, high-risk AI systems embedded in regulated products would apply from 2 August 2028, and the Article 50(2) watermarking obligation for AI-generated content would continue to apply from 2 August 2026, with a transitional grace period that requires full compliance by 2 December 2026.</p>
+          <p>On 7 May 2026, the Council of the European Union and the European Parliament reached provisional political agreement on the Digital Omnibus on AI. Under the agreement, standalone Annex III high-risk systems will apply from 2 December 2027.</p>
+
+          <p>High-risk AI systems embedded in regulated products will apply from 2 August 2028. Article 50(2) sits on a shorter track: the agreement gives providers until 2 December 2026 to implement the technical measures for marking AI-generated audio, image, video, and text in a machine-readable and detectable format.</p>
 
           <p>A delayed deadline changes how quickly institutions need to finalize specific AI Act controls, especially where the compliance program depends on standards that are still being completed.</p>
 
@@ -474,85 +743,239 @@
 
           <h2>What is already live</h2>
 
-          <div class="compare-grid">
-            <div class="compare-panel moved">
-              <p class="compare-panel__label">What moved</p>
-              <h4>Deferred under the Omnibus agreement</h4>
-              <ul>
-                <li><strong>Annex III standalone high-risk obligations</strong><span class="li-date">August 2026 to December 2027</span></li>
-                <li><strong>Annex I product-embedded high-risk obligations</strong><span class="li-date">August 2027 to August 2028</span></li>
-                <li><strong>Article 50(2) watermarking transitional period for AI-generated content</strong><span class="li-date">August 2026 to December 2026</span></li>
-                <li><strong>National AI regulatory sandboxes</strong><span class="li-date">August 2026 to August 2027</span></li>
-              </ul>
-            </div>
-            <div class="compare-panel stayed">
-              <p class="compare-panel__label">What stayed</p>
-              <h4>In force today, or arriving on schedule</h4>
-              <ul>
-                <li><strong>Article 4 AI literacy obligation</strong><span class="li-date">Applicable since February 2025</span></li>
-                <li><strong>Article 5 prohibitions on unacceptable AI</strong><span class="li-date">Applicable since February 2025</span></li>
-                <li><strong>General-purpose AI provider obligations</strong><span class="li-date">Applicable since August 2025</span></li>
-                <li><strong>Other Article 50 transparency obligations for deployers</strong><span class="li-date">Applicable from August 2026</span></li>
-              </ul>
+          <p>Article 4 AI literacy has applied since 2 February 2025:</p>
+
+          <blockquote class="article__quote">Providers and deployers of AI systems shall take measures to ensure (…) AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf (…)</blockquote>
+
+          <p>It might sound soft on paper, but it can become an evidentiary burden once a company has to explain who touched the system, what they knew, what they were trained to understand, and what the company told them about the system's limits, risks, and escalation path.</p>
+
+          <p>A company cannot create that record the moment a regulator asks for it. Training logs, escalation paths, role-based guidance, and actual usage discipline need time to become real.</p>
+
+          <p>Article 5 prohibited practices have also applied since 2 February 2025. That means the Act's banned category is already live, even if the high-risk compliance stack has moved.</p>
+
+          <p>General-purpose AI provider obligations began applying on 2 August 2025, such as maintaining documentation about the model's training, testing, and evaluation available for authorities; complying with EU copyright law, such as respecting opt-outs of text and data mining; and publishing a sufficiently detailed summary of the content used for training the model, using a template provided by the AI Office.</p>
+
+          <p>Enforcement powers for General-purpose AI providers will attach from 2 August 2026. The Commission will have authority to require providers to give documentation, training information, and explanations; conduct or commission evaluations of GPAI models, including access to the model for testing; require providers to take corrective action where compliance gaps are found.</p>
+
+          <div class="ts-stat-feature" style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.45); border-radius: 14px; padding: 2.25rem 2rem; margin: 2.25rem 0; display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 2rem; align-items: center;">
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 88px; font-weight: 500; color: #c9a961; line-height: 1; letter-spacing: -0.02em;">7%</div>
+            <div>
+              <div style="font-size: 16px; color: #f0e6d2; line-height: 1.55; margin-bottom: 10px; font-weight: 500;">Of worldwide annual turnover, or &euro;35 million, whichever is higher. Maximum fine under Article 99 for breaching the Article 5 prohibitions on unacceptable AI.</div>
+              <div style="font-size: 12px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
             </div>
           </div>
 
-          <p>Article 4 AI literacy has applied since 2 February 2025, and although the obligation sounds soft on paper, it becomes evidentiary once a company has to explain who touched the system, what they knew, what they were trained to understand, and what the company told them about the system's limits, risks, and escalation path.</p>
+          <p>The fines, under Article 101, are up to 3% of global annual turnover or &euro;15 million, whichever is higher, and becomes enforceable on 2 August 2026.</p>
 
-          <p>A company cannot create that record at the moment a regulator asks for it. Training logs, escalation paths, role-based guidance, and actual usage discipline need time to become real.</p>
+          <p>Between 2 August 2025 and 2 August 2026, the GPAI obligations are live, but the Commission's direct GPAI enforcement powers have not yet attached.</p>
 
-          <p>Article 5 prohibitions on unacceptable AI practices have also applied since February 2025. General-purpose AI provider obligations began applying on 2 August 2025, with Commission enforcement powers attaching from 2 August 2026. The Article 111(3) legacy carve-out gives providers of general-purpose models placed on the market before 2 August 2025 until 2 August 2027 to comply. Article 50 transparency obligations for deployers still arrive on their own schedule.</p>
+          <p>Providers still need to comply during that window because the record they create before 2 August 2026 can become the record the Commission examines once its GPAI supervisory powers and penalty authority attach.</p>
+
+          <p>The market has started pricing compliance during this window. Downstream deployers integrating GPAI into high-risk systems need the upstream information from GPAI providers to meet their own obligations, and providers who don't deliver get cut out of downstream deals.</p>
+
+          <p>Article 111(3) gives providers of general-purpose models placed on the market before 2 August 2025 until 2 August 2027 to comply. That legacy runway does not move Article 50 transparency obligations, which remain on their own schedule.</p>
+
+          <div class="dual-carousels" aria-label="Live and postponed AI Act obligations">
+
+            <div class="carousel" data-carousel="live" data-card-count="7">
+              <div class="carousel__head">
+                <span class="carousel__label carousel__label--live">LIVE</span>
+                <span class="carousel__sub">In force today</span>
+              </div>
+              <div class="carousel__viewport">
+                <div class="carousel__track" data-track>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Article 4</div>
+                    <div class="carousel__obligation">AI literacy</div>
+                    <p class="carousel__definition">Providers and deployers must ensure their staff and anyone operating AI on their behalf have a sufficient understanding of the systems they use.</p>
+                    <div class="carousel__date">Applicable since 2 February 2025</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Article 5</div>
+                    <div class="carousel__obligation">Prohibitions on unacceptable AI</div>
+                    <p class="carousel__definition">The Act's banned category, including certain social-scoring, untargeted facial-scraping, manipulative, and exploitative AI practices.</p>
+                    <div class="carousel__date">Applicable since 2 February 2025</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">GPAI</div>
+                    <div class="carousel__obligation">Provider obligations</div>
+                    <p class="carousel__definition">Documentation, copyright compliance, and a published training-data summary for general-purpose AI models placed on the market.</p>
+                    <div class="carousel__date">Applicable since 2 August 2025</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">DORA</div>
+                    <div class="carousel__obligation">Operational resilience</div>
+                    <p class="carousel__definition">Regulation (EU) 2022/2554. ICT risk, third-party ICT risk, and operational resilience for financial entities.</p>
+                    <div class="carousel__date">Applicable since 17 January 2025</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">GDPR</div>
+                    <div class="carousel__obligation">Articles 22 and 35</div>
+                    <p class="carousel__definition">The right not to be subject to solely automated decisions with significant effect, and the duty to run impact assessments for high-risk processing.</p>
+                    <div class="carousel__date">Applicable since 25 May 2018</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">NIS2</div>
+                    <div class="carousel__obligation">Cybersecurity directive</div>
+                    <p class="carousel__definition">Directive (EU) 2022/2555. Cybersecurity risk management and incident reporting for essential and important entities.</p>
+                    <div class="carousel__date">Transposition deadline 17 October 2024</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">DSA</div>
+                    <div class="carousel__obligation">Digital Services Act</div>
+                    <p class="carousel__definition">Regulation (EU) 2022/2065. Systemic risk assessment and mitigation duties for very large online platforms and search engines.</p>
+                    <div class="carousel__date">Fully applicable since 17 February 2024</div>
+                  </article>
+
+                </div>
+              </div>
+              <div class="carousel__nav">
+                <button class="carousel__arrow" data-dir="prev" aria-label="Previous live obligation">&#8592;</button>
+                <span class="carousel__counter"><span data-current>1</span> / <span data-total>7</span></span>
+                <button class="carousel__arrow" data-dir="next" aria-label="Next live obligation">&#8594;</button>
+              </div>
+            </div>
+
+            <div class="carousel" data-carousel="postponed" data-card-count="5">
+              <div class="carousel__head">
+                <span class="carousel__label carousel__label--postponed">POSTPONED</span>
+                <span class="carousel__sub">Deferred under the Omnibus</span>
+              </div>
+              <div class="carousel__viewport">
+                <div class="carousel__track" data-track>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Annex III</div>
+                    <div class="carousel__obligation">High-risk obligations</div>
+                    <p class="carousel__definition">The risk management, data governance, documentation, oversight, and cybersecurity stack for standalone high-risk uses such as employment, credit scoring, and law enforcement.</p>
+                    <div class="carousel__date">Moved from 2 August 2026 to 2 December 2027</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Annex I</div>
+                    <div class="carousel__obligation">Product-embedded high-risk</div>
+                    <p class="carousel__definition">High-risk obligations for AI built into regulated products such as medical devices, machinery, and vehicles.</p>
+                    <div class="carousel__date">Moved from 2 August 2027 to 2 August 2028</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Article 50(2)</div>
+                    <div class="carousel__obligation">Watermarking</div>
+                    <p class="carousel__definition">The duty on providers to mark AI-generated audio, image, video, and text as artificially generated in a machine-readable format.</p>
+                    <div class="carousel__date">Transitional period moved to 2 December 2026</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Sandboxes</div>
+                    <div class="carousel__obligation">National AI regulatory sandboxes</div>
+                    <p class="carousel__definition">The controlled environments member states must establish for testing AI under regulatory supervision.</p>
+                    <div class="carousel__date">Moved from 2 August 2026 to 2 August 2027</div>
+                  </article>
+
+                  <article class="carousel__card">
+                    <div class="carousel__article-name">Article 111</div>
+                    <div class="carousel__obligation">Public sector legacy systems</div>
+                    <p class="carousel__definition">High-risk AI already in use by public authorities before August 2026 gets the longest runway in the Act to reach full compliance.</p>
+                    <div class="carousel__date">Compliance required by 2 August 2030</div>
+                  </article>
+
+                </div>
+              </div>
+              <div class="carousel__nav">
+                <button class="carousel__arrow" data-dir="prev" aria-label="Previous postponed obligation">&#8592;</button>
+                <span class="carousel__counter"><span data-current>1</span> / <span data-total>5</span></span>
+                <button class="carousel__arrow" data-dir="next" aria-label="Next postponed obligation">&#8594;</button>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="block-watermark">Subject to change until the Omnibus is published in the Official Journal<br>By Julio Macedo<br>jhmacal.com</p>
 
           <h2>The supervisor can get there first</h2>
 
           <p>The AI Act is not the only doorway into AI governance. Banks, insurers, and large employers already operate under regimes that let supervisors examine risk management, outsourcing, operational resilience, automated decision-making, and worker or customer protection before the high-risk AI Act deadline arrives.</p>
 
-          <p>GDPR Article 22 already governs solely automated decision-making with legal or similarly significant effect, and GDPR Article 35 already requires Data Protection Impact Assessments for high-risk processing. For banks, the European Banking Authority's internal governance rules require firms to govern material activities, which means a firmwide AI deployment cannot be treated as a side experiment. The same logic runs through the EBA outsourcing rules for third-party providers, while DORA has applied since 17 January 2025 and already governs ICT risk, third-party ICT risk, and operational resilience for financial entities.</p>
+          <p>GDPR Article 22 already gives people the right not to be subject to a decision based solely on automated processing that produces legal or similarly significant effects on them. GDPR Article 35 already requires a Data Protection Impact Assessment before processing likely to result in high risk to the rights and freedoms of natural persons.</p>
 
-          <p>A supervisor does not need to wait for the high-risk AI Act deadline to ask whether a bank knows what its models are doing, who owns the decision, what vendor sits underneath it, and what happens when something breaks.</p>
+          <p>The Digital Services Act (DSA), Regulation (EU) 2022/2065, the EU's framework for online platforms and intermediary services, designates Very Large Online Platforms and Very Large Online Search Engines (VLOPs and VLOSEs) and imposes systemic risk assessment duties under Article 34 and risk mitigation duties under Article 35.</p>
 
-          <p>The European Central Bank's supervisory priorities for 2026 through 2028 name banks' digital and AI-related strategies, governance, and risk management as a medium-term focus. The supervisor has already told the market where it intends to look, and the Omnibus calendar does not control that attention.</p>
+          <p>For banks, the European Banking Authority (EBA) internal governance rules require firms to govern material activities, which means a firmwide AI deployment cannot be treated as a side experiment. The same logic runs through the EBA outsourcing rules for third-party providers. The Digital Operational Resilience Act (DORA), Regulation (EU) 2022/2554, which governs ICT risk, third-party ICT risk, and operational resilience for financial entities, has applied since 17 January 2025.</p>
+
+          <p>The NIS2 Directive, Directive (EU) 2022/2555, the EU's cybersecurity framework for essential and important entities, set a transposition deadline of 17 October 2024 and governs cybersecurity risk management and incident reporting in sectors that include digital infrastructure, ICT service management, public administration, and others. For covered entities, AI tools used in cybersecurity, or AI systems whose failure creates ICT exposure, can become part of the NIS2 risk-management and incident-reporting record.</p>
+
+          <p>The Medical Device Regulation (MDR), Regulation (EU) 2017/745, and the In Vitro Diagnostic Regulation (IVDR), Regulation (EU) 2017/746, already govern AI used in medical devices and in vitro diagnostics. Annex I of the AI Act lists both regimes as carrying the high-risk obligations once the AI Act deadlines apply.</p>
+
+          <p>National employment and labor regulators across Member States already supervise AI used in recruitment, performance evaluation, and termination through standing labor law and national data protection law, and several Member States have added rules specifically on algorithmic decision-making in employment.</p>
+
+          <p>A supervisor does not need to wait for the high-risk AI Act deadline to ask whether a company knows what its models are doing, who owns the decision, what vendor sits underneath it, and what happens when something breaks.</p>
 
           <h2>What the extra time is for</h2>
 
-          <div class="ts-stat-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 2rem 0;">
+          <p>Companies with serious AI exposure already must operate governance under the standing regimes. By 2027, the strongest institutions will be showing how the program has been operating through system inventories, decision-rights matrices across Legal, Compliance, Risk, Engineering, Human Resources, Procurement, and the business line, contractual allocation across the AI value chain under Article 25, data-flow discipline against GDPR Article 5 and AI Act Article 10, incident-response playbooks, and AI literacy programs by role.</p>
 
-            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
-              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">1</div>
-              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">The delay has one practical reason: the standards and support measures were not ready. Companies still have governance work to do.</div>
-              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Commission, Parliament, Council</div>
-            </div>
+          <div class="gov-reveal" aria-label="Four operational moves, hover to reveal each one's detail">
+            <article class="gov-reveal__card" tabindex="0">
+              <h3 class="gov-reveal__title">Inventory</h3>
+              <div class="gov-reveal__content">
+                <p class="gov-reveal__body">Maintain a central register of AI systems with owner, use case, deployment status, data provenance, model dependencies, and risk tier. Update it at procurement, release, material change, and decommissioning.</p>
+                <p class="gov-reveal__source">NIST AI 600-1 (July 2024); European Commission internal use of AI factsheet (October 2025).</p>
+              </div>
+            </article>
 
-            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
-              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">2&thinsp;Dec&thinsp;2027</div>
-              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">New fixed application date for Annex III standalone high-risk AI obligations under the Digital Omnibus agreement.</div>
-              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Council and Parliament agreement, 7 May 2026</div>
-            </div>
+            <article class="gov-reveal__card" tabindex="0">
+              <h3 class="gov-reveal__title">Mapping</h3>
+              <div class="gov-reveal__content">
+                <p class="gov-reveal__body">Map who acts as provider, deployer, controller, processor, joint controller, vendor, or downstream operator, then preserve the decision boundaries in DPIAs, contracts, system specifications, and supplier reviews.</p>
+                <p class="gov-reveal__source">ICO Data Protection Audit Framework, AI toolkit (October 2024); NIST AI 600-1 (July 2024).</p>
+              </div>
+            </article>
 
-            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
-              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">Feb&thinsp;2025</div>
-              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">Article 4 AI literacy and Article 5 prohibitions already in force. Compliance is examinable today.</div>
-              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689</div>
-            </div>
+            <article class="gov-reveal__card" tabindex="0">
+              <h3 class="gov-reveal__title">Literacy</h3>
+              <div class="gov-reveal__content">
+                <p class="gov-reveal__body">Give staff role-specific AI, data protection, and oversight training before access or responsibility, then retain completion evidence, assessment results, refresh dates, and non-completion follow-up.</p>
+                <p class="gov-reveal__source">ICO Data Protection Audit Framework, Accountability toolkit (October 2024); NIST AI 600-1 (July 2024).</p>
+              </div>
+            </article>
 
-            <div style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.3); border-radius: 12px; padding: 1.5rem;">
-              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 500; color: #c9a961; line-height: 1.05; margin-bottom: 12px;">7%</div>
-              <div style="font-size: 14px; color: #f0e6d2; line-height: 1.55; margin-bottom: 14px;">Of worldwide annual turnover, or &euro;35M, whichever is higher: maximum fine under Article 99 for breaching the Article 5 prohibitions.</div>
-              <div style="font-size: 11px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
-            </div>
-
+            <article class="gov-reveal__card" tabindex="0">
+              <h3 class="gov-reveal__title">Human-in-the-Loop</h3>
+              <div class="gov-reveal__content">
+                <p class="gov-reveal__body">Require qualified reviewers to intervene at defined risk thresholds, record overrides, capture reasons, and report review outcomes to accountable management or governance owners.</p>
+                <p class="gov-reveal__source">ICO Data Protection Audit Framework, AI toolkit, Human review (October 2024).</p>
+              </div>
+            </article>
           </div>
 
-          <p>Companies with serious AI exposure already have to operate governance under the standing regimes. By 2027, the strongest institutions will not be introducing an AI governance program for the first time; they will be showing how the program has been operating through system inventories, decision-rights matrices across Legal, Compliance, Risk, Engineering, Human Resources, Procurement, and the business line, contractual allocation across the AI value chain under Article 25, data-flow discipline against GDPR Article 5 and AI Act Article 10, incident-response playbooks, and AI literacy programs by role.</p>
+          <p class="block-watermark block-watermark--right">By Julio Macedo<br>jhmacal.com</p>
 
           <p>Most of that work will happen in meetings, registers, vendor files, training records, and governance minutes, which is exactly why the extra time matters. It gives institutions room to make the system real before the legal deadline becomes the easy headline.</p>
 
-          <p>The market will want the Omnibus to mean delay, but the more serious read is sequencing. Use the time to build the record while the standards catch up to the law.</p>
+          <p>Use the time to build the record while the standards catch up to the law.</p>
 
           <div class="article__footnotes">
             <ol>
-              <li>Principal sources checked: Regulation (EU) 2024/1689, Article 113; European Parliament press release, 7 May 2026; Council of the EU press release, 7 May 2026; European Commission press release IP/26/1024, 7 May 2026; European Commission AI Act standardisation page; ECB Banking Supervision supervisory priorities 2026 to 2028.</li>
-              <li>The Digital Omnibus agreement remained subject to formal adoption and Official Journal publication when this piece was updated on 20 May 2026.</li>
+              <li>Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), Official Journal of 12 July 2024. Articles cited include 4 (AI literacy), 5 (prohibited practices), 10 (data and data governance), 25 (responsibilities along the AI value chain), 50 (transparency obligations for providers and deployers of certain AI systems), 99 (penalties), 111(3) (legacy carve-out for general-purpose AI models), 113 (entry into force and application), Annex I, and Annex III. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+              <li>European Parliament press release, "AI Act: deal on simplification measures, ban on 'nudifier' apps," 7 May 2026. <a href="https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps" target="_blank" rel="noopener">europarl.europa.eu</a></li>
+              <li>Council of the EU press release, "Artificial intelligence: Council and Parliament agree to simplify and streamline rules," 7 May 2026. <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank" rel="noopener">consilium.europa.eu</a></li>
+              <li>European Commission press release IP/26/1024, "Commission welcomes political agreement on simpler, innovation-friendly rules for artificial intelligence," 7 May 2026. <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1024" target="_blank" rel="noopener">ec.europa.eu</a></li>
+              <li>European Commission, "Digital Omnibus on AI Regulation Proposal," 19 November 2025. <a href="https://digital-strategy.ec.europa.eu/en/library/digital-omnibus-ai-regulation-proposal" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+              <li>European Commission, "Code of Practice on marking and labelling of AI-generated content." <a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+              <li>ECB Banking Supervision, "Supervisory priorities for 2026 to 2028." <a href="https://www.bankingsupervision.europa.eu/framework/priorities/html/ssm.supervisory_priorities202511.en.html" target="_blank" rel="noopener">bankingsupervision.europa.eu</a></li>
+              <li>Directive (EU) 2022/2555 of the European Parliament and of the Council of 14 December 2022 on measures for a high common level of cybersecurity across the Union (NIS2 Directive), in particular Articles 20 to 23 (cybersecurity risk-management measures and reporting obligations). Transposition deadline 17 October 2024.</li>
+              <li>Regulation (EU) 2022/2065 of the European Parliament and of the Council of 19 October 2022 on a Single Market For Digital Services (Digital Services Act), in particular Articles 33 to 35 on designation of VLOPs and VLOSEs and on systemic risk assessment and mitigation.</li>
+              <li>Regulation (EU) 2017/745 (Medical Device Regulation) and Regulation (EU) 2017/746 (In Vitro Diagnostic Regulation). Both regimes are listed in Annex I of the AI Act as carrying high-risk obligations when the AI Act deadlines apply.</li>
+              <li>Regulation (EU) 2022/2554 of the European Parliament and of the Council of 14 December 2022 on digital operational resilience for the financial sector (Digital Operational Resilience Act, DORA), applicable from 17 January 2025.</li>
+              <li>Regulation (EU) 2016/679 (General Data Protection Regulation), in particular Articles 5 (principles relating to processing of personal data), 22 (automated individual decision-making, including profiling), and 35 (data protection impact assessment).</li>
+              <li>This article was updated on 27 May 2026. The Digital Omnibus agreement remained subject to formal adoption by the European Parliament and the Council, and to publication in the Official Journal of the European Union, as of that date.</li>
             </ol>
           </div>
 
@@ -623,7 +1046,7 @@
       '7': {
         date: '19 November 2025 to 7 May 2026',
         title: 'The Omnibus moves the date',
-        text: 'The political agreement moves the high-risk deadlines. It does not move Article 4 literacy, Article 5 prohibitions, GDPR, DORA, EBA governance, and all the supervisory attention already gathering around AI.'
+        text: 'The political agreement moves the high-risk deadlines, but it still requires formal adoption by Parliament and Council, and the Official Journal has not yet published the amendments. It does not move Article 4 literacy, Article 5 prohibitions, GDPR, DORA, EBA governance, NIS2, the DSA, or all the supervisory attention already gathering around AI.'
       }
     };
 
@@ -632,6 +1055,45 @@
     if (!detail || !nodes.length) return;
 
     detail.style.transition = 'opacity 0.25s ease';
+
+    // ===== Independent carousels (LIVE and POSTPONED) =====
+    // Each [data-carousel] manages its own current-card index. Paging one
+    // does not affect the other.
+    document.querySelectorAll('[data-carousel]').forEach(function (root) {
+      var track = root.querySelector('[data-track]');
+      var cards = track ? track.querySelectorAll('.carousel__card') : [];
+      var total = cards.length;
+      if (!track || !total) return;
+
+      var current = 0;
+      var currentEl = root.querySelector('[data-current]');
+      var totalEl = root.querySelector('[data-total]');
+      var prevBtn = root.querySelector('.carousel__arrow[data-dir="prev"]');
+      var nextBtn = root.querySelector('.carousel__arrow[data-dir="next"]');
+      if (totalEl) totalEl.textContent = total;
+
+      function render() {
+        track.style.transform = 'translateX(' + (-current * 100) + '%)';
+        if (currentEl) currentEl.textContent = (current + 1);
+        if (prevBtn) prevBtn.disabled = (current === 0);
+        if (nextBtn) nextBtn.disabled = (current === total - 1);
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function () {
+        if (current > 0) { current -= 1; render(); }
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function () {
+        if (current < total - 1) { current += 1; render(); }
+      });
+
+      // Keyboard support when the carousel has focus
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' && current > 0) { current -= 1; render(); }
+        if (e.key === 'ArrowRight' && current < total - 1) { current += 1; render(); }
+      });
+
+      render();
+    });
 
     nodes.forEach(function (node) {
       node.addEventListener('click', function () {
