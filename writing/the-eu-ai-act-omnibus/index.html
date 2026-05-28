@@ -226,6 +226,17 @@
       padding-top: 0.6rem;
       border-top: 0.5px solid rgba(201, 169, 97, 0.15);
     }
+    .omnibus-timeline__byline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.7rem;
+      line-height: 1.3;
+      color: rgba(240, 230, 210, 0.35);
+      text-align: right;
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+    }
     @media (max-width: 640px) {
       .omnibus-timeline {
         padding-left: 0.75rem;
@@ -366,6 +377,10 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
       margin: 2.5rem 0 0.8rem;
+      width: 100%;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .carousel {
       background: #0d1a30;
@@ -375,6 +390,8 @@
       display: flex;
       flex-direction: column;
       min-height: 360px;
+      width: 100%;
+      max-width: 100%;
     }
     .carousel__head {
       display: flex;
@@ -499,7 +516,6 @@
     .carousel__counter [data-current] { color: #c9a961; }
 
     /* Constrain interactive blocks to match prose column width */
-    .dual-carousels,
     .gov-reveal,
     .ts-stat-feature,
     .ts-stat-pair,
@@ -718,6 +734,7 @@
               <div class="detail-date">21 April 2021</div>
               <h4>Brussels decides AI will not stay abstract</h4>
               <p>The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.</p>
+              <div class="omnibus-timeline__byline">By Julio Macedo<br>jhmacal.com</div>
             </div>
 
           </div>
@@ -784,11 +801,14 @@
 
           <p>Enforcement powers for General-purpose AI providers will attach from 2 August 2026. The Commission will have authority to require providers to give documentation, training information, and explanations; conduct or commission evaluations of GPAI models, including access to the model for testing; require providers to take corrective action where compliance gaps are found.</p>
 
-          <div class="ts-stat-feature" style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.45); border-radius: 14px; padding: 2.25rem 2rem; margin: 2.25rem 0; display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 2rem; align-items: center;">
+          <div class="ts-stat-feature" style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.45); border-radius: 14px; padding: 2.25rem 2rem; margin: 2.25rem 0; display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 2rem; align-items: start;">
             <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 88px; font-weight: 500; color: #c9a961; line-height: 1; letter-spacing: -0.02em;">7%</div>
-            <div>
-              <div style="font-size: 16px; color: #f0e6d2; line-height: 1.55; margin-bottom: 10px; font-weight: 500;">Of worldwide annual turnover, or &euro;35 million, whichever is higher. Maximum fine under Article 99 for breaching the Article 5 prohibitions on unacceptable AI.</div>
-              <div style="font-size: 12px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <div>
+                <div style="font-size: 16px; color: #f0e6d2; line-height: 1.55; margin-bottom: 10px; font-weight: 500;">Of worldwide annual turnover, or &euro;35 million, whichever is higher. Maximum fine under Article 99 for breaching the Article 5 prohibitions on unacceptable AI.</div>
+                <div style="font-size: 12px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
+              </div>
+              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 0.7rem; line-height: 1.3; color: rgba(240, 230, 210, 0.35); text-align: right; margin-top: auto; padding-top: 0.6rem; border-top: 0.5px solid rgba(201, 169, 97, 0.15);">By Julio Macedo<br>jhmacal.com</div>
             </div>
           </div>
 
