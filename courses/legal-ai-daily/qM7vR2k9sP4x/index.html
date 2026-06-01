@@ -15,18 +15,23 @@
       --ink-soft: #4a5066;
       --hair: #e2ddd0;
       --navy: #1c2742;
-      --gold: #b5872c;
+      --gold: #b89a58;
+      --brass: #b89a58;
       --white: #ffffff;
       --right: #2e7d4f;
       --right-bg: #e6f3ea;
       --wrong: #c0392b;
       --wrong-bg: #fbeae8;
-      --blue-1: #dbe8f3;
-      --blue-2: #b9cde5;
-      --blue-3: #7da1d2;
-      --lavender: #d9d7f1;
-      --mint: #d6eadf;
+      --blue-1: #eef3f6;
+      --blue-2: #cad8e7;
+      --blue-3: #7f9dc6;
+      --scene-wash: #f3f0e8;
       --shadow: 0 22px 60px rgba(21, 25, 42, 0.12);
+      --athena-navy: #101a30;
+      --athena-raise: #16223c;
+      --athena-ink: #eef1f8;
+      --athena-soft: #9aa3bb;
+      --athena-line: rgba(184, 154, 88, 0.22);
     }
 
     * {
@@ -50,7 +55,7 @@
     main {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 34px 0 64px;
+      padding: 34px 0 150px;
     }
 
     header {
@@ -81,7 +86,7 @@
     }
 
     .course-label {
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--navy);
       padding-left: 10px;
     }
 
@@ -133,7 +138,7 @@
 
     button:hover,
     button:focus-visible {
-      border-color: var(--gold);
+      border-color: var(--navy);
       transform: translateY(-1px);
       outline: none;
     }
@@ -176,7 +181,7 @@
     .quiet-card {
       display: grid;
       gap: 10px;
-      border-left: 4px solid var(--gold);
+      border-left: 4px solid var(--navy);
       padding: 22px;
     }
 
@@ -249,7 +254,7 @@
     .layer-panel {
       display: grid;
       gap: 18px;
-      border-left: 4px solid var(--gold);
+      border-left: 4px solid var(--navy);
       border-radius: 6px;
       background: var(--white);
       padding: 24px;
@@ -358,8 +363,8 @@
       min-height: 540px;
       overflow: hidden;
       background:
-        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.72), transparent 26%),
-        linear-gradient(120deg, var(--blue-1), var(--mint) 50%, var(--lavender));
+        radial-gradient(circle at 40% 30%, rgba(255,255,255,0.82), transparent 28%),
+        linear-gradient(120deg, var(--scene-wash), var(--blue-1) 58%, #e7ebef);
     }
 
     .scenario-stage svg {
@@ -559,7 +564,7 @@
     .completion {
       display: grid;
       gap: 12px;
-      border-left: 4px solid var(--gold);
+      border-left: 4px solid var(--navy);
       padding: 24px;
       margin-top: 28px;
     }
@@ -572,6 +577,140 @@
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
+    }
+
+    .athena {
+      position: fixed;
+      right: 24px;
+      bottom: 88px;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: minmax(210px, 280px) 84px;
+      gap: 10px;
+      align-items: end;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.34s ease, transform 0.34s ease;
+    }
+
+    .athena.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .athena-card {
+      position: relative;
+      border: 1px solid var(--athena-line);
+      border-radius: 8px 8px 4px 8px;
+      background: linear-gradient(180deg, var(--athena-raise) 0%, #121d34 100%);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+      color: var(--athena-ink);
+      padding: 15px 18px;
+    }
+
+    .athena-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--athena-ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .athena-card p {
+      color: var(--athena-ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 0.98rem;
+      line-height: 1.32;
+    }
+
+    .athena-state {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--athena-soft);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .athena-dismiss {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      min-height: 26px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--athena-soft);
+      padding: 0 5px;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .athena-dismiss:hover,
+    .athena-dismiss:focus-visible {
+      color: var(--athena-ink);
+      transform: none;
+    }
+
+    .athena-portrait {
+      width: 84px;
+      height: 84px;
+      border: 1px solid var(--athena-line);
+      border-radius: 50%;
+      background: var(--athena-navy);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      object-fit: cover;
+    }
+
+    .athena-inline {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      align-items: center;
+      max-width: 560px;
+      margin: 18px 0 0 auto;
+      border: 1px solid var(--athena-line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--athena-raise) 0%, #121d34 100%);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+      color: var(--athena-ink);
+      padding: 14px;
+    }
+
+    .athena-inline[hidden] {
+      display: none;
+    }
+
+    .athena-inline img {
+      width: 72px;
+      height: 72px;
+      border: 1px solid var(--athena-line);
+      border-radius: 50%;
+      background: var(--athena-navy);
+      object-fit: cover;
+    }
+
+    .athena-inline strong {
+      display: block;
+      color: var(--athena-ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.06rem;
+      font-weight: 600;
+    }
+
+    .athena-inline p {
+      color: var(--athena-ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.32;
+    }
+
+    .athena-scene-inline {
+      margin: 14px 18px 18px auto;
     }
 
     @media (max-width: 900px) {
@@ -590,6 +729,7 @@
       main {
         width: min(100% - 24px, 620px);
         padding-top: 22px;
+        padding-bottom: 150px;
       }
 
       .topline,
@@ -606,6 +746,32 @@
 
       .speech-card {
         bottom: 24px;
+      }
+
+      .athena {
+        right: 14px;
+        bottom: 78px;
+        grid-template-columns: minmax(0, 1fr) 62px;
+        max-width: calc(100% - 28px);
+      }
+
+      .athena-portrait {
+        width: 62px;
+        height: 62px;
+      }
+
+      .athena-card p {
+        font-size: 0.9rem;
+      }
+
+      .athena-inline {
+        grid-template-columns: 56px 1fr;
+        max-width: 100%;
+      }
+
+      .athena-inline img {
+        width: 56px;
+        height: 56px;
       }
     }
 
@@ -629,19 +795,19 @@
         <span class="section-label">Lesson 1</span>
       </div>
       <h1>Legal AI Is Not One Thing</h1>
-      <p>Most lawyers feel disoriented because every conversation uses one word for four different things. A model, a tool, a workflow, and governance are not the same object. Once you can separate them, vendor demos, firm policy, client questions, and internal adoption meetings become easier to read.</p>
+      <p>The problem is not that lawyers cannot understand legal AI. The problem is that people keep using one word for four different things. A model, a tool, a workflow, and governance are not the same object. Separate them and the room gets easier to read.</p>
     </header>
 
     <section class="intro" id="situation">
       <div class="intro-copy">
         <span class="eyebrow">The Situation</span>
-        <h2>The room says AI. You need to ask which layer.</h2>
-        <p>A partner says the firm is testing AI for contract review. A business client asks whether legal can use AI to summarize incoming questions. A vendor says its platform has a legal reasoning engine. Each sentence sounds like it describes one thing. It does not.</p>
-        <p>The practical lawyer move is to slow the room down and ask: are we discussing the model, the tool, the workflow, or the governance around the work?</p>
+        <h2>The room says AI. That is not enough.</h2>
+        <p>A partner says the firm is testing AI for contract review. A client asks whether legal can summarize intake questions with AI. A vendor says its platform has a legal reasoning engine. Each sentence sounds like one thing. It is not.</p>
+        <p>The lawyer move is to slow the room down and ask which layer everyone means: model, tool, workflow, or governance.</p>
       </div>
       <aside class="quiet-card">
         <span class="small-label">Core Concept</span>
-        <p><strong>Legal AI</strong> usually means a stack of decisions. The model generates or classifies language. The tool packages that model into something lawyers can use. The workflow decides where the output goes. Governance decides whether the whole thing can happen safely.</p>
+        <p><strong>Legal AI</strong> usually means a stack of decisions. The model generates or classifies language. The tool gives lawyers a usable surface. The workflow decides where output goes. Governance decides whether the use is allowed at all.</p>
       </aside>
     </section>
 
@@ -650,18 +816,18 @@
       <div class="lesson-grid">
         <article class="panel">
           <span class="num">01</span>
-          <h3>You stop asking blurry questions.</h3>
+          <h3>You stop asking vague questions.</h3>
           <p>“Is the AI safe?” is too broad. “What data reaches the model?” and “Who reviews the output before use?” are questions the room can answer.</p>
         </article>
         <article class="panel">
           <span class="num">02</span>
           <h3>You hear vendor demos differently.</h3>
-          <p>A beautiful product screen can hide weak governance. A strong model can still sit inside a poor workflow. The layers keep you from being impressed by the wrong thing.</p>
+          <p>A beautiful product screen can hide weak governance. A strong model can still sit inside a poor workflow. The layers keep the room honest.</p>
         </article>
         <article class="panel">
           <span class="num">03</span>
           <h3>You protect legal judgment.</h3>
-          <p>Lawyers remain responsible for competence, confidentiality, supervision, and judgment. The stack shows where that responsibility has to re-enter the process.</p>
+          <p>Lawyers still carry competence, confidentiality, supervision, and judgment. The stack shows where that responsibility has to re-enter the process.</p>
         </article>
       </div>
     </section>
@@ -696,15 +862,15 @@
       <div class="lesson-grid">
         <article class="panel">
           <h3>Day-to-day example</h3>
-          <p>A lawyer asks a tool to summarize a draft contract. The model generates the summary. The tool provides the interface. The workflow decides whether the summary goes into a matter note. Governance decides whether client information can be entered and who must review the result.</p>
+          <p>A lawyer asks a tool to summarize a draft contract. The model generates the summary. The tool provides the interface. The workflow decides whether the summary becomes a matter note. Governance decides whether client information can enter the system and who reviews the result.</p>
         </article>
         <article class="panel">
           <h3>Law firm lens</h3>
-          <p>A firm pilot can fail if the policy only approves a tool name. The better approval defines permitted matters, user group, data limits, review obligations, and how output can reach a client-facing document.</p>
+          <p>A firm pilot can fail if the policy approves only a tool name. A usable approval defines permitted matters, users, data limits, review obligations, and how output can reach a client-facing document.</p>
         </article>
         <article class="panel">
           <h3>In-house lens</h3>
-          <p>A legal department can move faster when business users know which intake questions can use automation and which answers still require a lawyer. The workflow matters as much as the model.</p>
+          <p>A legal department moves faster when business users know which intake questions can use automation and which answers still need counsel. The workflow matters as much as the model.</p>
         </article>
       </div>
     </section>
@@ -753,44 +919,44 @@
       <div class="scenario-stage" id="scenarioStage" data-beat="0">
         <svg viewBox="0 0 960 540" role="img" aria-label="In-house legal meeting with flat avatars and an animated screen showing the legal AI stack.">
           <rect width="960" height="540" fill="transparent"/>
-          <ellipse cx="540" cy="248" rx="410" ry="232" fill="#edf4fb" opacity="0.58"/>
+          <ellipse cx="540" cy="248" rx="410" ry="232" fill="#f5f1e8" opacity="0.68"/>
 
-          <rect x="102" y="92" width="126" height="126" fill="#b9cde5" opacity="0.5"/>
-          <rect x="120" y="110" width="92" height="78" fill="#f8fbff" stroke="#7da1d2" stroke-width="5"/>
+          <rect x="102" y="92" width="126" height="126" fill="#d7e0e8" opacity="0.5"/>
+          <rect x="120" y="110" width="92" height="78" fill="#f8fbff" stroke="#7f9dc6" stroke-width="5"/>
           <circle cx="166" cy="148" r="24" fill="none" stroke="#dce6f4" stroke-width="12"/>
-          <path class="route-line one" pathLength="1" d="M166 124 A24 24 0 0 1 190 148" fill="none" stroke="#3967a6" stroke-width="12" stroke-linecap="round"/>
-          <rect x="138" y="193" width="36" height="5" fill="#7da1d2"/>
+          <path class="route-line one" pathLength="1" d="M166 124 A24 24 0 0 1 190 148" fill="none" stroke="#1c2742" stroke-width="12" stroke-linecap="round"/>
+          <rect x="138" y="193" width="36" height="5" fill="#7f9dc6"/>
           <rect x="180" y="193" width="12" height="5" fill="#1c2742"/>
 
-          <rect class="screen-card" x="300" y="66" width="398" height="236" fill="#f8fbff" stroke="#7da1d2" stroke-width="4"/>
+          <rect class="screen-card" x="300" y="66" width="398" height="236" fill="#f8fbff" stroke="#7f9dc6" stroke-width="4"/>
           <rect x="326" y="96" width="310" height="15" fill="#dce6f4"/>
           <text x="326" y="88" fill="#15192a" font-size="13" font-weight="800">CONTRACT INTAKE SUMMARY</text>
           <g class="screen-layer one">
-            <rect x="338" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <rect x="338" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
             <text x="396" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Model</text>
           </g>
           <g class="screen-layer two">
-            <rect x="506" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <rect x="506" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
             <text x="564" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Tool</text>
           </g>
           <g class="screen-layer three">
-            <rect x="338" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <rect x="338" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
             <text x="396" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Workflow</text>
           </g>
           <g class="screen-layer four">
-            <rect x="506" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <rect x="506" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
             <text x="564" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Governance</text>
           </g>
-          <path class="route-line one line" pathLength="1" d="M454 166 L506 166" stroke="#b5872c" stroke-width="4"/>
-          <path class="route-line two line" pathLength="1" d="M564 190 C564 206 548 214 526 220" stroke="#b5872c" stroke-width="4"/>
-          <path class="route-line three line" pathLength="1" d="M454 244 L506 244" stroke="#b5872c" stroke-width="4"/>
+          <path class="route-line one line" pathLength="1" d="M454 166 L506 166" stroke="#7f9dc6" stroke-width="3"/>
+          <path class="route-line two line" pathLength="1" d="M564 190 C564 206 548 214 526 220" stroke="#7f9dc6" stroke-width="3"/>
+          <path class="route-line three line" pathLength="1" d="M454 244 L506 244" stroke="#7f9dc6" stroke-width="3"/>
           <g class="check-node">
-            <circle cx="664" cy="244" r="32" fill="none" stroke="#b5872c" stroke-width="5"/>
-            <text x="664" y="252" text-anchor="middle" fill="#b5872c" font-size="18" font-weight="900">OK</text>
+            <circle cx="664" cy="244" r="28" fill="#ffffff" stroke="#1c2742" stroke-width="3"/>
+            <path d="M650 245 L660 255 L679 232" fill="none" stroke="#1c2742" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
           <g class="mini-card">
             <rect x="648" y="132" width="94" height="58" rx="8" fill="#ffffff" stroke="#b9cde5"/>
-            <line x1="664" y1="154" x2="724" y2="154" stroke="#7da1d2" stroke-width="5"/>
+            <line x1="664" y1="154" x2="724" y2="154" stroke="#7f9dc6" stroke-width="5"/>
             <line x1="664" y1="171" x2="710" y2="171" stroke="#b9cde5" stroke-width="5"/>
           </g>
 
@@ -798,12 +964,12 @@
           <ellipse cx="486" cy="360" rx="260" ry="16" fill="#344873"/>
           <rect x="314" y="378" width="16" height="126" fill="#263860"/>
           <rect x="640" y="378" width="16" height="126" fill="#263860"/>
-          <rect x="386" y="306" width="96" height="54" fill="#7286c3"/>
-          <rect x="512" y="306" width="96" height="54" fill="#7286c3"/>
+          <rect x="386" y="306" width="96" height="54" fill="#7f91bd"/>
+          <rect x="512" y="306" width="96" height="54" fill="#7f91bd"/>
 
           <g transform="translate(156 292)">
             <ellipse cx="50" cy="184" rx="60" ry="13" fill="#8fa0c8" opacity="0.45"/>
-            <rect x="12" y="70" width="78" height="108" rx="26" fill="#ffffff"/>
+            <rect x="12" y="70" width="78" height="108" rx="26" fill="#fbfaf7"/>
             <circle cx="52" cy="36" r="27" fill="#8a5538"/>
             <path d="M26 32 C30 8 72 7 78 38 C60 28 42 26 26 32 Z" fill="#e8e2d8"/>
             <path d="M90 96 C130 96 146 78 154 60" stroke="#8a5538" stroke-width="14" stroke-linecap="round" fill="none"/>
@@ -813,7 +979,7 @@
 
           <g transform="translate(704 292)">
             <ellipse cx="50" cy="184" rx="60" ry="13" fill="#8fa0c8" opacity="0.45"/>
-            <rect x="12" y="70" width="78" height="108" rx="26" fill="#f2c6e8"/>
+            <rect x="12" y="70" width="78" height="108" rx="26" fill="#d9e2ec"/>
             <circle cx="52" cy="36" r="27" fill="#ffd2b1"/>
             <path d="M30 12 C62 -2 86 22 76 48 C60 30 44 28 30 12 Z" fill="#111827"/>
             <path d="M14 96 C-20 86 -30 68 -34 52" stroke="#ffd2b1" stroke-width="14" stroke-linecap="round" fill="none"/>
@@ -831,6 +997,14 @@
         <div class="scene-actions">
           <button id="prevBeat">Back</button>
           <button class="primary" id="nextBeat">Next beat</button>
+        </div>
+      </div>
+      <div class="athena-inline athena-scene-inline" id="athenaSceneInline" hidden aria-live="polite">
+        <img id="athenaScenePortrait" src="../assets/athena/athena-observe.png" alt="Athena">
+        <div>
+          <span class="athena-state" id="athenaSceneState">Observe</span>
+          <strong>Athena</strong>
+          <p id="athenaSceneLine">Good. The approval now covers a use case, a tool, a workflow, and review.</p>
         </div>
       </div>
     </section>
@@ -886,9 +1060,28 @@
     <section class="completion" id="completion" hidden>
       <span class="eyebrow">Lesson complete</span>
       <h2>You can now read the room.</h2>
-      <p>When someone says “AI,” you can ask which layer they mean. That one move turns a vague conversation into a lawyerly one.</p>
+      <p>When someone says “AI,” you can ask which layer they mean. That one move turns a vague conversation into one the room can act on.</p>
+    </section>
+
+    <section class="athena-inline" id="athenaInline" hidden aria-live="polite">
+      <img id="athenaInlinePortrait" src="../assets/athena/athena-approve.png" alt="Athena">
+      <div>
+        <span class="athena-state" id="athenaInlineState">Approve</span>
+        <strong>Athena</strong>
+        <p id="athenaInlineLine">Lesson closed. Next time, ask which layer the room means.</p>
+      </div>
     </section>
   </main>
+
+  <aside class="athena" id="athena" aria-live="polite" aria-hidden="true">
+    <div class="athena-card">
+      <button class="athena-dismiss" id="athenaDismiss" aria-label="Dismiss Athena">x</button>
+      <span class="athena-state" id="athenaState">Observe</span>
+      <strong>Athena</strong>
+      <p id="athenaLine">Name the layer first. The answer gets cleaner after that.</p>
+    </div>
+    <img class="athena-portrait" id="athenaPortrait" src="../assets/athena/athena-observe.png" alt="Athena">
+  </aside>
 
   <script type="application/json" id="source-check">
     {
@@ -910,6 +1103,27 @@
           "use": "Checked plain-English distinctions among model response generation and tool-enabled systems."
         }
       ]
+    }
+  </script>
+
+  <script type="application/json" id="athena-messages">
+    {
+      "nudge": {
+        "state": "Nudge",
+        "line": "Name the layer first. The answer gets cleaner after that."
+      },
+      "observe": {
+        "state": "Observe",
+        "line": "Good. The approval now covers a use case, a tool, a workflow, and review."
+      },
+      "approve": {
+        "state": "Approve",
+        "line": "Lesson closed. Next time, ask which layer the room means."
+      },
+      "celebrate": {
+        "state": "Celebrate",
+        "line": "That is the move. Separate the stack before you bless the work."
+      }
     }
   </script>
 
@@ -945,6 +1159,81 @@
       scroll: false
     };
 
+    const athenaMessages = JSON.parse(document.getElementById("athena-messages").textContent);
+    const athenaAssets = {
+      nudge: "../assets/athena/athena-nudge.png",
+      observe: "../assets/athena/athena-observe.png",
+      approve: "../assets/athena/athena-approve.png",
+      celebrate: "../assets/athena/athena-celebrate.png"
+    };
+    const athenaElement = document.getElementById("athena");
+    const athenaState = document.getElementById("athenaState");
+    const athenaLine = document.getElementById("athenaLine");
+    const athenaPortrait = document.getElementById("athenaPortrait");
+    const athenaInline = document.getElementById("athenaInline");
+    const athenaInlineState = document.getElementById("athenaInlineState");
+    const athenaInlineLine = document.getElementById("athenaInlineLine");
+    const athenaInlinePortrait = document.getElementById("athenaInlinePortrait");
+    const athenaSceneInline = document.getElementById("athenaSceneInline");
+    const athenaSceneState = document.getElementById("athenaSceneState");
+    const athenaSceneLine = document.getElementById("athenaSceneLine");
+    const athenaScenePortrait = document.getElementById("athenaScenePortrait");
+    let scenarioAnnounced = false;
+    let completionAnnounced = false;
+    let athenaTimer = 0;
+
+    function renderInlineAthena(target, state) {
+      const message = athenaMessages[state] || athenaMessages.observe;
+      target.state.textContent = message.state;
+      target.line.textContent = message.line;
+      target.portrait.src = athenaAssets[state] || athenaAssets.observe;
+      target.element.hidden = false;
+    }
+
+    const Athena = {
+      show(state, options = {}) {
+        window.clearTimeout(athenaTimer);
+        const message = athenaMessages[state] || athenaMessages.observe;
+        athenaState.textContent = message.state;
+        athenaLine.textContent = message.line;
+        athenaPortrait.src = athenaAssets[state] || athenaAssets.observe;
+        athenaElement.classList.add("visible");
+        athenaElement.setAttribute("aria-hidden", "false");
+        if (options.autoHide) {
+          athenaTimer = window.setTimeout(Athena.hide, options.autoHide);
+        }
+      },
+      hide() {
+        window.clearTimeout(athenaTimer);
+        athenaElement.classList.remove("visible");
+        athenaElement.setAttribute("aria-hidden", "true");
+      },
+      showScene(state) {
+        if (window.matchMedia("(max-width: 640px)").matches) {
+          Athena.hide();
+          renderInlineAthena({
+            element: athenaSceneInline,
+            state: athenaSceneState,
+            line: athenaSceneLine,
+            portrait: athenaScenePortrait
+          }, state);
+        } else {
+          athenaSceneInline.hidden = true;
+          Athena.show(state, { autoHide: 5200 });
+        }
+      },
+      showInline(state) {
+        renderInlineAthena({
+          element: athenaInline,
+          state: athenaInlineState,
+          line: athenaInlineLine,
+          portrait: athenaInlinePortrait
+        }, state);
+      }
+    };
+
+    document.getElementById("athenaDismiss").addEventListener("click", Athena.hide);
+
     const layerButtons = [...document.querySelectorAll(".layer-button")];
     const layerPanel = document.getElementById("layerPanel");
 
@@ -964,6 +1253,25 @@
 
     layerButtons.forEach(button => button.addEventListener("click", () => updateLayer(button.dataset.layer)));
 
+    const mythFeedback = [
+      {
+        correct: "Yes. A strong model does not fix a bad legal process.",
+        wrong: "No. Model strength does not make the workflow safe."
+      },
+      {
+        correct: "Yes. The demo proves the screen, not the governance.",
+        wrong: "No. Product polish is not permission."
+      },
+      {
+        correct: "Yes. Review is where legal judgment re-enters the work.",
+        wrong: "No. Output does not become usable just because it exists."
+      },
+      {
+        correct: "Yes. Approval attaches to a defined use, not a product name.",
+        wrong: "No. Approved tool does not mean approved everywhere."
+      }
+    ];
+
     document.querySelectorAll(".myth-card").forEach((card, index) => {
       card.querySelectorAll("[data-choice]").forEach(button => {
         button.addEventListener("click", () => {
@@ -972,8 +1280,8 @@
           card.classList.add(correct ? "correct" : "incorrect");
           card.querySelectorAll("button").forEach(option => option.disabled = true);
           card.querySelector(".myth-feedback").textContent = correct
-            ? "Correct. This separates the stack instead of treating AI as one object."
-            : "Not quite. The lesson is to separate capability, product surface, workflow, and permission.";
+            ? mythFeedback[index].correct
+            : mythFeedback[index].wrong;
           required.myth.add(index);
           checkCompletion();
         });
@@ -1024,6 +1332,10 @@
         speechCard.classList.remove("is-swapping");
         if (currentBeat === scenarioBeats.length - 1) {
           required.scenario = true;
+          if (!scenarioAnnounced) {
+            scenarioAnnounced = true;
+            Athena.showScene("observe");
+          }
           checkCompletion();
         }
       }, 180);
@@ -1040,10 +1352,33 @@
         renderBeat();
       } else {
         required.scenario = true;
+        if (!scenarioAnnounced) {
+          scenarioAnnounced = true;
+          Athena.showScene("observe");
+        }
         checkCompletion();
         document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
+
+    const quizFeedback = [
+      {
+        correct: "Yes. Approval has a perimeter. Find it before anyone uploads data.",
+        wrong: "No. Demo quality does not define the approval perimeter."
+      },
+      {
+        correct: "Yes. Routing is workflow, not model intelligence.",
+        wrong: "No. Name the process that decides where the answer goes."
+      },
+      {
+        correct: "Yes. Training is one issue. It is not the whole review.",
+        wrong: "No. The data statement answers one question, not the use case."
+      },
+      {
+        correct: "Yes. The screen is only one layer.",
+        wrong: "No. A polished screen does not settle workflow, review, or governance."
+      }
+    ];
 
     document.querySelectorAll(".quiz-card").forEach((card, index) => {
       card.querySelectorAll(".option").forEach(option => {
@@ -1059,8 +1394,8 @@
             option.classList.add("wrong");
           }
           card.querySelector(".quiz-feedback").textContent = isCorrect
-            ? "Correct. You used the stack to turn a vague AI question into a reviewable legal decision."
-            : "Not quite. The strongest answer separates the layer being discussed from the permission and review path.";
+            ? quizFeedback[index].correct
+            : quizFeedback[index].wrong;
           required.quiz.add(index);
           checkCompletion();
         });
@@ -1076,6 +1411,12 @@
         required.scroll;
 
       document.getElementById("completion").hidden = !complete;
+      if (complete && !completionAnnounced) {
+        completionAnnounced = true;
+        Athena.hide();
+        athenaSceneInline.hidden = true;
+        Athena.showInline("approve");
+      }
     }
 
     window.addEventListener("scroll", () => {
