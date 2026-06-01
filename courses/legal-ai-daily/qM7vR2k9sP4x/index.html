@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal AI Daily | Lesson 1</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #15192a;
+      --ink-soft: #4a5066;
+      --hair: #e2ddd0;
+      --navy: #1c2742;
+      --gold: #b5872c;
+      --white: #ffffff;
+      --right: #2e7d4f;
+      --right-bg: #e6f3ea;
+      --wrong: #c0392b;
+      --wrong-bg: #fbeae8;
+      --blue-1: #dbe8f3;
+      --blue-2: #b9cde5;
+      --blue-3: #7da1d2;
+      --lavender: #d9d7f1;
+      --mint: #d6eadf;
+      --shadow: 0 22px 60px rgba(21, 25, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(226, 221, 208, 0.44) 1px, transparent 1px) 0 0 / 82px 82px,
+        var(--paper);
+      color: var(--ink);
+      font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    header {
+      display: grid;
+      gap: 18px;
+      border-bottom: 1px solid var(--hair);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .course-label,
+    .eyebrow,
+    .section-label,
+    .small-label {
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .course-label {
+      border-left: 3px solid var(--gold);
+      padding-left: 10px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      font-size: clamp(3.1rem, 7vw, 6.6rem);
+      line-height: 0.94;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 4vw, 3.7rem);
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: clamp(1.42rem, 2vw, 1.95rem);
+      line-height: 1.08;
+    }
+
+    p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1.03rem;
+    }
+
+    button {
+      min-height: 40px;
+      border: 1.5px solid var(--hair);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    button[aria-pressed="true"],
+    button.primary {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    section {
+      margin: 28px 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .intro-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .quiet-card,
+    .panel,
+    .lab,
+    .scenario,
+    .quiz-card,
+    .completion {
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 1px 0 rgba(21, 25, 42, 0.04);
+    }
+
+    .quiet-card {
+      display: grid;
+      gap: 10px;
+      border-left: 4px solid var(--gold);
+      padding: 22px;
+    }
+
+    .quiet-card strong,
+    .panel strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      display: grid;
+      gap: 10px;
+      padding: 22px;
+    }
+
+    .panel .num {
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.2rem;
+      line-height: 0.9;
+    }
+
+    .stack-lab {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .stack-buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    .layer-button {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+      border-radius: 6px;
+      text-align: left;
+      padding: 14px;
+    }
+
+    .layer-index {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .layer-button[aria-pressed="true"] .layer-index {
+      background: rgba(255,255,255,0.18);
+      color: var(--white);
+    }
+
+    .layer-panel {
+      display: grid;
+      gap: 18px;
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      background: var(--white);
+      padding: 24px;
+      min-height: 286px;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .layer-panel.is-changing {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .stack-visual {
+      display: grid;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .stack-row {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .stack-bar {
+      height: 18px;
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .stack-fill {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      background: var(--navy);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.28s ease;
+    }
+
+    .stack-row.active .stack-fill {
+      transform: scaleX(1);
+    }
+
+    .myth-lab {
+      padding: 22px;
+    }
+
+    .myth-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .myth-card {
+      display: grid;
+      gap: 13px;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: var(--white);
+      padding: 16px;
+    }
+
+    .myth-card p {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .choice-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .myth-feedback {
+      min-height: 46px;
+      border-left: 3px solid var(--hair);
+      padding-left: 10px;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    .myth-card.correct {
+      border-color: var(--right);
+      background: var(--right-bg);
+    }
+
+    .myth-card.incorrect {
+      border-color: var(--wrong);
+      background: var(--wrong-bg);
+    }
+
+    .scenario {
+      overflow: hidden;
+    }
+
+    .scenario-stage {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.72), transparent 26%),
+        linear-gradient(120deg, var(--blue-1), var(--mint) 50%, var(--lavender));
+    }
+
+    .scenario-stage svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .scenario-controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      border-top: 1px solid var(--hair);
+      background: rgba(255, 255, 255, 0.92);
+      padding: 14px 18px;
+    }
+
+    .beat-status {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .speech-card {
+      position: absolute;
+      left: 50%;
+      bottom: 44px;
+      display: grid;
+      gap: 5px;
+      width: min(520px, calc(100% - 40px));
+      border: 1px solid rgba(28, 39, 66, 0.16);
+      border-left: 4px solid var(--navy);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.97);
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+      transform: translateX(-50%);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    .speech-card.is-swapping {
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px);
+    }
+
+    .speech-card strong {
+      color: var(--ink-soft);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .speech-card span {
+      color: var(--navy);
+      font-size: clamp(1.24rem, 2.1vw, 1.7rem);
+      font-weight: 800;
+      line-height: 1.12;
+    }
+
+    .screen-card,
+    .screen-layer,
+    .route-line,
+    .check-node,
+    .mini-card {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: opacity 0.28s ease, transform 0.28s ease, stroke-dashoffset 0.28s ease;
+    }
+
+    .screen-layer,
+    .check-node,
+    .mini-card {
+      opacity: 0.18;
+      transform: translateY(8px);
+    }
+
+    .route-line {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .scenario-stage[data-beat="1"] .screen-layer.one,
+    .scenario-stage[data-beat="2"] .screen-layer.one,
+    .scenario-stage[data-beat="3"] .screen-layer.one,
+    .scenario-stage[data-beat="4"] .screen-layer.one,
+    .scenario-stage[data-beat="5"] .screen-layer.one,
+    .scenario-stage[data-beat="2"] .screen-layer.two,
+    .scenario-stage[data-beat="3"] .screen-layer.two,
+    .scenario-stage[data-beat="4"] .screen-layer.two,
+    .scenario-stage[data-beat="5"] .screen-layer.two,
+    .scenario-stage[data-beat="3"] .screen-layer.three,
+    .scenario-stage[data-beat="4"] .screen-layer.three,
+    .scenario-stage[data-beat="5"] .screen-layer.three,
+    .scenario-stage[data-beat="4"] .screen-layer.four,
+    .scenario-stage[data-beat="5"] .screen-layer.four,
+    .scenario-stage[data-beat="5"] .check-node,
+    .scenario-stage[data-beat="5"] .mini-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scenario-stage[data-beat="2"] .route-line.one,
+    .scenario-stage[data-beat="3"] .route-line.one,
+    .scenario-stage[data-beat="4"] .route-line.one,
+    .scenario-stage[data-beat="5"] .route-line.one,
+    .scenario-stage[data-beat="3"] .route-line.two,
+    .scenario-stage[data-beat="4"] .route-line.two,
+    .scenario-stage[data-beat="5"] .route-line.two,
+    .scenario-stage[data-beat="4"] .route-line.three,
+    .scenario-stage[data-beat="5"] .route-line.three {
+      stroke-dashoffset: 0;
+    }
+
+    .quiz {
+      display: grid;
+      gap: 18px;
+    }
+
+    .quiz-card {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+    }
+
+    .quiz-card h3 {
+      font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      width: 100%;
+      border-radius: 6px;
+      text-align: left;
+      padding: 13px;
+    }
+
+    .marker {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--hair);
+      border-radius: 50%;
+      color: transparent;
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+    }
+
+    .option.correct {
+      border-color: var(--right);
+      background: var(--right-bg);
+    }
+
+    .option.correct .marker {
+      border-color: var(--right);
+      background: var(--right);
+      color: var(--white);
+      transform: scale(1.04);
+    }
+
+    .option.wrong {
+      border-color: var(--wrong);
+      background: var(--wrong-bg);
+    }
+
+    .option.wrong .marker {
+      border-color: var(--wrong);
+      background: var(--wrong);
+      color: var(--white);
+      transform: scale(1.04);
+    }
+
+    .quiz-feedback {
+      min-height: 42px;
+      border-left: 3px solid var(--hair);
+      padding-left: 12px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .completion {
+      display: grid;
+      gap: 12px;
+      border-left: 4px solid var(--gold);
+      padding: 24px;
+      margin-top: 28px;
+    }
+
+    .completion[hidden] {
+      display: none;
+    }
+
+    .line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 900px) {
+      .intro,
+      .stack-lab {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-grid,
+      .myth-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: min(100% - 24px, 620px);
+        padding-top: 22px;
+      }
+
+      .topline,
+      header,
+      .scene-bar,
+      .scenario-controls {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .scenario-stage {
+        min-height: 500px;
+      }
+
+      .speech-card {
+        bottom: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="topline">
+        <span class="course-label">Legal AI Daily</span>
+        <span class="section-label">Lesson 1</span>
+      </div>
+      <h1>Legal AI Is Not One Thing</h1>
+      <p>Most lawyers feel disoriented because every conversation uses one word for four different things. A model, a tool, a workflow, and governance are not the same object. Once you can separate them, vendor demos, firm policy, client questions, and internal adoption meetings become easier to read.</p>
+    </header>
+
+    <section class="intro" id="situation">
+      <div class="intro-copy">
+        <span class="eyebrow">The Situation</span>
+        <h2>The room says AI. You need to ask which layer.</h2>
+        <p>A partner says the firm is testing AI for contract review. A business client asks whether legal can use AI to summarize incoming questions. A vendor says its platform has a legal reasoning engine. Each sentence sounds like it describes one thing. It does not.</p>
+        <p>The practical lawyer move is to slow the room down and ask: are we discussing the model, the tool, the workflow, or the governance around the work?</p>
+      </div>
+      <aside class="quiet-card">
+        <span class="small-label">Core Concept</span>
+        <p><strong>Legal AI</strong> usually means a stack of decisions. The model generates or classifies language. The tool packages that model into something lawyers can use. The workflow decides where the output goes. Governance decides whether the whole thing can happen safely.</p>
+      </aside>
+    </section>
+
+    <section id="why">
+      <span class="eyebrow">Why It Matters</span>
+      <div class="lesson-grid">
+        <article class="panel">
+          <span class="num">01</span>
+          <h3>You stop asking blurry questions.</h3>
+          <p>“Is the AI safe?” is too broad. “What data reaches the model?” and “Who reviews the output before use?” are questions the room can answer.</p>
+        </article>
+        <article class="panel">
+          <span class="num">02</span>
+          <h3>You hear vendor demos differently.</h3>
+          <p>A beautiful product screen can hide weak governance. A strong model can still sit inside a poor workflow. The layers keep you from being impressed by the wrong thing.</p>
+        </article>
+        <article class="panel">
+          <span class="num">03</span>
+          <h3>You protect legal judgment.</h3>
+          <p>Lawyers remain responsible for competence, confidentiality, supervision, and judgment. The stack shows where that responsibility has to re-enter the process.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab stack-lab" id="lab" data-required="stack">
+      <div>
+        <span class="eyebrow">Interactive Lab</span>
+        <h2>Separate the stack.</h2>
+        <p>Each layer answers a different legal question. Open all four layers before moving on.</p>
+        <div class="stack-buttons" id="layerButtons" aria-label="Legal AI stack layers">
+          <button class="layer-button" data-layer="model" aria-pressed="true"><span class="layer-index">1</span><span>Model</span></button>
+          <button class="layer-button" data-layer="tool" aria-pressed="false"><span class="layer-index">2</span><span>Tool</span></button>
+          <button class="layer-button" data-layer="workflow" aria-pressed="false"><span class="layer-index">3</span><span>Workflow</span></button>
+          <button class="layer-button" data-layer="governance" aria-pressed="false"><span class="layer-index">4</span><span>Governance</span></button>
+        </div>
+      </div>
+      <div class="layer-panel" id="layerPanel">
+        <span class="small-label" id="layerLabel">Model</span>
+        <h3 id="layerTitle">The model produces language or classifications.</h3>
+        <p id="layerBody">A model is the underlying system that generates, classifies, summarizes, or transforms text. It does not decide your matter workflow. It does not know your risk tolerance. It responds to inputs.</p>
+        <div class="stack-visual" aria-hidden="true">
+          <div class="stack-row active" data-stack="model"><span>Model</span><div class="stack-bar"><span class="stack-fill" style="--w:46%"></span></div></div>
+          <div class="stack-row" data-stack="tool"><span>Tool</span><div class="stack-bar"><span class="stack-fill" style="--w:60%"></span></div></div>
+          <div class="stack-row" data-stack="workflow"><span>Workflow</span><div class="stack-bar"><span class="stack-fill" style="--w:74%"></span></div></div>
+          <div class="stack-row" data-stack="governance"><span>Governance</span><div class="stack-bar"><span class="stack-fill" style="--w:88%"></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lenses">
+      <span class="eyebrow">How It Shows Up</span>
+      <div class="lesson-grid">
+        <article class="panel">
+          <h3>Day-to-day example</h3>
+          <p>A lawyer asks a tool to summarize a draft contract. The model generates the summary. The tool provides the interface. The workflow decides whether the summary goes into a matter note. Governance decides whether client information can be entered and who must review the result.</p>
+        </article>
+        <article class="panel">
+          <h3>Law firm lens</h3>
+          <p>A firm pilot can fail if the policy only approves a tool name. The better approval defines permitted matters, user group, data limits, review obligations, and how output can reach a client-facing document.</p>
+        </article>
+        <article class="panel">
+          <h3>In-house lens</h3>
+          <p>A legal department can move faster when business users know which intake questions can use automation and which answers still require a lawyer. The workflow matters as much as the model.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab myth-lab" id="myth" data-required="myth">
+      <span class="eyebrow">Myth Sorter</span>
+      <h2>Sort the sentence, not the hype.</h2>
+      <p>Choose whether each sentence is true or a myth in a legal work setting.</p>
+      <div class="myth-grid">
+        <article class="myth-card" data-answer="myth">
+          <p>If the model is strong, the legal workflow is automatically safe.</p>
+          <div class="choice-row">
+            <button data-choice="true">True</button>
+            <button data-choice="myth">Myth</button>
+          </div>
+          <div class="myth-feedback" aria-live="polite"></div>
+        </article>
+        <article class="myth-card" data-answer="true">
+          <p>A vendor demo can show tool polish without proving governance readiness.</p>
+          <div class="choice-row">
+            <button data-choice="true">True</button>
+            <button data-choice="myth">Myth</button>
+          </div>
+          <div class="myth-feedback" aria-live="polite"></div>
+        </article>
+        <article class="myth-card" data-answer="true">
+          <p>The review path matters before AI output reaches a client or business team.</p>
+          <div class="choice-row">
+            <button data-choice="true">True</button>
+            <button data-choice="myth">Myth</button>
+          </div>
+          <div class="myth-feedback" aria-live="polite"></div>
+        </article>
+        <article class="myth-card" data-answer="myth">
+          <p>Once a tool is approved, every future use of it has the same risk profile.</p>
+          <div class="choice-row">
+            <button data-choice="true">True</button>
+            <button data-choice="myth">Myth</button>
+          </div>
+          <div class="myth-feedback" aria-live="polite"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="scenario" id="scenario" data-required="scenario">
+      <div class="scenario-stage" id="scenarioStage" data-beat="0">
+        <svg viewBox="0 0 960 540" role="img" aria-label="In-house legal meeting with flat avatars and an animated screen showing the legal AI stack.">
+          <rect width="960" height="540" fill="transparent"/>
+          <ellipse cx="540" cy="248" rx="410" ry="232" fill="#edf4fb" opacity="0.58"/>
+
+          <rect x="102" y="92" width="126" height="126" fill="#b9cde5" opacity="0.5"/>
+          <rect x="120" y="110" width="92" height="78" fill="#f8fbff" stroke="#7da1d2" stroke-width="5"/>
+          <circle cx="166" cy="148" r="24" fill="none" stroke="#dce6f4" stroke-width="12"/>
+          <path class="route-line one" pathLength="1" d="M166 124 A24 24 0 0 1 190 148" fill="none" stroke="#3967a6" stroke-width="12" stroke-linecap="round"/>
+          <rect x="138" y="193" width="36" height="5" fill="#7da1d2"/>
+          <rect x="180" y="193" width="12" height="5" fill="#1c2742"/>
+
+          <rect class="screen-card" x="300" y="66" width="398" height="236" fill="#f8fbff" stroke="#7da1d2" stroke-width="4"/>
+          <rect x="326" y="96" width="310" height="15" fill="#dce6f4"/>
+          <text x="326" y="88" fill="#15192a" font-size="13" font-weight="800">CONTRACT INTAKE SUMMARY</text>
+          <g class="screen-layer one">
+            <rect x="338" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <text x="396" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Model</text>
+          </g>
+          <g class="screen-layer two">
+            <rect x="506" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <text x="564" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Tool</text>
+          </g>
+          <g class="screen-layer three">
+            <rect x="338" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <text x="396" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Workflow</text>
+          </g>
+          <g class="screen-layer four">
+            <rect x="506" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7da1d2" stroke-width="3"/>
+            <text x="564" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Governance</text>
+          </g>
+          <path class="route-line one line" pathLength="1" d="M454 166 L506 166" stroke="#b5872c" stroke-width="4"/>
+          <path class="route-line two line" pathLength="1" d="M564 190 C564 206 548 214 526 220" stroke="#b5872c" stroke-width="4"/>
+          <path class="route-line three line" pathLength="1" d="M454 244 L506 244" stroke="#b5872c" stroke-width="4"/>
+          <g class="check-node">
+            <circle cx="664" cy="244" r="32" fill="none" stroke="#b5872c" stroke-width="5"/>
+            <text x="664" y="252" text-anchor="middle" fill="#b5872c" font-size="18" font-weight="900">OK</text>
+          </g>
+          <g class="mini-card">
+            <rect x="648" y="132" width="94" height="58" rx="8" fill="#ffffff" stroke="#b9cde5"/>
+            <line x1="664" y1="154" x2="724" y2="154" stroke="#7da1d2" stroke-width="5"/>
+            <line x1="664" y1="171" x2="710" y2="171" stroke="#b9cde5" stroke-width="5"/>
+          </g>
+
+          <rect x="240" y="364" width="488" height="15" fill="#263860"/>
+          <ellipse cx="486" cy="360" rx="260" ry="16" fill="#344873"/>
+          <rect x="314" y="378" width="16" height="126" fill="#263860"/>
+          <rect x="640" y="378" width="16" height="126" fill="#263860"/>
+          <rect x="386" y="306" width="96" height="54" fill="#7286c3"/>
+          <rect x="512" y="306" width="96" height="54" fill="#7286c3"/>
+
+          <g transform="translate(156 292)">
+            <ellipse cx="50" cy="184" rx="60" ry="13" fill="#8fa0c8" opacity="0.45"/>
+            <rect x="12" y="70" width="78" height="108" rx="26" fill="#ffffff"/>
+            <circle cx="52" cy="36" r="27" fill="#8a5538"/>
+            <path d="M26 32 C30 8 72 7 78 38 C60 28 42 26 26 32 Z" fill="#e8e2d8"/>
+            <path d="M90 96 C130 96 146 78 154 60" stroke="#8a5538" stroke-width="14" stroke-linecap="round" fill="none"/>
+            <rect x="34" y="168" width="22" height="84" fill="#31539a"/>
+            <rect x="62" y="168" width="22" height="84" fill="#31539a"/>
+          </g>
+
+          <g transform="translate(704 292)">
+            <ellipse cx="50" cy="184" rx="60" ry="13" fill="#8fa0c8" opacity="0.45"/>
+            <rect x="12" y="70" width="78" height="108" rx="26" fill="#f2c6e8"/>
+            <circle cx="52" cy="36" r="27" fill="#ffd2b1"/>
+            <path d="M30 12 C62 -2 86 22 76 48 C60 30 44 28 30 12 Z" fill="#111827"/>
+            <path d="M14 96 C-20 86 -30 68 -34 52" stroke="#ffd2b1" stroke-width="14" stroke-linecap="round" fill="none"/>
+            <rect x="34" y="168" width="22" height="84" fill="#31539a"/>
+            <rect x="62" y="168" width="22" height="84" fill="#31539a"/>
+          </g>
+        </svg>
+        <div class="speech-card" id="speechCard">
+          <strong id="speechSpeaker">General counsel</strong>
+          <span id="speechText">We want to use AI for contract intake. What exactly are we approving?</span>
+        </div>
+      </div>
+      <div class="scenario-controls">
+        <span class="beat-status" id="beatStatus">Scene beat 1 of 6</span>
+        <div class="scene-actions">
+          <button id="prevBeat">Back</button>
+          <button class="primary" id="nextBeat">Next beat</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz" id="quiz">
+      <span class="eyebrow">Applied Quiz</span>
+      <h2>Use the stack in judgment calls.</h2>
+      <article class="quiz-card" data-correct="b">
+        <h3>A partner says the firm has approved a legal AI product for “contract work.” A team wants to upload confidential diligence documents tomorrow. What should the lawyer ask first?</h3>
+        <div class="options">
+          <button class="option" data-option="a"><span class="marker">x</span><span>Whether the product demo showed accurate contract summaries.</span></button>
+          <button class="option" data-option="b"><span class="marker">✓</span><span>Which data, matters, users, and review path the approval covers.</span></button>
+          <button class="option" data-option="c"><span class="marker">x</span><span>Whether the vendor markets the product as built for law firms.</span></button>
+          <button class="option" data-option="d"><span class="marker">x</span><span>Which model family the vendor uses under the interface.</span></button>
+        </div>
+        <div class="quiz-feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="quiz-card" data-correct="c">
+        <h3>A legal department builds an intake assistant for common business questions. It drafts a response, then routes exceptions to counsel. Which layer does that routing describe?</h3>
+        <div class="options">
+          <button class="option" data-option="a"><span class="marker">x</span><span>The model, because it generates the first draft.</span></button>
+          <button class="option" data-option="b"><span class="marker">x</span><span>The tool, because users see the intake interface.</span></button>
+          <button class="option" data-option="c"><span class="marker">✓</span><span>The workflow, because it decides where output goes.</span></button>
+          <button class="option" data-option="d"><span class="marker">x</span><span>The policy, because legal owns the final answer.</span></button>
+        </div>
+        <div class="quiz-feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="quiz-card" data-correct="a">
+        <h3>A vendor says its system “does not train on your data.” The lawyer wants to evaluate whether a sensitive use case is acceptable. What is the best next move?</h3>
+        <div class="options">
+          <button class="option" data-option="a"><span class="marker">✓</span><span>Review retention, access, confidentiality, and review obligations.</span></button>
+          <button class="option" data-option="b"><span class="marker">x</span><span>Accept the statement because training is the only risk.</span></button>
+          <button class="option" data-option="c"><span class="marker">x</span><span>Focus only on whether the model output sounds accurate.</span></button>
+          <button class="option" data-option="d"><span class="marker">x</span><span>Move ahead if the same tool is used by other firms.</span></button>
+        </div>
+        <div class="quiz-feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="quiz-card" data-correct="d">
+        <h3>A lawyer sees an impressive clause analysis screen and says the AI is ready for client-facing work. Which response best applies this lesson?</h3>
+        <div class="options">
+          <button class="option" data-option="a"><span class="marker">x</span><span>Approve it if the interface clearly labels each answer.</span></button>
+          <button class="option" data-option="b"><span class="marker">x</span><span>Reject it until every output can be perfectly reliable.</span></button>
+          <button class="option" data-option="c"><span class="marker">x</span><span>Use it only when the model name is publicly known.</span></button>
+          <button class="option" data-option="d"><span class="marker">✓</span><span>Separate the screen, workflow, review, and governance layers.</span></button>
+        </div>
+        <div class="quiz-feedback" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="completion" id="completion" hidden>
+      <span class="eyebrow">Lesson complete</span>
+      <h2>You can now read the room.</h2>
+      <p>When someone says “AI,” you can ask which layer they mean. That one move turns a vague conversation into a lawyerly one.</p>
+    </section>
+  </main>
+
+  <script type="application/json" id="source-check">
+    {
+      "lesson": "Legal AI Is Not One Thing",
+      "sources": [
+        {
+          "name": "ABA Formal Opinion 512",
+          "url": "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+          "use": "Checked lawyer duties around competence, confidentiality, supervision, and generative AI."
+        },
+        {
+          "name": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "use": "Checked governance/risk framing for AI systems and organizational use."
+        },
+        {
+          "name": "OpenAI text generation and tools documentation",
+          "url": "https://developers.openai.com/api/docs/guides/text",
+          "use": "Checked plain-English distinctions among model response generation and tool-enabled systems."
+        }
+      ]
+    }
+  </script>
+
+  <script>
+    const layerContent = {
+      model: {
+        label: "Model",
+        title: "The model produces language or classifications.",
+        body: "A model is the underlying system that generates, classifies, summarizes, or transforms text. It does not decide your matter workflow. It does not know your risk tolerance. It responds to inputs."
+      },
+      tool: {
+        label: "Tool",
+        title: "The tool packages the model for users.",
+        body: "A tool is the product surface lawyers touch: a chat window, contract review feature, research assistant, intake form, or document analyzer. It may include prompts, retrieval, permissions, and connectors."
+      },
+      workflow: {
+        label: "Workflow",
+        title: "The workflow decides where the work goes.",
+        body: "A workflow is the process around the tool. It defines who starts the task, what materials go in, who reviews the output, where the result is stored, and when a lawyer must step back in."
+      },
+      governance: {
+        label: "Governance",
+        title: "Governance decides whether the setup is allowed.",
+        body: "Governance is the permission structure: confidentiality, privilege, supervision, data handling, logging, approved use cases, and accountability. It is not decoration. It is part of the legal work."
+      }
+    };
+
+    const required = {
+      stack: new Set(["model"]),
+      myth: new Set(),
+      scenario: false,
+      quiz: new Set(),
+      scroll: false
+    };
+
+    const layerButtons = [...document.querySelectorAll(".layer-button")];
+    const layerPanel = document.getElementById("layerPanel");
+
+    function updateLayer(layer) {
+      required.stack.add(layer);
+      layerButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.layer === layer)));
+      document.querySelectorAll(".stack-row").forEach(row => row.classList.toggle("active", row.dataset.stack === layer));
+      layerPanel.classList.add("is-changing");
+      window.setTimeout(() => {
+        document.getElementById("layerLabel").textContent = layerContent[layer].label;
+        document.getElementById("layerTitle").textContent = layerContent[layer].title;
+        document.getElementById("layerBody").textContent = layerContent[layer].body;
+        layerPanel.classList.remove("is-changing");
+        checkCompletion();
+      }, 150);
+    }
+
+    layerButtons.forEach(button => button.addEventListener("click", () => updateLayer(button.dataset.layer)));
+
+    document.querySelectorAll(".myth-card").forEach((card, index) => {
+      card.querySelectorAll("[data-choice]").forEach(button => {
+        button.addEventListener("click", () => {
+          const correct = button.dataset.choice === card.dataset.answer;
+          card.classList.remove("correct", "incorrect");
+          card.classList.add(correct ? "correct" : "incorrect");
+          card.querySelectorAll("button").forEach(option => option.disabled = true);
+          card.querySelector(".myth-feedback").textContent = correct
+            ? "Correct. This separates the stack instead of treating AI as one object."
+            : "Not quite. The lesson is to separate capability, product surface, workflow, and permission.";
+          required.myth.add(index);
+          checkCompletion();
+        });
+      });
+    });
+
+    const scenarioBeats = [
+      {
+        speaker: "General counsel",
+        text: "We want to use AI for contract intake. What exactly are we approving?"
+      },
+      {
+        speaker: "Legal engineer",
+        text: "First layer: the model drafts or classifies the intake summary."
+      },
+      {
+        speaker: "Product counsel",
+        text: "Second layer: the tool is the screen people actually use."
+      },
+      {
+        speaker: "Legal operations",
+        text: "Third layer: the workflow routes ordinary questions and escalates exceptions."
+      },
+      {
+        speaker: "General counsel",
+        text: "Fourth layer: governance says what data can enter and who reviews the result."
+      },
+      {
+        speaker: "Legal engineer",
+        text: "Now the approval is narrow: this use case, this tool, this workflow, this review path."
+      }
+    ];
+
+    let currentBeat = 0;
+    const stage = document.getElementById("scenarioStage");
+    const speechCard = document.getElementById("speechCard");
+
+    function renderBeat() {
+      const beat = scenarioBeats[currentBeat];
+      speechCard.classList.add("is-swapping");
+      window.setTimeout(() => {
+        document.getElementById("speechSpeaker").textContent = beat.speaker;
+        document.getElementById("speechText").textContent = beat.text;
+        document.getElementById("beatStatus").textContent = `Scene beat ${currentBeat + 1} of ${scenarioBeats.length}`;
+        document.getElementById("prevBeat").disabled = currentBeat === 0;
+        document.getElementById("nextBeat").textContent = currentBeat === scenarioBeats.length - 1 ? "Finish scene" : "Next beat";
+        stage.dataset.beat = String(currentBeat);
+        speechCard.classList.remove("is-swapping");
+        if (currentBeat === scenarioBeats.length - 1) {
+          required.scenario = true;
+          checkCompletion();
+        }
+      }, 180);
+    }
+
+    document.getElementById("prevBeat").addEventListener("click", () => {
+      currentBeat = Math.max(0, currentBeat - 1);
+      renderBeat();
+    });
+
+    document.getElementById("nextBeat").addEventListener("click", () => {
+      if (currentBeat < scenarioBeats.length - 1) {
+        currentBeat += 1;
+        renderBeat();
+      } else {
+        required.scenario = true;
+        checkCompletion();
+        document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    document.querySelectorAll(".quiz-card").forEach((card, index) => {
+      card.querySelectorAll(".option").forEach(option => {
+        option.addEventListener("click", () => {
+          const isCorrect = option.dataset.option === card.dataset.correct;
+          card.querySelectorAll(".option").forEach(candidate => {
+            candidate.disabled = true;
+            if (candidate.dataset.option === card.dataset.correct) {
+              candidate.classList.add("correct");
+            }
+          });
+          if (!isCorrect) {
+            option.classList.add("wrong");
+          }
+          card.querySelector(".quiz-feedback").textContent = isCorrect
+            ? "Correct. You used the stack to turn a vague AI question into a reviewable legal decision."
+            : "Not quite. The strongest answer separates the layer being discussed from the permission and review path.";
+          required.quiz.add(index);
+          checkCompletion();
+        });
+      });
+    });
+
+    function checkCompletion() {
+      const complete =
+        required.stack.size === 4 &&
+        required.myth.size === 4 &&
+        required.scenario &&
+        required.quiz.size === 4 &&
+        required.scroll;
+
+      document.getElementById("completion").hidden = !complete;
+    }
+
+    window.addEventListener("scroll", () => {
+      const nearEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12;
+      if (nearEnd) {
+        required.scroll = true;
+        checkCompletion();
+      }
+    }, { passive: true });
+
+    renderBeat();
+  </script>
+</body>
+</html>
