@@ -122,6 +122,49 @@
       font-size: 1.03rem;
     }
 
+    .lede {
+      max-width: 760px;
+    }
+
+    .premise-drawer {
+      max-width: 840px;
+      border-left: 3px solid var(--hair);
+      padding-left: 14px;
+    }
+
+    .premise-drawer summary {
+      width: fit-content;
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      list-style: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .premise-drawer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .premise-drawer summary::after {
+      content: "+";
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--blue-3);
+      font-weight: 900;
+    }
+
+    .premise-drawer[open] summary::after {
+      content: "x";
+    }
+
+    .premise-drawer p {
+      margin-top: 10px;
+      max-width: 760px;
+      font-size: 0.98rem;
+    }
+
     button {
       min-height: 40px;
       border: 1.5px solid var(--hair);
@@ -170,6 +213,185 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
+    }
+
+    .scene-reader {
+      display: grid;
+      gap: 14px;
+      border: 1px solid var(--hair);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 16px;
+    }
+
+    .scene-tabs,
+    .core-tabs,
+    .why-tabs,
+    .binder-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .scene-tabs button,
+    .core-tabs button,
+    .why-tabs button,
+    .binder-tabs button {
+      min-height: 34px;
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scene-tabs button[aria-pressed="true"],
+    .core-tabs button[aria-pressed="true"],
+    .why-tabs button[aria-pressed="true"],
+    .binder-tabs button[aria-pressed="true"] {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .scene-board {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      border: 1px solid var(--hair);
+      border-radius: 7px;
+      background:
+        linear-gradient(90deg, rgba(226, 221, 208, 0.38) 1px, transparent 1px) 0 0 / 42px 42px,
+        linear-gradient(180deg, #fffdf8 0%, #eef3f6 100%);
+    }
+
+    .scene-board::before {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      height: 1px;
+      background: rgba(127, 157, 198, 0.52);
+    }
+
+    .scene-board::after {
+      content: "";
+      position: absolute;
+      right: 34px;
+      top: 34px;
+      width: 70px;
+      height: 52px;
+      border: 1px solid rgba(127, 157, 198, 0.42);
+      border-radius: 6px;
+      background:
+        linear-gradient(#dce6f4 0 0) 12px 15px / 44px 5px no-repeat,
+        linear-gradient(#dce6f4 0 0) 12px 27px / 34px 5px no-repeat,
+        rgba(255, 255, 255, 0.76);
+      opacity: 0.8;
+    }
+
+    .scene-artifact {
+      position: absolute;
+      border: 1px solid rgba(127, 157, 198, 0.44);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 16px 36px rgba(21, 25, 42, 0.1);
+      color: var(--ink);
+      padding: 14px;
+      transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .scene-artifact::before,
+    .why-node::before,
+    .binder-node::before {
+      content: "";
+      display: block;
+      width: 26px;
+      height: 26px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(127, 157, 198, 0.56);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, var(--blue-3) 0 3px, transparent 4px),
+        linear-gradient(var(--blue-3) 0 0) 50% 6px / 2px 16px no-repeat,
+        #f8fafc;
+    }
+
+    .scene-artifact.client::before {
+      border-radius: 7px;
+      background:
+        linear-gradient(var(--blue-3) 0 0) 7px 8px / 13px 3px no-repeat,
+        linear-gradient(#dce6f4 0 0) 7px 15px / 15px 3px no-repeat,
+        #f8fafc;
+    }
+
+    .scene-artifact.platform::before {
+      border-radius: 7px;
+      background:
+        radial-gradient(circle at 8px 9px, var(--blue-3) 0 3px, transparent 4px),
+        radial-gradient(circle at 17px 17px, var(--blue-3) 0 3px, transparent 4px),
+        linear-gradient(var(--blue-3) 0 0) 10px 10px / 9px 2px no-repeat,
+        #f8fafc;
+    }
+
+    .scene-artifact strong,
+    .why-visual strong,
+    .binder-visual strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .scene-artifact p,
+    .why-visual p,
+    .binder-visual p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.36;
+    }
+
+    .scene-artifact.meeting {
+      left: 34px;
+      top: 28px;
+      width: 230px;
+    }
+
+    .scene-artifact.client {
+      left: 214px;
+      top: 86px;
+      width: 252px;
+    }
+
+    .scene-artifact.platform {
+      right: 34px;
+      top: 42px;
+      width: 226px;
+    }
+
+    .scene-board[data-active="meeting"] .scene-artifact:not(.meeting),
+    .scene-board[data-active="client"] .scene-artifact:not(.client),
+    .scene-board[data-active="platform"] .scene-artifact:not(.platform) {
+      opacity: 0.34;
+      filter: grayscale(0.3);
+      transform: translateY(8px) scale(0.97);
+    }
+
+    .scene-copy {
+      display: grid;
+      gap: 8px;
+      border-left: 4px solid var(--navy);
+      padding-left: 14px;
+    }
+
+    .scene-copy p:first-child {
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .situation-beat {
@@ -268,6 +490,199 @@
       color: var(--ink-soft);
       font-size: 0.95rem;
       line-height: 1.35;
+    }
+
+    .core-body,
+    .why-copy,
+    .binder-copy {
+      display: grid;
+      gap: 8px;
+      border-top: 1px solid var(--hair);
+      padding-top: 12px;
+    }
+
+    .core-body h3,
+    .why-copy h3,
+    .binder-copy h3 {
+      font-size: 1.32rem;
+    }
+
+    .why-interactive,
+    .binder-lab {
+      display: grid;
+      gap: 16px;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 20px;
+    }
+
+    .why-stage,
+    .binder-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.52fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .why-visual,
+    .binder-visual {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid var(--hair);
+      border-radius: 7px;
+      background:
+        linear-gradient(90deg, rgba(226, 221, 208, 0.38) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(180deg, #fffdf8 0%, #eef3f6 100%);
+    }
+
+    .why-visual::before,
+    .binder-visual::before {
+      content: "";
+      position: absolute;
+      inset: 26px;
+      border: 1px solid rgba(127, 157, 198, 0.24);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .why-connector,
+    .binder-connector {
+      position: absolute;
+      z-index: 1;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(127, 157, 198, 0.76);
+      transform-origin: left center;
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    .why-connector.one {
+      left: 212px;
+      top: 105px;
+      width: 102px;
+      transform: rotate(20deg);
+    }
+
+    .why-connector.two {
+      left: 402px;
+      top: 119px;
+      width: 114px;
+      transform: rotate(-20deg);
+    }
+
+    .binder-connector.one {
+      left: 168px;
+      top: 108px;
+      width: 72px;
+      transform: rotate(12deg);
+    }
+
+    .binder-connector.two {
+      left: 206px;
+      top: 180px;
+      width: 92px;
+      transform: rotate(-18deg);
+    }
+
+    .binder-connector.three {
+      left: 330px;
+      top: 154px;
+      width: 88px;
+      transform: rotate(-10deg);
+    }
+
+    .why-node,
+    .binder-node {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      gap: 5px;
+      border: 1px solid rgba(127, 157, 198, 0.44);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 34px rgba(21, 25, 42, 0.09);
+      padding: 13px;
+      transition: opacity 0.24s ease, transform 0.24s ease, border-color 0.24s ease;
+    }
+
+    .why-node[data-node="tool"]::before,
+    .binder-node[data-node="vendor"]::before {
+      border-radius: 7px;
+      background:
+        linear-gradient(var(--navy) 0 0) 0 0 / 100% 7px no-repeat,
+        linear-gradient(#dce6f4 0 0) 7px 13px / 13px 3px no-repeat,
+        linear-gradient(#dce6f4 0 0) 7px 20px / 17px 3px no-repeat,
+        #f8fafc;
+    }
+
+    .why-node[data-node="governance"]::before,
+    .binder-node[data-node="logs"]::before {
+      background:
+        linear-gradient(var(--blue-3) 0 0) 7px 18px / 12px 3px no-repeat,
+        linear-gradient(var(--blue-3) 0 0) 10px 8px / 6px 12px no-repeat,
+        #f8fafc;
+    }
+
+    .binder-node[data-node="policy"]::before {
+      border-radius: 5px;
+      background:
+        linear-gradient(var(--blue-3) 0 0) 8px 8px / 11px 3px no-repeat,
+        linear-gradient(#dce6f4 0 0) 8px 15px / 14px 3px no-repeat,
+        linear-gradient(#dce6f4 0 0) 8px 22px / 9px 3px no-repeat,
+        #f8fafc;
+    }
+
+    .binder-node[data-node="review"]::before {
+      background:
+        radial-gradient(circle at 13px 10px, var(--blue-3) 0 5px, transparent 6px),
+        linear-gradient(var(--blue-3) 0 0) 8px 18px / 12px 4px no-repeat,
+        #f8fafc;
+    }
+
+    .why-node[data-node="model"] {
+      left: 34px;
+      top: 42px;
+      width: 190px;
+    }
+
+    .why-node[data-node="tool"] {
+      left: 220px;
+      top: 118px;
+      width: 220px;
+    }
+
+    .why-node[data-node="governance"] {
+      right: 36px;
+      top: 48px;
+      width: 210px;
+    }
+
+    .why-visual[data-active="model"] .why-node:not([data-node="model"]),
+    .why-visual[data-active="tool"] .why-node:not([data-node="tool"]),
+    .why-visual[data-active="governance"] .why-node:not([data-node="governance"]) {
+      opacity: 0.3;
+      transform: translateY(8px) scale(0.97);
+    }
+
+    .why-visual[data-active="model"] .why-node[data-node="model"],
+    .why-visual[data-active="tool"] .why-node[data-node="tool"],
+    .why-visual[data-active="governance"] .why-node[data-node="governance"] {
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .binder-node[data-node="policy"] { left: 34px; top: 42px; width: 160px; }
+    .binder-node[data-node="vendor"] { left: 210px; top: 74px; width: 170px; }
+    .binder-node[data-node="review"] { left: 130px; top: 174px; width: 190px; }
+    .binder-node[data-node="logs"] { right: 36px; top: 92px; width: 174px; }
+
+    .binder-visual[data-active="day"] .binder-node:not([data-node="policy"]),
+    .binder-visual[data-active="firm"] .binder-node:not([data-node="vendor"]),
+    .binder-visual[data-active="house"] .binder-node:not([data-node="review"]) {
+      opacity: 0.34;
+      transform: translateY(8px) scale(0.97);
     }
 
     .stack-lab {
@@ -1049,8 +1464,8 @@
 
     .athena-card {
       position: relative;
-      border: 1px solid var(--hair);
-      border-left: 4px solid var(--blue-3);
+      border: 1px solid rgba(181, 106, 66, 0.24);
+      border-left: 4px solid #b66a42;
       border-radius: 8px 8px 4px 8px;
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 18px 46px rgba(21, 25, 42, 0.18);
@@ -1107,10 +1522,10 @@
     .athena-portrait {
       width: 84px;
       height: 84px;
-      border: 1px solid var(--athena-line);
+      border: 1px solid rgba(181, 106, 66, 0.24);
       border-radius: 50%;
-      background: var(--athena-navy);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      background: #f4efe4;
+      box-shadow: 0 10px 28px rgba(21, 25, 42, 0.16);
       object-fit: cover;
     }
 
@@ -1121,8 +1536,8 @@
       align-items: center;
       max-width: 560px;
       margin: 18px 0 0 auto;
-      border: 1px solid var(--hair);
-      border-left: 4px solid var(--blue-3);
+      border: 1px solid rgba(181, 106, 66, 0.24);
+      border-left: 4px solid #b66a42;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 18px 46px rgba(21, 25, 42, 0.12);
@@ -1137,9 +1552,9 @@
     .athena-inline img {
       width: 72px;
       height: 72px;
-      border: 1px solid var(--athena-line);
+      border: 1px solid rgba(181, 106, 66, 0.24);
       border-radius: 50%;
-      background: var(--athena-navy);
+      background: #f4efe4;
       object-fit: cover;
     }
 
@@ -1192,6 +1607,112 @@
 
       .scenario-stage {
         min-height: 760px;
+      }
+
+      .scene-board {
+        min-height: 340px;
+      }
+
+      .scene-artifact.meeting {
+        left: 18px;
+        top: 24px;
+        width: 210px;
+      }
+
+      .scene-artifact.client {
+        left: 74px;
+        top: 122px;
+        width: 230px;
+      }
+
+      .scene-artifact.platform {
+        right: 18px;
+        top: 224px;
+        width: 214px;
+      }
+
+      .why-stage,
+      .binder-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .why-visual,
+      .binder-visual {
+        min-height: 360px;
+      }
+
+      .why-node[data-node="model"] {
+        left: 18px;
+        top: 28px;
+        width: 180px;
+      }
+
+      .why-node[data-node="tool"] {
+        left: 92px;
+        top: 132px;
+        width: 212px;
+      }
+
+      .why-node[data-node="governance"] {
+        right: 18px;
+        top: 250px;
+        width: 206px;
+      }
+
+      .binder-node[data-node="policy"] {
+        left: 18px;
+        top: 34px;
+      }
+
+      .binder-node[data-node="vendor"] {
+        right: 18px;
+        left: auto;
+        top: 82px;
+      }
+
+      .binder-node[data-node="review"] {
+        left: 46px;
+        top: 184px;
+      }
+
+      .binder-node[data-node="logs"] {
+        right: 18px;
+        top: 264px;
+      }
+
+      .why-connector.one {
+        left: 132px;
+        top: 108px;
+        width: 82px;
+        transform: rotate(58deg);
+      }
+
+      .why-connector.two {
+        left: 190px;
+        top: 220px;
+        width: 74px;
+        transform: rotate(42deg);
+      }
+
+      .binder-connector.one {
+        left: 148px;
+        top: 94px;
+        width: 80px;
+        transform: rotate(6deg);
+      }
+
+      .binder-connector.two {
+        left: 94px;
+        top: 164px;
+        width: 72px;
+        transform: rotate(68deg);
+      }
+
+      .binder-connector.three {
+        left: 210px;
+        top: 246px;
+        width: 76px;
+        transform: rotate(28deg);
       }
 
       .case-scene {
@@ -1298,71 +1819,88 @@
         <span class="section-label">Lesson 1</span>
       </div>
       <h1>Legal AI Is Not One Thing</h1>
-      <p>Legal AI enters the day as requests, tools, workflows, and records. The first lawyer move is to name which layer is actually moving.</p>
+      <p class="lede">The first lawyer move is to name which layer is actually moving.</p>
+      <details class="premise-drawer">
+        <summary>Full premise</summary>
+        <p>Inside a legal workplace, AI rarely arrives as a single thing. It arrives as a vendor update, a client request, a practice-group experiment, a workflow proposal, a new button inside a platform everyone already uses, and eventually as an evidence problem, because someone will need to show what legal allowed, what data moved, who reviewed the output, and what survived the decision.</p>
+      </details>
     </header>
 
     <section class="intro" id="situation">
       <div class="intro-copy">
         <span class="eyebrow">The Situation</span>
         <h2>AI can mean many things.</h2>
-        <p>Monday afternoon, the work arrives in three different forms.</p>
-        <div class="situation-strip">
-          <div class="situation-beat">
-            <strong>Practice meeting</strong>
-            <span>An adjacent group is piloting AI for contract review.</span>
+        <div class="scene-reader">
+          <div class="scene-tabs" aria-label="Situation moments">
+            <button type="button" data-situation="meeting" aria-pressed="true">Practice meeting</button>
+            <button type="button" data-situation="client" aria-pressed="false">Client call</button>
+            <button type="button" data-situation="platform" aria-pressed="false">Platform note</button>
           </div>
-          <div class="situation-beat">
-            <strong>Client call</strong>
-            <span>The client asks for an AI summary of a hundred-page policy.</span>
+          <div class="scene-board" id="situationBoard" data-active="meeting">
+            <div class="scene-artifact meeting">
+              <strong>Practice meeting</strong>
+              <p>An adjacent group is piloting AI for contract review.</p>
+            </div>
+            <div class="scene-artifact client">
+              <strong>Client call</strong>
+              <p>Legal is asked to summarize a hundred-page policy with AI.</p>
+            </div>
+            <div class="scene-artifact platform">
+              <strong>Platform note</strong>
+              <p>The vendor announces a legal reasoning engine.</p>
+            </div>
           </div>
-          <div class="situation-beat">
-            <strong>Platform note</strong>
-            <span>The tool everyone uses now advertises a legal reasoning engine.</span>
+          <div class="scene-copy" aria-live="polite">
+            <p id="situationPrimary">Monday afternoon, the practice meeting is already running long when a junior associate mentions that the adjacent group is piloting AI for contract review.</p>
+            <p id="situationSecondary">That moment concerns the operating question behind the model: what system generates the language, what task has it been asked to perform, and where does legal judgment return?</p>
           </div>
         </div>
-        <p>Together, those moments point to the stack: model, tool, workflow, and governance record.</p>
       </div>
       <aside class="quiet-card">
         <span class="small-label">Core Concept</span>
-        <div class="stack-index">
-          <div>
-            <strong>Model</strong>
-            <span>Generates, classifies, summarizes, or transforms language.</span>
-          </div>
-          <div>
-            <strong>Tool</strong>
-            <span>Turns that capability into the surface people use.</span>
-          </div>
-          <div>
-            <strong>Workflow</strong>
-            <span>Decides where output goes and when counsel returns.</span>
-          </div>
-          <div>
-            <strong>Governance</strong>
-            <span>Creates the limits, review duty, logging, and proof.</span>
-          </div>
+        <div class="core-tabs" aria-label="Core concept layers">
+          <button type="button" data-core="model" aria-pressed="true">Model</button>
+          <button type="button" data-core="tool" aria-pressed="false">Tool</button>
+          <button type="button" data-core="workflow" aria-pressed="false">Workflow</button>
+          <button type="button" data-core="governance" aria-pressed="false">Governance</button>
+        </div>
+        <div class="core-body" aria-live="polite">
+          <h3 id="coreTitle">Model</h3>
+          <p id="coreText">The model generates, classifies, summarizes, or transforms language. It is powerful, but it is still only one layer of the legal AI arrangement.</p>
         </div>
       </aside>
     </section>
 
     <section id="why">
       <span class="eyebrow">Why It Matters</span>
-      <div class="lesson-grid">
-        <article class="panel">
-          <span class="num">01</span>
-          <h3>The model performs a bounded language task.</h3>
-          <p>Ask what information reaches it, what task it performs, and where the answer starts to sound like legal judgment.</p>
-        </article>
-        <article class="panel">
-          <span class="num">02</span>
-          <h3>The tool turns hidden architecture into a screen.</h3>
-          <p>Ask what sits underneath the demo: retention, access, retrieval, logs, privilege boundaries, and vendor promises.</p>
-        </article>
-        <article class="panel">
-          <span class="num">03</span>
-          <h3>Governance preserves the evidence story.</h3>
-          <p>Ask what legal allowed, who reviewed the output, and what record will explain the decision later.</p>
-        </article>
+      <div class="why-interactive">
+        <div class="why-tabs" aria-label="Why it matters lenses">
+          <button type="button" data-why="model" aria-pressed="true">Model task</button>
+          <button type="button" data-why="tool" aria-pressed="false">Tool surface</button>
+          <button type="button" data-why="governance" aria-pressed="false">Governance record</button>
+          </div>
+          <div class="why-stage">
+          <div class="why-visual" id="whyVisual" data-active="model">
+            <div class="why-connector one" aria-hidden="true"></div>
+            <div class="why-connector two" aria-hidden="true"></div>
+            <div class="why-node" data-node="model">
+              <strong>Model</strong>
+              <p>Language task</p>
+            </div>
+            <div class="why-node" data-node="tool">
+              <strong>Tool</strong>
+              <p>Usable surface</p>
+            </div>
+            <div class="why-node" data-node="governance">
+              <strong>Governance</strong>
+              <p>Evidence story</p>
+            </div>
+          </div>
+          <div class="why-copy" aria-live="polite">
+            <h3 id="whyTitle">The model performs a bounded language task.</h3>
+            <p id="whyText">A model can produce a useful summary, classification, clause comparison, or intake draft, but the output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user's ability to recognize when the answer has moved beyond the task legal allowed it to perform.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1393,19 +1931,39 @@
 
     <section id="lenses">
       <span class="eyebrow">How It Shows Up</span>
-      <div class="lesson-grid">
-        <article class="panel">
-          <h3>Day-to-day example</h3>
-          <p>The client sends a long policy and asks for a same-day summary. Legal has to decide what can enter, who reviews, and what record survives.</p>
-        </article>
-        <article class="panel">
-          <h3>Law firm lens</h3>
-          <p>A tool approval needs matter types, eligible users, data limits, privilege treatment, client rules, and review path.</p>
-        </article>
-        <article class="panel">
-          <h3>In-house lens</h3>
-          <p>A legal team moves faster when business users know which answers stay internal and which ones require signoff.</p>
-        </article>
+      <div class="binder-lab">
+        <div class="binder-tabs" aria-label="Practice lenses">
+          <button type="button" data-binder="day" aria-pressed="true">Day-to-day</button>
+          <button type="button" data-binder="firm" aria-pressed="false">Law firm</button>
+          <button type="button" data-binder="house" aria-pressed="false">In-house</button>
+        </div>
+        <div class="binder-stage">
+          <div class="binder-visual" id="binderVisual" data-active="day">
+            <div class="binder-connector one" aria-hidden="true"></div>
+            <div class="binder-connector two" aria-hidden="true"></div>
+            <div class="binder-connector three" aria-hidden="true"></div>
+            <div class="binder-node" data-node="policy">
+              <strong>Policy</strong>
+              <p>Input</p>
+            </div>
+            <div class="binder-node" data-node="vendor">
+              <strong>Vendor</strong>
+              <p>Scope</p>
+            </div>
+            <div class="binder-node" data-node="review">
+              <strong>Review</strong>
+              <p>Counsel</p>
+            </div>
+            <div class="binder-node" data-node="logs">
+              <strong>Logs</strong>
+              <p>Record</p>
+            </div>
+          </div>
+          <div class="binder-copy" aria-live="polite">
+            <h3 id="binderTitle">Day-to-day example</h3>
+            <p id="binderText">The client sends a long policy and asks for a same-day summary. The model generates language, the interface lets the lawyer request and read it, the workflow determines whether the result becomes a matter note, a redline comment, a client-facing email, or nothing at all, and governance decides whether the policy text may enter the system, who may see the result, which review step must occur, and what record survives the task.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1548,11 +2106,11 @@
         </div>
       </div>
       <div class="athena-inline athena-scene-inline" id="athenaSceneInline" hidden aria-live="polite">
-        <img id="athenaScenePortrait" src="../assets/athena/athena-observe.png" alt="Athena">
+        <img id="athenaScenePortrait" src="../assets/athena/athena-hold.svg" alt="Athena">
         <div>
-          <span class="athena-state" id="athenaSceneState">Observe</span>
+          <span class="athena-state" id="athenaSceneState">Hold</span>
           <strong>Athena</strong>
-          <p id="athenaSceneLine">The approval question is where the work moved, who reviewed it, and what record would prove the decision.</p>
+          <p id="athenaSceneLine">Stop. Check the premise. The approval only means something if the movement, reviewer, and record survive.</p>
         </div>
       </div>
     </section>
@@ -1612,11 +2170,11 @@
     </section>
 
     <section class="athena-inline" id="athenaInline" hidden aria-live="polite">
-      <img id="athenaInlinePortrait" src="../assets/athena/athena-approve.png" alt="Athena">
+      <img id="athenaInlinePortrait" src="../assets/athena/athena-close.svg" alt="Athena">
       <div>
-        <span class="athena-state" id="athenaInlineState">Approve</span>
+        <span class="athena-state" id="athenaInlineState">Close</span>
         <strong>Athena</strong>
-        <p id="athenaInlineLine">Lesson closed. The next AI conversation should start with the layer, the movement, and the record.</p>
+        <p id="athenaInlineLine">That conclusion can stand. The next AI conversation starts with the layer, the movement, and the record.</p>
       </div>
     </section>
   </main>
@@ -1624,11 +2182,11 @@
   <aside class="athena" id="athena" aria-live="polite" aria-hidden="true">
     <div class="athena-card">
       <button class="athena-dismiss" id="athenaDismiss" aria-label="Dismiss Athena">x</button>
-      <span class="athena-state" id="athenaState">Guide</span>
+      <span class="athena-state" id="athenaState">Ask</span>
       <strong>Athena</strong>
-      <p id="athenaLine">Hi. I will ask what moved, who reviewed it, what evidence survived, and where legal judgment returned to the system.</p>
+      <p id="athenaLine">What are we assuming when the room says AI? Choose the layer before you approve the work.</p>
     </div>
-    <img class="athena-portrait" id="athenaPortrait" src="../assets/athena/athena-observe.png" alt="Athena">
+    <img class="athena-portrait" id="athenaPortrait" src="../assets/athena/athena-ask.svg" alt="Athena">
   </aside>
 
   <script type="application/json" id="source-check">
@@ -1657,51 +2215,165 @@
   <script type="application/json" id="athena-messages">
     {
       "intro": {
-        "state": "Guide",
-        "line": "Hi. I will ask what moved, who reviewed it, what evidence survived, and where legal judgment returned to the system."
+        "state": "Ask",
+        "line": "What are we assuming when the room says AI? Choose the layer before you approve the work."
       },
       "nudge": {
-        "state": "Nudge",
-        "line": "Name the movement first. Then find the governance perimeter."
+        "state": "Trace",
+        "line": "Let's follow that reasoning. Name the movement first, then find the governance perimeter."
       },
       "observe": {
-        "state": "Observe",
-        "line": "Good. The case file shows why the approval has to preserve the movement, the reviewer, and the record."
+        "state": "Hold",
+        "line": "Stop. Check the premise. The approval only means something if the movement, reviewer, and record survive."
       },
       "approve": {
-        "state": "Approve",
-        "line": "Lesson closed. The next AI conversation should start with the layer, the movement, and the record."
+        "state": "Close",
+        "line": "That conclusion can stand. The next AI conversation starts with the layer, the movement, and the record."
       },
       "celebrate": {
-        "state": "Celebrate",
-        "line": "That is the move. Trace the movement before you bless the work."
+        "state": "Close",
+        "line": "That conclusion can stand. Trace the movement before you bless the work."
       }
     }
   </script>
 
   <script>
+    const situationContent = {
+      meeting: {
+        primary: "Monday afternoon, the practice meeting is already running long when a junior associate mentions that the adjacent group is piloting AI for contract review.",
+        secondary: "That moment concerns the operating question behind the model: what system generates the language, what task has it been asked to perform, and where does legal judgment return?"
+      },
+      client: {
+        primary: "You leave with a headache and walk into a client call, where the client asks whether legal can summarize the scope of a new hundred-page policy with AI.",
+        secondary: "That moment concerns the tool and the workflow: what interface packages the capability for the user, where the output goes, and whether the result can become work product."
+      },
+      platform: {
+        primary: "Before you close the day, your team's paralegal tells you the platform everyone has used for years now advertises a legal reasoning engine powered by the newest model.",
+        secondary: "That moment concerns the governance record: what changed in the system, what data can move through it, who reviewed the output, and what evidence would show that legal judgment stayed in the loop."
+      }
+    };
+
+    const coreContent = {
+      model: {
+        title: "Model",
+        body: "The model generates, classifies, summarizes, or transforms language. It is powerful, but it is still only one layer of the legal AI arrangement."
+      },
+      tool: {
+        title: "Tool",
+        body: "The tool gives model behavior a usable surface: a chat window, review panel, research assistant, intake form, or document analyzer."
+      },
+      workflow: {
+        title: "Workflow",
+        body: "The workflow decides who sees the output, where it is stored, when it escalates, and whether it can leave the team."
+      },
+      governance: {
+        title: "Governance",
+        body: "Governance surrounds the arrangement with data rules, review duties, vendor limits, logging, accountability, and proof."
+      }
+    };
+
+    const whyContent = {
+      model: {
+        title: "The model performs a bounded language task.",
+        body: "A model can produce a useful summary, classification, clause comparison, or intake draft, but the output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user's ability to recognize when the answer has moved beyond the task legal allowed it to perform."
+      },
+      tool: {
+        title: "The tool turns hidden architecture into a screen.",
+        body: "A polished interface can make a system feel mature before the hard questions have been answered, because the visible screen rarely shows retention, access, privilege boundaries, logging, retrieval scope, escalation rules, or the contractual promises sitting underneath the demo."
+      },
+      governance: {
+        title: "Governance preserves the evidence story.",
+        body: "Lawyers still carry competence, confidentiality, supervision, and judgment, and the relevant question is where that responsibility re-enters the system: before data enters, before output moves, before a business user acts, before a client sees language, and before the organization later has to explain what happened."
+      }
+    };
+
+    const binderContent = {
+      day: {
+        title: "Day-to-day example",
+        body: "The client sends a long policy and asks for a same-day summary. The model generates language, the interface lets the lawyer request and read it, the workflow determines whether the result becomes a matter note, a redline comment, a client-facing email, or nothing at all, and governance decides whether the policy text may enter the system, who may see the result, which review step must occur, and what record survives the task."
+      },
+      firm: {
+        title: "Law firm lens",
+        body: "A firm pilot can fail when the policy approves a tool name without defining matter types, eligible users, data limits, privilege treatment, vendor restrictions, human review, client communication rules, and the path by which an output may become part of a file, a memo, a pleading, or advice."
+      },
+      house: {
+        title: "In-house lens",
+        body: "A legal department moves faster when business users know which intake questions can use automation, which questions trigger counsel review, which answers can remain internal, which answers require legal signoff, and which facts should stay out of the system in the first place."
+      }
+    };
+
     const layerContent = {
       model: {
         label: "Model",
         title: "The model performs the language task.",
-        body: "A model generates, classifies, summarizes, compares, or transforms language. The legal question is what information reaches it, what task it performs, what uncertainty remains, and whether the user can recognize when language support starts becoming legal judgment."
+        body: "A model generates, classifies, summarizes, compares, or transforms language based on the input it receives and the surrounding instructions it can see. The legal question is what information reaches it, what task it has been asked to perform, what uncertainty remains in the answer, and whether the user can recognize when the output has crossed from language support into legal judgment."
       },
       tool: {
         label: "Tool",
         title: "The tool packages model behavior into a usable surface.",
-        body: "A tool is the product surface lawyers and business users touch: a chat window, review panel, research assistant, intake form, or document analyzer. The harder analysis sits underneath the surface, in retrieval, prompts, permissions, connectors, retention settings, admin controls, logs, and vendor commitments."
+        body: "A tool is the product surface lawyers and business users touch: a chat window, review panel, research assistant, intake form, or document analyzer. The harder analysis usually sits underneath that surface, in retrieval, prompts, permissions, connectors, retention settings, admin controls, usage logs, and vendor commitments that matter more than the demo."
       },
       workflow: {
         label: "Workflow",
         title: "The workflow decides how output moves.",
-        body: "A workflow defines who starts the task, what material can enter, who receives the answer, where the answer is stored, which exceptions escalate, and when counsel steps back in before the output becomes advice, a matter record, a business instruction, or a client-facing document."
+        body: "A workflow defines who starts the task, what material can enter, which user receives the answer, where the answer is stored, which exceptions escalate, and when counsel must step back in before the output becomes advice, a matter record, a business instruction, or a client-facing document."
       },
       governance: {
         label: "Governance",
         title: "Governance surrounds the whole arrangement.",
-        body: "Governance is the permission and evidence structure around the system: confidentiality, privilege, supervision, data handling, vendor terms, approved use cases, human review, logging, auditability, and accountability. In sum, it answers the question a later reviewer will ask first: what did legal allow, on what facts, under which limits, and with what proof."
+        body: "Governance is the permission and evidence structure around the system: confidentiality, privilege, supervision, data handling, vendor terms, approved use cases, human review, logging, auditability, and accountability. In sum, governance answers the question a later reviewer will ask first: what did legal allow, on what facts, under which limits, and with what proof."
       }
     };
+
+    function setPressed(buttons, activeValue, key) {
+      buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset[key] === activeValue)));
+    }
+
+    const situationButtons = [...document.querySelectorAll("[data-situation]")];
+    const situationBoard = document.getElementById("situationBoard");
+    situationButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.situation;
+        setPressed(situationButtons, key, "situation");
+        situationBoard.dataset.active = key;
+        document.getElementById("situationPrimary").textContent = situationContent[key].primary;
+        document.getElementById("situationSecondary").textContent = situationContent[key].secondary;
+      });
+    });
+
+    const coreButtons = [...document.querySelectorAll("[data-core]")];
+    coreButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.core;
+        setPressed(coreButtons, key, "core");
+        document.getElementById("coreTitle").textContent = coreContent[key].title;
+        document.getElementById("coreText").textContent = coreContent[key].body;
+      });
+    });
+
+    const whyButtons = [...document.querySelectorAll("[data-why]")];
+    const whyVisual = document.getElementById("whyVisual");
+    whyButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.why;
+        setPressed(whyButtons, key, "why");
+        whyVisual.dataset.active = key;
+        document.getElementById("whyTitle").textContent = whyContent[key].title;
+        document.getElementById("whyText").textContent = whyContent[key].body;
+      });
+    });
+
+    const binderButtons = [...document.querySelectorAll("[data-binder]")];
+    const binderVisual = document.getElementById("binderVisual");
+    binderButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.binder;
+        setPressed(binderButtons, key, "binder");
+        binderVisual.dataset.active = key;
+        document.getElementById("binderTitle").textContent = binderContent[key].title;
+        document.getElementById("binderText").textContent = binderContent[key].body;
+      });
+    });
 
     const required = {
       stack: new Set(["model"]),
@@ -1713,11 +2385,11 @@
 
     const athenaMessages = JSON.parse(document.getElementById("athena-messages").textContent);
     const athenaAssets = {
-      nudge: "../assets/athena/athena-nudge.png",
-      intro: "../assets/athena/athena-observe.png",
-      observe: "../assets/athena/athena-observe.png",
-      approve: "../assets/athena/athena-approve.png",
-      celebrate: "../assets/athena/athena-celebrate.png"
+      nudge: "../assets/athena/athena-trace.svg",
+      intro: "../assets/athena/athena-ask.svg",
+      observe: "../assets/athena/athena-hold.svg",
+      approve: "../assets/athena/athena-close.svg",
+      celebrate: "../assets/athena/athena-close.svg"
     };
     const athenaElement = document.getElementById("athena");
     const athenaState = document.getElementById("athenaState");
