@@ -358,6 +358,16 @@
       overflow: hidden;
     }
 
+    .scenario-brief {
+      display: grid;
+      gap: 10px;
+      padding: 22px 22px 0;
+    }
+
+    .scenario-brief p {
+      max-width: 920px;
+    }
+
     .scenario-stage {
       position: relative;
       min-height: 540px;
@@ -384,10 +394,35 @@
       padding: 14px 18px;
     }
 
+    .scene-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .beat-status {
       color: var(--ink-soft);
       font-size: 0.92rem;
       font-weight: 700;
+    }
+
+    .scene-progress {
+      position: relative;
+      flex: 1;
+      min-width: 180px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--hair);
+      overflow: hidden;
+    }
+
+    .scene-progress span {
+      display: block;
+      width: var(--progress, 0%);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--navy);
+      transition: width 0.42s ease;
     }
 
     .speech-card {
@@ -427,58 +462,104 @@
       line-height: 1.12;
     }
 
-    .screen-card,
-    .screen-layer,
-    .route-line,
-    .check-node,
-    .mini-card {
+    .scene-object {
       transform-box: fill-box;
       transform-origin: center;
-      transition: opacity 0.28s ease, transform 0.28s ease, stroke-dashoffset 0.28s ease;
+      transition: opacity 0.46s ease, transform 0.46s ease, stroke-dashoffset 0.52s ease;
     }
 
-    .screen-layer,
-    .check-node,
-    .mini-card {
-      opacity: 0.18;
+    .scene-object[data-show] {
+      opacity: 0;
       transform: translateY(8px);
     }
 
-    .route-line {
+    .scene-line {
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
     }
 
-    .scenario-stage[data-beat="1"] .screen-layer.one,
-    .scenario-stage[data-beat="2"] .screen-layer.one,
-    .scenario-stage[data-beat="3"] .screen-layer.one,
-    .scenario-stage[data-beat="4"] .screen-layer.one,
-    .scenario-stage[data-beat="5"] .screen-layer.one,
-    .scenario-stage[data-beat="2"] .screen-layer.two,
-    .scenario-stage[data-beat="3"] .screen-layer.two,
-    .scenario-stage[data-beat="4"] .screen-layer.two,
-    .scenario-stage[data-beat="5"] .screen-layer.two,
-    .scenario-stage[data-beat="3"] .screen-layer.three,
-    .scenario-stage[data-beat="4"] .screen-layer.three,
-    .scenario-stage[data-beat="5"] .screen-layer.three,
-    .scenario-stage[data-beat="4"] .screen-layer.four,
-    .scenario-stage[data-beat="5"] .screen-layer.four,
-    .scenario-stage[data-beat="5"] .check-node,
-    .scenario-stage[data-beat="5"] .mini-card {
+    .scenario-stage[data-phase="1"] [data-show~="1"],
+    .scenario-stage[data-phase="2"] [data-show~="1"],
+    .scenario-stage[data-phase="2"] [data-show~="2"],
+    .scenario-stage[data-phase="3"] [data-show~="1"],
+    .scenario-stage[data-phase="3"] [data-show~="2"],
+    .scenario-stage[data-phase="3"] [data-show~="3"],
+    .scenario-stage[data-phase="4"] [data-show~="1"],
+    .scenario-stage[data-phase="4"] [data-show~="2"],
+    .scenario-stage[data-phase="4"] [data-show~="3"],
+    .scenario-stage[data-phase="4"] [data-show~="4"],
+    .scenario-stage[data-phase="5"] [data-show],
+    .scenario-stage[data-phase="6"] [data-show] {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .scenario-stage[data-beat="2"] .route-line.one,
-    .scenario-stage[data-beat="3"] .route-line.one,
-    .scenario-stage[data-beat="4"] .route-line.one,
-    .scenario-stage[data-beat="5"] .route-line.one,
-    .scenario-stage[data-beat="3"] .route-line.two,
-    .scenario-stage[data-beat="4"] .route-line.two,
-    .scenario-stage[data-beat="5"] .route-line.two,
-    .scenario-stage[data-beat="4"] .route-line.three,
-    .scenario-stage[data-beat="5"] .route-line.three {
+    .scenario-stage[data-phase="2"] .line-input,
+    .scenario-stage[data-phase="3"] .line-input,
+    .scenario-stage[data-phase="4"] .line-input,
+    .scenario-stage[data-phase="5"] .line-input,
+    .scenario-stage[data-phase="6"] .line-input,
+    .scenario-stage[data-phase="3"] .line-output,
+    .scenario-stage[data-phase="4"] .line-output,
+    .scenario-stage[data-phase="5"] .line-output,
+    .scenario-stage[data-phase="6"] .line-output,
+    .scenario-stage[data-phase="4"] .line-review,
+    .scenario-stage[data-phase="5"] .line-review,
+    .scenario-stage[data-phase="6"] .line-review,
+    .scenario-stage[data-phase="5"] .line-record,
+    .scenario-stage[data-phase="6"] .line-record {
       stroke-dashoffset: 0;
+    }
+
+    .model-pulse {
+      opacity: 0;
+      transform-origin: center;
+    }
+
+    .scenario-stage[data-phase="2"] .model-pulse,
+    .scenario-stage[data-phase="3"] .model-pulse,
+    .scenario-stage[data-phase="4"] .model-pulse,
+    .scenario-stage[data-phase="5"] .model-pulse,
+    .scenario-stage[data-phase="6"] .model-pulse {
+      opacity: 1;
+      animation: modelPulse 1.4s ease-in-out infinite;
+    }
+
+    .counsel-enter {
+      transform-box: fill-box;
+      transform-origin: bottom center;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .scenario-stage[data-phase="0"] .counsel-enter {
+      transform: translateX(-24px);
+      opacity: 0.82;
+    }
+
+    .governance-frame {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: scale(0.98);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .scenario-stage[data-phase="4"] .governance-frame,
+    .scenario-stage[data-phase="5"] .governance-frame,
+    .scenario-stage[data-phase="6"] .governance-frame {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @keyframes modelPulse {
+      0%, 100% {
+        transform: scale(0.94);
+        opacity: 0.46;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 0.9;
+      }
     }
 
     .quiz {
@@ -795,19 +876,19 @@
         <span class="section-label">Lesson 1</span>
       </div>
       <h1>Legal AI Is Not One Thing</h1>
-      <p>The problem is not that lawyers cannot understand legal AI. The problem is that people keep using one word for four different things. A model, a tool, a workflow, and governance are not the same object. Separate them and the room gets easier to read.</p>
+      <p>People reach for “legal AI” as if the phrase names one thing, but the work usually lives inside a stack of model behavior, product design, workflow routing, vendor promises, data boundaries, review obligations, audit trails, and the slow evidence of what legal actually allowed before anyone asked for proof. Once those layers separate, the room stops debating a slogan and starts looking at the system.</p>
     </header>
 
     <section class="intro" id="situation">
       <div class="intro-copy">
         <span class="eyebrow">The Situation</span>
-        <h2>The room says AI. That is not enough.</h2>
-        <p>A partner says the firm is testing AI for contract review. A client asks whether legal can summarize intake questions with AI. A vendor says its platform has a legal reasoning engine. Each sentence sounds like one thing. It is not.</p>
-        <p>The lawyer move is to slow the room down and ask which layer everyone means: model, tool, workflow, or governance.</p>
+        <h2>The room says AI. The sentence is incomplete.</h2>
+        <p>A partner says the firm is testing AI for contract review, a client asks whether legal can summarize intake questions with AI, and a vendor says its platform has a legal reasoning engine. Those sentences sound close enough to belong in the same meeting, but each one may be pointing to a different operating question: what system generates the text, what interface packages that system for users, what process decides where the output goes, and what governance record would show that legal judgment stayed in the loop.</p>
+        <p>The lawyer move is to slow the room down until the object becomes inspectable. In other words, before anyone approves, rejects, pilots, scales, or sends output to a client, someone has to know which layer is being discussed and which evidence would prove that the layer behaved as promised.</p>
       </div>
       <aside class="quiet-card">
         <span class="small-label">Core Concept</span>
-        <p><strong>Legal AI</strong> usually means a stack of decisions. The model generates or classifies language. The tool gives lawyers a usable surface. The workflow decides where output goes. Governance decides whether the use is allowed at all.</p>
+        <p><strong>Legal AI</strong> usually means a governed operating system more than a product label. The model generates, classifies, summarizes, or transforms text; the tool gives that capability a usable surface; the workflow decides who sees the output, where it is stored, when it escalates, and whether it can leave the team; governance surrounds the whole arrangement with data rules, review duties, vendor limits, logging, accountability, and proof.</p>
       </aside>
     </section>
 
@@ -816,18 +897,18 @@
       <div class="lesson-grid">
         <article class="panel">
           <span class="num">01</span>
-          <h3>You stop asking vague questions.</h3>
-          <p>“Is the AI safe?” is too broad. “What data reaches the model?” and “Who reviews the output before use?” are questions the room can answer.</p>
+          <h3>The model is one actor inside a larger system.</h3>
+          <p>A model can produce a useful summary, classification, clause comparison, or intake draft, but that output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user’s ability to recognize when the answer has moved beyond the task it was allowed to perform.</p>
         </article>
         <article class="panel">
           <span class="num">02</span>
-          <h3>You hear vendor demos differently.</h3>
-          <p>A beautiful product screen can hide weak governance. A strong model can still sit inside a poor workflow. The layers keep the room honest.</p>
+          <h3>The tool hides architecture.</h3>
+          <p>A polished interface can make a system feel more mature than it is, because the visible screen rarely shows retention, access, privilege boundaries, logging, retrieval scope, escalation rules, or the contractual promises sitting underneath the demo.</p>
         </article>
         <article class="panel">
           <span class="num">03</span>
-          <h3>You protect legal judgment.</h3>
-          <p>Lawyers still carry competence, confidentiality, supervision, and judgment. The stack shows where that responsibility has to re-enter the process.</p>
+          <h3>Governance creates the evidence trail.</h3>
+          <p>Lawyers still carry competence, confidentiality, supervision, and judgment, and the relevant question is where that responsibility re-enters the system: before data enters, before output moves, before a business user acts, before a client sees language, and before the organization later has to explain what happened.</p>
         </article>
       </div>
     </section>
@@ -836,7 +917,7 @@
       <div>
         <span class="eyebrow">Interactive Lab</span>
         <h2>Separate the stack.</h2>
-        <p>Each layer answers a different legal question. Open all four layers before moving on.</p>
+        <p>Each layer answers a different legal question. Inspect all four layers before moving on, because the approval analysis changes depending on whether the room is talking about model behavior, product surface, workflow movement, or governance evidence.</p>
         <div class="stack-buttons" id="layerButtons" aria-label="Legal AI stack layers">
           <button class="layer-button" data-layer="model" aria-pressed="true"><span class="layer-index">1</span><span>Model</span></button>
           <button class="layer-button" data-layer="tool" aria-pressed="false"><span class="layer-index">2</span><span>Tool</span></button>
@@ -846,8 +927,8 @@
       </div>
       <div class="layer-panel" id="layerPanel">
         <span class="small-label" id="layerLabel">Model</span>
-        <h3 id="layerTitle">The model produces language or classifications.</h3>
-        <p id="layerBody">A model is the underlying system that generates, classifies, summarizes, or transforms text. It does not decide your matter workflow. It does not know your risk tolerance. It responds to inputs.</p>
+        <h3 id="layerTitle">The model performs the language task.</h3>
+        <p id="layerBody">A model generates, classifies, summarizes, compares, or transforms language based on the input it receives and the surrounding instructions it can see. The legal question is what information reaches it, what task it has been asked to perform, what uncertainty remains in the answer, and whether the user can recognize when the output has crossed from language support into legal judgment.</p>
         <div class="stack-visual" aria-hidden="true">
           <div class="stack-row active" data-stack="model"><span>Model</span><div class="stack-bar"><span class="stack-fill" style="--w:46%"></span></div></div>
           <div class="stack-row" data-stack="tool"><span>Tool</span><div class="stack-bar"><span class="stack-fill" style="--w:60%"></span></div></div>
@@ -862,22 +943,22 @@
       <div class="lesson-grid">
         <article class="panel">
           <h3>Day-to-day example</h3>
-          <p>A lawyer asks a tool to summarize a draft contract. The model generates the summary. The tool provides the interface. The workflow decides whether the summary becomes a matter note. Governance decides whether client information can enter the system and who reviews the result.</p>
+          <p>A lawyer asks a tool to summarize a draft contract. The model generates the summary, the interface lets the lawyer request and read it, the workflow determines whether the result becomes a matter note, a redline comment, a client-facing email, or nothing at all, and governance decides whether the contract text may enter the system, who may see the result, which review step must occur, and what record survives the task.</p>
         </article>
         <article class="panel">
           <h3>Law firm lens</h3>
-          <p>A firm pilot can fail if the policy approves only a tool name. A usable approval defines permitted matters, users, data limits, review obligations, and how output can reach a client-facing document.</p>
+          <p>A firm pilot can fail when the policy approves a tool name without defining matter types, eligible users, data limits, privilege treatment, vendor restrictions, human review, client communication rules, and the path by which an output may become part of a file, a memo, a pleading, or advice.</p>
         </article>
         <article class="panel">
           <h3>In-house lens</h3>
-          <p>A legal department moves faster when business users know which intake questions can use automation and which answers still need counsel. The workflow matters as much as the model.</p>
+          <p>A legal department moves faster when business users know which intake questions can use automation, which questions trigger counsel review, which answers can remain internal, which answers require a legal signoff, and which facts should never be sent into the system in the first place.</p>
         </article>
       </div>
     </section>
 
     <section class="lab myth-lab" id="myth" data-required="myth">
       <span class="eyebrow">Myth Sorter</span>
-      <h2>Sort the sentence, not the hype.</h2>
+      <h2>Sort the sentence before the hype.</h2>
       <p>Choose whether each sentence is true or a myth in a legal work setting.</p>
       <div class="myth-grid">
         <article class="myth-card" data-answer="myth">
@@ -916,48 +997,69 @@
     </section>
 
     <section class="scenario" id="scenario" data-required="scenario">
-      <div class="scenario-stage" id="scenarioStage" data-beat="0">
-        <svg viewBox="0 0 960 540" role="img" aria-label="In-house legal meeting with flat avatars and an animated screen showing the legal AI stack.">
+      <div class="scenario-brief">
+        <span class="eyebrow">Applied Scenario</span>
+        <h2>Watch the system move.</h2>
+        <p>The animation starts on its own because the lesson is the movement: matter facts enter a tool, the model performs a language task inside that tool, the workflow decides where the answer goes, counsel review re-enters before the work becomes usable, and governance appears as the perimeter that controls the movement and leaves the approval record behind.</p>
+      </div>
+      <div class="scenario-stage" id="scenarioStage" data-phase="0">
+        <svg viewBox="0 0 960 540" role="img" aria-label="In-house legal meeting with an animated screen showing matter facts, model behavior, workflow routing, counsel review, and governance perimeter.">
           <rect width="960" height="540" fill="transparent"/>
-          <ellipse cx="540" cy="248" rx="410" ry="232" fill="#f5f1e8" opacity="0.68"/>
+          <ellipse cx="540" cy="252" rx="410" ry="232" fill="#f5f1e8" opacity="0.68"/>
 
-          <rect x="102" y="92" width="126" height="126" fill="#d7e0e8" opacity="0.5"/>
-          <rect x="120" y="110" width="92" height="78" fill="#f8fbff" stroke="#7f9dc6" stroke-width="5"/>
-          <circle cx="166" cy="148" r="24" fill="none" stroke="#dce6f4" stroke-width="12"/>
-          <path class="route-line one" pathLength="1" d="M166 124 A24 24 0 0 1 190 148" fill="none" stroke="#1c2742" stroke-width="12" stroke-linecap="round"/>
-          <rect x="138" y="193" width="36" height="5" fill="#7f9dc6"/>
-          <rect x="180" y="193" width="12" height="5" fill="#1c2742"/>
+          <rect x="214" y="54" width="560" height="292" rx="4" fill="#f8fbff" stroke="#7f9dc6" stroke-width="4"/>
+          <rect x="244" y="86" width="430" height="14" fill="#dce6f4"/>
+          <text x="244" y="78" fill="#15192a" font-size="13" font-weight="800">CONTRACT INTAKE SYSTEM</text>
 
-          <rect class="screen-card" x="300" y="66" width="398" height="236" fill="#f8fbff" stroke="#7f9dc6" stroke-width="4"/>
-          <rect x="326" y="96" width="310" height="15" fill="#dce6f4"/>
-          <text x="326" y="88" fill="#15192a" font-size="13" font-weight="800">CONTRACT INTAKE SUMMARY</text>
-          <g class="screen-layer one">
-            <rect x="338" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
-            <text x="396" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Model</text>
+          <g class="governance-frame">
+            <rect x="242" y="116" width="500" height="198" rx="18" fill="none" stroke="#1c2742" stroke-width="3"/>
+            <rect x="272" y="105" width="92" height="23" rx="11" fill="#1c2742"/>
+            <text x="318" y="121" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">DATA LIMITS</text>
+            <rect x="405" y="105" width="108" height="23" rx="11" fill="#1c2742"/>
+            <text x="459" y="121" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">HUMAN REVIEW</text>
+            <rect x="552" y="105" width="70" height="23" rx="11" fill="#1c2742"/>
+            <text x="587" y="121" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">LOGS</text>
+            <rect x="642" y="105" width="82" height="23" rx="11" fill="#1c2742"/>
+            <text x="683" y="121" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">VENDOR</text>
           </g>
-          <g class="screen-layer two">
-            <rect x="506" y="142" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
-            <text x="564" y="172" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Tool</text>
+
+          <g class="scene-object" data-show="1">
+            <rect x="260" y="154" width="112" height="70" rx="10" fill="#ffffff" stroke="#cad8e7" stroke-width="2"/>
+            <text x="316" y="176" text-anchor="middle" fill="#1c2742" font-size="11" font-weight="800">Matter facts</text>
+            <rect x="284" y="190" width="58" height="6" fill="#dce6f4"/>
+            <rect x="284" y="205" width="72" height="6" fill="#dce6f4"/>
           </g>
-          <g class="screen-layer three">
-            <rect x="338" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
-            <text x="396" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Workflow</text>
+
+          <path class="scene-line line-input line" pathLength="1" d="M372 188 C398 188 404 188 426 188" stroke="#7f9dc6" stroke-width="4"/>
+
+          <g class="scene-object" data-show="2">
+            <rect x="426" y="136" width="180" height="104" rx="12" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
+            <text x="516" y="160" text-anchor="middle" fill="#1c2742" font-size="13" font-weight="800">Tool interface</text>
+            <circle class="model-pulse" cx="516" cy="195" r="26" fill="#dce6f4" stroke="#1c2742" stroke-width="3"/>
+            <text x="516" y="200" text-anchor="middle" fill="#1c2742" font-size="11" font-weight="800">Model</text>
           </g>
-          <g class="screen-layer four">
-            <rect x="506" y="220" width="116" height="48" rx="7" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
-            <text x="564" y="250" text-anchor="middle" fill="#1c2742" font-size="15" font-weight="800">Governance</text>
+
+          <path class="scene-line line-output line" pathLength="1" d="M606 188 C640 188 644 188 668 188" stroke="#7f9dc6" stroke-width="4"/>
+
+          <g class="scene-object" data-show="3">
+            <rect x="668" y="150" width="68" height="76" rx="10" fill="#ffffff" stroke="#cad8e7" stroke-width="2"/>
+            <text x="702" y="171" text-anchor="middle" fill="#1c2742" font-size="11" font-weight="800">Workflow</text>
+            <path d="M684 190 L720 190" stroke="#7f9dc6" stroke-width="4" stroke-linecap="round"/>
+            <path d="M684 207 L710 207" stroke="#cad8e7" stroke-width="4" stroke-linecap="round"/>
           </g>
-          <path class="route-line one line" pathLength="1" d="M454 166 L506 166" stroke="#7f9dc6" stroke-width="3"/>
-          <path class="route-line two line" pathLength="1" d="M564 190 C564 206 548 214 526 220" stroke="#7f9dc6" stroke-width="3"/>
-          <path class="route-line three line" pathLength="1" d="M454 244 L506 244" stroke="#7f9dc6" stroke-width="3"/>
-          <g class="check-node">
-            <circle cx="664" cy="244" r="28" fill="#ffffff" stroke="#1c2742" stroke-width="3"/>
-            <path d="M650 245 L660 255 L679 232" fill="none" stroke="#1c2742" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <path class="scene-line line-review line" pathLength="1" d="M702 226 C694 258 642 270 594 270" stroke="#7f9dc6" stroke-width="4"/>
+
+          <g class="scene-object" data-show="4">
+            <rect x="456" y="246" width="138" height="48" rx="10" fill="#ffffff" stroke="#7f9dc6" stroke-width="3"/>
+            <text x="525" y="276" text-anchor="middle" fill="#1c2742" font-size="13" font-weight="800">Counsel review</text>
           </g>
-          <g class="mini-card">
-            <rect x="648" y="132" width="94" height="58" rx="8" fill="#ffffff" stroke="#b9cde5"/>
-            <line x1="664" y1="154" x2="724" y2="154" stroke="#7f9dc6" stroke-width="5"/>
-            <line x1="664" y1="171" x2="710" y2="171" stroke="#b9cde5" stroke-width="5"/>
+
+          <path class="scene-line line-record line" pathLength="1" d="M594 270 C632 270 650 270 674 270" stroke="#7f9dc6" stroke-width="4"/>
+
+          <g class="scene-object" data-show="5">
+            <rect x="674" y="244" width="58" height="52" rx="8" fill="#ffffff" stroke="#1c2742" stroke-width="2"/>
+            <path d="M686 271 L697 282 L720 256" fill="none" stroke="#1c2742" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
 
           <rect x="240" y="364" width="488" height="15" fill="#263860"/>
@@ -967,7 +1069,7 @@
           <rect x="386" y="306" width="96" height="54" fill="#7f91bd"/>
           <rect x="512" y="306" width="96" height="54" fill="#7f91bd"/>
 
-          <g transform="translate(156 292)">
+          <g class="counsel-enter" transform="translate(156 292)">
             <ellipse cx="50" cy="184" rx="60" ry="13" fill="#8fa0c8" opacity="0.45"/>
             <rect x="12" y="70" width="78" height="108" rx="26" fill="#fbfaf7"/>
             <circle cx="52" cy="36" r="27" fill="#8a5538"/>
@@ -989,14 +1091,15 @@
         </svg>
         <div class="speech-card" id="speechCard">
           <strong id="speechSpeaker">General counsel</strong>
-          <span id="speechText">We want to use AI for contract intake. What exactly are we approving?</span>
+          <span id="speechText">We want to use AI for contract intake. What exactly has to be true before legal can approve it?</span>
         </div>
       </div>
       <div class="scenario-controls">
-        <span class="beat-status" id="beatStatus">Scene beat 1 of 6</span>
+        <span class="beat-status" id="beatStatus">Animation ready</span>
+        <div class="scene-progress" aria-hidden="true"><span id="sceneProgress"></span></div>
         <div class="scene-actions">
-          <button id="prevBeat">Back</button>
-          <button class="primary" id="nextBeat">Next beat</button>
+          <button id="toggleScene">Play</button>
+          <button class="primary" id="replayScene">Replay</button>
         </div>
       </div>
       <div class="athena-inline athena-scene-inline" id="athenaSceneInline" hidden aria-live="polite">
@@ -1004,7 +1107,7 @@
         <div>
           <span class="athena-state" id="athenaSceneState">Observe</span>
           <strong>Athena</strong>
-          <p id="athenaSceneLine">Good. The approval now covers a use case, a tool, a workflow, and review.</p>
+          <p id="athenaSceneLine">Good. Governance appears as the perimeter around the system and controls each movement in the diagram.</p>
         </div>
       </div>
     </section>
@@ -1051,7 +1154,7 @@
           <button class="option" data-option="a"><span class="marker">x</span><span>Approve it if the interface clearly labels each answer.</span></button>
           <button class="option" data-option="b"><span class="marker">x</span><span>Reject it until every output can be perfectly reliable.</span></button>
           <button class="option" data-option="c"><span class="marker">x</span><span>Use it only when the model name is publicly known.</span></button>
-          <button class="option" data-option="d"><span class="marker">✓</span><span>Separate the screen, workflow, review, and governance layers.</span></button>
+          <button class="option" data-option="d"><span class="marker">✓</span><span>Separate the screen, workflow, review path, and governance perimeter.</span></button>
         </div>
         <div class="quiz-feedback" aria-live="polite"></div>
       </article>
@@ -1078,7 +1181,7 @@
       <button class="athena-dismiss" id="athenaDismiss" aria-label="Dismiss Athena">x</button>
       <span class="athena-state" id="athenaState">Observe</span>
       <strong>Athena</strong>
-      <p id="athenaLine">Name the layer first. The answer gets cleaner after that.</p>
+      <p id="athenaLine">Name the movement first. Then find the governance perimeter.</p>
     </div>
     <img class="athena-portrait" id="athenaPortrait" src="../assets/athena/athena-observe.png" alt="Athena">
   </aside>
@@ -1108,13 +1211,17 @@
 
   <script type="application/json" id="athena-messages">
     {
+      "intro": {
+        "state": "Athena",
+        "line": "I am Athena. I will ask what moved, who reviewed it, what evidence survived, and where legal judgment returned to the system."
+      },
       "nudge": {
         "state": "Nudge",
-        "line": "Name the layer first. The answer gets cleaner after that."
+        "line": "Name the movement first. Then find the governance perimeter."
       },
       "observe": {
         "state": "Observe",
-        "line": "Good. The approval now covers a use case, a tool, a workflow, and review."
+        "line": "Good. Governance appears as the perimeter around the system and controls each movement in the diagram."
       },
       "approve": {
         "state": "Approve",
@@ -1122,7 +1229,7 @@
       },
       "celebrate": {
         "state": "Celebrate",
-        "line": "That is the move. Separate the stack before you bless the work."
+        "line": "That is the move. Trace the movement before you bless the work."
       }
     }
   </script>
@@ -1131,23 +1238,23 @@
     const layerContent = {
       model: {
         label: "Model",
-        title: "The model produces language or classifications.",
-        body: "A model is the underlying system that generates, classifies, summarizes, or transforms text. It does not decide your matter workflow. It does not know your risk tolerance. It responds to inputs."
+        title: "The model performs the language task.",
+        body: "A model generates, classifies, summarizes, compares, or transforms language based on the input it receives and the surrounding instructions it can see. The legal question is what information reaches it, what task it has been asked to perform, what uncertainty remains in the answer, and whether the user can recognize when the output has crossed from language support into legal judgment."
       },
       tool: {
         label: "Tool",
-        title: "The tool packages the model for users.",
-        body: "A tool is the product surface lawyers touch: a chat window, contract review feature, research assistant, intake form, or document analyzer. It may include prompts, retrieval, permissions, and connectors."
+        title: "The tool packages model behavior into a usable surface.",
+        body: "A tool is the product surface lawyers and business users touch: a chat window, review panel, research assistant, intake form, or document analyzer. It may also carry hidden architecture, including retrieval, prompts, permissions, connectors, retention settings, admin controls, usage logs, and vendor commitments that matter more than the screen itself."
       },
       workflow: {
         label: "Workflow",
-        title: "The workflow decides where the work goes.",
-        body: "A workflow is the process around the tool. It defines who starts the task, what materials go in, who reviews the output, where the result is stored, and when a lawyer must step back in."
+        title: "The workflow decides how output moves.",
+        body: "A workflow defines who starts the task, what material can enter, which user receives the answer, where the answer is stored, which exceptions escalate, and when counsel must step back in before the output becomes advice, a matter record, a business instruction, or a client-facing document."
       },
       governance: {
         label: "Governance",
-        title: "Governance decides whether the setup is allowed.",
-        body: "Governance is the permission structure: confidentiality, privilege, supervision, data handling, logging, approved use cases, and accountability. It is not decoration. It is part of the legal work."
+        title: "Governance surrounds the whole arrangement.",
+        body: "Governance is the permission and evidence structure around the system: confidentiality, privilege, supervision, data handling, vendor terms, approved use cases, human review, logging, auditability, and accountability. In sum, governance answers the question a later reviewer will ask first: what did legal allow, on what facts, under which limits, and with what proof."
       }
     };
 
@@ -1181,6 +1288,9 @@
     let scenarioAnnounced = false;
     let completionAnnounced = false;
     let athenaTimer = 0;
+    let athenaIntroTimer = 0;
+    let athenaIntroduced = false;
+    let sceneWaitingForIntro = false;
 
     function renderInlineAthena(target, state) {
       const message = athenaMessages[state] || athenaMessages.observe;
@@ -1208,19 +1318,19 @@
         athenaElement.classList.remove("visible");
         athenaElement.setAttribute("aria-hidden", "true");
       },
+      introduce() {
+        Athena.show("intro");
+        window.clearTimeout(athenaIntroTimer);
+        athenaIntroTimer = window.setTimeout(finishAthenaIntro, 5600);
+      },
       showScene(state) {
-        if (window.matchMedia("(max-width: 640px)").matches) {
-          Athena.hide();
-          renderInlineAthena({
-            element: athenaSceneInline,
-            state: athenaSceneState,
-            line: athenaSceneLine,
-            portrait: athenaScenePortrait
-          }, state);
-        } else {
-          athenaSceneInline.hidden = true;
-          Athena.show(state, { autoHide: 5200 });
-        }
+        Athena.hide();
+        renderInlineAthena({
+          element: athenaSceneInline,
+          state: athenaSceneState,
+          line: athenaSceneLine,
+          portrait: athenaScenePortrait
+        }, state);
       },
       showInline(state) {
         renderInlineAthena({
@@ -1232,7 +1342,24 @@
       }
     };
 
-    document.getElementById("athenaDismiss").addEventListener("click", Athena.hide);
+    function finishAthenaIntro() {
+      if (athenaIntroduced) return;
+      athenaIntroduced = true;
+      window.clearTimeout(athenaIntroTimer);
+      Athena.hide();
+      if (sceneWaitingForIntro && !sceneStarted) {
+        sceneWaitingForIntro = false;
+        playScene();
+      }
+    }
+
+    document.getElementById("athenaDismiss").addEventListener("click", () => {
+      if (!athenaIntroduced) {
+        finishAthenaIntro();
+      } else {
+        Athena.hide();
+      }
+    });
 
     const layerButtons = [...document.querySelectorAll(".layer-button")];
     const layerPanel = document.getElementById("layerPanel");
@@ -1255,20 +1382,20 @@
 
     const mythFeedback = [
       {
-        correct: "Yes. A strong model does not fix a bad legal process.",
-        wrong: "No. Model strength does not make the workflow safe."
+        correct: "Yes. A strong model still needs a legal process around it.",
+        wrong: "Look again. Model strength leaves the workflow question open."
       },
       {
-        correct: "Yes. The demo proves the screen, not the governance.",
-        wrong: "No. Product polish is not permission."
+        correct: "Yes. The demo proves the screen. Governance still needs evidence.",
+        wrong: "Look again. Product polish leaves permission unresolved."
       },
       {
         correct: "Yes. Review is where legal judgment re-enters the work.",
-        wrong: "No. Output does not become usable just because it exists."
+        wrong: "Look again. Output needs a review path before it becomes usable."
       },
       {
-        correct: "Yes. Approval attaches to a defined use, not a product name.",
-        wrong: "No. Approved tool does not mean approved everywhere."
+        correct: "Yes. Approval attaches to a defined use, data boundary, and review path.",
+        wrong: "Look again. Approval needs a use case and a boundary."
       }
     ];
 
@@ -1288,50 +1415,63 @@
       });
     });
 
-    const scenarioBeats = [
+    const scenePhases = [
       {
         speaker: "General counsel",
-        text: "We want to use AI for contract intake. What exactly are we approving?"
+        status: "Opening question",
+        text: "We want to use AI for contract intake. What exactly has to be true before legal can approve it?"
       },
       {
         speaker: "Legal engineer",
-        text: "First layer: the model drafts or classifies the intake summary."
+        status: "Input boundary",
+        text: "Start with the matter facts. Which data enters the tool, and which facts stay out?"
       },
       {
         speaker: "Product counsel",
-        text: "Second layer: the tool is the screen people actually use."
+        status: "Model inside the tool",
+        text: "The model performs the language task inside the product surface. The screen is only the visible part."
       },
       {
         speaker: "Legal operations",
-        text: "Third layer: the workflow routes ordinary questions and escalates exceptions."
+        status: "Workflow movement",
+        text: "The workflow decides where the output goes, who sees it, and which exceptions escalate."
       },
       {
         speaker: "General counsel",
-        text: "Fourth layer: governance says what data can enter and who reviews the result."
+        status: "Governance perimeter",
+        text: "Governance wraps the whole system: data limits, review duties, logs, vendor promises, and accountability."
       },
       {
         speaker: "Legal engineer",
-        text: "Now the approval is narrow: this use case, this tool, this workflow, this review path."
+        status: "Approval record",
+        text: "Now the approval has a shape: this use case, this tool, this data boundary, this workflow, this review record."
       }
     ];
 
-    let currentBeat = 0;
+    let currentPhase = 0;
+    let sceneStarted = false;
+    let scenePlaying = false;
+    let sceneTimer = 0;
     const stage = document.getElementById("scenarioStage");
     const speechCard = document.getElementById("speechCard");
+    const sceneProgress = document.getElementById("sceneProgress");
+    const toggleScene = document.getElementById("toggleScene");
+    const replayScene = document.getElementById("replayScene");
 
-    function renderBeat() {
-      const beat = scenarioBeats[currentBeat];
+    function renderScenePhase() {
+      const phase = scenePhases[currentPhase];
       speechCard.classList.add("is-swapping");
       window.setTimeout(() => {
-        document.getElementById("speechSpeaker").textContent = beat.speaker;
-        document.getElementById("speechText").textContent = beat.text;
-        document.getElementById("beatStatus").textContent = `Scene beat ${currentBeat + 1} of ${scenarioBeats.length}`;
-        document.getElementById("prevBeat").disabled = currentBeat === 0;
-        document.getElementById("nextBeat").textContent = currentBeat === scenarioBeats.length - 1 ? "Finish scene" : "Next beat";
-        stage.dataset.beat = String(currentBeat);
+        document.getElementById("speechSpeaker").textContent = phase.speaker;
+        document.getElementById("speechText").textContent = phase.text;
+        document.getElementById("beatStatus").textContent = phase.status;
+        sceneProgress.style.setProperty("--progress", `${(currentPhase / (scenePhases.length - 1)) * 100}%`);
+        stage.dataset.phase = String(currentPhase);
         speechCard.classList.remove("is-swapping");
-        if (currentBeat === scenarioBeats.length - 1) {
+        if (currentPhase === scenePhases.length - 1) {
           required.scenario = true;
+          scenePlaying = false;
+          toggleScene.textContent = "Play";
           if (!scenarioAnnounced) {
             scenarioAnnounced = true;
             Athena.showScene("observe");
@@ -1341,42 +1481,106 @@
       }, 180);
     }
 
-    document.getElementById("prevBeat").addEventListener("click", () => {
-      currentBeat = Math.max(0, currentBeat - 1);
-      renderBeat();
-    });
-
-    document.getElementById("nextBeat").addEventListener("click", () => {
-      if (currentBeat < scenarioBeats.length - 1) {
-        currentBeat += 1;
-        renderBeat();
-      } else {
-        required.scenario = true;
-        if (!scenarioAnnounced) {
-          scenarioAnnounced = true;
-          Athena.showScene("observe");
+    function scheduleScene() {
+      window.clearTimeout(sceneTimer);
+      if (!scenePlaying) return;
+      sceneTimer = window.setTimeout(() => {
+        if (currentPhase < scenePhases.length - 1) {
+          currentPhase += 1;
+          renderScenePhase();
+          scheduleScene();
         }
-        checkCompletion();
-        document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" });
+      }, currentPhase === 0 ? 1800 : 2700);
+    }
+
+    function playScene() {
+      if (currentPhase === scenePhases.length - 1) {
+        currentPhase = 0;
+        required.scenario = false;
+        scenarioAnnounced = false;
+        athenaSceneInline.hidden = true;
+        Athena.hide();
+      }
+      sceneStarted = true;
+      scenePlaying = true;
+      toggleScene.textContent = "Pause";
+      renderScenePhase();
+      scheduleScene();
+    }
+
+    function pauseScene() {
+      scenePlaying = false;
+      window.clearTimeout(sceneTimer);
+      toggleScene.textContent = "Play";
+    }
+
+    toggleScene.addEventListener("click", () => {
+      if (!athenaIntroduced) {
+        sceneWaitingForIntro = true;
+        document.getElementById("beatStatus").textContent = "Waiting for Athena";
+        return;
+      }
+      if (scenePlaying) {
+        pauseScene();
+      } else {
+        playScene();
       }
     });
+
+    replayScene.addEventListener("click", () => {
+      if (!athenaIntroduced) {
+        sceneWaitingForIntro = true;
+        document.getElementById("beatStatus").textContent = "Waiting for Athena";
+        return;
+      }
+      currentPhase = 0;
+      required.scenario = false;
+      scenarioAnnounced = false;
+      athenaSceneInline.hidden = true;
+      Athena.hide();
+      playScene();
+      checkCompletion();
+    });
+
+    function startSceneOnce() {
+      if (!sceneStarted) {
+        if (!athenaIntroduced) {
+          sceneWaitingForIntro = true;
+          document.getElementById("beatStatus").textContent = "Waiting for Athena";
+          return;
+        }
+        playScene();
+      }
+    }
+
+    if ("IntersectionObserver" in window) {
+      const sceneObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          startSceneOnce();
+          sceneObserver.disconnect();
+        }
+      }, { threshold: 0.28 });
+      sceneObserver.observe(document.getElementById("scenario"));
+    } else {
+      window.setTimeout(startSceneOnce, 900);
+    }
 
     const quizFeedback = [
       {
         correct: "Yes. Approval has a perimeter. Find it before anyone uploads data.",
-        wrong: "No. Demo quality does not define the approval perimeter."
+        wrong: "Look again. Demo quality leaves the approval perimeter undefined."
       },
       {
-        correct: "Yes. Routing is workflow, not model intelligence.",
-        wrong: "No. Name the process that decides where the answer goes."
+        correct: "Yes. Routing belongs to workflow because it decides where the answer goes.",
+        wrong: "Look again. Name the process that decides where the answer goes."
       },
       {
-        correct: "Yes. Training is one issue. It is not the whole review.",
-        wrong: "No. The data statement answers one question, not the use case."
+        correct: "Yes. Training answers one question inside a broader review of retention, access, confidentiality, and supervision.",
+        wrong: "Look again. The data statement answers one question inside a broader use-case review."
       },
       {
-        correct: "Yes. The screen is only one layer.",
-        wrong: "No. A polished screen does not settle workflow, review, or governance."
+        correct: "Yes. The screen is one layer, and governance surrounds the whole use.",
+        wrong: "Look again. A polished screen leaves workflow, review path, and governance perimeter unresolved."
       }
     ];
 
@@ -1427,7 +1631,8 @@
       }
     }, { passive: true });
 
-    renderBeat();
+    renderScenePhase();
+    Athena.introduce();
   </script>
 </body>
 </html>
