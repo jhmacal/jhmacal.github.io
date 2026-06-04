@@ -1162,8 +1162,116 @@ input[type='range']::-moz-range-track {
 }
 
 /* ============================================================
-   18. TOOLS GRID (AI page)
+   18. AI PORTFOLIO
    ============================================================ */
+.ai-portfolio-hero {
+  padding-top: calc(var(--nav-height) + var(--space-16));
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+}
+
+.ai-portfolio-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(18rem, 0.72fr);
+  gap: var(--space-16);
+  align-items: end;
+}
+
+.ai-portfolio-hero__title {
+  margin: 0;
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3rem, 5.2vw, 4.9rem);
+  font-weight: 300;
+  line-height: 1.04;
+}
+
+.ai-portfolio-hero__title span {
+  display: block;
+}
+
+.ai-portfolio-hero__lede {
+  max-width: 42rem;
+  margin: 0 0 0.4rem;
+  color: rgba(244, 237, 224, 0.72);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--text-lg);
+  line-height: 1.75;
+}
+
+.ai-portfolio-ledger {
+  padding-block: var(--space-10) var(--space-24);
+}
+
+.ai-ledger {
+  border-top: 1px solid rgba(244, 237, 224, 0.18);
+}
+
+.ai-ledger__head {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(14rem, 0.74fr) minmax(22rem, 1.36fr);
+  gap: var(--space-8);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.18);
+  color: rgba(244, 237, 224, 0.42);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.ai-ledger .ai-work-row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(14rem, 0.74fr) minmax(22rem, 1.36fr);
+  gap: var(--space-8);
+  align-items: start;
+  padding: 1.55rem 0;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ai-ledger .ai-work-row[href] {
+  cursor: pointer;
+}
+
+.ai-ledger .ai-work-row[href]:hover .ai-work-row__title {
+  color: var(--gold);
+}
+
+.ai-ledger .ai-work-row__status {
+  color: rgba(201, 169, 97, 0.74);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.ai-ledger .ai-work-row__title {
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.55rem, 2vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.12;
+  transition: color var(--transition-base);
+}
+
+.ai-ledger .ai-work-row__body {
+  color: rgba(244, 237, 224, 0.68);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.ai-portfolio-cta {
+  border-top: 1px solid rgba(201, 169, 97, 0.12);
+  padding-block: var(--space-16);
+}
+
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1609,6 +1717,17 @@ input[type='range']::-moz-range-track {
   .calculator__outputs {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .ai-portfolio-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .ai-ledger__head,
+  .ai-ledger .ai-work-row {
+    grid-template-columns: 8rem minmax(12rem, 0.8fr) minmax(18rem, 1.2fr);
+    gap: var(--space-6);
+  }
 }
 
 /* ============================================================
@@ -1653,6 +1772,25 @@ input[type='range']::-moz-range-track {
 
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ai-portfolio-hero {
+    padding-top: calc(var(--nav-height) + var(--space-12));
+    padding-bottom: var(--space-10);
+  }
+
+  .ai-ledger__head {
+    display: none;
+  }
+
+  .ai-ledger .ai-work-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: 1.35rem 0;
+  }
+
+  .ai-ledger .ai-work-row__status {
+    font-size: 0.68rem;
   }
 
   /* Resume */

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annex B. Model and System Registry Schema | Julio Macedo</title>
+  <meta name="description" content="Annex B. Model and System Registry Schema for the AI Governance Playbook.">
+  <meta property="og:title" content="Annex B. Model and System Registry Schema | Julio Macedo">
+  <meta property="og:description" content="AI Governance Playbook annex.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/playbook/annex-b/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%230a1628%27/%3E%3Ctext x=%2732%27 y=%2741%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27%23c9a961%27 font-family=%27Georgia%27%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="canonical" href="https://www.jhmacal.com/playbook/annex-b/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260604-playbook-nav">
+  <link rel="stylesheet" href="/playbook/playbook.css?v=20260604-download-bubble">
+</head>
+<body class="playbook-annex">
+  <a class="playbook-home-pill" href="/ai/">jhmacal.com</a>
+  <main class="playbook-annex-wrap">
+    <article class="playbook-annex-sheet">
+      <div class="playbook-annex-top">
+        <div>
+          <div class="playbook-rule-light"></div>
+          <div class="playbook-annex-kicker">Annex B</div>
+        </div>
+        <a class="playbook-back-link" href="/playbook/document/">Back to playbook</a>
+      </div>
+      <h1 class="playbook-annex-title">Annex B. Model and System Registry Schema</h1>
+      <table class="playbook-meta-table"><tbody><tr><td>Version</td><td>1.0</td></tr><tr><td>Current as of</td><td>June 4, 2026</td></tr><tr><td>Document owner</td><td>AI Governance Committee</td></tr><tr><td>Publication status</td><td>Illustrative operating model for a hypothetical company. This annex is not legal advice, does not create an attorney-client relationship, and should be adapted to the Company&#x27;s sector, market footprint, regulatory perimeter, system architecture, procurement process, contracts, and risk appetite before implementation.</td></tr></tbody></table>
+      <div class="playbook-annex-body">
+          <section class="playbook-annex-section" id="section-1">
+          <div class="playbook-section-mark">Section 1</div>
+          <h2>Purpose</h2>
+          <p>The registry is the Company&#x27;s single authoritative inventory of AI systems in scope. It connects the system a team wants to build, buy, fine-tune, embed, deploy, or repurpose to the evidence the Company needs when Legal, Security, Privacy, Procurement, Audit, the board, a regulator, a customer, or an incident-response team asks what the system is, who owns it, what it does, what data it uses, what risk tier it carries, what controls it cleared, and whether it is still behaving as approved.</p>
+          <p>The registry is not a spreadsheet of interesting models. It is the control record that ties intake, classification, review gates, vendor diligence, deployment authorization, monitoring, and escalation into one operating system. If a system cannot be found in the registry, the Company should treat it as unapproved until the AI Governance Office confirms otherwise.</p>
+          </section>
+          <section class="playbook-annex-section" id="section-2">
+          <div class="playbook-section-mark">Section 2</div>
+          <h2>Registry Scope</h2>
+          <p>The registry must include every AI system that falls inside the playbook scope, whether built internally, fine-tuned from a third-party foundation model, procured from a vendor, embedded inside existing software, exposed through a product feature, used by a business team, used in legal work, or operated as an agentic workflow.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Included record type</th><th>Registry treatment</th><th>Reason</th></tr></thead>
+          <tbody>
+          <tr><td>Internally built model or AI system</td><td>Full system record with lineage, data, evaluation, controls, monitoring, and owner fields.</td><td>The Company owns design choices, testing, deployment, and change control.</td></tr>
+          <tr><td>Fine-tuned or adapted third-party model</td><td>Full system record with base-model lineage, adaptation data, provider-status analysis where relevant, and vendor evidence.</td><td>Adaptation can change legal role, technical risk, and evidence obligations.</td></tr>
+          <tr><td>Procured AI product or vendor feature</td><td>Full system record linked to vendor diligence and contract evidence.</td><td>The Company must govern the deployed use even when the vendor built the model.</td></tr>
+          <tr><td>Embedded AI inside licensed software</td><td>Full or simplified record depending on tier, always linked to procurement evidence and feature activation date.</td><td>Shadow AI often enters through existing software.</td></tr>
+          <tr><td>Retrieval-augmented generation system</td><td>Full system record with model, retrieval corpus, data source, access-control, and evaluation fields.</td><td>The risk often sits in retrieval sources and permissions, not only in the model.</td></tr>
+          <tr><td>Agentic workflow</td><td>Full system record with tool permissions, action boundaries, logs, rollback, kill switch, and monitoring fields.</td><td>Systems that act require stronger operational control than systems that answer.</td></tr>
+          <tr><td>Public or customer-facing generative AI feature</td><td>Full system record with disclosure, provenance, content-safety, abuse monitoring, and release evidence.</td><td>Public exposure creates disclosure, misuse, brand, consumer, and regulatory risk.</td></tr>
+          <tr><td>Minimal-risk approved tool use</td><td>Simplified record with owner, approved environment, use limits, data restrictions, and sample-audit cadence.</td><td>Low-risk use still needs inventory and reassessment triggers.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-3">
+          <div class="playbook-section-mark">Section 3</div>
+          <h2>Required Registry Principles</h2>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Principle</th><th>Operational requirement</th><th>Failure prevented</th></tr></thead>
+          <tbody>
+          <tr><td>One system, one record</td><td>Every system has one authoritative registry ID. Multiple use cases can attach to that system record.</td><td>Duplicate records, inconsistent approvals, and unclear incident ownership.</td></tr>
+          <tr><td>Use-case granularity</td><td>A system with materially different uses must carry separate use-case entries under the same system record.</td><td>A low-risk use masking a high-risk use.</td></tr>
+          <tr><td>Evidence-linked fields</td><td>Fields that assert compliance, testing, diligence, or approval must link to the underlying evidence.</td><td>Empty compliance labels with no proof behind them.</td></tr>
+          <tr><td>Lifecycle status</td><td>The registry must show whether the system is proposed, in review, approved for evaluation, approved for deployment, live, suspended, retired, or rejected.</td><td>Approved pilots becoming uncontrolled production systems.</td></tr>
+          <tr><td>Owner accountability</td><td>Every live or approved system must have a use-case owner and accountable executive.</td><td>Diffuse responsibility when a system fails or drifts.</td></tr>
+          <tr><td>Time-bound review</td><td>Every classification, approval, exception, and monitoring record must have a date and next review trigger.</td><td>Stale approvals surviving after risk changes.</td></tr>
+          <tr><td>Change traceability</td><td>Material changes must create a new review entry or version record, not overwrite the old record.</td><td>Loss of evidence when the system changes.</td></tr>
+          <tr><td>Auditability</td><td>The registry must preserve who changed what, when, and why.</td><td>Inability to reconstruct decisions under audit or incident pressure.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-4">
+          <div class="playbook-section-mark">Section 4</div>
+          <h2>Core Data Schema</h2>
+          <p>The schema below is the minimum viable enterprise registry. The Company may add fields, but it should not remove a field unless the AI Governance Committee documents why the field is not relevant to the Company&#x27;s sector, posture, or deployment model.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required for</th><th>Validation rule</th><th>Why this field matters</th></tr></thead>
+          <tbody>
+          <tr><td>Registry ID</td><td>Unique identifier</td><td>All records</td><td>System-generated, immutable, and never reused.</td><td>Lets intake, contracts, gates, incidents, audits, and dashboards reference the same system.</td></tr>
+          <tr><td>System name</td><td>Text</td><td>All records</td><td>Plain-language name, unique enough to distinguish the system from similar tools.</td><td>Prevents vague references to vendor products, pilots, or internal nicknames.</td></tr>
+          <tr><td>System description</td><td>Text</td><td>All records</td><td>Must state what the system does, what output it produces, and what workflow or decision it affects.</td><td>Anchors the record to actual behavior rather than vendor or model branding.</td></tr>
+          <tr><td>System type</td><td>Controlled value</td><td>All records</td><td>Build, fine-tune, adapt, procure, embed, deploy, RAG, agentic workflow, public generative feature, or mixed.</td><td>Determines which diligence, lineage, vendor, and role fields apply.</td></tr>
+          <tr><td>Use-case ID</td><td>Unique identifier</td><td>All use cases</td><td>Required when one system supports more than one use.</td><td>Allows one system to carry multiple tiered uses without blurring their controls.</td></tr>
+          <tr><td>Use-case description</td><td>Text</td><td>All records</td><td>Must state the decision, recommendation, action, content, or workflow affected.</td><td>Drives risk classification and prevents model-level classification.</td></tr>
+          <tr><td>Use-case owner</td><td>Person</td><td>All records</td><td>Named individual, not a team mailbox.</td><td>Assigns operational accountability.</td></tr>
+          <tr><td>Accountable executive</td><td>Person</td><td>Limited-risk, high-risk, live systems, exceptions</td><td>Named executive, partner, or senior owner.</td><td>Identifies residual-risk owner and Gate 3 approver.</td></tr>
+          <tr><td>Submitting team</td><td>Controlled value</td><td>All records</td><td>Business unit, product group, legal team, practice group, corporate team, or engineering group.</td><td>Routes reviews, dashboards, and ownership reporting.</td></tr>
+          <tr><td>Sector path</td><td>Controlled value</td><td>All records</td><td>Finance, Tech, Law Firm, Other, or Healthcare review needed.</td><td>Selects sector examples, gate alignment, and regulatory overlays.</td></tr>
+          <tr><td>Posture</td><td>Controlled value</td><td>All records</td><td>Builds, deploys, or both.</td><td>Determines whether provider, deployer, vendor, and lineage controls attach.</td></tr>
+          <tr><td>Jurisdiction path</td><td>Controlled value</td><td>All records</td><td>NY, CA, International, more than one, or none yet for approved internal evaluation.</td><td>Selects statutory overlay and render path.</td></tr>
+          <tr><td>EU-market activity</td><td>Controlled value</td><td>All records</td><td>Yes, no, unclear, or not yet assessed.</td><td>Separates EU-market obligations from the generic International path.</td></tr>
+          <tr><td>California-facing activity</td><td>Controlled value</td><td>All records</td><td>Yes, no, unclear, or not yet assessed.</td><td>Routes California training-data, transparency, privacy, and generative AI review where applicable.</td></tr>
+          <tr><td>New York-facing activity</td><td>Controlled value</td><td>All records</td><td>Yes, no, unclear, or not yet assessed.</td><td>Routes NYDFS, NYC employment, and New York statutory review where applicable.</td></tr>
+          <tr><td>Other regulated markets</td><td>Text</td><td>Limited-risk, high-risk, external-facing systems</td><td>Required if non-U.S., federal, sector, customer-contract, or other market obligations are known.</td><td>Captures obligations outside the three front-end jurisdiction paths.</td></tr>
+          <tr><td>Risk tier</td><td>Controlled value</td><td>All records</td><td>Prohibited, high-risk, limited-risk, minimal-risk, provisional pending evidence, out of scope, or rejected.</td><td>Drives gates, controls, review cadence, and reporting.</td></tr>
+          <tr><td>Classification date</td><td>Date</td><td>All records</td><td>Required when risk tier is assigned or changed.</td><td>Shows whether a classification is current.</td></tr>
+          <tr><td>Classification owner</td><td>Person</td><td>All records</td><td>AI Governance Office reviewer or Committee owner.</td><td>Preserves who made the tier determination.</td></tr>
+          <tr><td>Classification evidence link</td><td>Link</td><td>Limited-risk, high-risk, prohibited, contested, exceptions</td><td>Must link to Annex C record, scoring worksheet, or Committee decision.</td><td>Prevents unsupported tier labels.</td></tr>
+          <tr><td>Lifecycle status</td><td>Controlled value</td><td>All records</td><td>Proposed, intake incomplete, in review, evaluation approved, deployment approved, live, suspended, retired, rejected, prohibited, or out of scope.</td><td>Shows what the system may do right now.</td></tr>
+          <tr><td>Environment</td><td>Controlled value</td><td>Evaluation, pilot, live systems</td><td>Sandbox, development, staging, internal pilot, production, customer-facing, public, or retired.</td><td>Prevents pilots and experiments from becoming undocumented production systems.</td></tr>
+          <tr><td>Launch or activation date</td><td>Date</td><td>Evaluation, pilot, live systems</td><td>Required before deployment authorization.</td><td>Connects approval to actual release.</td></tr>
+          <tr><td>Next review date</td><td>Date</td><td>All active records</td><td>Required before any system can move to live status.</td><td>Forces periodic reassessment.</td></tr>
+          <tr><td>Reassessment triggers</td><td>Text or controlled list</td><td>All active records</td><td>Must include material changes to purpose, population, data, model, vendor, market, scale, oversight, autonomy, and output audience.</td><td>Reopens governance when operating facts change.</td></tr>
+          <tr><td>Affected population</td><td>Controlled list plus text</td><td>Limited-risk, high-risk, external-facing systems</td><td>Customers, clients, applicants, employees, patients, users, minors, protected groups, vulnerable groups, public, or other.</td><td>Routes fairness, notice, remedy, and sector controls.</td></tr>
+          <tr><td>Decision or workflow affected</td><td>Text</td><td>All records</td><td>Must identify the business, legal, product, operational, customer, employment, health, or security process affected.</td><td>Determines consequence severity.</td></tr>
+          <tr><td>Human-oversight design</td><td>Text plus controlled value</td><td>Limited-risk, high-risk, agentic, external-facing systems</td><td>Must identify reviewer, review timing, override right, logging, and escalation path.</td><td>Distinguishes advisory output from controlled reliance or automated action.</td></tr>
+          <tr><td>Autonomy level</td><td>Controlled value</td><td>All records</td><td>None, recommendation only, bounded action with approval, bounded action without approval, or external action.</td><td>Routes agentic controls, rollback, kill switch, and security review.</td></tr>
+          <tr><td>Tool permissions</td><td>Structured list</td><td>Agentic systems</td><td>Required for every tool, API, workflow, system, data store, communication channel, transaction, or permission the system can access.</td><td>Makes blast radius visible.</td></tr>
+          <tr><td>Kill switch or suspension path</td><td>Text</td><td>High-risk, agentic, live external-facing systems</td><td>Must identify who can stop the system, how fast, and through which control.</td><td>Converts emergency stop from aspiration into procedure.</td></tr>
+          <tr><td>Input data sources</td><td>Structured list</td><td>All records</td><td>Must identify source, owner, category, system of record, and update cadence where known.</td><td>Supports data rights, lineage, and monitoring.</td></tr>
+          <tr><td>Data categories</td><td>Controlled list</td><td>All records</td><td>Public, internal, personal, sensitive personal, biometric, PHI, NPI, privileged, client confidential, credentials, security logs, trade secrets, regulated records, or other.</td><td>Triggers Legal, Privacy, Security, confidentiality, and healthcare controls.</td></tr>
+          <tr><td>Data-rights status</td><td>Controlled value</td><td>Limited-risk, high-risk, vendor, build, fine-tune, RAG, external-facing systems</td><td>Cleared, conditional, blocked, not assessed, or not applicable.</td><td>Prevents systems from advancing on unverified data rights.</td></tr>
+          <tr><td>Data location</td><td>Structured list</td><td>Systems using non-public data</td><td>Storage, processing, logging, retention, hosting, transfer, and vendor location where known.</td><td>Supports privacy, security, cross-border, and contract review.</td></tr>
+          <tr><td>Retention and logging rule</td><td>Text</td><td>Limited-risk, high-risk, external-facing, vendor, agentic systems</td><td>Must state prompt, input, output, log, and review-record retention.</td><td>Prevents hidden data accumulation and unsupported deletion practices.</td></tr>
+          <tr><td>Foundation model lineage</td><td>Structured list</td><td>Build, fine-tune, adapt, RAG, public generative feature</td><td>Base model, version, provider, license, release date if known, and dependency notes.</td><td>Makes inherited risk, vulnerabilities, license changes, and vendor changes traceable.</td></tr>
+          <tr><td>Training or fine-tuning data</td><td>Structured list</td><td>Build, fine-tune, adapt</td><td>Dataset name, source, owner, rights status, sensitive categories, and documentation link.</td><td>Supports provenance, bias, transparency, and provider-grade evidence.</td></tr>
+          <tr><td>Retrieval sources</td><td>Structured list</td><td>RAG systems</td><td>Corpus, system of record, access-control model, freshness, owner, and exclusion rules.</td><td>Controls hallucination, permission leakage, stale retrieval, and confidentiality exposure.</td></tr>
+          <tr><td>Vendor name</td><td>Text</td><td>Vendor or procured systems</td><td>Required where any third-party system, model, feature, or hosted tool is used.</td><td>Links running system to third-party evidence.</td></tr>
+          <tr><td>Vendor product or feature</td><td>Text</td><td>Vendor or procured systems</td><td>Required and specific to the AI feature, not only the product suite.</td><td>Prevents generic vendor approval from covering an unreviewed AI feature.</td></tr>
+          <tr><td>Contract reference</td><td>Link or ID</td><td>Vendor or procured systems</td><td>Must link to governing agreement, SOW, order form, DPA, security exhibit, AI terms, or renewal record.</td><td>Connects deployment to audit rights, restrictions, and liability allocation.</td></tr>
+          <tr><td>Vendor diligence status</td><td>Controlled value</td><td>Vendor or procured systems</td><td>Not started, in progress, cleared, cleared with conditions, blocked, expired, or not applicable.</td><td>Prevents deployment before diligence completion.</td></tr>
+          <tr><td>Vendor evidence link</td><td>Link</td><td>Limited-risk and high-risk vendor systems</td><td>Must link to model card, system card, evaluation, security evidence, training-data documentation, limitations, and change-notice terms where available.</td><td>Shows whether the Company has evidence to rely on the vendor system.</td></tr>
+          <tr><td>EU AI Act role</td><td>Controlled value</td><td>EU-market activity yes or unclear</td><td>Provider, deployer, importer, distributor, product manufacturer, more than one, unclear, or not applicable.</td><td>Determines obligation set.</td></tr>
+          <tr><td>EU role evidence link</td><td>Link</td><td>EU-market activity yes or unclear</td><td>Must link to role analysis and Article 25 analysis where relevant.</td><td>Prevents provider and deployer obligations from being discovered late.</td></tr>
+          <tr><td>Transparency or notice requirement</td><td>Controlled value plus text</td><td>Limited-risk, high-risk, public generative, employment, customer-facing systems</td><td>Required, not required, unclear, or not applicable, with owner and evidence link.</td><td>Controls user interaction, synthetic-content, employment, and affected-person notice.</td></tr>
+          <tr><td>Evaluation status</td><td>Controlled value</td><td>Limited-risk, high-risk, external-facing, built, fine-tuned, vendor systems</td><td>Not required, planned, in progress, passed, passed with conditions, failed, expired, or not applicable.</td><td>Shows whether Gate 2 evidence exists.</td></tr>
+          <tr><td>Evaluation evidence link</td><td>Link</td><td>Limited-risk and high-risk systems</td><td>Must link to performance, bias, robustness, security, red-team, or spot-check results as applicable.</td><td>Keeps evidence with the system record.</td></tr>
+          <tr><td>Bias or fairness review status</td><td>Controlled value</td><td>Employment, financial, high-risk, affected-population systems</td><td>Not required, planned, in progress, passed, passed with conditions, failed, expired, or not applicable.</td><td>Supports fairness and anti-discrimination review.</td></tr>
+          <tr><td>Security review status</td><td>Controlled value</td><td>Vendor, production, external-facing, sensitive-data, agentic, high-risk systems</td><td>Not required, planned, in progress, passed, passed with conditions, failed, expired, or not applicable.</td><td>Controls cybersecurity, access, integration, and abuse risk.</td></tr>
+          <tr><td>Privacy review status</td><td>Controlled value</td><td>Personal-data, sensitive-data, employee, customer, patient, public-facing systems</td><td>Not required, planned, in progress, passed, passed with conditions, failed, expired, or not applicable.</td><td>Controls data-use, notice, retention, transfer, and privacy obligations.</td></tr>
+          <tr><td>Legal review status</td><td>Controlled value</td><td>Limited-risk, high-risk, prohibited, vendor, regulated, public-facing systems</td><td>Not required, planned, in progress, passed, passed with conditions, failed, expired, or not applicable.</td><td>Captures legal-risk ownership without making Legal the owner of the whole system.</td></tr>
+          <tr><td>Gate status</td><td>Structured list</td><td>All records</td><td>Gate 0, Gate 1, Gate 2, Gate 3, and Gate 4 status, with owner, decision, date, and evidence link.</td><td>Shows where the system stands in the lifecycle.</td></tr>
+          <tr><td>Conditions before release</td><td>Text</td><td>Limited-risk, high-risk, conditional approvals</td><td>Must state required actions, owners, and due dates.</td><td>Prevents conditional approvals from becoming unconditional releases.</td></tr>
+          <tr><td>Residual-risk owner</td><td>Person</td><td>High-risk, exceptions, deployment authorization</td><td>Named accountable executive, partner, or senior owner.</td><td>Makes risk acceptance explicit.</td></tr>
+          <tr><td>Monitoring configuration</td><td>Structured list</td><td>Limited-risk, high-risk, live systems</td><td>Metric, threshold, owner, cadence, data source, alert path, and review date.</td><td>Turns monitoring into a managed control.</td></tr>
+          <tr><td>Last monitoring review</td><td>Date</td><td>Live systems</td><td>Required at cadence set by tier.</td><td>Shows whether monitoring is active.</td></tr>
+          <tr><td>Linked incidents</td><td>Link list</td><td>Systems with incidents, complaints, drift, audit issues, inquiries</td><td>Must link incident ID, date, severity, status, and outcome.</td><td>Allows pattern analysis and reclassification.</td></tr>
+          <tr><td>Exception status</td><td>Controlled value</td><td>Exceptions or urgent evaluations</td><td>None, requested, approved, approved with conditions, denied, expired, or revoked.</td><td>Tracks departures from the normal control path.</td></tr>
+          <tr><td>Exception evidence link</td><td>Link</td><td>Exceptions</td><td>Must link to business justification, scope limits, expiration date, and approver.</td><td>Prevents exception drift.</td></tr>
+          <tr><td>Retirement date</td><td>Date</td><td>Retired systems</td><td>Required when lifecycle status is retired.</td><td>Shows when the system left production.</td></tr>
+          <tr><td>Retirement evidence</td><td>Link or text</td><td>Retired systems</td><td>Must state shutdown, data disposition, vendor termination or feature disablement, and remaining obligations.</td><td>Prevents abandoned systems from retaining access or data.</td></tr>
+          <tr><td>Audit log</td><td>System-generated</td><td>All records</td><td>Must preserve create, edit, approval, status change, and deletion events.</td><td>Makes the registry defensible.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-5">
+          <div class="playbook-section-mark">Section 5</div>
+          <h2>Controlled Values</h2>
+          <p>The registry should use controlled values wherever inconsistent wording would undermine reporting. Free text may explain a value, but it should not replace the controlled value.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Field</th><th>Controlled values</th></tr></thead>
+          <tbody>
+          <tr><td>Risk tier</td><td>Prohibited; high-risk; limited-risk; minimal-risk; provisional pending evidence; rejected; out of scope.</td></tr>
+          <tr><td>Lifecycle status</td><td>Proposed; intake incomplete; in review; evaluation approved; deployment approved; live; suspended; retired; rejected; prohibited; out of scope.</td></tr>
+          <tr><td>System type</td><td>Build; fine-tune; adapt; procure; embed; deploy; RAG; agentic workflow; public generative feature; mixed.</td></tr>
+          <tr><td>EU AI Act role</td><td>Provider; deployer; importer; distributor; product manufacturer; more than one; unclear; not applicable.</td></tr>
+          <tr><td>Review status fields</td><td>Not required; not started; planned; in progress; passed; passed with conditions; failed; expired; not applicable.</td></tr>
+          <tr><td>Autonomy level</td><td>None; recommendation only; bounded action with approval; bounded action without approval; external action.</td></tr>
+          <tr><td>Data-rights status</td><td>Cleared; conditional; blocked; not assessed; not applicable.</td></tr>
+          <tr><td>Exception status</td><td>None; requested; approved; approved with conditions; denied; expired; revoked.</td></tr>
+          <tr><td>Environment</td><td>Sandbox; development; staging; internal pilot; production; customer-facing; public; retired.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-6">
+          <div class="playbook-section-mark">Section 6</div>
+          <h2>Required Evidence Links</h2>
+          <p>The registry must not become a place where teams type &quot;complete&quot; without attaching proof. The following evidence links are mandatory when the condition applies.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Condition</th><th>Required evidence link</th></tr></thead>
+          <tbody>
+          <tr><td>Any risk tier other than minimal-risk</td><td>Annex C classification record.</td></tr>
+          <tr><td>High-risk classification</td><td>Annex C trigger analysis, scoring worksheet, Gate 1 evidence, Gate 2 validation evidence, Committee decision, and residual-risk acceptance if deployed.</td></tr>
+          <tr><td>Prohibited classification</td><td>Prohibited-use screen, Legal review, Committee confirmation, and refusal rationale.</td></tr>
+          <tr><td>Vendor or procured system</td><td>Vendor diligence checklist, contract reference, security evidence, data-use terms, change-notice terms, and vendor documentation.</td></tr>
+          <tr><td>Fine-tuned or adapted model</td><td>Base-model lineage, training or fine-tuning data record, data-rights analysis, evaluation results, and provider-status analysis where EU-market activity exists.</td></tr>
+          <tr><td>EU-market activity</td><td>EU role analysis, high-risk classification analysis, Article 25 analysis where relevant, transparency analysis where relevant, and serious-incident route.</td></tr>
+          <tr><td>Public generative AI feature</td><td>Disclosure or provenance assessment, content-safety review, abuse testing, training-data documentation review where applicable, and complaint path.</td></tr>
+          <tr><td>Employment system</td><td>AEDT or employment-law analysis where applicable, bias-audit evidence where required, notice path, human-review design, and annual review date.</td></tr>
+          <tr><td>NYDFS-covered financial institution</td><td>Part 500 control mapping, third-party service-provider assessment if vendor system, NPI review where applicable, and incident route.</td></tr>
+          <tr><td>Healthcare or patient-impact system</td><td>Healthcare escalation record, HIPAA or data-use review, FDA or SaMD screen where applicable, clinical validation plan, and patient-safety monitoring.</td></tr>
+          <tr><td>Agentic workflow</td><td>Tool-permission matrix, approval gates, action logs, rollback procedure, kill switch, abuse cases, and monitoring thresholds.</td></tr>
+          <tr><td>Exception or urgent evaluation</td><td>Exception request, approver, scope limits, approved data, expiration date, monitoring owner, and prohibition on production or external effect if applicable.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-7">
+          <div class="playbook-section-mark">Section 7</div>
+          <h2>Registry Workflow</h2>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Workflow stage</th><th>Owner</th><th>Registry action</th><th>Exit condition</th></tr></thead>
+          <tbody>
+          <tr><td>Intake opened</td><td>Use-case owner</td><td>Create draft record with intake ID, owner, system name, status, and initial description.</td><td>Intake form complete or closed as out of scope.</td></tr>
+          <tr><td>Provisional classification</td><td>AI Governance Office</td><td>Add provisional tier, classification owner, affected population, data categories, posture, jurisdiction, and required addenda.</td><td>Route assigned.</td></tr>
+          <tr><td>Evidence collection</td><td>Use-case owner with Legal, Security, Privacy, Procurement, validation owner, or sector reviewer</td><td>Attach required evidence links and update review status fields.</td><td>Required evidence complete or intake hold issued.</td></tr>
+          <tr><td>Gate review</td><td>Gate owners</td><td>Record gate decision, conditions, owner, date, and evidence link.</td><td>Gate passed, passed with conditions, failed, or escalated.</td></tr>
+          <tr><td>Deployment authorization</td><td>Accountable executive or Committee</td><td>Update lifecycle status, release conditions, residual-risk owner, monitoring configuration, and launch date.</td><td>System approved for defined environment or held.</td></tr>
+          <tr><td>Live monitoring</td><td>Use-case owner and validation owner</td><td>Update monitoring results, drift signals, incidents, last review date, and change records.</td><td>System remains live, changes trigger reclassification, or system is suspended.</td></tr>
+          <tr><td>Reclassification</td><td>AI Governance Office</td><td>Create new classification entry linked to prior record and material-change reason.</td><td>New tier and controls assigned.</td></tr>
+          <tr><td>Suspension or retirement</td><td>Use-case owner and AI Governance Office</td><td>Update lifecycle status, suspension or retirement reason, access removal, data disposition, and remaining obligations.</td><td>System stopped, retired, or returned to review.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-8">
+          <div class="playbook-section-mark">Section 8</div>
+          <h2>Validation Rules</h2>
+          <p>The registry should reject or flag records that fail the validation rules below.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Rule</th><th>System response</th></tr></thead>
+          <tbody>
+          <tr><td>A record cannot move to live status without a use-case owner, accountable executive, risk tier, classification date, lifecycle status, environment, and next review date.</td><td>Block status change.</td></tr>
+          <tr><td>A high-risk record cannot move to deployment approved or live without Gate 0, Gate 1, Gate 2, and Gate 3 decisions and evidence links.</td><td>Block status change and alert AI Governance Office.</td></tr>
+          <tr><td>A vendor system cannot move to live status without vendor diligence status, contract reference, and vendor evidence link or documented exception.</td><td>Block status change.</td></tr>
+          <tr><td>A system with EU-market activity marked yes or unclear cannot move to live status without EU role analysis.</td><td>Block status change.</td></tr>
+          <tr><td>A build, fine-tune, adapt, or public generative feature cannot move to live status without model lineage and training or input data source records.</td><td>Block status change unless Committee approves exception.</td></tr>
+          <tr><td>A system using personal, sensitive, biometric, protected health, privileged, client confidential, credential, security-log, trade-secret, or regulated data cannot move to live status without Legal, Privacy, and Security routing as applicable.</td><td>Block or route to required reviewers.</td></tr>
+          <tr><td>A system with autonomy level above recommendation only cannot move to live status without tool permissions, approval rules, action logs, rollback, and kill switch where technically feasible.</td><td>Block status change.</td></tr>
+          <tr><td>A system with lifecycle status live and no monitoring configuration must show minimal-risk clearance or documented reason monitoring does not apply.</td><td>Flag for AI Governance Office review.</td></tr>
+          <tr><td>A classification older than its review cadence cannot remain live without review update or documented extension.</td><td>Flag as overdue and route to owner.</td></tr>
+          <tr><td>A material change cannot overwrite prior classification evidence.</td><td>Require new classification entry linked to old record.</td></tr>
+          <tr><td>A retired system cannot retain production environment status, active vendor feature status, or active tool permissions.</td><td>Block retirement completion until cleanup fields are complete.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-9">
+          <div class="playbook-section-mark">Section 9</div>
+          <h2>Reporting Views</h2>
+          <p>The registry should support operating views, not only compliance exports.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>View</th><th>Required filters</th><th>Operational use</th></tr></thead>
+          <tbody>
+          <tr><td>Executive risk view</td><td>Tier, sector, business unit, live status, high-risk count, overdue reviews, incidents, exceptions.</td><td>Shows senior owners where risk sits and what needs decision.</td></tr>
+          <tr><td>AI Governance Office queue</td><td>Intake status, missing evidence, reviewer, SLA age, next gate, contested tier, hold reason.</td><td>Runs daily governance operations.</td></tr>
+          <tr><td>Legal obligations view</td><td>Jurisdiction, EU role, Article 25 analysis, transparency or notice, employment, healthcare, financial, legal-services, public generative AI.</td><td>Identifies legal work and volatility exposure.</td></tr>
+          <tr><td>Security and privacy view</td><td>Data category, vendor, environment, tool permissions, security status, privacy status, incidents, monitoring gaps.</td><td>Routes cyber, data, and access-control risk.</td></tr>
+          <tr><td>Vendor concentration view</td><td>Vendor, product, model supplier, contract reference, feature, business unit, tier, incidents, change notices.</td><td>Shows third-party exposure and dependency concentration.</td></tr>
+          <tr><td>Model lineage view</td><td>Base model, version, provider, fine-tunes, RAG sources, downstream systems, vulnerabilities, license changes.</td><td>Identifies blast radius when a model or dataset changes.</td></tr>
+          <tr><td>Monitoring and drift view</td><td>Live systems, monitoring cadence, last review, thresholds, failed metrics, incidents, reclassification triggers.</td><td>Runs Gate 4.</td></tr>
+          <tr><td>Audit export</td><td>Registry ID, tier, owner, dates, gates, evidence links, approvals, exceptions, incidents, and retirement status.</td><td>Supports audit, regulatory, customer, and board review.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-10">
+          <div class="playbook-section-mark">Section 10</div>
+          <h2>Access and Governance</h2>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Role</th><th>Access</th><th>Responsibility</th></tr></thead>
+          <tbody>
+          <tr><td>AI Governance Office</td><td>Full create, edit, review, route, and reporting rights.</td><td>Owns registry integrity, classification records, gate routing, and quality control.</td></tr>
+          <tr><td>Use-case owner</td><td>Create and edit assigned records before approval; update monitoring and change information after approval.</td><td>Keeps system facts current and submits material changes.</td></tr>
+          <tr><td>Accountable executive</td><td>Read assigned records, approve residual risk, approve or reject deployment where required.</td><td>Owns business accountability for approved use.</td></tr>
+          <tr><td>Legal</td><td>Read relevant records; edit legal review, jurisdiction, EU role, data-rights, notice, and obligation fields.</td><td>Owns legal determinations without becoming operating owner.</td></tr>
+          <tr><td>Security</td><td>Read relevant records; edit security, access, vendor security, agentic, incident, and monitoring fields.</td><td>Owns cybersecurity review and incident integration.</td></tr>
+          <tr><td>Privacy</td><td>Read relevant records; edit privacy, data category, retention, transfer, and affected-person fields.</td><td>Owns privacy and data-use review.</td></tr>
+          <tr><td>Procurement</td><td>Read vendor records; edit vendor, contract, diligence, renewal, and change-notice fields.</td><td>Connects vendor systems to contract controls.</td></tr>
+          <tr><td>Validation owner</td><td>Read relevant records; edit evaluation, testing, model validation, monitoring, and drift fields.</td><td>Owns technical or model-performance evidence.</td></tr>
+          <tr><td>Internal Audit</td><td>Read access and export access.</td><td>Tests whether registry controls operate as designed.</td></tr>
+          <tr><td>Business users</td><td>Limited read or submit access.</td><td>Submits intake and sees status without accessing restricted evidence.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-11">
+          <div class="playbook-section-mark">Section 11</div>
+          <h2>Quality Controls</h2>
+          <p>The AI Governance Office should run registry quality checks on a fixed cadence and before any board, audit, regulatory, or customer-facing report.</p>
+          <div class="playbook-table-wrap"><table class="playbook-table">
+          <thead><tr><th>Check</th><th>Cadence</th><th>Failure signal</th></tr></thead>
+          <tbody>
+          <tr><td>Completeness check</td><td>Weekly</td><td>Required fields missing for active records.</td></tr>
+          <tr><td>Evidence-link check</td><td>Weekly for high-risk and monthly for limited-risk</td><td>Field says cleared, but no evidence link exists.</td></tr>
+          <tr><td>SLA check</td><td>Daily</td><td>Intake or gate review exceeds service level.</td></tr>
+          <tr><td>Overdue review check</td><td>Weekly</td><td>Next review date has passed.</td></tr>
+          <tr><td>Vendor change check</td><td>Monthly and on vendor notice</td><td>Vendor release, model update, terms change, subprocessor change, or feature activation lacks reassessment.</td></tr>
+          <tr><td>Model lineage check</td><td>Monthly for built and fine-tuned systems</td><td>Base-model version, license, vulnerability, or provider change not mapped to downstream systems.</td></tr>
+          <tr><td>Monitoring check</td><td>Monthly for live systems</td><td>Monitoring configuration missing, last review stale, threshold breach unresolved, or owner missing.</td></tr>
+          <tr><td>Exception check</td><td>Weekly</td><td>Exception expired, scope exceeded, evidence missing, or system moved beyond approved evaluation scope.</td></tr>
+          <tr><td>Shadow AI reconciliation</td><td>Quarterly</td><td>Procurement, expense, SaaS admin, browser extension, data-loss-prevention, or security logs show AI use not in registry.</td></tr>
+          <tr><td>Retirement check</td><td>Quarterly</td><td>Retired systems retain access, data, vendor feature activation, or monitoring obligations.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="playbook-annex-section" id="section-12">
+          <div class="playbook-section-mark">Section 12</div>
+          <h2>Source Basis and Volatility Note</h2>
+          <p>This registry schema aligns to NIST AI RMF Govern, Map, Measure, and Manage because it records accountability, system context, risk classification, evidence, controls, monitoring, and incident history in one operating record. It aligns to ISO/IEC 42001 because it creates documented ownership, risk treatment, operational planning, performance evaluation, change control, and continual-improvement evidence. It aligns to the EU AI Act because it captures intended purpose, role in the AI value chain, high-risk classification, technical-documentation evidence, transparency triggers, monitoring, and serious-incident routing when EU-market activity exists.</p>
+          <p>The schema also preserves the U.S. overlays the playbook relies on. California-facing public generative AI records need training-data documentation review where applicable. NYDFS-covered financial institutions need AI cybersecurity risk mapped into the existing Part 500 control environment. NYC employment systems need AEDT bias-audit and notice fields where applicable. Healthcare and patient-impact systems need separate HIPAA, FDA, SaMD, clinical-validation, and patient-safety fields rather than generic Other-sector treatment.</p>
+          </section>
+      </div>
+      <div class="playbook-doc-identity">
+        <strong>Julio Macedo</strong>
+        <span>Senior Attorney | AI Governance &amp; Legal Ops</span>
+        <a href="/ai/">jhmacal.com</a>
+      </div>
+    </article>
+    <div class="playbook-external-actions">
+      <button class="playbook-print-button" type="button" title="Download this annex as a clean PDF." onclick="window.print()">Download annex (PDF)</button>
+    </div>
+  </main>
+  <script src="/playbook/playbook-print.js?v=20260604-acronym-cover2"></script>
+</body>
+</html>
