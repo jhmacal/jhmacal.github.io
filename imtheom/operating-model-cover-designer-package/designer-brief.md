@@ -2,7 +2,7 @@
 
 ## Project
 
-Design a PDF cover system for the AI Governance Playbook, a configurable operating model for AI governance.
+Design a PDF cover system for the AI Governance Operating Model, a configurable operating model for AI governance.
 
 ## Audience
 
@@ -12,7 +12,7 @@ The reader is a legal, compliance, risk, privacy, security, procurement, or exec
 
 Serious. Institutional. Precise. Board-facing. Legal-operator. Quiet confidence.
 
-The cover should feel closer to a governance manual, audit committee packet, regulatory playbook, or institutional white paper than a creator portfolio.
+The cover should feel closer to a governance manual, audit committee packet, regulatory operating model, or institutional white paper than a creator portfolio.
 
 ## Avoid
 
@@ -80,7 +80,7 @@ The cover title must not look literary. It must look institutional.
 Recommended hierarchy:
 
 1. Small label: `AI Governance & Legal Ops`
-2. Main title: `AI Governance Playbook`
+2. Main title: `AI Governance Operating Model`
 3. Subtitle: `An Operating Model for AI Governance`
 4. Configuration line: company, sector, AI operating posture, markets
 5. Version block: Version 1.0, owner, last reviewed
@@ -89,4 +89,4 @@ Recommended hierarchy:
 
 ## Output
 
-Design a cover that can support both the main playbook and annexes. The main cover can be more formal. Annex covers can use the same system with a smaller title and an `Annex A`, `Annex B`, or `Annex C` label.
+Design a cover that can support both the main operating model and annexes. The main cover can be more formal. Annex covers can use the same system with a smaller title and an `Annex A`, `Annex B`, or `Annex C` label.

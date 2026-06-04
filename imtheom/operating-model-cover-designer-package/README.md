@@ -1,6 +1,6 @@
-# AI Governance Playbook PDF Cover Package
+# AI Governance Operating Model PDF Cover Package
 
-This folder is a handoff package for designing a serious PDF cover for the AI Governance Playbook.
+This folder is a handoff package for designing a serious PDF cover for the AI Governance Operating Model.
 
 Use these files:
 

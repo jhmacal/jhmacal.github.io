@@ -4,7 +4,7 @@
 
 AI Governance & Legal Ops
 
-AI Governance Playbook
+AI Governance Operating Model
 
 An Operating Model for AI Governance
 
@@ -34,7 +34,7 @@ This is not legal advice, creates no attorney-client relationship, and requires 
 
 ## Optional Inside Title Page
 
-AI Governance Playbook
+AI Governance Operating Model
 
 An Operating Model for AI Governance
 
@@ -42,7 +42,7 @@ This document presents an illustrative and generalized operating model for AI go
 
 ## Annex Cover Template
 
-AI Governance Playbook
+AI Governance Operating Model
 
 Annex [A/B/C]
 

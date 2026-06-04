@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annex C. Risk-Tier Classification Rubric | Julio Macedo</title>
+  <meta name="description" content="Annex C. Risk-Tier Classification Rubric for the AI Governance Operating Model.">
+  <meta property="og:title" content="Annex C. Risk-Tier Classification Rubric | Julio Macedo">
+  <meta property="og:description" content="AI Governance Operating Model annex.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/imtheom/annex-c/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%230a1628%27/%3E%3Ctext x=%2732%27 y=%2741%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27%23c9a961%27 font-family=%27Georgia%27%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="canonical" href="https://www.jhmacal.com/imtheom/annex-c/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260604-imtheom-nav">
+  <link rel="stylesheet" href="/imtheom/operating-model.css?v=20260604-imtheom">
+</head>
+<body class="om-annex">
+  <a class="om-home-pill" href="/ai/">jhmacal.com</a>
+  <main class="om-annex-wrap">
+    <article class="om-annex-sheet">
+      <div class="om-annex-top">
+        <div>
+          <div class="om-rule-light"></div>
+          <div class="om-annex-kicker">Annex C</div>
+        </div>
+        <a class="om-back-link" href="/imtheom/document/">Back to operating model</a>
+      </div>
+      <h1 class="om-annex-title">Annex C. Risk-Tier Classification Rubric</h1>
+      <table class="om-meta-table"><tbody><tr><td>Version</td><td>1.0</td></tr><tr><td>Current as of</td><td>June 4, 2026</td></tr><tr><td>Document owner</td><td>AI Governance Committee</td></tr><tr><td>Publication status</td><td>Illustrative operating model for a hypothetical company. This annex is not legal advice, does not create an attorney-client relationship, and should be adapted to the Company&#x27;s sector, market footprint, regulatory perimeter, contracts, and risk appetite before implementation.</td></tr></tbody></table>
+      <div class="om-annex-body">
+          <section class="om-annex-section" id="section-1">
+          <div class="om-section-mark">Section 1</div>
+          <h2>Purpose</h2>
+          <p>This rubric converts intake facts into a risk tier and a control path. It does not classify a system by model name, vendor, novelty, or internal enthusiasm. It classifies the actual use: what the system does, whose interests it affects, what a failure can change, whether a person can intervene in time, which data it uses, which legal regimes it touches, and what evidence exists to support the classification.</p>
+          <p>The reviewer uses this annex at Gate 0 to classify a proposed AI system, again at any material change, and again if monitoring shows that the original classification no longer describes the system in operation. The output of the rubric is not only a label. The output is a documented decision, a set of required controls, and a record that a future reviewer can reconstruct without interviewing the original team.</p>
+          </section>
+          <section class="om-annex-section" id="section-2">
+          <div class="om-section-mark">Section 2</div>
+          <h2>Operating Rule</h2>
+          <p>The Company applies five classification rules in order.</p>
+          <p>If a prohibited-use trigger applies, the use stops at intake unless the AI Governance Committee confirms that the trigger does not apply.</p>
+          <p>If an automatic high-risk trigger applies, the use is high-risk even if the scoring worksheet would otherwise produce a lower result.</p>
+          <p>If no automatic trigger applies, the reviewer scores the system across the risk dimensions in Section 5 and applies the escalation rules in Section 6.</p>
+          <p>If a use case sits between two tiers, the reviewer assigns the higher tier until the use-case owner produces evidence that supports the lower tier.</p>
+          <p>If a single system supports materially different uses, the reviewer classifies each use separately. The system-level registry record carries the highest tier, while the use-case record preserves the tier and controls for each use.</p>
+          </section>
+          <section class="om-annex-section" id="section-3">
+          <div class="om-section-mark">Section 3</div>
+          <h2>Inputs Required Before Classification</h2>
+          <p>The reviewer must have enough evidence to answer the classification questions without relying on the use-case owner&#x27;s intent alone. A classification made without the following inputs is provisional and cannot clear Gate 0.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Input</th><th>Minimum evidence required</th><th>Control reason</th></tr></thead>
+          <tbody>
+          <tr><td>Use-case statement</td><td>Plain-language description of the decision, recommendation, action, content, or workflow the system will support.</td><td>Prevents classification by model name or vendor label.</td></tr>
+          <tr><td>Affected population</td><td>Who sees the output, who is acted on, who can be denied, routed, scored, ranked, monitored, or exposed.</td><td>Identifies rights, access, safety, employment, customer, client, and vulnerable-population risk.</td></tr>
+          <tr><td>Output type</td><td>Prediction, recommendation, score, ranking, classification, generated content, code, retrieval answer, autonomous action, or workflow trigger.</td><td>Determines whether the system informs, influences, or executes.</td></tr>
+          <tr><td>Human oversight design</td><td>Who reviews the output, what they can override, when they see it, and whether the process records the review.</td><td>Separates advisory tools from systems that materially shape outcomes.</td></tr>
+          <tr><td>Data categories</td><td>Public data, internal data, personal data, sensitive personal data, biometric data, protected health information, nonpublic information, client confidential material, credentials, security logs, or regulated records.</td><td>Determines privacy, security, confidentiality, privilege, and sector-control requirements.</td></tr>
+          <tr><td>Build, fine-tune, procure, or deploy status</td><td>Whether the Company builds the system, adapts a third-party model, procures a system, embeds a vendor feature, or deploys a customer-facing configuration.</td><td>Determines provider, deployer, vendor-diligence, and documentation obligations.</td></tr>
+          <tr><td>Jurisdiction and market</td><td>Where the system is developed, made available, used, monitored, or applied to affected persons.</td><td>Determines whether EU, federal, state, sector, and local overlays attach.</td></tr>
+          <tr><td>Scale and rollout path</td><td>Pilot, internal limited release, production release, customer release, enterprise release, public release, or customer-resold capability.</td><td>Determines aggregate harm, monitoring burden, and staged-release controls.</td></tr>
+          <tr><td>Vendor and model evidence</td><td>Model card, intended-use documentation, known limitations, evaluation results, data-provenance documentation, security review, contractual controls, audit rights, and change-notice terms.</td><td>Determines whether the Company has enough evidence to deploy, modify, or rely on the system.</td></tr>
+          <tr><td>Failure and remedy analysis</td><td>What can go wrong, who would notice, how fast the Company can reverse the outcome, and what remedy exists for affected persons.</td><td>Determines whether an error is recoverable, material, or unacceptable.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-4">
+          <div class="om-section-mark">Section 4</div>
+          <h2>Prohibited-Use Screen</h2>
+          <p>The prohibited-use screen asks whether the proposed use falls outside law or outside the Company&#x27;s risk appetite. The reviewer records &quot;yes,&quot; &quot;no,&quot; or &quot;unclear&quot; for each trigger. A &quot;yes&quot; stops the use. An &quot;unclear&quot; routes to Legal and the AI Governance Committee before any development, procurement, pilot, or release proceeds.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Trigger</th><th>Observable behavior</th><th>Governance implication</th><th>Required control</th></tr></thead>
+          <tbody>
+          <tr><td>Manipulative or deceptive harm</td><td>The system uses hidden, deceptive, or materially manipulative techniques to impair a person&#x27;s ability to make an informed decision in a way likely to cause significant harm.</td><td>The Company cannot treat consent, disclosure, or ordinary review as enough.</td><td>Stop at intake. Legal and Committee review only to confirm classification and document refusal.</td></tr>
+          <tr><td>Exploitation of vulnerability</td><td>The system exploits age, disability, economic position, social position, dependency, or similar vulnerability to distort behavior in a way likely to cause significant harm.</td><td>The use converts personalization into exploitation.</td><td>Stop at intake. Record affected group, proposed mechanism, and refusal rationale.</td></tr>
+          <tr><td>Social scoring</td><td>The system evaluates or classifies people over time based on social behavior or inferred personal traits and produces unrelated, unjustified, or disproportionate adverse treatment.</td><td>The risk is structural, not merely model-performance related.</td><td>Stop at intake. Committee confirms refusal and preserves the record.</td></tr>
+          <tr><td>Criminal-risk prediction based solely on profiling</td><td>The system predicts criminal-offense risk based solely on profiling, personality traits, or personal characteristics, rather than objective and verifiable facts tied to a specific criminal activity.</td><td>The use is not appropriate for Company deployment outside a legally authorized public-sector framework.</td><td>Stop at intake. Legal must confirm whether any lawful exception exists.</td></tr>
+          <tr><td>Untargeted facial database scraping</td><td>The system creates or expands a facial-recognition database through untargeted scraping of internet or CCTV images.</td><td>The data-acquisition method itself creates the prohibited risk.</td><td>Stop at intake. Security and Legal preserve vendor and data-source records.</td></tr>
+          <tr><td>Workplace or education emotion inference</td><td>The system infers emotions in workplace or education settings, except where Legal confirms a medical or safety basis.</td><td>The risk cannot be cured by accuracy testing alone.</td><td>Stop or route to Legal and Committee for written exception review.</td></tr>
+          <tr><td>Sensitive biometric categorization</td><td>The system categorizes people from biometric data to infer race, political opinion, trade-union membership, religious or philosophical belief, sex life, sexual orientation, or similar protected characteristics.</td><td>The output creates a protected-attribute inference that the Company should not operationalize.</td><td>Stop at intake unless Legal confirms a narrow lawful basis and Committee approves.</td></tr>
+          <tr><td>Unauthorized public biometric identification</td><td>The system performs real-time remote biometric identification in publicly accessible spaces without a lawful authorization pathway that applies to the Company and the use.</td><td>The use carries public-rights and surveillance risk beyond ordinary enterprise governance.</td><td>Stop at intake. No pilot may proceed on business-owner approval alone.</td></tr>
+          <tr><td>Final adverse decision without review</td><td>The system makes a final denial, termination, suspension, account closure, benefit denial, employment decision, credit decision, or legal-position decision with no meaningful human review, override path, notice path, or appeal path.</td><td>The Company cannot show controlled reliance or remediation.</td><td>Stop as designed. The use may be resubmitted only with human oversight, notices, logs, and appeal controls.</td></tr>
+          <tr><td>Unlawful or undocumented data basis</td><td>The system requires data the Company cannot lawfully use, cannot trace, cannot protect, or cannot contractually receive.</td><td>The issue is not the tier. The issue is lack of lawful and evidentiary foundation.</td><td>Stop until Legal, Privacy, Security, and Procurement clear the data basis and vendor commitments.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-5">
+          <div class="om-section-mark">Section 5</div>
+          <h2>Automatic High-Risk Triggers</h2>
+          <p>The Company treats the following uses as high-risk without waiting for score aggregation. The reviewer may not downgrade one of these uses unless Legal and the AI Governance Committee document why the trigger does not apply to the actual use.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Trigger family</th><th>Use is high-risk when the system does any of the following</th><th>Controls that attach</th></tr></thead>
+          <tbody>
+          <tr><td>Legal rights, access, or eligibility</td><td>Decides, ranks, scores, recommends, or materially shapes access to credit, lending, insurance, housing, education, employment, public benefits, essential private services, or other material opportunities.</td><td>Full gate sequence, bias and performance evaluation, human oversight, decision logging, notice and appeal analysis, monitoring, and Committee sign-off.</td></tr>
+          <tr><td>Employment and worker management</td><td>Screens candidates, ranks applications, evaluates employees, recommends promotion or termination, allocates work based on personal traits or behavior, monitors performance, or substantially assists a hiring or promotion decision.</td><td>High-risk classification plus employment-law, notice, bias-audit, and local-law review where applicable.</td></tr>
+          <tr><td>Finance and customer standing</td><td>Approves, denies, prices, freezes, blocks, suspends, closes, or materially affects a customer&#x27;s account, access to funds, fraud status, AML status, credit position, insurance position, or adverse-action outcome.</td><td>Full gate sequence, fair-lending or consumer-protection review, model validation, adverse-action analysis, security review, and incident path mapping.</td></tr>
+          <tr><td>Biometric and identity systems</td><td>Identifies, verifies, categorizes, monitors, or authenticates people through biometric or behavioral characteristics, especially where an error affects access, surveillance, fraud status, employment, or customer treatment.</td><td>Legal, Privacy, Security, and Committee sign-off; liveness, accuracy, bias, spoofing, retention, and consent controls.</td></tr>
+          <tr><td>Health, safety, or patient-impact systems</td><td>Triage, diagnosis, treatment support, clinical prioritization, medical-device functionality, safety-critical operation, emergency dispatch, or any patient-impact system using protected health information or clinical data.</td><td>Route to Healthcare review, FDA and HIPAA analysis where applicable, clinical validation, safety monitoring, and Committee sign-off. Healthcare should not remain inside a generic Other path.</td></tr>
+          <tr><td>Legal-services or law-firm reliance</td><td>Analyzes privileged or confidential client material, drafts or changes work product a lawyer files or relies on, supports conflicts, matter intake, e-discovery, investigations, litigation strategy, legal advice, or professional-responsibility decisions.</td><td>Client-confidentiality, privilege, competence, supervision, matter-specific authorization, validation, and partner or legal-owner sign-off.</td></tr>
+          <tr><td>Critical infrastructure or security control</td><td>Operates as a safety component in critical digital infrastructure, controls access to production systems, initiates security actions, triages incidents at scale, changes permissions, or executes remediation with material operational effect.</td><td>Security architecture review, adversarial testing, rollback, kill switch, logging, incident integration, and senior technical sign-off.</td></tr>
+          <tr><td>Public or customer-facing generative content at scale</td><td>Generates, materially alters, ranks, or publishes content to customers or the public in a way that can mislead, defame, impersonate, manipulate, produce regulated advice, or affect market or civic behavior.</td><td>Disclosure, provenance, content-safety controls, monitoring, escalation thresholds, and release conditions.</td></tr>
+          <tr><td>Frontier or high-impact capability</td><td>Develops, fine-tunes, releases, or materially changes a model or agentic system with capabilities that can materially enable cyber abuse, biological or chemical misuse, large-scale fraud, autonomous harmful action, or other catastrophic or systemic harm.</td><td>Frontier-model safety review, capability evaluation, misuse testing, red-team evidence, deployment gating, incident reporting path, board or senior-governing-body visibility, and documented residual-risk acceptance.</td></tr>
+          <tr><td>EU high-risk category</td><td>Falls within EU AI Act Article 6 or Annex III high-risk categories, including qualifying biometrics, critical infrastructure, education, employment, essential services, law enforcement, migration, asylum, border control, justice, or democratic-process uses, when the system touches the EU market or affected persons in the EU.</td><td>EU role determination, provider or deployer obligation mapping, technical-documentation plan, conformity or registration analysis, human oversight, post-market monitoring, and serious-incident path.</td></tr>
+          <tr><td>Provider-status change</td><td>The Company puts its name or trademark on a high-risk system, substantially modifies a high-risk system, or changes the intended purpose of a system so that it becomes high-risk.</td><td>Article 25 provider-status analysis for EU-market activity, provider-grade documentation, vendor cooperation terms, and Committee sign-off before release.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-6">
+          <div class="om-section-mark">Section 6</div>
+          <h2>Scoring Worksheet for All Other Uses</h2>
+          <p>If no prohibited-use or automatic high-risk trigger applies, the reviewer scores each dimension from 0 to 3. The score records the evidence visible at classification. It does not replace judgment, and it does not override the automatic triggers above.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Dimension</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+          <tbody>
+          <tr><td>Consequence severity</td><td>Output has no meaningful effect beyond convenience or drafting support.</td><td>Error causes minor, recoverable inconvenience.</td><td>Error causes material inconvenience, customer friction, operational delay, or reputational exposure.</td><td>Error affects rights, safety, finances, employment, legal position, health, essential access, regulatory standing, or material operations.</td></tr>
+          <tr><td>Decision influence</td><td>Output does not affect a decision.</td><td>Output informs a human who independently decides and records review.</td><td>Output substantially assists, ranks, scores, prioritizes, or becomes the default recommendation.</td><td>Output makes or initiates the decision, or a human review is nominal, late, undocumented, or practically ineffective.</td></tr>
+          <tr><td>Autonomy and action</td><td>System only drafts, retrieves, or summarizes.</td><td>System recommends an action but cannot execute it.</td><td>System executes bounded internal actions with approval, logs, and rollback.</td><td>System executes external, customer, legal, financial, security, or operational actions without timely human approval.</td></tr>
+          <tr><td>Data sensitivity</td><td>Public, synthetic, or approved non-sensitive data.</td><td>Internal business data with no personal, confidential, privileged, or regulated content.</td><td>Personal data, confidential business data, customer records, vendor records, or production telemetry.</td><td>Sensitive personal data, biometric data, protected health information, nonpublic information, credentials, security logs, trade secrets, privileged material, or client confidential material.</td></tr>
+          <tr><td>Scale and affected population</td><td>Individual or narrow internal pilot.</td><td>Limited internal team or controlled sandbox.</td><td>Business-unit, customer cohort, vendor, or recurring production workflow.</td><td>Enterprise, public, cross-market, high-volume, vulnerable-population, protected-group, or customer-resold deployment.</td></tr>
+          <tr><td>Reversibility and remedy</td><td>Error can be corrected immediately with no practical harm.</td><td>Error can be corrected quickly and affected persons can be identified.</td><td>Error can be corrected only with operational effort, customer contact, remediation, or reprocessing.</td><td>Error is hard to detect, hard to reverse, deadline-sensitive, legally consequential, safety-relevant, or practically irreversible.</td></tr>
+          <tr><td>Explainability and evidence</td><td>Reviewers can explain the output basis and reproduce the relevant records.</td><td>The system provides reasonable explanation and logs, but some model behavior remains opaque.</td><td>Explanation is limited, vendor evidence is incomplete, or reviewers cannot reliably reconstruct the output basis.</td><td>The Company cannot explain, test, reproduce, audit, or obtain evidence sufficient for the intended use.</td></tr>
+          <tr><td>Legal and regulatory adjacency</td><td>No apparent legal, regulatory, contractual, or supervisory implication.</td><td>Transparency, disclosure, copyright, data-use, or contractual review may attach.</td><td>Sector-specific, employment, privacy, cybersecurity, procurement, consumer, or professional-duty review likely attaches.</td><td>Statutory high-risk classification, supervisory examination, reporting duty, regulated adverse action, legal reliance, or serious-incident duty may attach.</td></tr>
+          <tr><td>Model-change behavior</td><td>Static workflow, rules engine, or approved model with no material adaptation.</td><td>Model changes only through controlled release management.</td><td>System uses a foundation model, fine-tuning, retrieval augmentation, or frequent vendor-side changes requiring monitoring.</td><td>System adapts, acts agentically, self-improves, chains tools, changes behavior through open-ended prompts, or relies on a model with high-impact capability.</td></tr>
+          <tr><td>Misuse, abuse, and security potential</td><td>No realistic misuse beyond ordinary user error.</td><td>Misuse could expose internal information or create low-level process errors.</td><td>Misuse could expose confidential data, enable impersonation, bypass controls, or trigger incorrect operational action.</td><td>Misuse could enable cyber abuse, fraud, identity compromise, market manipulation, physical harm, regulated-data compromise, or large-scale external harm.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-7">
+          <div class="om-section-mark">Section 7</div>
+          <h2>Score Interpretation and Escalation Rules</h2>
+          <p>The reviewer applies the following result after scoring.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Result</th><th>Standard</th><th>Classification outcome</th></tr></thead>
+          <tbody>
+          <tr><td>Minimal-risk</td><td>No prohibited or automatic high-risk trigger applies, no dimension scores 3, no more than one dimension scores 2, and total score is 0 to 5.</td><td>Registry entry, use-case-owner attestation, acceptable-use constraints, and periodic sample audit.</td></tr>
+          <tr><td>Limited-risk</td><td>No prohibited or automatic high-risk trigger applies, no escalation rule below applies, and total score is 6 to 14.</td><td>Registry entry, lightweight gate review, disclosure where relevant, proportionate vendor diligence, spot-check evaluation, monitoring, and reassessment trigger.</td></tr>
+          <tr><td>High-risk by score</td><td>Total score is 15 or higher.</td><td>High-risk controls apply.</td></tr>
+          <tr><td>High-risk by concentration</td><td>Two or more dimensions score 3, even if the total is below 15.</td><td>High-risk controls apply.</td></tr>
+          <tr><td>High-risk by consequence and influence</td><td>Consequence severity scores 3 and decision influence scores 2 or 3.</td><td>High-risk controls apply.</td></tr>
+          <tr><td>High-risk by autonomy</td><td>Autonomy and action scores 3 and consequence severity scores 2 or 3.</td><td>High-risk controls apply.</td></tr>
+          <tr><td>High-risk by data and external effect</td><td>Data sensitivity scores 3 and the output affects a customer, client, employee, applicant, patient, regulated user, or external person.</td><td>High-risk controls apply unless Legal, Privacy, Security, and the Committee document why limited-risk controls are sufficient.</td></tr>
+          <tr><td>Provisional pending evidence</td><td>The reviewer lacks evidence for data rights, vendor testing, system limitations, human oversight, security posture, or intended use.</td><td>The system cannot clear Gate 0 except for a controlled evaluation that uses approved data, has no external effect, and has a named owner.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-8">
+          <div class="om-section-mark">Section 8</div>
+          <h2>Tier Outcomes and Required Controls</h2>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Tier</th><th>Decision consequence</th><th>Required controls</th></tr></thead>
+          <tbody>
+          <tr><td>Prohibited</td><td>The Company does not pursue the use as proposed.</td><td>Intake stop, Committee record, Legal confirmation where needed, refusal rationale, and no procurement, pilot, development, or release until redesign removes the trigger.</td></tr>
+          <tr><td>High-risk</td><td>The system may proceed only through the full governance path.</td><td>Full review gates, named accountable owner, Legal review, Privacy review where applicable, Security review, validation-owner review, bias and performance evaluation, data-rights review, human oversight, decision logs, vendor diligence, enhanced registry fields, monitoring thresholds, incident path, and Committee sign-off before deployment.</td></tr>
+          <tr><td>Limited-risk</td><td>The system may proceed through a proportionate governance path.</td><td>Gate 0 classification, registry entry, documented owner, disclosure where people interact with AI or synthetic content, proportionate vendor review, spot-check testing, security baseline, monitoring trigger, and escalation if scope changes.</td></tr>
+          <tr><td>Minimal-risk</td><td>The system may proceed on attestation and registry capture.</td><td>Registry entry, use-case-owner attestation, approved-tool or approved-environment use, no regulated data without separate approval, no customer or external effect without reclassification, and periodic sample audit.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-9">
+          <div class="om-section-mark">Section 9</div>
+          <h2>Control Map by Observable Risk Factor</h2>
+          <p>This map prevents the classification from ending as a label. Each observable risk factor creates a governance implication and a control record.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Observable risk factor</th><th>Governance implication</th><th>Required control record</th></tr></thead>
+          <tbody>
+          <tr><td>The system can deny, rank, score, or materially shape access to a right, service, job, account, benefit, or legal position.</td><td>The Company must show controlled reliance, fairness review, and an affected-person remedy.</td><td>Decision log, human-review design, adverse-action or notice analysis, bias and performance test, override path, and remediation plan.</td></tr>
+          <tr><td>The system handles sensitive, regulated, privileged, confidential, or security-relevant data.</td><td>The Company must prove lawful use, least-privilege access, retention control, and vendor restrictions.</td><td>Data inventory, lawful-basis or data-rights memo, security review, retention rule, access controls, vendor data-use terms, and prompt or output retention decision.</td></tr>
+          <tr><td>The system acts without a person approving the specific action.</td><td>The Company must show bounded autonomy and recoverability.</td><td>Action boundary, approval rule, rollback mechanism, kill switch, audit log, monitoring threshold, and escalation owner.</td></tr>
+          <tr><td>The system&#x27;s output reaches customers, clients, applicants, employees, patients, users, regulators, or the public.</td><td>The Company must control disclosure, reliance, consumer or professional duty, and harm remediation.</td><td>Disclosure assessment, user-facing language owner, content-safety checks, complaint path, monitoring plan, and incident routing.</td></tr>
+          <tr><td>The system relies on a vendor model or embedded vendor feature.</td><td>The Company must connect the running system to diligence and contract evidence.</td><td>Vendor checklist, model or system documentation, known limitations, evaluation results, audit rights, change-notice terms, indemnity position, and subcontractor or model-supplier flow-down.</td></tr>
+          <tr><td>The system uses a foundation model, fine-tuning, retrieval augmentation, tool use, or agentic orchestration.</td><td>The Company must manage model lineage, inherited risk, prompt or retrieval behavior, tool permissions, and drift.</td><td>Model lineage record, version record, retrieval-source approval, tool permission matrix, evaluation set, red-team result where appropriate, and change-control rule.</td></tr>
+          <tr><td>The system touches the EU market or affected persons in the EU.</td><td>The Company must determine whether it acts as provider, deployer, importer, distributor, or more than one role.</td><td>EU role memo, Article 6 and Annex III classification record, Article 25 provider-status analysis where relevant, Article 50 transparency analysis where relevant, and crosswalk update.</td></tr>
+          <tr><td>The system supports California-facing public generative AI or materially modified generative AI.</td><td>Training-data documentation may become a documentation overlay. It does not by itself make every use high-risk.</td><td>Developer or vendor training-data documentation review, public-availability analysis, substantial-modification record, and publication or vendor-evidence link.</td></tr>
+          <tr><td>The system operates in a NYDFS-regulated financial institution.</td><td>AI cybersecurity risk must sit inside the existing Part 500 cybersecurity framework rather than a disconnected AI review.</td><td>Part 500 control mapping, third-party service-provider assessment, nonpublic-information review, incident routing, and senior-governing-body reporting where applicable.</td></tr>
+          <tr><td>The system supports NYC hiring or promotion through an automated employment decision tool.</td><td>Bias-audit and notice obligations may attach in addition to the high-risk classification.</td><td>AEDT analysis, bias-audit record, public-posting owner, candidate or employee notice path, and annual review date.</td></tr>
+          <tr><td>The system has patient-impact, medical-device, clinical, or protected-health-information exposure.</td><td>Healthcare review is not a generic Other-sector review.</td><td>Healthcare-sector escalation, HIPAA or data-use review, FDA or SaMD assessment where applicable, clinical validation plan, and patient-safety monitoring.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-10">
+          <div class="om-section-mark">Section 10</div>
+          <h2>Boundary Guidance for Common Classification Calls</h2>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Use pattern</th><th>Usual tier</th><th>Why</th><th>Required condition for the tier to hold</th></tr></thead>
+          <tbody>
+          <tr><td>Internal drafting assistance for non-regulated, non-confidential content.</td><td>Minimal-risk</td><td>The output does not affect a person, right, service, account, customer, client, or regulated decision.</td><td>User remains responsible, no sensitive data enters the tool, and no external publication occurs without ordinary review.</td></tr>
+          <tr><td>Internal summarization of confidential but non-regulated business material.</td><td>Limited-risk</td><td>Confidentiality and data-retention risk attach even if no external decision results.</td><td>Approved tool, access control, retention rule, and no external effect.</td></tr>
+          <tr><td>Customer-service chatbot with clear disclosure and no authority to decide, deny, refund, price, suspend, or escalate adversely.</td><td>Limited-risk</td><td>The system interacts with people but the consequence of error remains bounded and recoverable.</td><td>Disclosure, retrieval-source control, human escalation, monitoring, and no regulated advice.</td></tr>
+          <tr><td>Customer-service chatbot that can deny a claim, close a case, refuse service, trigger collections, or affect account standing.</td><td>High-risk</td><td>The output materially affects access, finances, or customer standing.</td><td>Full high-risk controls.</td></tr>
+          <tr><td>Internal legal research or drafting assistant used by a lawyer who reviews every output before reliance.</td><td>Limited-risk</td><td>Professional-duty risk exists, but supervised use can keep the system below high-risk where no client decision or filing relies on unchecked output.</td><td>Matter-owner supervision, citation validation, confidentiality controls, and no direct filing or client advice without lawyer review.</td></tr>
+          <tr><td>Legal or compliance system that drafts, approves, or materially shapes advice, filings, investigations, privilege calls, conflicts, or client work product without meaningful expert review.</td><td>High-risk</td><td>The system can change a legal outcome, professional duty, privilege posture, or client position.</td><td>Full high-risk controls.</td></tr>
+          <tr><td>Recommendation or ranking engine that affects content order but not access, eligibility, protected groups, material opportunity, safety, employment, or financial outcome.</td><td>Limited-risk</td><td>Ranking affects user experience, but harm remains bounded absent scale, protected-group, market, safety, or civic effects.</td><td>Monitoring, transparency assessment, abuse testing where relevant, and escalation if the surface becomes consequential.</td></tr>
+          <tr><td>Recommendation, ranking, or moderation system that materially affects visibility, safety, speech exposure, marketplace access, protected groups, minors, civic information, or livelihood.</td><td>High-risk</td><td>Scale and affected-population risk convert ranking into a consequential control.</td><td>Full high-risk controls.</td></tr>
+          <tr><td>Fraud, AML, or trust-and-safety model that flags activity for human review only.</td><td>Limited-risk or high-risk depending on consequence.</td><td>A flag may stay limited if it merely queues review, but it becomes high-risk when it blocks, freezes, terminates, or materially changes standing.</td><td>Document whether the system queues review or triggers action.</td></tr>
+          <tr><td>Fraud, AML, or trust-and-safety model that freezes funds, blocks access, terminates accounts, or reports a person.</td><td>High-risk</td><td>The system changes financial access, legal exposure, or customer standing.</td><td>Full high-risk controls.</td></tr>
+          <tr><td>Code-completion tool used by engineers inside approved repositories.</td><td>Minimal-risk or limited-risk depending on environment.</td><td>Ordinary code assistance may stay minimal, but production, security, license, or data exposure can raise the tier.</td><td>Security review, license controls, secret-detection controls, and ordinary code review.</td></tr>
+          <tr><td>Agentic workflow that executes purchases, payments, account changes, production changes, notices, filings, or security actions.</td><td>High-risk</td><td>The system acts in the world, and autonomy compounds ordinary workflow risk.</td><td>Action boundaries, approval gates, logs, rollback, kill switch, and Committee sign-off where external or regulated effect exists.</td></tr>
+          <tr><td>Fine-tuned third-party foundation model for a high-risk use.</td><td>High-risk</td><td>The Company may move from ordinary deployer posture into provider-grade obligations in the EU and provider-like evidence expectations elsewhere.</td><td>Model lineage, data provenance, Article 25 analysis where EU activity exists, provider-grade testing, and vendor cooperation terms.</td></tr>
+          <tr><td>Public generative AI feature that creates image, audio, video, or text content for users.</td><td>Limited-risk or high-risk depending on effect and scale.</td><td>Disclosure and provenance obligations may attach even where the use is not high-risk. The tier rises when the feature can mislead, impersonate, manipulate, affect regulated decisions, or create systemic misuse.</td><td>Disclosure, provenance, content-safety, abuse monitoring, and legal review for market-specific duties.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-11">
+          <div class="om-section-mark">Section 11</div>
+          <h2>Reclassification Triggers</h2>
+          <p>The AI Governance Office reopens classification when any trigger below occurs. The use-case owner must notify the AI Governance Office before the change goes live.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Trigger</th><th>Why it matters</th></tr></thead>
+          <tbody>
+          <tr><td>Intended purpose changes.</td><td>A low-risk tool can become high-risk when pointed at a consequential decision.</td></tr>
+          <tr><td>Human review changes.</td><td>Removing, delaying, or weakening review changes decision influence and accountability.</td></tr>
+          <tr><td>Autonomy increases.</td><td>Adding tool use, external actions, workflow execution, or agentic chaining can move the system to high-risk.</td></tr>
+          <tr><td>Data categories change.</td><td>Adding personal, sensitive, biometric, protected health, nonpublic, privileged, client, or security data changes the control baseline.</td></tr>
+          <tr><td>Market or jurisdiction changes.</td><td>EU, California, New York, sector, and customer-contract overlays can attach because the system enters a new market or affects new people.</td></tr>
+          <tr><td>Model, vendor, or version changes.</td><td>A new base model, fine-tune, retrieval corpus, vendor release, training-data posture, or contractual term can change risk and evidence.</td></tr>
+          <tr><td>Scale increases.</td><td>A pilot can become high-risk when repeated at customer, enterprise, public, or cross-market scale.</td></tr>
+          <tr><td>Output reaches a new audience.</td><td>Internal outputs become more consequential when customers, clients, applicants, employees, patients, regulators, or the public see or rely on them.</td></tr>
+          <tr><td>Monitoring shows drift or unexpected harm.</td><td>The operating system, not the launch memo, controls the real risk.</td></tr>
+          <tr><td>A complaint, incident, audit issue, regulatory inquiry, or vendor notice occurs.</td><td>External signals can show that the original classification no longer holds.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-12">
+          <div class="om-section-mark">Section 12</div>
+          <h2>Classification Decision Record</h2>
+          <p>The reviewer completes the decision record below and attaches it to the registry entry. The record must be complete enough that an internal auditor, regulator, customer, or successor owner can understand the basis for the tier without recreating the review.</p>
+          <div class="om-table-wrap"><table class="om-table">
+          <thead><tr><th>Field</th><th>Required entry</th></tr></thead>
+          <tbody>
+          <tr><td>System name</td><td>Name, version, vendor or internal owner, and registry ID.</td></tr>
+          <tr><td>Use case</td><td>Specific use being classified. If the system has multiple uses, identify the use to which this record applies.</td></tr>
+          <tr><td>Sector, posture, and jurisdiction</td><td>Finance, Tech, Law Firm, or Other; builds, deploys, or both; NY, CA, International, and EU-market activity if different from International.</td></tr>
+          <tr><td>Classification owner</td><td>Person accountable for completing the rubric.</td></tr>
+          <tr><td>Date and review cadence</td><td>Classification date, next review date, and event-based reassessment triggers.</td></tr>
+          <tr><td>Proposed tier</td><td>Tier requested by the use-case owner.</td></tr>
+          <tr><td>Final tier</td><td>Tier assigned by the AI Governance Office or Committee.</td></tr>
+          <tr><td>Prohibited-use screen</td><td>Yes, no, or unclear for each prohibited-use trigger, with rationale for any unclear or no answer that required judgment.</td></tr>
+          <tr><td>Automatic high-risk triggers</td><td>Trigger applied or &quot;none,&quot; with evidence.</td></tr>
+          <tr><td>Scoring worksheet</td><td>Score for each dimension, total score, and evidence for each score of 2 or 3.</td></tr>
+          <tr><td>Controls assigned</td><td>Gate path, owners, testing, diligence, disclosures, human oversight, monitoring, incident routing, and required artifacts.</td></tr>
+          <tr><td>Conditions before release</td><td>Any condition that must be satisfied before development, procurement, pilot, production, customer release, or public release.</td></tr>
+          <tr><td>Exceptions or downgrades</td><td>Any request to classify below an automatic or score-indicated tier, with Legal and Committee approval.</td></tr>
+          <tr><td>Approval record</td><td>Names, roles, decision date, dissent if any, and residual-risk owner.</td></tr>
+          </tbody>
+          </table></div>
+          </section>
+          <section class="om-annex-section" id="section-13">
+          <div class="om-section-mark">Section 13</div>
+          <h2>Source Basis and Volatility Note</h2>
+          <p>This annex aligns to NIST AI RMF Govern, Map, Measure, and Manage functions; ISO/IEC 42001&#x27;s management-system approach to AI risk; and the EU AI Act&#x27;s risk-tier structure. It treats EU AI Act Article 5 prohibited practices, Article 6 high-risk classification, Annex III high-risk areas, Article 25 value-chain provider-status rules, and Article 50 transparency obligations as binding overlays when EU-market activity exists. It also treats the European Commission&#x27;s May 19, 2026 draft high-risk classification guidelines as current interpretive guidance, not final law.</p>
+          <p>The U.S. state-law layer remains volatile. California&#x27;s AB 2013 creates a developer training-data documentation requirement for public generative AI systems and substantial modifications made available to Californians; it does not by itself make every California-facing generative AI use high-risk. California&#x27;s SB 53 creates additional obligations for frontier developers and large frontier developers as defined in that statute, so this annex treats frontier or high-impact capability as a high-risk governance trigger but not as a universal statutory trigger. NYC Local Law 144 creates bias-audit, public-posting, and notice obligations for covered automated employment decision tools. NYDFS&#x27;s October 16, 2024 AI cybersecurity guidance explains how covered entities should use existing Part 500 cybersecurity obligations to address AI risk and states that it does not impose new requirements. Healthcare uses require separate analysis because HIPAA, FDA medical-device regulation, SaMD guidance, clinical validation, and patient-impact controls can attach in ways this generic sector path should not absorb.</p>
+          </section>
+      </div>
+      <div class="om-doc-identity">
+        <strong>Julio Macedo</strong>
+        <span>Senior Attorney | AI Governance &amp; Legal Ops</span>
+        <a href="/ai/">jhmacal.com</a>
+      </div>
+    </article>
+    <div class="om-external-actions">
+      <button class="om-print-button" type="button" title="Download this annex as a clean PDF." onclick="window.print()">Download annex (PDF)</button>
+    </div>
+  </main>
+  <script src="/imtheom/operating-model-print.js?v=20260604-imtheom"></script>
+</body>
+</html>

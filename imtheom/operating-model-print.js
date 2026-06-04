@@ -26,8 +26,8 @@
   ];
 
   function cleanPrintTitle(){
-    const heading = document.querySelector('.playbook-title, .playbook-annex-title');
-    const title = heading && heading.textContent ? heading.textContent.replace(/\s+/g, ' ').trim() : 'AI Governance Playbook';
+    const heading = document.querySelector('.om-title, .om-annex-title');
+    const title = heading && heading.textContent ? heading.textContent.replace(/\s+/g, ' ').trim() : 'AI Governance Operating Model';
     return title + ' | Julio Macedo';
   }
 
@@ -38,7 +38,7 @@
   function shouldSkip(node){
     const parent = node.parentElement;
     if (!parent) return true;
-    return Boolean(parent.closest('script, style, a, button, select, input, textarea, .playbook-term, .playbook-cover'));
+    return Boolean(parent.closest('script, style, a, button, select, input, textarea, .om-term, .om-cover'));
   }
 
   function findNext(value, seen){
@@ -55,9 +55,9 @@
   }
 
   function decorateTerms(){
-    const root = document.querySelector('.playbook-sheet, .playbook-annex-sheet');
+    const root = document.querySelector('.om-sheet, .om-annex-sheet');
     if (!root) return;
-    root.querySelectorAll('.playbook-term').forEach(el => {
+    root.querySelectorAll('.om-term').forEach(el => {
       el.replaceWith(document.createTextNode(el.textContent));
     });
     const seen = new Set();
@@ -81,7 +81,7 @@
         const frag = document.createDocumentFragment();
         if (before) frag.appendChild(document.createTextNode(before));
         const span = document.createElement('span');
-        span.className = 'playbook-term';
+        span.className = 'om-term';
         span.tabIndex = 0;
         span.setAttribute('role', 'note');
         span.dataset.definition = found.definition;
@@ -104,7 +104,7 @@
     document.title = originalTitle;
   });
 
-  window.addEventListener('playbook:rendered', decorateTerms);
+  window.addEventListener('imtheom:rendered', decorateTerms);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', decorateTerms);
   } else {
