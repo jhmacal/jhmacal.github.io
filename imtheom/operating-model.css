@@ -845,6 +845,21 @@ body.om-landing .om-home-pill:hover {
   font-weight: 500;
 }
 
+.om-table-cell-stacked {
+  line-height: 1.1;
+}
+
+.om-table-cell-main,
+.om-table-cell-note {
+  display: block;
+}
+
+.om-table-cell-note {
+  margin-top: 0.18rem;
+  font-size: 0.72em;
+  line-height: 1.18;
+}
+
 .om-annex-link-line a {
   color: var(--om-navy);
   text-decoration: none;
