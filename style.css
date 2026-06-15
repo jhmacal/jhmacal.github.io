@@ -2191,3 +2191,294 @@ input[type='range']::-moz-range-track {
     transform: translateY(-7px) rotate(-45deg);
   }
 }
+
+/* ============================================================
+   31. PRINT READABILITY OVERRIDE
+   ============================================================ */
+@media print {
+  @page {
+    margin: 0.65in;
+  }
+
+  :root {
+    --navy: #ffffff;
+    --navy-light: #f7f7f7;
+    --cream: #111111;
+    --cream-warm: #222222;
+    --gold: #6f5620;
+    --gold-light: #7d662d;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .nav,
+  .nav__toggle,
+  .nav__links,
+  .hero__scroll,
+  .scroll-indicator,
+  .resume-nav,
+  .btn[data-print-hide],
+  [data-download] {
+    display: none !important;
+  }
+
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section,
+  .hero,
+  .page-header,
+  .ai-portfolio-hero,
+  .ai-portfolio-ledger,
+  .ai-portfolio-cta,
+  .books__header,
+  .books__list,
+  .footer {
+    padding-block: 0.25in !important;
+    background: #ffffff !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none !important;
+  }
+
+  .hero__inner,
+  .ai-portfolio-hero {
+    padding-top: 0 !important;
+    padding-bottom: 0.22in !important;
+  }
+
+  .ai-portfolio-hero {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .ai-portfolio-hero__title {
+    font-size: 34pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .ai-portfolio-hero__title span {
+    display: inline !important;
+  }
+
+  .ai-portfolio-ledger {
+    padding-top: 0.15in !important;
+    padding-bottom: 0.25in !important;
+  }
+
+  .ai-portfolio-cta {
+    display: none !important;
+  }
+
+  .container,
+  .container--narrow {
+    max-width: none !important;
+    width: 100% !important;
+    padding-inline: 0 !important;
+  }
+
+  .hero__grid,
+  .ai-portfolio-hero__grid,
+  .tools-grid,
+  .resume-layout,
+  .book,
+  .book--manuscript,
+  .calculator__outputs {
+    display: block !important;
+  }
+
+  .book--manuscript .book__body {
+    grid-column: auto !important;
+  }
+
+  .article__body,
+  .book__body,
+  .page-header__sub,
+  .ai-portfolio-hero__lede,
+  .writing-item__excerpt,
+  .studies-card__body,
+  .tool-card__body,
+  .resume-role__body {
+    max-width: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .display,
+  .page-header__title,
+  .article__body .lede,
+  .article__pullquote,
+  .book__title,
+  .book__line,
+  .book__quote p,
+  .ai-portfolio-hero__title,
+  .ai-ledger .ai-work-row__title,
+  .tool-card__title,
+  .resume-role__org,
+  .resume-credential__degree,
+  .writing-item__title,
+  .studies-card__title {
+    color: #111111 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  p,
+  li,
+  cite,
+  small,
+  .page-header__sub,
+  .article__body p,
+  .article__body ul,
+  .article__body ol,
+  .article__meta,
+  .book__quote cite,
+  .footer__copy,
+  .footer__links a,
+  .writing-item__excerpt,
+  .studies-card__body,
+  .tool-card__body,
+  .resume-role__body,
+  .resume-role__date,
+  .resume-credential__school,
+  .resume-credential__year,
+  .ai-ledger .ai-work-row__body,
+  .ai-ledger__head {
+    color: #222222 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .gold-caps,
+  .small-caps,
+  .page-header__eyebrow,
+  .writing-item__eyebrow,
+  .writing-item__badge,
+  .studies-card__eyebrow,
+  .tool-card__status,
+  .resume-section__title,
+  .resume-role__title,
+  .ai-ledger .ai-work-row__status,
+  .cost-figure__label,
+  .cost-figure__number,
+  .cost-figure__sub,
+  .calc-output__label,
+  .calc-output__number,
+  .slider-label-text,
+  .slider-value {
+    color: #5d4618 !important;
+  }
+
+  [style*="color: rgba(244, 237, 224"],
+  [style*="color:rgba(244,237,224"],
+  [style*="color: rgba(240, 230, 210"],
+  [style*="color:rgba(240,230,210"],
+  [style*="color: #f0e6d2"],
+  [style*="color:#f0e6d2"],
+  [style*="color: #f4ede0"],
+  [style*="color:#f4ede0"],
+  [style*="color: var(--cream"],
+  [style*="color:var(--cream"],
+  [style*="color: var(--gold"],
+  [style*="color:var(--gold"] {
+    color: #222222 !important;
+  }
+
+  .calculator,
+  .calc-output,
+  .tool-card,
+  .studies-card,
+  .book,
+  .book__quote,
+  .article__pullquote,
+  .writing-item,
+  .resume-section,
+  .resume-role,
+  .resume-credential,
+  .ai-ledger,
+  .ai-ledger .ai-work-row {
+    background: #ffffff !important;
+    border-color: #c9c9c9 !important;
+    color: #111111 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .article__body p {
+    text-align: left !important;
+    hyphens: none !important;
+  }
+
+  .book__cover,
+  .book__cover img {
+    max-width: 1.5in !important;
+  }
+
+  .ts-industry-chart,
+  .ts-comparison-chart,
+  .article__body [style*="background: #0a1628"],
+  .article__body [style*="background:#0a1628"],
+  .article__body [style*="background: #0d1a30"],
+  .article__body [style*="background:#0d1a30"] {
+    background: #0a1628 !important;
+    color: #f0e6d2 !important;
+    border: 1pt solid #9b9b9b !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .ts-industry-chart [style*="color"],
+  .ts-comparison-chart [style*="color"],
+  .article__body [style*="background: #0a1628"] [style*="color"],
+  .article__body [style*="background:#0a1628"] [style*="color"],
+  .article__body [style*="background: #0d1a30"] [style*="color"],
+  .article__body [style*="background:#0d1a30"] [style*="color"] {
+    color: #f0e6d2 !important;
+  }
+
+  img,
+  svg,
+  canvas {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: none !important;
+  }
+}

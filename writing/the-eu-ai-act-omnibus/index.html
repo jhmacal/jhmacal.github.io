@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
   <style>
     /* Article-local rules only. Anything global lives in /style.css. */
 
@@ -236,6 +236,9 @@
       margin-top: 0.8rem;
       padding-top: 0.6rem;
       border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+    }
+    .omnibus-timeline__print-list {
+      display: none;
     }
     @media (max-width: 640px) {
       .omnibus-timeline {
@@ -646,6 +649,291 @@
       }
       .gov-reveal__content { opacity: 1; }
     }
+
+    @media print {
+      .omnibus-timeline,
+      .carousel,
+      .gov-reveal__card {
+        background: #ffffff !important;
+        border: 1pt solid #c9c9c9 !important;
+        color: #111111 !important;
+        border-radius: 0 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .omnibus-timeline {
+        padding: 0.14in !important;
+        margin: 0.22in 0 !important;
+        max-width: none !important;
+      }
+
+      .omnibus-timeline::before,
+      .dual-carousels::before,
+      .gov-reveal::before {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #5d4618 !important;
+        margin-bottom: 0.08in;
+      }
+
+      .omnibus-timeline::before {
+        content: 'Figure 1: EU AI Act timeline';
+      }
+
+      .dual-carousels::before {
+        content: 'Figure 2: Live and postponed obligations';
+        grid-column: 1 / -1;
+      }
+
+      .gov-reveal::before {
+        content: 'Figure 3: Governance moves';
+        grid-column: 1 / -1;
+      }
+
+      .omnibus-timeline__title,
+      .carousel__article-name,
+      .gov-reveal__title {
+        color: #111111 !important;
+      }
+
+      .omnibus-timeline__title {
+        font-size: 14pt !important;
+        line-height: 1.15 !important;
+        margin: 0 0 0.12in !important;
+      }
+
+      .omnibus-timeline__detail,
+      .omnibus-timeline__byline,
+      .carousel__nav,
+      .carousel__byline,
+      .gov-reveal__byline,
+      .block-watermark,
+      .scroll-indicator {
+        display: none !important;
+      }
+
+      .omnibus-timeline__track {
+        display: grid !important;
+        grid-template-columns: repeat(7, 1fr) !important;
+        margin-bottom: 0.12in !important;
+        padding-top: 0.04in !important;
+      }
+
+      .omnibus-timeline__track::before {
+        background: #b8a674 !important;
+        top: calc(0.04in + 7px) !important;
+      }
+
+      .timeline-node {
+        display: flex !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .timeline-node .node-circle {
+        width: 14px !important;
+        height: 14px !important;
+        margin-bottom: 0.04in !important;
+        background: #ffffff !important;
+        border-color: #6f5620 !important;
+      }
+
+      .timeline-node.active .node-circle,
+      .timeline-node .node-circle {
+        box-shadow: none !important;
+      }
+
+      .timeline-node.active .node-circle {
+        background: #6f5620 !important;
+      }
+
+      .timeline-node .node-year,
+      .timeline-node .node-label,
+      .timeline-node.active .node-label {
+        color: #5d4618 !important;
+      }
+
+      .timeline-node .node-year {
+        font-size: 8.5pt !important;
+      }
+
+      .timeline-node .node-label {
+        font-size: 5.5pt !important;
+        letter-spacing: 0.06em !important;
+      }
+
+      .omnibus-timeline__print-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.08in;
+      }
+
+      .omnibus-print-card {
+        position: relative;
+        border: 0.8pt solid #d7d7d7;
+        border-left: 2.5pt solid #6f5620;
+        padding: 0.08in 0.09in;
+        min-height: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .omnibus-print-card__date,
+      .carousel__date,
+      .carousel__label,
+      .carousel__obligation,
+      .gov-reveal__source,
+      .block-watermark {
+        color: #5d4618 !important;
+      }
+
+      .omnibus-print-card__date {
+        display: none !important;
+      }
+
+      .omnibus-print-card h4 {
+        font-size: 11.5pt;
+        line-height: 1.15;
+        margin: 0 0 0.025in;
+        color: #111111 !important;
+      }
+
+      .omnibus-print-card p {
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        line-height: 1.35;
+        color: #222222 !important;
+        margin: 0;
+      }
+
+      .dual-carousels {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.14in !important;
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0.2in 0 !important;
+      }
+
+      .carousel {
+        display: block !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0.12in !important;
+      }
+
+      .carousel__head {
+        border-bottom: 1pt solid #d7d7d7 !important;
+        margin-bottom: 0.04in !important;
+        padding-bottom: 0.05in !important;
+      }
+
+      .carousel__sub,
+      .carousel__definition,
+      .carousel__byline,
+      .article__quote,
+      .gov-reveal__body,
+      .gov-reveal__byline {
+        color: #222222 !important;
+      }
+
+      .article__quote {
+        border-left-color: #6f5620 !important;
+        background: #ffffff !important;
+      }
+
+      .carousel__viewport {
+        overflow: visible !important;
+        position: static !important;
+      }
+
+      .carousel__track {
+        display: block !important;
+        width: auto !important;
+        transform: none !important;
+      }
+
+      .carousel__card {
+        display: block !important;
+        flex: none !important;
+        padding: 0.06in 0 !important;
+        border: 0 !important;
+        border-top: 1pt solid #e1e1e1 !important;
+        min-height: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .carousel__card:first-child {
+        border-top: 0 !important;
+      }
+
+      .carousel__article-name {
+        font-size: 12pt !important;
+        line-height: 1.1 !important;
+        margin-bottom: 0.02in !important;
+      }
+
+      .carousel__obligation {
+        font-size: 6.8pt !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.02in !important;
+      }
+
+      .carousel__definition,
+      .carousel__date {
+        font-size: 8pt !important;
+        line-height: 1.35 !important;
+      }
+
+      .carousel__date {
+        margin-top: 0.035in !important;
+        padding-top: 0 !important;
+      }
+
+      .gov-reveal {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.1in !important;
+        max-width: none !important;
+        margin: 0.2in 0 !important;
+      }
+
+      .gov-reveal__card {
+        min-height: 0 !important;
+        overflow: visible !important;
+        padding: 0.1in !important;
+      }
+
+      .gov-reveal__title {
+        position: static !important;
+        inset: auto !important;
+        display: block !important;
+        opacity: 1 !important;
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 0 0 0.04in !important;
+        font-size: 12.5pt !important;
+      }
+
+      .gov-reveal__content {
+        opacity: 1 !important;
+        display: block !important;
+        height: auto !important;
+      }
+
+      .gov-reveal__body,
+      .gov-reveal__source {
+        font-size: 8pt !important;
+        line-height: 1.35 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -737,6 +1025,44 @@
               <h4>Brussels decides AI will not stay abstract</h4>
               <p>The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.</p>
               <div class="omnibus-timeline__byline">By Julio Macedo<br>jhmacal.com</div>
+            </div>
+
+            <div class="omnibus-timeline__print-list" aria-label="Timeline details for print">
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">21 April 2021</div>
+                <h4>Brussels decides AI will not stay abstract</h4>
+                <p>The Commission proposes a horizontal AI law, and the basic idea is simple enough: sort systems by risk, ban the worst uses, and make the serious uses carry a serious governance record.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">2022 to December 2023</div>
+                <h4>ChatGPT changes the center of gravity</h4>
+                <p>The original proposal did not really know the generative AI moment was coming. And then ChatGPT arrived. The negotiations had to absorb general-purpose AI models, and the Act became something broader than the 2021 draft.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">13 March to 21 May 2024</div>
+                <h4>The Act becomes law</h4>
+                <p>Parliament approved the Act in March 2024, with the Council adopting it in May. The legal debate becomes an implementation problem, which is where most companies start to feel the temperature change.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">12 July 2024 to 1 August 2024</div>
+                <h4>The clock starts</h4>
+                <p>Publication in the Official Journal starts the staggered calendar. Some obligations arrive quickly, others wait. The mistake is treating the later dates as the only dates that matter.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">2024 through 2025</div>
+                <h4>The hard becomes visible</h4>
+                <p>The standards work proves harder than the politics made it sound: companies cannot build clean compliance programs if the technical rails are still unfinished.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">2025 to 2026</div>
+                <h4>The EU standard starts traveling</h4>
+                <p>Global firms do what global firms usually do when Europe sets a stricter digital rule: they start asking whether one global operating model is cheaper than regional fragmentation.</p>
+              </article>
+              <article class="omnibus-print-card">
+                <div class="omnibus-print-card__date">19 November 2025 to 7 May 2026</div>
+                <h4>The Omnibus moves the date</h4>
+                <p>The political agreement moves the high-risk deadlines, but it still requires formal adoption by Parliament and Council, and the Official Journal has not yet published the amendments. It does not move Article 4 literacy, Article 5 prohibitions, GDPR, DORA, EBA governance, NIS2, the DSA, or all the supervisory attention already gathering around AI.</p>
+              </article>
             </div>
 
           </div>
