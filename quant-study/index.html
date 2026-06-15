@@ -200,6 +200,14 @@
   .s3-card.yellow .s3-cb-iw   { background:rgba(184,138,0,.08); border:1px solid rgba(184,138,0,.18); }
   .s3-card.yellow .s3-cb-il   { color:var(--yellow); }
   .s3-card.yellow .s3-cb-i    { color:rgba(255,238,170,.8); }
+  .s3-print-cards { display:none; }
+  .s3-print-card { border:1px solid #d7d7d7; border-left:3px solid #D4874A; border-radius:4px; padding:12px 14px; background:#fff; }
+  .s3-print-card.red { border-left-color:#CC2200; }
+  .s3-print-date { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#8d6b00; margin-bottom:5px; }
+  .s3-print-card.red .s3-print-date { color:#CC2200; }
+  .s3-print-title { font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:800; text-transform:uppercase; color:var(--js-near-black); line-height:1.05; margin-bottom:6px; }
+  .s3-print-card p { font-family:'Barlow',sans-serif; font-size:12px; line-height:1.45; color:#222; margin:0 0 7px; }
+  .s3-print-impact { border-top:1px solid #e2e2e2; padding-top:7px; font-size:11.5px !important; color:#444 !important; }
   .s3-col { min-width:0; flex-shrink:1; }
   .s3-lbl-above, .s3-lbl-below { max-width:120px; }
 /* === Slide 04 === */
@@ -1037,6 +1045,209 @@
 .slide { padding-bottom: 64px; }
 #slide-1 { padding-bottom: 64px; }
 #slide-4 { padding-bottom: 104px; }
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 0.35in;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  #progress-bar,
+  #nav-bar,
+  #s2-map-overlay,
+  #s9-overlay,
+  #prop-modal,
+  .s8-thresh,
+  button {
+    display: none !important;
+  }
+
+  #slides {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .slide,
+  .slide.active {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    width: 100% !important;
+    min-height: 7in !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    padding: 0.35in !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .slide:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .slide [style*="background:var(--js-near-black"],
+  .slide[style*="background:var(--js-near-black"],
+  .slide [style*="background: var(--js-near-black"],
+  .slide[style*="background: var(--js-near-black"],
+  .slide [style*="background:#111"],
+  .slide[style*="background:#111"],
+  .slide [style*="background: #111"],
+  .slide[style*="background: #111"],
+  .slide [style*="background:rgba(255,255,255"],
+  .slide [style*="background: rgba(255,255,255"] {
+    background: #ffffff !important;
+  }
+
+  .slide [style*="color:rgba(255,255,255"],
+  .slide [style*="color: rgba(255,255,255"],
+  .slide [style*="color:#fff"],
+  .slide [style*="color: #fff"],
+  .slide [style*="color:white"],
+  .slide [style*="color: white"],
+  .slide [style*="color:var(--white"],
+  .slide [style*="color: var(--white"] {
+    color: #111111 !important;
+  }
+
+  .slide [style*="color:rgba(0,0,0"],
+  .slide [style*="color: rgba(0,0,0"],
+  .slide [style*="color:var(--js-grey"],
+  .slide [style*="color: var(--js-grey"] {
+    color: #333333 !important;
+  }
+
+  .slide [style*="border:1px solid rgba(255,255,255"],
+  .slide [style*="border: 1px solid rgba(255,255,255"],
+  .slide [style*="border-top:1px solid rgba(255,255,255"],
+  .slide [style*="border-top: 1px solid rgba(255,255,255"],
+  .slide [style*="border-bottom:1px solid rgba(255,255,255"],
+  .slide [style*="border-bottom: 1px solid rgba(255,255,255"] {
+    border-color: #c9c9c9 !important;
+  }
+
+  svg text {
+    fill: #111111 !important;
+  }
+
+  svg rect,
+  svg line,
+  svg path,
+  svg circle {
+    stroke-opacity: 1 !important;
+  }
+
+  #s2map-wrap,
+  #s2panel,
+  #s2p1,
+  #s2p2,
+  #s2p3 {
+    position: static !important;
+    display: block !important;
+    inset: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  #s2panel {
+    border: 1px solid #c9c9c9 !important;
+    padding: 0.16in !important;
+    margin-top: 0.14in !important;
+  }
+
+  #s2maparea {
+    flex: 0 0 auto !important;
+    height: 2.15in !important;
+    min-height: 2.15in !important;
+    overflow: hidden !important;
+    margin-top: 0.12in !important;
+  }
+
+  #s2p1,
+  #s2p2,
+  #s2p3 {
+    border-top: 1px solid #d7d7d7 !important;
+    padding-top: 0.12in !important;
+    margin-top: 0.12in !important;
+  }
+
+  #s2p1:first-child,
+  #s2p2:first-child,
+  #s2p3:first-child {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  #s2visnote,
+  .s6-tooltip,
+  .s6-savings,
+  .s6-green-breakdown,
+  .s7-cwrap,
+  .yr,
+  .card-body {
+    display: block !important;
+  }
+
+  .card-body {
+    margin-top: 0.08in !important;
+    padding-top: 0.08in !important;
+    border-top: 1px solid #d7d7d7 !important;
+    color: #111111 !important;
+  }
+
+  .exp-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .s3-timeline,
+  .s3-cw {
+    display: none !important;
+  }
+
+  .s3-print-cards {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.11in;
+    width: 100%;
+  }
+
+  .s3-print-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
 </style>
 </head>
 <body>
@@ -1120,7 +1331,14 @@
       <div id="s2panel" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;z-index:20;background:rgba(15,15,15,.97);border-radius:4px;padding:14px 18px;overflow-y:auto;">
       <div id="s2p1" style="display:none;">
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px;">This number does not account for:</div>
-        <div id="s2visalist" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+        <div id="s2visalist" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">EB-1A</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">Extraordinary Ability Green Cards</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-teal);">No public exposure</div></div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">EB-2 NIW</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">National Interest Waiver Green Cards</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-teal);">No public exposure</div></div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">L-1</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">Intracompany Transfers</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-amber);">No public exposure</div></div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">TN</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">Trade Visas (USMCA)</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-amber);">No public exposure</div></div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">O-1</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">Extraordinary Ability Temp Visas</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-amber);">No public exposure</div></div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:9px 13px;flex:0 0 auto;"><div style="font-size:17px;font-weight:900;color:#fff;letter-spacing:.06em;font-family:Barlow Condensed,sans-serif;">F-1 OPT</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-family:Barlow,sans-serif;">Optional Practical Training</div><div style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:Barlow Condensed,sans-serif;color:var(--js-amber);">No public exposure</div></div>
+        </div>
         <div id="s2visnote" style="display:none;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);">
           <span class="s2blink">*</span>
           <span style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,.4);margin-left:4px;">all significant parts of the Company's immigration program</span>
@@ -1130,7 +1348,43 @@
         <div style="display:flex;gap:20px;align-items:flex-start;">
           <div style="flex:1;min-width:0;">
             <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;">Filings: Actual + Projected at 2025 Growth Rate (+30.8%)</div>
-            <svg id="s2chart" viewBox="0 0 560 160" style="width:100%;height:auto;display:block;overflow:visible;"></svg>
+            <svg id="s2chart" viewBox="0 0 560 160" style="width:100%;height:auto;display:block;overflow:visible;">
+              <line x1="28" y1="95.09" x2="548" y2="95.09" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+              <text x="24" y="98.09" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">50</text>
+              <line x1="28" y1="74.18" x2="548" y2="74.18" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+              <text x="24" y="77.18" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">100</text>
+              <line x1="28" y1="53.27" x2="548" y2="53.27" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+              <text x="24" y="56.27" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">150</text>
+              <line x1="28" y1="32.36" x2="548" y2="32.36" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+              <text x="24" y="35.36" text-anchor="end" fill="rgba(255,255,255,.22)" font-size="9" font-family="Barlow">200</text>
+              <line x1="276.5" y1="24" x2="276.5" y2="134" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="279.5" y="146" fill="rgba(255,255,255,.22)" font-size="8.5" font-family="Barlow">projected</text>
+              <rect x="28" y="93.00" width="42" height="23.00" fill="#1F3F73" stroke="#1F3F73" stroke-width="1" rx="2"/>
+              <text x="49" y="88.00" text-anchor="middle" fill="#fff" font-size="11" font-family="Barlow Condensed" font-weight="700">55</text>
+              <text x="49" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2022</text>
+              <rect x="93" y="91.75" width="42" height="24.25" fill="#1F3F73" stroke="#1F3F73" stroke-width="1" rx="2"/>
+              <text x="114" y="86.75" text-anchor="middle" fill="#fff" font-size="11" font-family="Barlow Condensed" font-weight="700">58</text>
+              <text x="114" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2023</text>
+              <rect x="158" y="94.25" width="42" height="21.75" fill="#1F3F73" stroke="#1F3F73" stroke-width="1" rx="2"/>
+              <text x="179" y="89.25" text-anchor="middle" fill="#fff" font-size="11" font-family="Barlow Condensed" font-weight="700">52</text>
+              <text x="179" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2024</text>
+              <rect x="223" y="87.56" width="42" height="28.44" fill="#1F3F73" stroke="#1F3F73" stroke-width="1" rx="2"/>
+              <text x="244" y="82.56" text-anchor="middle" fill="var(--js-amber)" font-size="11" font-family="Barlow Condensed" font-weight="700">68</text>
+              <text x="244" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2025</text>
+              <text x="267" y="96.56" fill="var(--js-amber)" font-size="9.5" font-family="Barlow" font-weight="700">+30.8%</text>
+              <rect x="288" y="78.78" width="42" height="37.22" fill="rgba(212,135,74,0.30)" stroke="#D4874A" stroke-width="1" rx="2"/>
+              <text x="309" y="73.78" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="11" font-family="Barlow Condensed" font-weight="700">89</text>
+              <text x="309" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2026</text>
+              <rect x="353" y="67.49" width="42" height="48.51" fill="rgba(212,135,74,0.30)" stroke="#D4874A" stroke-width="1" rx="2"/>
+              <text x="374" y="62.49" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="11" font-family="Barlow Condensed" font-weight="700">116</text>
+              <text x="374" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2027</text>
+              <rect x="418" y="52.44" width="42" height="63.56" fill="rgba(212,135,74,0.30)" stroke="#D4874A" stroke-width="1" rx="2"/>
+              <text x="439" y="47.44" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="11" font-family="Barlow Condensed" font-weight="700">152</text>
+              <text x="439" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2028</text>
+              <rect x="483" y="32.78" width="42" height="83.22" fill="rgba(212,135,74,0.30)" stroke="#D4874A" stroke-width="1" rx="2"/>
+              <text x="504" y="27.78" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="11" font-family="Barlow Condensed" font-weight="700">199</text>
+              <text x="504" y="130" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="10" font-family="Barlow">2029</text>
+            </svg>
           </div>
           <div style="width:148px;flex-shrink:0;text-align:center;padding-top:6px;">
             <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:4px;">Cumulative<br>2022 to 2029</div>
@@ -1315,6 +1569,68 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="s3-print-cards" aria-label="Regulatory storm details for print">
+      <article class="s3-print-card red">
+        <div class="s3-print-date">Ongoing | Enforcement</div>
+        <div class="s3-print-title">FDNS Audits</div>
+        <p>USCIS Fraud Detection conducts unannounced audits of H-1B sponsors. Agents compare current job duties against petition language and review wage records on-site. No prior notice required.</p>
+        <p class="s3-print-impact">Consequence: Agents can compel production of internal records during the visit. Petitions accurate at filing may no longer reflect current roles, triggering findings years later.</p>
+      </article>
+      <article class="s3-print-card red">
+        <div class="s3-print-date">Sep 2025 | Enforcement</div>
+        <div class="s3-print-title">Project Firewall</div>
+        <p>DOL-led initiative with EEOC, DOJ, and USCIS targeting H-1B fraud and PERM violations. EEOC explicitly flagged PERM recruitment practices that disadvantage U.S. applicants.</p>
+        <p class="s3-print-impact">Consequence: A single documentation gap in a recruitment file can trigger simultaneous review by four federal agencies at once.</p>
+      </article>
+      <article class="s3-print-card">
+        <div class="s3-print-date">Sep 2025 | Economics</div>
+        <div class="s3-print-title">$100K H-1B Fee</div>
+        <p>Mandatory $100,000 fee on new H-1B petitions for candidates hired from abroad. Avoidable for those qualifying for O-1A, TN, E-3, or cap-exempt pathways.</p>
+        <p class="s3-print-impact">Consequence: At the Company's trajectory, $1.5M+ in avoidable annual costs. Candidates aware of the fee are already comparing the offer against positions in other countries.</p>
+      </article>
+      <article class="s3-print-card">
+        <div class="s3-print-date">Jan 2026 | Labor</div>
+        <div class="s3-print-title">Wage-Weighted Lottery</div>
+        <p>Proposed selection system prioritizing higher wage levels in H-1B cap allocation. Entry-level and mid-level roles become structurally harder to secure through the lottery.</p>
+        <p class="s3-print-impact">Consequence: Talent strategy shifts away from lottery dependence toward cap-exempt, treaty, extraordinary ability, and permanent-residence pathways.</p>
+      </article>
+      <article class="s3-print-card">
+        <div class="s3-print-date">2026 | PERM</div>
+        <div class="s3-print-title">Prevailing Wage Rule</div>
+        <p>DOL wage methodology remains a major exposure point for employers sponsoring highly compensated technical and quantitative roles.</p>
+        <p class="s3-print-impact">Consequence: Strategy, compensation benchmarking, and case timing have to align before the company initiates sponsorship.</p>
+      </article>
+      <article class="s3-print-card red">
+        <div class="s3-print-date">2026 | Travel</div>
+        <div class="s3-print-title">Entry Restrictions</div>
+        <p>Country-specific entry restrictions and discretionary visa screening can affect employees and candidates after the company has already made the hiring decision.</p>
+        <p class="s3-print-impact">Consequence: Immigration planning cannot wait until travel. Country of birth, nationality, role criticality, and consular location need to be mapped upfront.</p>
+      </article>
+      <article class="s3-print-card red">
+        <div class="s3-print-date">2026 | Strategy</div>
+        <div class="s3-print-title">Country of Birth Factor</div>
+        <p>Green-card timing turns on country of birth, not citizenship. India-born and China-born employees can face a fundamentally different retention clock.</p>
+        <p class="s3-print-impact">Consequence: The same job title can require a different long-term immigration architecture depending on the employee's birth country.</p>
+      </article>
+      <article class="s3-print-card red">
+        <div class="s3-print-date">2026 | Consular</div>
+        <div class="s3-print-title">Consular Nationality Rule</div>
+        <p>Consular processing risk varies by nationality, post, travel history, and security screening profile.</p>
+        <p class="s3-print-impact">Consequence: Global mobility and hiring teams need jurisdiction-specific planning instead of assuming one visa pathway behaves the same everywhere.</p>
+      </article>
+      <article class="s3-print-card">
+        <div class="s3-print-date">2026 | Eligibility</div>
+        <div class="s3-print-title">B-2 Bridge Eliminated</div>
+        <p>The loss of bridge options narrows the ability to rely on stopgap status while a longer-term work authorization strategy matures.</p>
+        <p class="s3-print-impact">Consequence: The company needs the real route before the offer lands, not after the employee runs out of time.</p>
+      </article>
+      <article class="s3-print-card red">
+        <div class="s3-print-date">2026 | Screening</div>
+        <div class="s3-print-title">Enhanced USCIS Vetting</div>
+        <p>Enhanced review raises the cost of thin records, inconsistent job descriptions, and internally fragmented case histories.</p>
+        <p class="s3-print-impact">Consequence: The evidentiary file has to tell the same story across HR, legal, finance, and hiring manager records.</p>
+      </article>
     </div>
   </div>
 </div>
@@ -2761,4 +3077,3 @@ function closePropModal(){document.getElementById('prop-modal').style.display='n
 
 </body>
 </html>
-

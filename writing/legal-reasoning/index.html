@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
   <style>
     .article__byline {
       font-family: 'Inter', sans-serif;
@@ -51,6 +51,93 @@
     .tnode:hover .tdot { stroke-width: 3; }
     #legal-detail { transition: opacity 0.4s ease; opacity: 0; }
     #legal-cover { transition: opacity 0.5s ease; }
+    .legal-receipts-print {
+      display: none;
+    }
+    @media print {
+      .timeline-wrap {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .timeline-wrap > div {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        padding: 0.14in !important;
+      }
+      body .timeline-wrap > div[style],
+      body .timeline-wrap .legal-receipts-print,
+      body .timeline-wrap .legal-receipt-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+      }
+      .timeline-wrap::before {
+        content: 'Figure 1: Intangible legal asset receipts';
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #5d4618 !important;
+        margin-bottom: 0.08in;
+      }
+      #legal-cover,
+      #legal-detail {
+        display: none !important;
+      }
+      .timeline-wrap svg {
+        margin-bottom: 0.12in !important;
+      }
+      .timeline-wrap svg text {
+        fill: #111111 !important;
+      }
+      .timeline-wrap svg line {
+        stroke: #b8a674 !important;
+      }
+      .timeline-wrap svg circle {
+        stroke: #6f5620 !important;
+      }
+      .legal-receipts-print {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.1in;
+      }
+      .legal-receipt-card {
+        border: 1pt solid #d7d7d7;
+        border-left: 2.5pt solid #6f5620;
+        padding: 0.09in 0.1in;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .legal-receipt-card h3 {
+        font-size: 12pt;
+        line-height: 1.1;
+        color: #111111 !important;
+        margin: 0 0 0.035in;
+      }
+      .legal-receipt-card p {
+        font-family: 'Inter', sans-serif;
+        font-size: 8.3pt;
+        line-height: 1.35;
+        color: #222222 !important;
+        margin: 0;
+      }
+      .legal-receipt-stat {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 7pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #5d4618 !important;
+        margin-bottom: 0.025in;
+      }
+    }
   </style>
 </head>
 <body>
@@ -143,6 +230,29 @@
               <div id="legal-detail" style="min-height: 220px;"></div>
 
               <div style="text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 0.5px solid rgba(201, 169, 97, 0.15); font-size: 10px; color: rgba(240, 230, 210, 0.4); letter-spacing: 0.04em; font-style: italic;">sources: Burford Capital, Allen &amp; Overy / aosphere disclosures</div>
+
+              <div class="legal-receipts-print" aria-label="Intangible legal asset receipts for print">
+                <article class="legal-receipt-card">
+                  <span class="legal-receipt-stat">Burford Capital</span>
+                  <h3>Legal claims as balance-sheet assets</h3>
+                  <p>Founded in 2009 with a $130M IPO, listed on NYSE in 2020, and reported a $7.5B portfolio by 2025. The pending legal claim becomes the capitalized asset.</p>
+                </article>
+                <article class="legal-receipt-card">
+                  <span class="legal-receipt-stat">Legal finance adoption</span>
+                  <h3>From specialist tool to normal practice</h3>
+                  <p>Legal finance moved from 9% reported lawyer adoption in 2012 toward broad market use by 2024, showing how legal judgment can become financeable infrastructure.</p>
+                </article>
+                <article class="legal-receipt-card">
+                  <span class="legal-receipt-stat">Firm-built technology</span>
+                  <h3>Law firms as product builders</h3>
+                  <p>Allen &amp; Overy built aosphere; CMS, Cooley, and Rajah &amp; Tann built Lupl; Slaughter and May invested in Luminance; Clifford Chance and Linklaters supported Reynen Court.</p>
+                </article>
+                <article class="legal-receipt-card">
+                  <span class="legal-receipt-stat">aosphere</span>
+                  <h3>Nine-figure reasoning product</h3>
+                  <p>Allen &amp; Overy's regulatory subscription platform had 725+ blue-chip clients, approximately &pound;21M revenue, &pound;5.4M profit, and a 2023 private-equity sale valued around &pound;200M.</p>
+                </article>
+              </div>
 
               <div id="legal-cover" style="position: absolute; inset: 0; background: #0a1628; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;">
                 <div style="text-align: center; padding: 1rem 2rem;">
