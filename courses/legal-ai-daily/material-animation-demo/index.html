@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 Material Animation Examples</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #15192a;
+      --soft: #4a5066;
+      --hair: #e2ddd0;
+      --navy: #1c2742;
+      --navy-deep: #101a30;
+      --navy-soft: #263554;
+      --gold: #b5872c;
+      --gold-soft: rgba(181, 135, 44, 0.22);
+      --white: #ffffff;
+      --right: #2e7d4f;
+      --right-bg: #e6f3ea;
+      --wrong: #c0392b;
+      --wrong-bg: #fbeae8;
+      --shadow: 0 20px 54px rgba(21, 25, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(1680px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 50px;
+    }
+
+    header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--hair);
+      padding-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 980px;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.6rem, 5vw, 5.5rem);
+      font-weight: 600;
+      line-height: 0.96;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    button {
+      min-height: 36px;
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 7px 13px;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    button.primary {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tile {
+      min-height: 388px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: var(--white);
+      padding: 15px;
+      box-shadow: 0 1px 0 rgba(21, 25, 42, 0.03);
+    }
+
+    .tile-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .num {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      line-height: 1.08;
+    }
+
+    .note {
+      min-height: 40px;
+      color: var(--soft);
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 184px;
+      overflow: hidden;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.76), rgba(250,248,243,0.94)),
+        radial-gradient(circle at 18% 18%, rgba(181,135,44,0.12), transparent 34%);
+      isolation: isolate;
+    }
+
+    .stage.dark {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,162,75,0.13), transparent 34%),
+        linear-gradient(145deg, #101a30, #151f38);
+      border-color: rgba(181, 135, 44, 0.26);
+      color: var(--white);
+    }
+
+    .scene {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 280px;
+      height: 184px;
+      transform: translateX(-50%) scale(0.88);
+      transform-origin: top center;
+    }
+
+    .label {
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      color: var(--gold);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .node,
+    .doc,
+    .avatar,
+    .mini,
+    .chip,
+    .bar,
+    .cell,
+    .shelf,
+    .row {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--hair);
+      border-radius: 5px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 0.66rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(21, 25, 42, 0.06);
+    }
+
+    .stage.dark .node,
+    .stage.dark .doc,
+    .stage.dark .avatar,
+    .stage.dark .mini,
+    .stage.dark .chip,
+    .stage.dark .bar,
+    .stage.dark .cell,
+    .stage.dark .shelf,
+    .stage.dark .row {
+      background: #17223d;
+      border-color: rgba(181, 135, 44, 0.28);
+      color: #eef1f8;
+      box-shadow: none;
+    }
+
+    .node {
+      width: 66px;
+      height: 44px;
+    }
+
+    .doc {
+      width: 54px;
+      height: 70px;
+      border-radius: 4px;
+    }
+
+    .doc::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      width: 34px;
+      height: 4px;
+      background: var(--hair);
+      box-shadow: 0 10px 0 var(--hair), 0 20px 0 var(--hair);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 34%, #c79b6b 0 24%, transparent 25%),
+        linear-gradient(180deg, #f4ede0, #ffffff);
+    }
+
+    .avatar::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      width: 22px;
+      height: 10px;
+      border-radius: 999px 999px 4px 4px;
+      background: var(--navy);
+    }
+
+    .chip {
+      min-width: 58px;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 4px 9px;
+    }
+
+    .mini {
+      width: 58px;
+      height: 36px;
+    }
+
+    .bar {
+      width: 18px;
+      height: 0;
+      bottom: 24px;
+      align-items: end;
+      border-radius: 4px 4px 0 0;
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .cell {
+      width: 38px;
+      height: 30px;
+      box-shadow: none;
+    }
+
+    .shelf {
+      width: 46px;
+      height: 58px;
+      border-radius: 4px;
+    }
+
+    .row {
+      left: 28px;
+      right: 28px;
+      height: 22px;
+      justify-content: start;
+      padding-left: 10px;
+      box-shadow: none;
+    }
+
+    svg.lines,
+    svg.chartline,
+    svg.pathline {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .line-path,
+    .chart-path,
+    .route-path {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 380;
+      stroke-dashoffset: 380;
+    }
+
+    .thin-line {
+      stroke: rgba(181, 135, 44, 0.46);
+      stroke-width: 1.2;
+      stroke-dasharray: 190;
+      stroke-dashoffset: 190;
+    }
+
+    .token {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(181, 135, 44, 0.12);
+      opacity: 0;
+    }
+
+    .beam {
+      position: absolute;
+      height: 2px;
+      background: var(--gold);
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    .highlight {
+      position: absolute;
+      height: 14px;
+      border-radius: 3px;
+      background: rgba(181, 135, 44, 0.24);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .mask {
+      position: absolute;
+      border-radius: 6px;
+      background: rgba(21, 25, 42, 0.72);
+      opacity: 0;
+    }
+
+    .gate {
+      position: absolute;
+      width: 12px;
+      height: 92px;
+      border-radius: 999px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+
+    .shield {
+      position: absolute;
+      width: 76px;
+      height: 88px;
+      border: 2px solid var(--gold);
+      border-radius: 38px 38px 28px 28px;
+      clip-path: polygon(50% 0, 100% 18%, 90% 78%, 50% 100%, 10% 78%, 0 18%);
+      opacity: 0;
+      transform: scale(0.82);
+    }
+
+    .table {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      width: 138px;
+      height: 62px;
+      border: 1px solid var(--hair);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.72);
+      transform: translate(-50%, -50%);
+    }
+
+    .stage.dark .table {
+      border-color: rgba(181, 135, 44, 0.3);
+      background: rgba(238, 241, 248, 0.06);
+    }
+
+    .axis {
+      position: absolute;
+      left: 34px;
+      right: 26px;
+      bottom: 32px;
+      height: 1px;
+      background: var(--hair);
+    }
+
+    .axis::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1px;
+      height: 100px;
+      background: var(--hair);
+    }
+
+    .tile-footer {
+      display: flex;
+      margin-top: auto;
+      justify-content: flex-end;
+    }
+
+    .run .line-path,
+    .run .chart-path,
+    .run .route-path,
+    .run .thin-line { animation: draw 1.1s ease-out both; }
+    .run .token.t1 { animation: tokenMoveA 1.1s ease-out both; }
+    .run .token.t2 { animation: tokenMoveB 1.1s ease-out 0.12s both; }
+    .run .token.t3 { animation: tokenMoveC 1.1s ease-out 0.24s both; }
+    .run .doc.move { animation: docTravel 1s ease-out both; }
+    .run .node.pop,
+    .run .mini.pop,
+    .run .avatar.pop,
+    .run .chip.pop { animation: popIn 0.34s ease-out both; }
+    .run .pulse { animation: pulse 0.72s ease-out both; }
+    .run .beam { animation: beamOn 0.44s ease-out both; }
+    .run .highlight { animation: highlightOn 0.56s ease-out both; }
+    .run .mask { animation: maskOn 0.42s ease-out both; }
+    .run .gate { animation: gateUp 0.45s ease-out both; }
+    .run .shield { animation: shieldIn 0.5s ease-out both; }
+    .run .bar { animation: barGrow 0.65s ease-out both; }
+    .run .cell { animation: cellHeat 0.5s ease-out both; }
+    .run .row { animation: rowScan 0.45s ease-out both; }
+    .run .shelf { animation: shelfSort 0.72s ease-out both; }
+    .run .rotate { animation: slowTurn 1.3s ease-in-out both; }
+    .run .split-left { animation: splitLeft 0.58s ease-out both; }
+    .run .split-right { animation: splitRight 0.58s ease-out both; }
+    .run .vote-yes { animation: voteYes 0.5s ease-out both; }
+    .run .vote-no { animation: voteNo 0.5s ease-out both; }
+    .run .waterfall { animation: waterfall 0.8s ease-out both; }
+    .run .badge-piece { animation: badgeBuild 0.62s ease-out both; }
+
+    .delay-1 { animation-delay: 0.08s !important; }
+    .delay-2 { animation-delay: 0.16s !important; }
+    .delay-3 { animation-delay: 0.24s !important; }
+    .delay-4 { animation-delay: 0.32s !important; }
+
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes tokenMoveA { 0% { opacity: 0; transform: translate(36px, 128px); } 20% { opacity: 1; } 100% { opacity: 1; transform: translate(204px, 42px); } }
+    @keyframes tokenMoveB { 0% { opacity: 0; transform: translate(42px, 42px); } 20% { opacity: 1; } 100% { opacity: 1; transform: translate(206px, 130px); } }
+    @keyframes tokenMoveC { 0% { opacity: 0; transform: translate(206px, 86px); } 20% { opacity: 1; } 100% { opacity: 1; transform: translate(42px, 86px); } }
+    @keyframes docTravel { 0% { transform: translateX(-34px); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(150px); opacity: 1; } }
+    @keyframes popIn { 0% { opacity: 0; transform: scale(0.84); } 70% { opacity: 1; transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(181,135,44,0); } 50% { box-shadow: 0 0 0 10px rgba(181,135,44,0.16); } }
+    @keyframes beamOn { to { transform: scaleX(1); } }
+    @keyframes highlightOn { to { transform: scaleX(1); } }
+    @keyframes maskOn { to { opacity: 1; } }
+    @keyframes gateUp { to { transform: scaleY(1); } }
+    @keyframes shieldIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes barGrow { to { height: var(--h); } }
+    @keyframes cellHeat { to { background: var(--heat); border-color: var(--heat-border); } }
+    @keyframes rowScan { 0% { opacity: 0; transform: translateX(-12px); } 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes shelfSort { 0% { transform: translateY(22px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    @keyframes slowTurn { to { transform: rotate(8deg) scale(1.02); } }
+    @keyframes splitLeft { to { transform: translateX(-34px); } }
+    @keyframes splitRight { to { transform: translateX(34px); } }
+    @keyframes voteYes { to { transform: translateY(-18px); background: var(--right-bg); border-color: var(--right); color: var(--right); } }
+    @keyframes voteNo { to { transform: translateY(18px); background: var(--wrong-bg); border-color: var(--wrong); color: var(--wrong); } }
+    @keyframes waterfall { to { transform: translateY(var(--drop)); height: var(--h); background: var(--tone); } }
+    @keyframes badgeBuild { 0% { opacity: 0; transform: translateY(18px) scale(0.88); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+
+    @media (max-width: 1400px) {
+      .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 1080px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 780px) {
+      main { width: min(100% - 24px, 560px); }
+      header { align-items: start; flex-direction: column; }
+      .actions { justify-content: flex-start; }
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>50 Material Animation Examples</h1>
+      <div class="actions">
+        <button class="primary" id="replayAll">Replay all</button>
+        <button id="resetAll">Reset</button>
+      </div>
+    </header>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <script>
+    const examples = [
+      ["01", "Document intake flow", "A matter request moves from intake to review to controlled output.", "documentFlow"],
+      ["02", "Matter triage lanes", "Incoming work sorts into safe use, constrained use, and no use lanes.", "triageLanes"],
+      ["03", "AI stack layers", "Model, tool, workflow, and governance rise as separate operating layers.", "stackLayers"],
+      ["04", "Prompt delegation blocks", "Task, facts, constraints, format, and review standard assemble into one instruction.", "promptBlocks"],
+      ["05", "Retrieval answer path", "A query pulls source material before it becomes an answer.", "ragPath"],
+      ["06", "Citation thread", "Source excerpts connect to the exact answer sentence they support.", "citationThread"],
+      ["07", "Hallucination sweep", "Unsupported claims darken while source-supported claims remain visible.", "hallucinationSweep"],
+      ["08", "Context window fill", "Pages consume limited space until the window compresses.", "contextFill"],
+      ["09", "Token stream settling", "A stream of draft language resolves into a clause.", "tokenStream"],
+      ["10", "Confidence vs. verification", "Confidence rises while verification duty stays fixed.", "confidenceGraph"],
+      ["11", "Vendor data journey", "Client data crosses tool, vendor, storage, and audit surfaces.", "dataJourney"],
+      ["12", "Enterprise boundary", "Consumer and enterprise routes separate at a hard policy wall.", "enterpriseBoundary"],
+      ["13", "Privilege shield", "Privileged facts trigger a protective layer before use.", "privilegeShield"],
+      ["14", "Retention clock", "A data-retention period counts down into deletion.", "retentionClock"],
+      ["15", "Audit trail imprint", "Each material action stamps a visible record.", "auditTrail"],
+      ["16", "Human review handoff", "AI output passes to a lawyer before delivery.", "humanHandoff"],
+      ["17", "Partner approval gate", "High-risk work stops until the gate opens.", "approvalGate"],
+      ["18", "GC dashboard pulse", "Risk, adoption, and open issues pulse into one dashboard.", "dashboardPulse"],
+      ["19", "Practice group adoption", "A law-firm network lights up practice by practice.", "practiceNetwork"],
+      ["20", "Legal department intake", "Business, compliance, privacy, and legal route through one intake map.", "departmentMap"],
+      ["21", "Meeting room roles", "Avatars around a table connect as the issue moves through the room.", "meetingRoom"],
+      ["22", "Org chart rollout", "Legal AI ownership cascades from GC to operators to practice teams.", "orgRollout"],
+      ["23", "Committee vote", "A governance committee splits, then resolves to an approval state.", "committeeVote"],
+      ["24", "Vendor selection matrix", "A candidate wins only after capability and control cells both light.", "vendorMatrix"],
+      ["25", "Build vs. buy scale", "Two weights settle into a practical decision.", "buildBuyScale"],
+      ["26", "Risk-tier heatmap", "Use cases heat from low to high risk.", "riskHeatmap"],
+      ["27", "Use-case funnel", "Broad ideas narrow into approved pilots.", "useCaseFunnel"],
+      ["28", "Workflow swimlane", "Work travels across lawyer, tool, reviewer, and delivery lanes.", "swimlane"],
+      ["29", "Contract review highlight", "A clause issue is found, explained, and queued for review.", "contractHighlight"],
+      ["30", "No-go litigation gate", "Sensitive strategy hits a red stop gate.", "litigationGate"],
+      ["31", "Policy update broadcast", "A new AI policy travels from governance to teams.", "policyBroadcast"],
+      ["32", "Training cohort progress", "A cohort moves from basic literacy into applied fluency.", "trainingCohort"],
+      ["33", "Satisfaction curve", "Attorney experience improves only after workflow cleanup.", "satisfactionCurve"],
+      ["34", "QA sampling wheel", "A sample of outputs moves into review.", "qaSampling"],
+      ["35", "Prompt library shelf", "Reusable prompts sort into a governed library.", "promptLibrary"],
+      ["36", "Knowledge repository index", "Documents index into a searchable legal knowledge base.", "knowledgeRepo"],
+      ["37", "Search ranking ladder", "Results reorder by source fit and matter relevance.", "searchRanking"],
+      ["38", "Embedding cluster map", "Related concepts cluster together in vector space.", "embeddingClusters"],
+      ["39", "Similarity orbit", "A query orbits toward the nearest source cluster.", "similarityOrbit"],
+      ["40", "Agent tool chain", "An agent calls search, extraction, drafting, and review in sequence.", "agentChain"],
+      ["41", "Escalation ladder", "Risk climbs from user to reviewer to GC.", "escalationLadder"],
+      ["42", "Redline compare", "Before and after language separates on the same clause.", "redlineCompare"],
+      ["43", "Clause library insertion", "Approved language drops into a contract draft.", "clauseInsert"],
+      ["44", "Matter timeline scrub", "Events appear as the timeline moves.", "matterTimeline"],
+      ["45", "ROI waterfall", "Time saved, review cost, and risk controls settle into a net value.", "roiWaterfall"],
+      ["46", "Adoption S curve", "A slow start becomes an adoption curve after practice fit.", "adoptionCurve"],
+      ["47", "Authority hierarchy", "Primary sources rise above vendor claims and commentary.", "authorityHierarchy"],
+      ["48", "Court disclosure route", "A filing path splits based on court order and AI use.", "courtRoute"],
+      ["49", "Athena notice moment", "A platform notice appears once and then rests.", "athenaNotice"],
+      ["50", "Badge assembly", "Completion pieces assemble into a restrained credential.", "badgeAssembly"]
+    ];
+
+    const grid = document.getElementById("grid");
+
+    function lineSvg(paths) {
+      return `<svg class="lines" viewBox="0 0 280 184" aria-hidden="true">${paths}</svg>`;
+    }
+
+    function node(label, x, y, cls = "") {
+      return `<div class="node ${cls}" style="left:${x}px;top:${y}px">${label}</div>`;
+    }
+
+    function mini(label, x, y, cls = "") {
+      return `<div class="mini ${cls}" style="left:${x}px;top:${y}px">${label}</div>`;
+    }
+
+    function chip(label, x, y, cls = "") {
+      return `<div class="chip ${cls}" style="left:${x}px;top:${y}px">${label}</div>`;
+    }
+
+    function avatar(x, y, cls = "") {
+      return `<div class="avatar ${cls}" style="left:${x}px;top:${y}px"></div>`;
+    }
+
+    function doc(x, y, cls = "") {
+      return `<div class="doc ${cls}" style="left:${x}px;top:${y}px"></div>`;
+    }
+
+    function materialScene(type) {
+      const darkTypes = new Set(["dataJourney", "enterpriseBoundary", "privilegeShield", "meetingRoom", "athenaNotice"]);
+      const dark = darkTypes.has(type) ? " dark" : "";
+      return `<div class="stage${dark}"><div class="scene">${scene(type)}</div></div>`;
+    }
+
+    function scene(type) {
+      switch (type) {
+        case "documentFlow":
+          return `${lineSvg('<path class="line-path" d="M48 102 C88 58, 128 58, 166 102 S226 138, 244 82"></path>')}${doc(22, 72, "move")} ${node("Intake", 22, 122)}${node("Review", 108, 42, "pop delay-1")}${node("Output", 190, 112, "pop delay-2")}`;
+        case "triageLanes":
+          return `${chip("Safe", 36, 112, "pop")} ${chip("Constrained", 108, 70, "pop delay-1")} ${chip("No use", 190, 112, "pop delay-2")} ${doc(34, 18, "move")}`;
+        case "stackLayers":
+          return `${node("Gov", 106, 30, "pop delay-3")}${node("Flow", 100, 70, "pop delay-2")}${node("Tool", 96, 110, "pop delay-1")}${node("Model", 92, 150, "pop")}`;
+        case "promptBlocks":
+          return `${chip("Task", 26, 34, "pop")} ${chip("Facts", 88, 66, "pop delay-1")} ${chip("Limits", 148, 98, "pop delay-2")} ${chip("Format", 54, 130, "pop delay-3")} ${chip("Review", 166, 132, "pop delay-4")}`;
+        case "ragPath":
+          return `${node("Query", 22, 78)}${node("Docs", 106, 34, "pop delay-1")}${node("Answer", 194, 94, "pop delay-2")}<div class="beam" style="left:82px;top:100px;width:76px;transform:rotate(-29deg) scaleX(0)"></div><div class="beam delay-2" style="left:160px;top:74px;width:76px;transform:rotate(38deg) scaleX(0)"></div>`;
+        case "citationThread":
+          return `${doc(28, 40, "pop")} ${doc(28, 104, "pop delay-1")} ${node("Answer", 186, 76, "pop delay-2")} ${lineSvg('<path class="thin-line" d="M82 72 L186 92"></path><path class="thin-line" d="M82 138 L186 104"></path>')}`;
+        case "hallucinationSweep":
+          return `${doc(32, 34, "pop")}<div class="mask delay-1" style="left:118px;top:42px;width:104px;height:22px"></div><div class="mask delay-2" style="left:118px;top:86px;width:84px;height:22px"></div><div class="highlight delay-3" style="left:118px;top:130px;width:94px"></div>`;
+        case "contextFill":
+          return `${doc(32, 52, "pop")} ${doc(82, 52, "pop delay-1")} ${doc(132, 52, "pop delay-2")}<div class="node" style="left:190px;top:62px;width:52px;height:72px">Window</div><div class="highlight delay-3" style="left:196px;top:92px;width:40px"></div>`;
+        case "tokenStream":
+          return `${chip("The", 28, 72, "pop")} ${chip("clause", 82, 72, "pop delay-1")} ${chip("requires", 156, 72, "pop delay-2")}<div class="highlight delay-3" style="left:42px;top:118px;width:176px"></div>`;
+        case "confidenceGraph":
+          return `<div class="axis"></div>${lineSvg('<path class="chart-path" d="M40 138 C86 126, 116 88, 222 42"></path><path class="thin-line" d="M40 112 L222 112"></path>')}${chip("Verify", 172, 116, "pop delay-2")}`;
+        case "dataJourney":
+          return `${node("Client", 18, 72, "pop")} ${node("Tool", 92, 38, "pop delay-1")} ${node("Vendor", 168, 72, "pop delay-2")} ${node("Audit", 92, 122, "pop delay-3")} ${lineSvg('<path class="line-path" d="M74 94 L110 68 L168 94"></path><path class="thin-line" d="M138 82 L124 126"></path>')}`;
+        case "enterpriseBoundary":
+          return `${node("Consumer", 20, 46, "pop")} ${node("Enterprise", 188, 46, "pop delay-1")}<div class="gate delay-2" style="left:134px;top:46px"></div>${doc(54, 110, "move")}`;
+        case "privilegeShield":
+          return `${doc(98, 48, "pop")}<div class="shield delay-1" style="left:92px;top:42px"></div>${chip("Privileged", 90, 134, "pop delay-2")}`;
+        case "retentionClock":
+          return `${lineSvg('<circle class="line-path" cx="140" cy="88" r="54"></circle><path class="thin-line" d="M140 88 L140 48"></path><path class="thin-line" d="M140 88 L178 104"></path>')}${chip("Delete", 110, 142, "pop delay-2")}`;
+        case "auditTrail":
+          return `${mini("1", 38, 48, "pop")} ${mini("2", 96, 76, "pop delay-1")} ${mini("3", 154, 104, "pop delay-2")} ${mini("4", 212, 132, "pop delay-3")}${lineSvg('<path class="thin-line" d="M66 66 L96 88 L154 116 L212 144"></path>')}`;
+        case "humanHandoff":
+          return `${node("AI", 42, 74, "pop")} ${avatar(166, 72, "pop delay-2")} ${lineSvg('<path class="line-path" d="M108 96 C132 78, 148 78, 166 94"></path>')}${chip("Review", 136, 128, "pop delay-3")}`;
+        case "approvalGate":
+          return `${doc(34, 70, "move")}<div class="gate delay-1" style="left:134px;top:48px"></div>${avatar(184, 72, "pop delay-2")}${chip("Approve", 174, 128, "pop delay-3")}`;
+        case "dashboardPulse":
+          return `${mini("Risk", 32, 46, "pulse")} ${mini("Use", 112, 46, "pulse delay-1")} ${mini("Open", 192, 46, "pulse delay-2")} ${lineSvg('<path class="chart-path" d="M42 136 C78 104, 114 132, 148 94 S206 86, 230 56"></path>')}`;
+        case "practiceNetwork":
+          return `${lineSvg('<path class="thin-line" d="M64 88 L140 48 L216 88 L140 134 Z M64 88 L216 88 M140 48 L140 134"></path>')}${avatar(44, 68, "pop")} ${avatar(120, 28, "pop delay-1")} ${avatar(196, 68, "pop delay-2")} ${avatar(120, 114, "pop delay-3")}`;
+        case "departmentMap":
+          return `${node("Biz", 24, 34, "pop")} ${node("Priv", 178, 34, "pop delay-1")} ${node("Comp", 24, 118, "pop delay-2")} ${node("Legal", 178, 118, "pop delay-3")} ${node("Intake", 102, 76, "pulse delay-4")}${lineSvg('<path class="thin-line" d="M90 56 L102 88 M178 56 L160 88 M90 138 L102 112 M178 138 L160 112"></path>')}`;
+        case "meetingRoom":
+          return `<div class="table"></div>${avatar(48, 54, "pop")} ${avatar(118, 24, "pop delay-1")} ${avatar(190, 54, "pop delay-2")} ${avatar(74, 118, "pop delay-3")} ${avatar(164, 118, "pop delay-4")} ${lineSvg('<path class="thin-line" d="M68 76 L138 44 L210 76 L184 140 L94 140 Z"></path>')}`;
+        case "orgRollout":
+          return `${node("GC", 108, 22, "pop")} ${node("Ops", 38, 82, "pop delay-1")} ${node("Tech", 178, 82, "pop delay-2")} ${node("Teams", 108, 138, "pop delay-3")} ${lineSvg('<path class="thin-line" d="M140 66 L70 102 M140 66 L210 102 M70 126 L140 138 M210 126 L140 138"></path>')}`;
+        case "committeeVote":
+          return `${avatar(40, 52, "vote-yes")} ${avatar(96, 52, "vote-yes delay-1")} ${avatar(152, 52, "vote-no delay-2")} ${avatar(208, 52, "vote-yes delay-3")} ${chip("Approved", 96, 132, "pop delay-4")}`;
+        case "vendorMatrix":
+          return `${matrixCells(["#e6f3ea","#e6f3ea","#fbeae8","#e6f3ea","#e6f3ea","#e6f3ea","#fbeae8","#e6f3ea","#e6f3ea"])}${chip("Vendor B", 100, 142, "pop delay-4")}`;
+        case "buildBuyScale":
+          return `${lineSvg('<path class="line-path" d="M68 78 L212 78"></path><path class="thin-line" d="M140 52 L140 130"></path>')}${chip("Build", 42, 112, "split-left")} ${chip("Buy", 180, 112, "split-right")} ${chip("Decide", 104, 44, "pop delay-2")}`;
+        case "riskHeatmap":
+          return `${matrixCells(["#e6f3ea","#e6f3ea","#faf1d9","#faf1d9","#fbeae8","#e6f3ea","#faf1d9","#fbeae8","#fbeae8"])}`;
+        case "useCaseFunnel":
+          return `${lineSvg('<path class="line-path" d="M48 42 H232 L178 128 H102 Z"></path>')}${chip("Ideas", 102, 50, "pop")} ${chip("Pilots", 106, 88, "pop delay-1")} ${chip("Approved", 92, 126, "pop delay-2")}`;
+        case "swimlane":
+          return `${rows(["Lawyer","Tool","Review","Delivery"])}${doc(28, 46, "move")}${lineSvg('<path class="line-path" d="M58 57 H230 M58 86 H230 M58 115 H230 M58 144 H230"></path>')}`;
+        case "contractHighlight":
+          return `${doc(38, 42, "pop")}<div class="highlight delay-1" style="left:112px;top:58px;width:116px"></div><div class="highlight delay-2" style="left:112px;top:94px;width:84px"></div>${chip("Review", 144, 130, "pop delay-3")}`;
+        case "litigationGate":
+          return `${doc(44, 74, "move")}<div class="gate delay-1" style="left:144px;top:42px;background:var(--wrong)"></div>${chip("No use", 170, 86, "pop delay-2")}`;
+        case "policyBroadcast":
+          return `${node("Policy", 102, 70, "pulse")} ${avatar(30, 34, "pop delay-1")} ${avatar(196, 34, "pop delay-2")} ${avatar(30, 122, "pop delay-3")} ${avatar(196, 122, "pop delay-4")} ${lineSvg('<path class="thin-line" d="M134 92 L52 56 M148 92 L214 56 M134 104 L52 144 M148 104 L214 144"></path>')}`;
+        case "trainingCohort":
+          return `${chip("Basics", 34, 126, "pop")} ${chip("Practice", 104, 92, "pop delay-1")} ${chip("Fluency", 174, 52, "pop delay-2")} ${lineSvg('<path class="chart-path" d="M54 140 C86 122, 116 96, 144 84 S194 58, 216 50"></path>')}`;
+        case "satisfactionCurve":
+          return `<div class="axis"></div>${lineSvg('<path class="chart-path" d="M42 134 C72 138, 98 132, 126 104 C158 66, 190 54, 226 50"></path>')}${chip("Fit", 170, 74, "pop delay-2")}`;
+        case "qaSampling":
+          return `${lineSvg('<circle class="line-path" cx="140" cy="90" r="58"></circle>')}${chip("10%", 112, 68, "pulse delay-1")} ${doc(40, 62, "pop")} ${doc(196, 62, "pop delay-2")}`;
+        case "promptLibrary":
+          return `${shelves()}${chip("M&A", 34, 122, "pop")} ${chip("NDA", 106, 122, "pop delay-1")} ${chip("Memo", 174, 122, "pop delay-2")}`;
+        case "knowledgeRepo":
+          return `${doc(32, 34, "pop")} ${doc(86, 64, "pop delay-1")} ${doc(142, 34, "pop delay-2")} ${node("Index", 184, 102, "pulse delay-3")} ${lineSvg('<path class="thin-line" d="M76 70 L184 124 M130 96 L184 124 M186 70 L206 102"></path>')}`;
+        case "searchRanking":
+          return `${rankRows(["Result C","Result A","Result B"])}${chip("Best", 190, 42, "pop delay-3")}`;
+        case "embeddingClusters":
+          return `${clusterDots()}${lineSvg('<path class="thin-line" d="M76 66 C94 44, 116 48, 132 64 M164 116 C188 94, 210 104, 226 126"></path>')}`;
+        case "similarityOrbit":
+          return `${lineSvg('<circle class="thin-line" cx="140" cy="92" r="58"></circle><circle class="line-path" cx="140" cy="92" r="28"></circle>')}<div class="token t1"></div>${node("Query", 108, 74, "pulse delay-2")}`;
+        case "agentChain":
+          return `${node("Search", 20, 72, "pop")} ${node("Extract", 88, 72, "pop delay-1")} ${node("Draft", 156, 72, "pop delay-2")} ${node("Review", 224, 72, "pop delay-3")} ${lineSvg('<path class="line-path" d="M82 94 H88 M150 94 H156 M218 94 H224"></path>')}`;
+        case "escalationLadder":
+          return `${node("User", 34, 124, "pop")} ${node("Reviewer", 104, 84, "pop delay-1")} ${node("GC", 176, 44, "pop delay-2")} ${lineSvg('<path class="chart-path" d="M82 140 L126 104 L194 66"></path>')}`;
+        case "redlineCompare":
+          return `${doc(42, 52, "split-left")} ${doc(174, 52, "split-right")}<div class="highlight delay-2" style="left:74px;top:82px;width:54px;background:rgba(192,57,43,0.18)"></div><div class="highlight delay-3" style="left:184px;top:82px;width:68px;background:rgba(46,125,79,0.18)"></div>`;
+        case "clauseInsert":
+          return `${doc(40, 48, "pop")} ${chip("Approved clause", 116, 68, "move")}<div class="highlight delay-2" style="left:74px;top:116px;width:116px"></div>`;
+        case "matterTimeline":
+          return `${lineSvg('<path class="line-path" d="M34 96 H246"></path>')}${mini("1", 42, 78, "pop")} ${mini("2", 96, 78, "pop delay-1")} ${mini("3", 150, 78, "pop delay-2")} ${mini("4", 204, 78, "pop delay-3")}`;
+        case "roiWaterfall":
+          return `<div class="bar waterfall" style="left:54px;--h:82px;--drop:-14px;--tone:var(--right)"></div><div class="bar waterfall delay-1" style="left:102px;--h:52px;--drop:12px;--tone:var(--wrong)"></div><div class="bar waterfall delay-2" style="left:150px;--h:64px;--drop:0;--tone:var(--gold)"></div><div class="bar waterfall delay-3" style="left:198px;--h:92px;--drop:-20px;--tone:var(--navy)"></div>`;
+        case "adoptionCurve":
+          return `<div class="axis"></div>${lineSvg('<path class="chart-path" d="M42 136 C84 136, 106 130, 128 104 C154 72, 184 54, 226 48"></path>')}${chip("Adoption", 158, 62, "pop delay-2")}`;
+        case "authorityHierarchy":
+          return `${node("Primary", 102, 28, "pop delay-2")} ${node("Official", 102, 82, "pop delay-1")} ${node("Vendor", 42, 136, "pop")} ${node("Comment", 166, 136, "pop")}`;
+        case "courtRoute":
+          return `${node("AI used?", 100, 30, "pop")} ${node("Order", 32, 102, "pop delay-1")} ${node("No order", 178, 102, "pop delay-2")} ${lineSvg('<path class="thin-line" d="M132 74 L64 118 M148 74 L210 118"></path>')}`;
+        case "athenaNotice":
+          return `${avatar(40, 70, "pop")}<div class="node pop delay-1" style="left:102px;top:54px;width:134px;height:68px">Notice</div>${lineSvg('<path class="thin-line" d="M82 92 L102 88"></path>')}`;
+        case "badgeAssembly":
+          return `<div class="badge-piece node" style="left:102px;top:32px;border-radius:50%;width:76px;height:76px">Fluent</div><div class="badge-piece chip delay-1" style="left:82px;top:118px">Lesson</div><div class="badge-piece chip delay-2" style="left:152px;top:118px">Lab</div>`;
+        default:
+          return `${node("Scene", 100, 72, "pop")}`;
+      }
+    }
+
+    function matrixCells(colors) {
+      return colors.map((color, index) => {
+        const x = 66 + (index % 3) * 48;
+        const y = 36 + Math.floor(index / 3) * 36;
+        return `<div class="cell delay-${index % 4}" style="left:${x}px;top:${y}px;--heat:${color};--heat-border:${color}"></div>`;
+      }).join("");
+    }
+
+    function rows(labels) {
+      return labels.map((label, index) => `<div class="row delay-${index}" style="top:${36 + index * 34}px">${label}</div>`).join("");
+    }
+
+    function shelves() {
+      return [36, 92, 148, 204].map((x, index) => `<div class="shelf delay-${index}" style="left:${x}px;top:44px"></div>`).join("");
+    }
+
+    function rankRows(labels) {
+      return labels.map((label, index) => `<div class="row delay-${index}" style="top:${42 + index * 38}px">${label}</div>`).join("");
+    }
+
+    function clusterDots() {
+      const pts = [[52,54],[78,48],[92,74],[174,106],[202,112],[218,134],[132,72],[146,90]];
+      return pts.map((p, index) => `<div class="token t${(index % 3) + 1}" style="left:${p[0]}px;top:${p[1]}px"></div>`).join("");
+    }
+
+    function render() {
+      grid.innerHTML = examples.map(([num, title, note, type]) => `
+        <section class="tile" data-type="${type}">
+          <div class="tile-head"><span class="num">${num}</span><h2>${title}</h2></div>
+          <p class="note">${note}</p>
+          ${materialScene(type)}
+          <div class="tile-footer"><button data-run="${num}">Replay</button></div>
+        </section>
+      `).join("");
+    }
+
+    function runTile(tile) {
+      const stage = tile.querySelector(".stage");
+      stage.classList.remove("run");
+      stage.offsetWidth;
+      stage.classList.add("run");
+    }
+
+    render();
+
+    grid.addEventListener("click", event => {
+      const button = event.target.closest("button[data-run]");
+      if (!button) return;
+      runTile(button.closest(".tile"));
+    });
+
+    document.getElementById("replayAll").addEventListener("click", () => {
+      document.querySelectorAll(".tile").forEach((tile, index) => {
+        setTimeout(() => runTile(tile), index * 32);
+      });
+    });
+
+    document.getElementById("resetAll").addEventListener("click", () => {
+      document.querySelectorAll(".stage").forEach(stage => stage.classList.remove("run"));
+    });
+
+    document.getElementById("replayAll").click();
+  </script>
+  <script src="/js/bedazzler-analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 Interactables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #15192a;
+      --ink-soft: #4a5066;
+      --hair: #e2ddd0;
+      --navy: #1c2742;
+      --gold: #b5872c;
+      --white: #ffffff;
+      --right: #2e7d4f;
+      --right-bg: #e6f3ea;
+      --wrong: #c0392b;
+      --wrong-bg: #fbeae8;
+      --athena-navy: #101a30;
+      --athena-raise: #16223c;
+      --athena-ink: #eef1f8;
+      --athena-soft: #9aa3bb;
+      --athena-brass: #b89a58;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1560px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 600;
+      line-height: 0.95;
+      color: var(--navy);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    button,
+    select,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      min-height: 38px;
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    button.active,
+    button.correct {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    button.wrong {
+      background: var(--wrong-bg);
+      color: var(--wrong);
+      border-color: var(--wrong);
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 10px 12px;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .interaction {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--white);
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      padding: 22px;
+    }
+
+    .interaction.large {
+      grid-column: span 2;
+    }
+
+    .controls,
+    .row,
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stack button {
+      width: 100%;
+      border-radius: 6px;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .panel {
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      background: #fbfaf7;
+      padding: 16px;
+    }
+
+    .panel strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+
+    .mini-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      padding: 12px;
+      background: #fbfaf7;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .status {
+      min-height: 24px;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+
+    .status.good {
+      color: var(--right);
+    }
+
+    .status.bad {
+      color: var(--wrong);
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      margin-right: 7px;
+      border: 1px solid var(--hair);
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    .mini-card.good {
+      background: var(--right-bg);
+      border-color: var(--right);
+    }
+
+    .mini-card.good .mark {
+      border-color: var(--right);
+      color: var(--right);
+    }
+
+    .mini-card.bad {
+      background: var(--wrong-bg);
+      border-color: var(--wrong);
+    }
+
+    .mini-card.bad .mark {
+      border-color: var(--wrong);
+      color: var(--wrong);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .meter {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #ece7dc;
+    }
+
+    .meter span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--navy);
+      transition: width 0.2s ease;
+    }
+
+    .route-box {
+      min-height: 118px;
+    }
+
+    .sequence {
+      display: grid;
+      gap: 8px;
+    }
+
+    .sequence li {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: #fbfaf7;
+      padding: 8px 10px;
+    }
+
+    .sequence button {
+      min-height: 30px;
+      padding: 4px 10px;
+    }
+
+    .spot {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      background: var(--white);
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    .spot.good {
+      background: var(--right-bg);
+      border-color: var(--right);
+      color: var(--right);
+    }
+
+    .spot.bad {
+      background: var(--wrong-bg);
+      border-color: var(--wrong);
+      color: var(--wrong);
+    }
+
+    .athena-demo {
+      position: relative;
+      min-height: 180px;
+      overflow: hidden;
+      border-radius: 6px;
+      background: var(--athena-navy);
+      padding: 16px;
+      color: var(--athena-ink);
+    }
+
+    .athena-card {
+      display: none;
+      max-width: 310px;
+      margin-top: 16px;
+      margin-left: auto;
+      border: 1px solid rgba(184, 154, 88, 0.28);
+      border-radius: 12px 12px 4px 12px;
+      background: linear-gradient(180deg, var(--athena-raise), #121d34);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+      animation: athenaIn 0.36s ease-out both;
+    }
+
+    .athena-card.visible {
+      display: block;
+    }
+
+    .athena-card strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1rem;
+      color: var(--athena-ink);
+    }
+
+    .athena-card span {
+      display: block;
+      margin-top: 4px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--athena-ink);
+    }
+
+    .athena-card small {
+      display: block;
+      margin-top: 10px;
+      color: var(--athena-brass);
+      font-weight: 700;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--athena-soft);
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+    }
+
+    @keyframes athenaIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        width: min(100% - 24px, 560px);
+        padding-top: 20px;
+      }
+
+      .board {
+        grid-template-columns: 1fr;
+      }
+
+      .interaction.large {
+        grid-column: span 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>20 Interactables</h1>
+    <div class="board">
+      <section class="interaction">
+        <h3>01</h3>
+        <h2>Stack revealer</h2>
+        <div class="stack" id="stackButtons"></div>
+        <div class="panel" id="stackPanel"></div>
+      </section>
+
+      <section class="interaction">
+        <h3>02</h3>
+        <h2>Layer classifier</h2>
+        <div class="mini-grid" id="classifierGrid"></div>
+        <button id="checkClassifier">Check</button>
+        <p class="status" id="classifierStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>03</h3>
+        <h2>Myth sorter</h2>
+        <div class="mini-grid" id="mythGrid"></div>
+        <button id="checkMyths">Check</button>
+        <p class="status" id="mythStatus"></p>
+      </section>
+
+      <section class="interaction large">
+        <h3>04</h3>
+        <h2>Vendor demo autopsy</h2>
+        <div class="mini-grid" id="vendorGrid"></div>
+        <button id="checkVendor">Check claims</button>
+        <p class="status" id="vendorStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>05</h3>
+        <h2>Missing layer builder</h2>
+        <div class="panel">
+          A firm buys a drafting tool. Lawyers use it differently by practice group. No one knows who reviews outputs before client delivery.
+        </div>
+        <div class="controls" id="missingControls"></div>
+        <p class="status" id="missingStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>06</h3>
+        <h2>Firm and in-house toggle</h2>
+        <div class="tabs">
+          <button class="active" data-lens="firm">Firm</button>
+          <button data-lens="inhouse">In-house</button>
+        </div>
+        <div class="panel route-box" id="lensPanel"></div>
+      </section>
+
+      <section class="interaction">
+        <h3>07</h3>
+        <h2>Responsibility map</h2>
+        <div class="mini-grid" id="ownerGrid"></div>
+        <button id="checkOwners">Check ownership</button>
+        <p class="status" id="ownerStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>08</h3>
+        <h2>Risk dial</h2>
+        <input id="riskRange" type="range" min="1" max="4" value="1">
+        <div class="meter"><span id="riskFill"></span></div>
+        <div class="panel route-box" id="riskPanel"></div>
+      </section>
+
+      <section class="interaction">
+        <h3>09</h3>
+        <h2>Use decision tree</h2>
+        <div class="panel route-box" id="treePanel"></div>
+        <div class="controls">
+          <button id="treeYes">Yes</button>
+          <button id="treeNo">No</button>
+          <button id="treeReset">Reset</button>
+        </div>
+      </section>
+
+      <section class="interaction">
+        <h3>10</h3>
+        <h2>Source check drawer</h2>
+        <div class="mini-grid" id="sourceGrid"></div>
+      </section>
+
+      <section class="interaction large">
+        <h3>11</h3>
+        <h2>Prompt delegation builder</h2>
+        <div class="mini-grid" id="promptParts"></div>
+        <div class="panel" id="promptOutput"></div>
+      </section>
+
+      <section class="interaction large">
+        <h3>12</h3>
+        <h2>Bad prompt repair</h2>
+        <div class="panel" id="repairPrompt">Summarize this contract.</div>
+        <div class="controls" id="repairControls"></div>
+      </section>
+
+      <section class="interaction">
+        <h3>13</h3>
+        <h2>Context meter</h2>
+        <textarea id="contextInput">Paste a vendor agreement section here and watch the context window fill.</textarea>
+        <div class="meter"><span id="contextFill"></span></div>
+        <p class="status" id="contextStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>14</h3>
+        <h2>Confidence and verification</h2>
+        <input id="confidenceRange" type="range" min="1" max="4" value="2">
+        <div class="panel route-box" id="confidencePanel"></div>
+      </section>
+
+      <section class="interaction">
+        <h3>15</h3>
+        <h2>Data sensitivity sorter</h2>
+        <div class="mini-grid" id="dataGrid"></div>
+        <button id="checkData">Check data</button>
+        <p class="status" id="dataStatus"></p>
+      </section>
+
+      <section class="interaction large">
+        <h3>16</h3>
+        <h2>Privilege risk spotter</h2>
+        <div class="panel">
+          Outside counsel asks whether a draft litigation strategy can be tested in an AI tool before the partner call.
+        </div>
+        <div class="chips" id="riskSpots"></div>
+      </section>
+
+      <section class="interaction large">
+        <h3>17</h3>
+        <h2>Hallucination review bench</h2>
+        <div class="mini-grid" id="reviewGrid"></div>
+        <button id="checkReview">Check support</button>
+        <p class="status" id="reviewStatus"></p>
+      </section>
+
+      <section class="interaction large">
+        <h3>18</h3>
+        <h2>Workflow sequencer</h2>
+        <ol class="sequence" id="sequenceList"></ol>
+        <button id="checkSequence">Check order</button>
+        <p class="status" id="sequenceStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>19</h3>
+        <h2>Governance control picker</h2>
+        <select id="controlUseCase">
+          <option value="public">Public marketing summary</option>
+          <option value="contract">Client contract review</option>
+          <option value="litigation">Litigation strategy draft</option>
+        </select>
+        <div class="mini-grid" id="controlGrid"></div>
+        <button id="checkControls">Check controls</button>
+        <p class="status" id="controlStatus"></p>
+      </section>
+
+      <section class="interaction">
+        <h3>20</h3>
+        <h2>Athena event trigger</h2>
+        <div class="athena-demo">
+          <label class="checkbox-row"><input type="checkbox" id="athenaLab"> Lab complete</label>
+          <label class="checkbox-row"><input type="checkbox" id="athenaQuiz"> Quiz complete</label>
+          <button id="athenaTrigger">Trigger event</button>
+          <div class="athena-card" id="athenaCard">
+            <strong>Athena</strong>
+            <span id="athenaLine"></span>
+            <small id="athenaState"></small>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const layers = {
+      model: {
+        label: "Model",
+        text: "The engine that predicts language. It is not the legal product by itself."
+      },
+      tool: {
+        label: "Tool",
+        text: "The interface that packages the model for a task, such as drafting or review."
+      },
+      workflow: {
+        label: "Workflow",
+        text: "The operating path around the tool: intake, prompts, review, escalation, and delivery."
+      },
+      governance: {
+        label: "Governance",
+        text: "The controls that decide who may use the workflow, on what data, with what record."
+      }
+    };
+
+    const layerKeys = Object.keys(layers);
+
+    function setStatus(node, text, good) {
+      node.textContent = text;
+      node.classList.remove("good", "bad");
+      if (good === true) node.classList.add("good");
+      if (good === false) node.classList.add("bad");
+    }
+
+    function optionsHtml(selected) {
+      return layerKeys.map(key => `<option value="${key}" ${selected === key ? "selected" : ""}>${layers[key].label}</option>`).join("");
+    }
+
+    function scoreItems(items, root) {
+      let score = 0;
+      items.forEach(item => {
+        const card = root.querySelector(`[data-id="${item.id}"]`);
+        const guess = card.querySelector("select").value;
+        const ok = guess === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      return score;
+    }
+
+    const stackButtons = document.getElementById("stackButtons");
+    const stackPanel = document.getElementById("stackPanel");
+    layerKeys.forEach((key, index) => {
+      const button = document.createElement("button");
+      button.textContent = `${index + 1}. ${layers[key].label}`;
+      button.addEventListener("click", () => showLayer(key));
+      stackButtons.appendChild(button);
+    });
+
+    function showLayer(key) {
+      stackButtons.querySelectorAll("button").forEach(button => {
+        button.classList.toggle("active", button.textContent.includes(layers[key].label));
+      });
+      stackPanel.innerHTML = `<strong>${layers[key].label}</strong><p>${layers[key].text}</p>`;
+    }
+    showLayer("model");
+
+    const classifierItems = [
+      { id: "c1", text: "A GPT family engine predicts the next useful words.", answer: "model" },
+      { id: "c2", text: "A contract review product highlights unusual indemnity language.", answer: "tool" },
+      { id: "c3", text: "A team requires human review before client delivery.", answer: "workflow" },
+      { id: "c4", text: "A policy bars privileged facts from consumer tools.", answer: "governance" }
+    ];
+
+    const classifierGrid = document.getElementById("classifierGrid");
+    classifierGrid.innerHTML = classifierItems.map(item => `
+      <div class="mini-card" data-id="${item.id}">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <select>${optionsHtml("")}</select>
+      </div>
+    `).join("");
+
+    document.getElementById("checkClassifier").addEventListener("click", () => {
+      const score = scoreItems(classifierItems, classifierGrid);
+      setStatus(document.getElementById("classifierStatus"), `${score} of ${classifierItems.length} placed correctly.`, score === classifierItems.length);
+    });
+
+    const mythItems = [
+      { id: "m1", text: "A legal AI tool is the same thing as the model behind it.", answer: "myth" },
+      { id: "m2", text: "A workflow can make the same tool safer or riskier.", answer: "true" },
+      { id: "m3", text: "Governance only matters after a tool causes a problem.", answer: "myth" },
+      { id: "m4", text: "A model may help, but the legal process still owns delivery.", answer: "true" }
+    ];
+    const mythChoices = ["true", "myth", "depends"];
+    const mythGrid = document.getElementById("mythGrid");
+    mythGrid.innerHTML = mythItems.map(item => `
+      <div class="mini-card" data-id="${item.id}" data-choice="depends">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <button>Depends</button>
+      </div>
+    `).join("");
+    mythGrid.querySelectorAll(".mini-card button").forEach(button => {
+      button.addEventListener("click", event => {
+        const card = event.target.closest(".mini-card");
+        const next = mythChoices[(mythChoices.indexOf(card.dataset.choice) + 1) % mythChoices.length];
+        card.dataset.choice = next;
+        button.textContent = next[0].toUpperCase() + next.slice(1);
+        card.classList.remove("good", "bad");
+        card.querySelector(".mark").textContent = "";
+      });
+    });
+    document.getElementById("checkMyths").addEventListener("click", () => {
+      let score = 0;
+      mythItems.forEach(item => {
+        const card = mythGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.dataset.choice === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      setStatus(document.getElementById("mythStatus"), `${score} of ${mythItems.length} sorted correctly.`, score === mythItems.length);
+    });
+
+    const vendorItems = [
+      { id: "v1", text: "Our system uses a frontier language model.", answer: "model" },
+      { id: "v2", text: "Associates submit a request through a matter intake screen.", answer: "workflow" },
+      { id: "v3", text: "The product inserts a redline into a contract review view.", answer: "tool" },
+      { id: "v4", text: "Admins can restrict use by practice group and matter type.", answer: "governance" }
+    ];
+    const vendorGrid = document.getElementById("vendorGrid");
+    vendorGrid.innerHTML = vendorItems.map(item => `
+      <div class="mini-card" data-id="${item.id}" data-choice="">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <div class="controls">${layerKeys.map(key => `<button data-choice="${key}">${layers[key].label}</button>`).join("")}</div>
+      </div>
+    `).join("");
+    vendorGrid.querySelectorAll("button").forEach(button => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".mini-card");
+        card.dataset.choice = button.dataset.choice;
+        card.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === button));
+        card.classList.remove("good", "bad");
+        card.querySelector(".mark").textContent = "";
+      });
+    });
+    document.getElementById("checkVendor").addEventListener("click", () => {
+      let score = 0;
+      vendorItems.forEach(item => {
+        const card = vendorGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.dataset.choice === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      setStatus(document.getElementById("vendorStatus"), `${score} of ${vendorItems.length} claims diagnosed.`, score === vendorItems.length);
+    });
+
+    const missingControls = document.getElementById("missingControls");
+    layerKeys.forEach(key => {
+      const button = document.createElement("button");
+      button.textContent = layers[key].label;
+      button.addEventListener("click", () => {
+        missingControls.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === button));
+        const ok = key === "workflow";
+        setStatus(document.getElementById("missingStatus"), ok ? "Workflow is the missing layer." : "Not the first failure. The tool exists, but the operating path does not.", ok);
+      });
+      missingControls.appendChild(button);
+    });
+
+    const lensCopy = {
+      firm: "<strong>Firm</strong><p>The question is practice group adoption, partner confidence, review standards, and consistency across deal teams.</p>",
+      inhouse: "<strong>In-house</strong><p>The question is risk appetite, data controls, vendor terms, business intake, and repeatable legal service delivery.</p>"
+    };
+    const lensPanel = document.getElementById("lensPanel");
+    document.querySelectorAll("[data-lens]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-lens]").forEach(b => b.classList.toggle("active", b === button));
+        lensPanel.innerHTML = lensCopy[button.dataset.lens];
+      });
+    });
+    lensPanel.innerHTML = lensCopy.firm;
+
+    const ownerItems = [
+      { id: "o1", text: "Approve acceptable use policy", answer: "GC" },
+      { id: "o2", text: "Configure access controls", answer: "IT" },
+      { id: "o3", text: "Review final legal work product", answer: "Lawyer" },
+      { id: "o4", text: "Maintain prompt template library", answer: "Innovation" }
+    ];
+    const owners = ["Lawyer", "Vendor", "IT", "Innovation", "GC", "Partner"];
+    const ownerGrid = document.getElementById("ownerGrid");
+    ownerGrid.innerHTML = ownerItems.map(item => `
+      <div class="mini-card" data-id="${item.id}">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <select>${owners.map(owner => `<option value="${owner}">${owner}</option>`).join("")}</select>
+      </div>
+    `).join("");
+    document.getElementById("checkOwners").addEventListener("click", () => {
+      let score = 0;
+      ownerItems.forEach(item => {
+        const card = ownerGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.querySelector("select").value === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      setStatus(document.getElementById("ownerStatus"), `${score} of ${ownerItems.length} owners matched.`, score === ownerItems.length);
+    });
+
+    const riskLevels = [
+      { label: "Public low risk", controls: "Use normal review. No client data. Keep a copy of the final prompt." },
+      { label: "Internal work", controls: "Use enterprise terms, access limits, and human review." },
+      { label: "Client material", controls: "Add matter approval, source grounding, audit trail, and privilege screen." },
+      { label: "Litigation strategy", controls: "Escalate. Use only approved tools, narrow facts, and senior legal review." }
+    ];
+    function updateRisk() {
+      const value = Number(document.getElementById("riskRange").value);
+      document.getElementById("riskFill").style.width = `${value * 25}%`;
+      const level = riskLevels[value - 1];
+      document.getElementById("riskPanel").innerHTML = `<strong>${level.label}</strong><p>${level.controls}</p>`;
+    }
+    document.getElementById("riskRange").addEventListener("input", updateRisk);
+    updateRisk();
+
+    const treeSteps = [
+      { q: "Does the task contain client confidential facts?", yes: 1, no: 2 },
+      { q: "Is the tool approved for that data?", yes: 2, no: "Do not use AI." },
+      { q: "Will a lawyer verify the output before use?", yes: "Constrained use.", no: "Do not use AI." }
+    ];
+    let treeIndex = 0;
+    function renderTree(result) {
+      const panel = document.getElementById("treePanel");
+      if (result) {
+        panel.innerHTML = `<strong>${result}</strong><p>The route depends on data, tool approval, and lawyer review.</p>`;
+        return;
+      }
+      panel.innerHTML = `<strong>Question ${treeIndex + 1}</strong><p>${treeSteps[treeIndex].q}</p>`;
+    }
+    function answerTree(branch) {
+      const next = treeSteps[treeIndex][branch];
+      if (typeof next === "number") {
+        treeIndex = next;
+        renderTree();
+      } else {
+        renderTree(next);
+      }
+    }
+    document.getElementById("treeYes").addEventListener("click", () => answerTree("yes"));
+    document.getElementById("treeNo").addEventListener("click", () => answerTree("no"));
+    document.getElementById("treeReset").addEventListener("click", () => { treeIndex = 0; renderTree(); });
+    renderTree();
+
+    const sourceItems = [
+      { text: "Vendor says it does not train on customer data.", source: "Vendor terms and product docs" },
+      { text: "A bar opinion permits supervised AI use.", source: "The actual opinion text" },
+      { text: "A court requires AI disclosure.", source: "Court order or local rule" },
+      { text: "A model has a context limit.", source: "Provider documentation" }
+    ];
+    const sourceGrid = document.getElementById("sourceGrid");
+    sourceGrid.innerHTML = sourceItems.map((item, index) => `
+      <div class="mini-card">
+        <strong>${item.text}</strong>
+        <button data-source="${index}">Show source type</button>
+        <p class="status"></p>
+      </div>
+    `).join("");
+    sourceGrid.querySelectorAll("button").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = sourceItems[button.dataset.source];
+        button.nextElementSibling.textContent = item.source;
+      });
+    });
+
+    const promptParts = [
+      { id: "task", label: "Task", text: "Analyze this vendor clause for confidentiality risk." },
+      { id: "facts", label: "Facts", text: "Use only the pasted clause and the company policy excerpt." },
+      { id: "constraints", label: "Constraints", text: "Do not invent missing contract terms." },
+      { id: "format", label: "Format", text: "Return a three-row risk table." },
+      { id: "review", label: "Review standard", text: "Flag every point that requires lawyer verification." }
+    ];
+    const promptPartsNode = document.getElementById("promptParts");
+    promptPartsNode.innerHTML = promptParts.map(part => `
+      <label class="mini-card"><input type="checkbox" value="${part.id}"> <strong>${part.label}</strong><p>${part.text}</p></label>
+    `).join("");
+    function updatePrompt() {
+      const selected = [...promptPartsNode.querySelectorAll("input:checked")].map(input => input.value);
+      const lines = promptParts.filter(part => selected.includes(part.id)).map(part => `${part.label}: ${part.text}`);
+      document.getElementById("promptOutput").innerHTML = lines.length ? lines.join("<br>") : "Select prompt parts.";
+    }
+    promptPartsNode.addEventListener("change", updatePrompt);
+    updatePrompt();
+
+    const repairs = [
+      "Task: Identify the contract issue, not just summarize.",
+      "Facts: Use only the pasted contract text.",
+      "Constraints: Do not add law that is not supplied.",
+      "Format: Return issue, risk, and lawyer check.",
+      "Review: Mark uncertainty explicitly."
+    ];
+    const repairControls = document.getElementById("repairControls");
+    repairs.forEach(text => {
+      const button = document.createElement("button");
+      button.textContent = text.split(":")[0];
+      button.addEventListener("click", () => {
+        if (!document.getElementById("repairPrompt").textContent.includes(text)) {
+          document.getElementById("repairPrompt").innerHTML += `<br>${text}`;
+        }
+        button.classList.add("active");
+      });
+      repairControls.appendChild(button);
+    });
+
+    function updateContext() {
+      const words = document.getElementById("contextInput").value.trim().split(/\s+/).filter(Boolean).length;
+      const tokens = Math.ceil(words * 1.3);
+      const pct = Math.min(100, Math.round((tokens / 240) * 100));
+      document.getElementById("contextFill").style.width = `${pct}%`;
+      document.getElementById("contextStatus").textContent = `${tokens} estimated tokens. Demo window: 240 tokens.`;
+    }
+    document.getElementById("contextInput").addEventListener("input", updateContext);
+    updateContext();
+
+    const confidenceCopy = [
+      "Low confidence: verify facts, sources, and legal fit.",
+      "Moderate confidence: still verify sources and reasoning.",
+      "High confidence: polish improved, verification still required.",
+      "Very high confidence: strongest risk of over-trust. Check every material claim."
+    ];
+    function updateConfidence() {
+      const index = Number(document.getElementById("confidenceRange").value) - 1;
+      document.getElementById("confidencePanel").innerHTML = `<strong>Verification burden</strong><p>${confidenceCopy[index]}</p>`;
+    }
+    document.getElementById("confidenceRange").addEventListener("input", updateConfidence);
+    updateConfidence();
+
+    const dataItems = [
+      { id: "d1", text: "Public press release", answer: "consumer" },
+      { id: "d2", text: "Unsigned vendor NDA", answer: "enterprise" },
+      { id: "d3", text: "Named client litigation theory", answer: "none" },
+      { id: "d4", text: "Internal policy excerpt", answer: "enterprise" }
+    ];
+    const dataChoices = ["consumer", "enterprise", "none"];
+    const dataLabels = { consumer: "Consumer OK", enterprise: "Enterprise only", none: "No AI" };
+    const dataGrid = document.getElementById("dataGrid");
+    dataGrid.innerHTML = dataItems.map(item => `
+      <div class="mini-card" data-id="${item.id}" data-choice="consumer">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <button>${dataLabels.consumer}</button>
+      </div>
+    `).join("");
+    dataGrid.querySelectorAll("button").forEach(button => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".mini-card");
+        const next = dataChoices[(dataChoices.indexOf(card.dataset.choice) + 1) % dataChoices.length];
+        card.dataset.choice = next;
+        button.textContent = dataLabels[next];
+        card.classList.remove("good", "bad");
+        card.querySelector(".mark").textContent = "";
+      });
+    });
+    document.getElementById("checkData").addEventListener("click", () => {
+      let score = 0;
+      dataItems.forEach(item => {
+        const card = dataGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.dataset.choice === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      setStatus(document.getElementById("dataStatus"), `${score} of ${dataItems.length} classified.`, score === dataItems.length);
+    });
+
+    const riskSpotItems = [
+      { text: "draft litigation strategy", risk: true },
+      { text: "client name", risk: true },
+      { text: "public docket number", risk: false },
+      { text: "partner mental impression", risk: true },
+      { text: "generic writing cleanup", risk: false }
+    ];
+    const riskSpots = document.getElementById("riskSpots");
+    riskSpots.innerHTML = riskSpotItems.map((item, index) => `<span class="spot" data-risk="${item.risk}" data-index="${index}">${item.text}</span>`).join("");
+    riskSpots.querySelectorAll(".spot").forEach(spot => {
+      spot.addEventListener("click", () => {
+        spot.classList.toggle(spot.dataset.risk === "true" ? "bad" : "good");
+      });
+    });
+
+    const reviewItems = [
+      { id: "r1", text: "The source says enterprise terms can change data handling.", answer: "supported" },
+      { id: "r2", text: "The source guarantees all legal outputs are correct.", answer: "unsupported" },
+      { id: "r3", text: "The source requires lawyers to supervise AI output.", answer: "supported" },
+      { id: "r4", text: "The source says public AI tools are always safe for client facts.", answer: "unsupported" }
+    ];
+    const reviewGrid = document.getElementById("reviewGrid");
+    reviewGrid.innerHTML = reviewItems.map(item => `
+      <div class="mini-card" data-id="${item.id}" data-choice="">
+        <strong><span class="mark"></span>${item.text}</strong>
+        <div class="controls">
+          <button data-choice="supported">Supported</button>
+          <button data-choice="unsupported">Unsupported</button>
+        </div>
+      </div>
+    `).join("");
+    reviewGrid.querySelectorAll("button").forEach(button => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".mini-card");
+        card.dataset.choice = button.dataset.choice;
+        card.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === button));
+        card.classList.remove("good", "bad");
+        card.querySelector(".mark").textContent = "";
+      });
+    });
+    document.getElementById("checkReview").addEventListener("click", () => {
+      let score = 0;
+      reviewItems.forEach(item => {
+        const card = reviewGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.dataset.choice === item.answer;
+        card.classList.toggle("good", ok);
+        card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "OK" : "X";
+        if (ok) score += 1;
+      });
+      setStatus(document.getElementById("reviewStatus"), `${score} of ${reviewItems.length} support calls correct.`, score === reviewItems.length);
+    });
+
+    const correctSequence = ["Intake", "Tool use", "Source check", "Lawyer review", "Final delivery"];
+    let sequence = ["Tool use", "Intake", "Lawyer review", "Final delivery", "Source check"];
+    const sequenceList = document.getElementById("sequenceList");
+    function renderSequence() {
+      sequenceList.innerHTML = sequence.map((step, index) => `
+        <li>
+          <span>${step}</span>
+          <button data-dir="up" data-index="${index}">Up</button>
+          <button data-dir="down" data-index="${index}">Down</button>
+        </li>
+      `).join("");
+    }
+    sequenceList.addEventListener("click", event => {
+      if (!event.target.matches("button")) return;
+      const index = Number(event.target.dataset.index);
+      const swap = event.target.dataset.dir === "up" ? index - 1 : index + 1;
+      if (swap < 0 || swap >= sequence.length) return;
+      [sequence[index], sequence[swap]] = [sequence[swap], sequence[index]];
+      renderSequence();
+    });
+    document.getElementById("checkSequence").addEventListener("click", () => {
+      const ok = sequence.every((step, index) => step === correctSequence[index]);
+      setStatus(document.getElementById("sequenceStatus"), ok ? "Clean workflow." : "Order still breaks review discipline.", ok);
+    });
+    renderSequence();
+
+    const controlsByUse = {
+      public: ["Human review"],
+      contract: ["Enterprise terms", "Human review", "Source grounding", "Audit trail"],
+      litigation: ["Enterprise terms", "Human review", "Source grounding", "Audit trail", "Matter approval"]
+    };
+    const allControls = ["Enterprise terms", "Human review", "Source grounding", "Audit trail", "Matter approval"];
+    const controlGrid = document.getElementById("controlGrid");
+    controlGrid.innerHTML = allControls.map(control => `
+      <label class="mini-card"><input type="checkbox" value="${control}"> <strong>${control}</strong></label>
+    `).join("");
+    document.getElementById("checkControls").addEventListener("click", () => {
+      const useCase = document.getElementById("controlUseCase").value;
+      const required = controlsByUse[useCase];
+      const selected = [...controlGrid.querySelectorAll("input:checked")].map(input => input.value);
+      const ok = required.every(control => selected.includes(control)) && selected.every(control => required.includes(control));
+      setStatus(document.getElementById("controlStatus"), ok ? "Controls fit the use case." : `Required: ${required.join(", ")}.`, ok);
+    });
+
+    document.getElementById("athenaTrigger").addEventListener("click", () => {
+      const lab = document.getElementById("athenaLab").checked;
+      const quiz = document.getElementById("athenaQuiz").checked;
+      const card = document.getElementById("athenaCard");
+      const line = document.getElementById("athenaLine");
+      const state = document.getElementById("athenaState");
+      card.classList.remove("visible");
+      void card.offsetWidth;
+      if (lab && quiz) {
+        line.textContent = "Module closed. Clean.";
+        state.textContent = "Approve";
+      } else {
+        line.textContent = "One required piece is still open.";
+        state.textContent = "Nudge";
+      }
+      card.classList.add("visible");
+    });
+  </script>
+  <script src="/js/bedazzler-analytics.js"></script>
+</body>
+</html>

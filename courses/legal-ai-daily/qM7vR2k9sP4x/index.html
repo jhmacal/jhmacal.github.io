@@ -15,67 +15,55 @@
       --ink-soft: #4a5066;
       --hair: #e2ddd0;
       --navy: #1c2742;
+      --navy-soft: #2c3a5e;
       --gold: #b89a58;
-      --brass: #b89a58;
+      --gold-bright: #c9a961;
       --white: #ffffff;
+      --cream: #f0e6d2;
       --right: #2e7d4f;
       --right-bg: #e6f3ea;
       --wrong: #c0392b;
       --wrong-bg: #fbeae8;
       --blue-1: #eef3f6;
-      --blue-2: #cad8e7;
       --blue-3: #7f9dc6;
-      --scene-wash: #f3f0e8;
-      --shadow: 0 22px 60px rgba(21, 25, 42, 0.12);
-      --athena-navy: #101a30;
-      --athena-raise: #16223c;
-      --athena-ink: #eef1f8;
-      --athena-soft: #9aa3bb;
-      --athena-line: rgba(184, 154, 88, 0.22);
+      --shadow: 0 18px 46px rgba(21, 25, 42, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       background:
-        linear-gradient(90deg, rgba(226, 221, 208, 0.44) 1px, transparent 1px) 0 0 / 82px 82px,
+        linear-gradient(90deg, rgba(226, 221, 208, 0.4) 1px, transparent 1px) 0 0 / 82px 82px,
         var(--paper);
       color: var(--ink);
       font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
+      line-height: 1.58;
     }
 
     main {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1080px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 34px 0 150px;
+      padding: 34px 0 160px;
     }
 
-    header {
-      display: grid;
-      gap: 18px;
-      border-bottom: 1px solid var(--hair);
-      padding-bottom: 24px;
-      margin-bottom: 28px;
+    /* ---------- Typography & labels ---------- */
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
     }
+    h1 { max-width: 14ch; font-size: clamp(2.9rem, 6.5vw, 5.6rem); line-height: 0.95; }
+    h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.02; }
+    h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.12; }
 
-    .topline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-    }
+    p { margin: 0; color: var(--ink-soft); font-size: 1.04rem; }
 
-    .course-label,
     .eyebrow,
+    .course-label,
     .section-label,
     .small-label {
       color: var(--navy);
@@ -84,87 +72,13 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
+    .course-label { border-left: 3px solid var(--navy); padding-left: 10px; }
+    .eyebrow { display: block; margin-bottom: 12px; color: var(--gold); }
 
-    .course-label {
-      border-left: 3px solid var(--navy);
-      padding-left: 10px;
-    }
+    section { margin: 30px 0; }
+    .lede { max-width: 60ch; font-size: 1.18rem; color: var(--ink); }
 
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      color: var(--navy);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-weight: 600;
-      letter-spacing: 0;
-    }
-
-    h1 {
-      max-width: 840px;
-      font-size: clamp(3.1rem, 7vw, 6.6rem);
-      line-height: 0.94;
-    }
-
-    h2 {
-      font-size: clamp(2.1rem, 4vw, 3.7rem);
-      line-height: 1;
-    }
-
-    h3 {
-      font-size: clamp(1.42rem, 2vw, 1.95rem);
-      line-height: 1.08;
-    }
-
-    p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 1.03rem;
-    }
-
-    .lede {
-      max-width: 760px;
-    }
-
-    .premise-drawer {
-      max-width: 840px;
-      border-left: 3px solid var(--hair);
-      padding-left: 14px;
-    }
-
-    .premise-drawer summary {
-      width: fit-content;
-      color: var(--navy);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      list-style: none;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .premise-drawer summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .premise-drawer summary::after {
-      content: "+";
-      display: inline-block;
-      margin-left: 8px;
-      color: var(--blue-3);
-      font-weight: 900;
-    }
-
-    .premise-drawer[open] summary::after {
-      content: "x";
-    }
-
-    .premise-drawer p {
-      margin-top: 10px;
-      max-width: 760px;
-      font-size: 0.98rem;
-    }
-
+    /* ---------- Buttons ---------- */
     button {
       min-height: 40px;
       border: 1.5px solid var(--hair);
@@ -173,1281 +87,374 @@
       color: var(--ink);
       font: inherit;
       font-size: 0.92rem;
-      font-weight: 800;
+      font-weight: 700;
       padding: 8px 15px;
       cursor: pointer;
       transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
     }
-
-    button:hover,
-    button:focus-visible {
+    button:hover, button:focus-visible {
       border-color: var(--navy);
       transform: translateY(-1px);
       outline: none;
     }
-
-    button[aria-pressed="true"],
-    button.primary {
+    button[aria-pressed="true"], button.active, button.primary {
       border-color: var(--navy);
       background: var(--navy);
       color: var(--white);
     }
+    button.ghost { background: transparent; }
 
-    section {
-      margin: 28px 0;
+    select {
+      font: inherit;
+      width: 100%;
+      border: 1px solid var(--hair);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 9px 11px;
     }
 
-    .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .intro-copy {
+    /* ---------- Header ---------- */
+    header {
       display: grid;
       gap: 18px;
+      border-bottom: 1px solid var(--hair);
+      padding-bottom: 26px;
+      margin-bottom: 30px;
     }
-
-    .situation-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .scene-reader {
-      display: grid;
-      gap: 14px;
-      border: 1px solid var(--hair);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 16px;
-    }
-
-    .scene-tabs,
-    .core-tabs,
-    .why-tabs,
-    .binder-tabs {
+    .topline {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
     }
-
-    .scene-tabs button,
-    .core-tabs button,
-    .why-tabs button,
-    .binder-tabs button {
-      min-height: 34px;
-      border-radius: 7px;
-      padding: 7px 11px;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .scene-tabs button[aria-pressed="true"],
-    .core-tabs button[aria-pressed="true"],
-    .why-tabs button[aria-pressed="true"],
-    .binder-tabs button[aria-pressed="true"] {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .scene-board {
-      position: relative;
-      min-height: 250px;
-      overflow: hidden;
-      border: 1px solid var(--hair);
-      border-radius: 7px;
-      background:
-        linear-gradient(90deg, rgba(226, 221, 208, 0.38) 1px, transparent 1px) 0 0 / 42px 42px,
-        linear-gradient(180deg, #fffdf8 0%, #eef3f6 100%);
-    }
-
-    .scene-board::before {
-      content: "";
-      position: absolute;
-      left: 26px;
-      right: 26px;
-      bottom: 26px;
-      height: 1px;
-      background: rgba(127, 157, 198, 0.52);
-    }
-
-    .scene-board::after {
-      content: "";
-      position: absolute;
-      right: 34px;
-      top: 34px;
-      width: 70px;
-      height: 52px;
-      border: 1px solid rgba(127, 157, 198, 0.42);
-      border-radius: 6px;
-      background:
-        linear-gradient(#dce6f4 0 0) 12px 15px / 44px 5px no-repeat,
-        linear-gradient(#dce6f4 0 0) 12px 27px / 34px 5px no-repeat,
-        rgba(255, 255, 255, 0.76);
-      opacity: 0.8;
-    }
-
-    .scene-artifact {
-      position: absolute;
-      border: 1px solid rgba(127, 157, 198, 0.44);
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 16px 36px rgba(21, 25, 42, 0.1);
-      color: var(--ink);
-      padding: 14px;
-      transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .scene-artifact::before,
-    .why-node::before,
-    .binder-node::before {
-      content: "";
-      display: block;
-      width: 26px;
-      height: 26px;
-      margin-bottom: 10px;
-      border: 1px solid rgba(127, 157, 198, 0.56);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 50% 50%, var(--blue-3) 0 3px, transparent 4px),
-        linear-gradient(var(--blue-3) 0 0) 50% 6px / 2px 16px no-repeat,
-        #f8fafc;
-    }
-
-    .scene-artifact.client::before {
-      border-radius: 7px;
-      background:
-        linear-gradient(var(--blue-3) 0 0) 7px 8px / 13px 3px no-repeat,
-        linear-gradient(#dce6f4 0 0) 7px 15px / 15px 3px no-repeat,
-        #f8fafc;
-    }
-
-    .scene-artifact.platform::before {
-      border-radius: 7px;
-      background:
-        radial-gradient(circle at 8px 9px, var(--blue-3) 0 3px, transparent 4px),
-        radial-gradient(circle at 17px 17px, var(--blue-3) 0 3px, transparent 4px),
-        linear-gradient(var(--blue-3) 0 0) 10px 10px / 9px 2px no-repeat,
-        #f8fafc;
-    }
-
-    .scene-artifact strong,
-    .why-visual strong,
-    .binder-visual strong {
-      display: block;
+    .premise-drawer { max-width: 80ch; border-left: 3px solid var(--hair); padding-left: 14px; }
+    .premise-drawer summary {
+      width: fit-content;
       color: var(--navy);
-      font-size: 0.73rem;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .scene-artifact p,
-    .why-visual p,
-    .binder-visual p {
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-      font-weight: 700;
-      line-height: 1.36;
-    }
-
-    .scene-artifact.meeting {
-      left: 34px;
-      top: 28px;
-      width: 230px;
-    }
-
-    .scene-artifact.client {
-      left: 214px;
-      top: 86px;
-      width: 252px;
-    }
-
-    .scene-artifact.platform {
-      right: 34px;
-      top: 42px;
-      width: 226px;
-    }
-
-    .scene-board[data-active="meeting"] .scene-artifact:not(.meeting),
-    .scene-board[data-active="client"] .scene-artifact:not(.client),
-    .scene-board[data-active="platform"] .scene-artifact:not(.platform) {
-      opacity: 0.34;
-      filter: grayscale(0.3);
-      transform: translateY(8px) scale(0.97);
-    }
-
-    .scene-copy {
-      display: grid;
-      gap: 8px;
-      border-left: 4px solid var(--navy);
-      padding-left: 14px;
-    }
-
-    .scene-copy p:first-child {
-      color: var(--ink);
+      font-size: 0.72rem;
       font-weight: 800;
-    }
-
-    .situation-beat {
-      display: grid;
-      gap: 6px;
-      border: 1px solid var(--hair);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.76);
-      padding: 14px;
-    }
-
-    .situation-beat strong,
-    .stack-index strong {
-      color: var(--navy);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.13em;
+      list-style: none;
       text-transform: uppercase;
+      cursor: pointer;
     }
+    .premise-drawer summary::-webkit-details-marker { display: none; }
+    .premise-drawer summary::after { content: " +"; color: var(--gold); font-weight: 900; }
+    .premise-drawer[open] summary::after { content: " \2013"; }
+    .premise-drawer p { margin-top: 10px; max-width: 78ch; font-size: 0.99rem; }
 
-    .situation-beat span {
-      color: var(--ink-soft);
-      font-size: 0.96rem;
-      font-weight: 700;
-      line-height: 1.35;
+    /* ---------- .define glossary tooltip ---------- */
+    .define {
+      position: relative;
+      border-bottom: 1px dotted rgba(184, 154, 88, 0.85);
+      color: var(--navy);
+      font-weight: 600;
+      cursor: help;
     }
+    .define::after {
+      content: attr(data-def);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%) translateY(4px);
+      width: max-content;
+      max-width: 280px;
+      background: var(--navy);
+      color: var(--cream);
+      border: 1px solid rgba(201, 169, 97, 0.45);
+      border-radius: 7px;
+      padding: 0.6rem 0.78rem;
+      font-family: "Source Sans 3", sans-serif;
+      font-weight: 500;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      text-align: left;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 20;
+    }
+    .define:hover::after,
+    .define:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .define:focus-visible { outline: none; }
 
-    .quiet-card,
-    .panel,
-    .lab,
-    .scenario,
-    .quiz-card,
-    .completion {
+    /* ---------- Generic cards ---------- */
+    .card {
       border: 1px solid var(--hair);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.92);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.94);
       box-shadow: 0 1px 0 rgba(21, 25, 42, 0.04);
     }
+    .pad { padding: 24px; }
+    .accent { border-left: 4px solid var(--navy); }
 
-    .quiet-card {
-      display: grid;
-      gap: 14px;
-      border-left: 4px solid var(--navy);
-      padding: 22px;
+    /* ---------- Tab reader (Monday scene) ---------- */
+    .scene { display: grid; gap: 16px; }
+    .tabrow { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tabrow button {
+      min-height: 36px;
+      border-radius: 8px;
+      padding: 8px 13px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
     }
-
-    .quiet-card strong,
-    .panel strong {
-      color: var(--ink);
-      font-weight: 800;
-    }
-
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .panel {
+    .scene-panel {
       display: grid;
       gap: 12px;
-      padding: 18px;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      background: #fbfaf6;
+      padding: 22px;
+      transition: opacity 0.18s ease, transform 0.18s ease;
     }
-
-    .panel .num {
-      color: var(--navy);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.55rem;
-      line-height: 0.9;
-    }
-
-    .panel h3 {
-      font-size: clamp(1.2rem, 1.5vw, 1.46rem);
-      line-height: 1.12;
-    }
-
-    .panel p {
-      font-size: 0.96rem;
-      line-height: 1.48;
-    }
-
-    .stack-index {
-      display: grid;
-      gap: 10px;
-    }
-
-    .stack-index div {
-      display: grid;
-      gap: 2px;
-      border-top: 1px solid var(--hair);
-      padding-top: 10px;
-    }
-
-    .stack-index span {
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      line-height: 1.35;
-    }
-
-    .core-body,
-    .why-copy,
-    .binder-copy {
-      display: grid;
+    .scene-panel.is-changing { opacity: 0; transform: translateY(6px); }
+    .scene-panel .moment { color: var(--ink); font-weight: 700; font-size: 1.12rem; }
+    .scene-tag {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
-      border-top: 1px solid var(--hair);
-      padding-top: 12px;
-    }
-
-    .core-body h3,
-    .why-copy h3,
-    .binder-copy h3 {
-      font-size: 1.32rem;
-    }
-
-    .why-interactive,
-    .binder-lab {
-      display: grid;
-      gap: 16px;
       border: 1px solid var(--hair);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 20px;
-    }
-
-    .why-stage,
-    .binder-stage {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.52fr);
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .why-visual,
-    .binder-visual {
-      position: relative;
-      min-height: 280px;
-      overflow: hidden;
-      border: 1px solid var(--hair);
-      border-radius: 7px;
-      background:
-        linear-gradient(90deg, rgba(226, 221, 208, 0.38) 1px, transparent 1px) 0 0 / 44px 44px,
-        linear-gradient(180deg, #fffdf8 0%, #eef3f6 100%);
-    }
-
-    .why-visual::before,
-    .binder-visual::before {
-      content: "";
-      position: absolute;
-      inset: 26px;
-      border: 1px solid rgba(127, 157, 198, 0.24);
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.38);
-    }
-
-    .why-connector,
-    .binder-connector {
-      position: absolute;
-      z-index: 1;
-      height: 3px;
       border-radius: 999px;
-      background: rgba(127, 157, 198, 0.76);
-      transform-origin: left center;
-      transition: opacity 0.24s ease, transform 0.24s ease;
+      background: var(--white);
+      padding: 5px 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
     }
+    .scene-tag b { color: var(--gold); }
 
-    .why-connector.one {
-      left: 212px;
-      top: 105px;
-      width: 102px;
-      transform: rotate(20deg);
-    }
-
-    .why-connector.two {
-      left: 402px;
-      top: 119px;
-      width: 114px;
-      transform: rotate(-20deg);
-    }
-
-    .binder-connector.one {
-      left: 168px;
-      top: 108px;
-      width: 72px;
-      transform: rotate(12deg);
-    }
-
-    .binder-connector.two {
-      left: 206px;
-      top: 180px;
-      width: 92px;
-      transform: rotate(-18deg);
-    }
-
-    .binder-connector.three {
-      left: 330px;
-      top: 154px;
-      width: 88px;
-      transform: rotate(-10deg);
-    }
-
-    .why-node,
-    .binder-node {
-      position: absolute;
-      z-index: 2;
-      display: grid;
-      gap: 5px;
-      border: 1px solid rgba(127, 157, 198, 0.44);
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 14px 34px rgba(21, 25, 42, 0.09);
-      padding: 13px;
-      transition: opacity 0.24s ease, transform 0.24s ease, border-color 0.24s ease;
-    }
-
-    .why-node[data-node="tool"]::before,
-    .binder-node[data-node="vendor"]::before {
-      border-radius: 7px;
-      background:
-        linear-gradient(var(--navy) 0 0) 0 0 / 100% 7px no-repeat,
-        linear-gradient(#dce6f4 0 0) 7px 13px / 13px 3px no-repeat,
-        linear-gradient(#dce6f4 0 0) 7px 20px / 17px 3px no-repeat,
-        #f8fafc;
-    }
-
-    .why-node[data-node="governance"]::before,
-    .binder-node[data-node="logs"]::before {
-      background:
-        linear-gradient(var(--blue-3) 0 0) 7px 18px / 12px 3px no-repeat,
-        linear-gradient(var(--blue-3) 0 0) 10px 8px / 6px 12px no-repeat,
-        #f8fafc;
-    }
-
-    .binder-node[data-node="policy"]::before {
-      border-radius: 5px;
-      background:
-        linear-gradient(var(--blue-3) 0 0) 8px 8px / 11px 3px no-repeat,
-        linear-gradient(#dce6f4 0 0) 8px 15px / 14px 3px no-repeat,
-        linear-gradient(#dce6f4 0 0) 8px 22px / 9px 3px no-repeat,
-        #f8fafc;
-    }
-
-    .binder-node[data-node="review"]::before {
-      background:
-        radial-gradient(circle at 13px 10px, var(--blue-3) 0 5px, transparent 6px),
-        linear-gradient(var(--blue-3) 0 0) 8px 18px / 12px 4px no-repeat,
-        #f8fafc;
-    }
-
-    .why-node[data-node="model"] {
-      left: 34px;
-      top: 42px;
-      width: 190px;
-    }
-
-    .why-node[data-node="tool"] {
-      left: 220px;
-      top: 118px;
-      width: 220px;
-    }
-
-    .why-node[data-node="governance"] {
-      right: 36px;
-      top: 48px;
-      width: 210px;
-    }
-
-    .why-visual[data-active="model"] .why-node:not([data-node="model"]),
-    .why-visual[data-active="tool"] .why-node:not([data-node="tool"]),
-    .why-visual[data-active="governance"] .why-node:not([data-node="governance"]) {
-      opacity: 0.3;
-      transform: translateY(8px) scale(0.97);
-    }
-
-    .why-visual[data-active="model"] .why-node[data-node="model"],
-    .why-visual[data-active="tool"] .why-node[data-node="tool"],
-    .why-visual[data-active="governance"] .why-node[data-node="governance"] {
-      border-color: var(--navy);
-      transform: translateY(-2px);
-    }
-
-    .binder-node[data-node="policy"] { left: 34px; top: 42px; width: 160px; }
-    .binder-node[data-node="vendor"] { left: 210px; top: 74px; width: 170px; }
-    .binder-node[data-node="review"] { left: 130px; top: 174px; width: 190px; }
-    .binder-node[data-node="logs"] { right: 36px; top: 92px; width: 174px; }
-
-    .binder-visual[data-active="day"] .binder-node:not([data-node="policy"]),
-    .binder-visual[data-active="firm"] .binder-node:not([data-node="vendor"]),
-    .binder-visual[data-active="house"] .binder-node:not([data-node="review"]) {
-      opacity: 0.34;
-      transform: translateY(8px) scale(0.97);
-    }
-
+    /* ---------- Stack revealer (four layers) ---------- */
     .stack-lab {
       display: grid;
-      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
-      gap: 18px;
-      padding: 22px;
+      grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1fr);
+      gap: 20px;
     }
-
-    .stack-buttons {
+    .stack { display: grid; gap: 9px; align-content: start; }
+    .stack-btn {
       display: grid;
-      gap: 10px;
-    }
-
-    .layer-button {
-      display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 30px 1fr;
       gap: 12px;
       align-items: center;
       width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
       text-align: left;
-      padding: 14px;
+      padding: 14px 15px;
     }
-
-    .layer-index {
+    .stack-btn .idx {
       display: grid;
       place-items: center;
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 50%;
       background: var(--paper);
       color: var(--navy);
       font-size: 0.78rem;
       font-weight: 800;
     }
-
-    .layer-button[aria-pressed="true"] .layer-index {
-      background: rgba(255,255,255,0.18);
-      color: var(--white);
-    }
+    .stack-btn[aria-pressed="true"] .idx { background: rgba(255,255,255,0.2); color: var(--white); }
+    .stack-btn .lbl { font-weight: 700; }
+    .stack-btn .sub { display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); }
+    .stack-btn[aria-pressed="true"] .sub { color: rgba(255,255,255,0.72); }
 
     .layer-panel {
       display: grid;
-      gap: 18px;
+      gap: 14px;
+      align-content: start;
       border-left: 4px solid var(--navy);
-      border-radius: 6px;
+      border-radius: 8px;
       background: var(--white);
-      padding: 24px;
-      min-height: 286px;
+      padding: 26px;
+      min-height: 260px;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-
-    .layer-panel.is-changing {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-
-    .stack-visual {
+    .layer-panel.is-changing { opacity: 0; transform: translateY(6px); }
+    .layer-panel .role { color: var(--ink); font-weight: 600; font-size: 1.08rem; }
+    .layer-panel .why { font-size: 1rem; }
+    .bars { display: grid; gap: 7px; margin-top: 4px; }
+    .bar-row {
       display: grid;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .stack-row {
-      display: grid;
-      grid-template-columns: 112px 1fr;
+      grid-template-columns: 104px 1fr;
       gap: 12px;
       align-items: center;
-      color: var(--ink-soft);
-      font-size: 0.92rem;
+      font-size: 0.84rem;
       font-weight: 700;
+      color: var(--ink-soft);
     }
-
-    .stack-bar {
-      height: 18px;
-      border: 1px solid var(--hair);
-      border-radius: 999px;
-      background: var(--paper);
-      overflow: hidden;
-    }
-
-    .stack-fill {
-      display: block;
-      height: 100%;
-      width: var(--w);
+    .bar { height: 16px; border: 1px solid var(--hair); border-radius: 999px; background: var(--paper); overflow: hidden; }
+    .bar span {
+      display: block; height: 100%; width: var(--w, 0%);
       background: var(--navy);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.28s ease;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
     }
+    .bar-row.on span { transform: scaleX(1); }
+    .bar-row.on { color: var(--navy); }
 
-    .stack-row.active .stack-fill {
-      transform: scaleX(1);
-    }
-
-    .myth-lab {
-      padding: 22px;
-    }
-
-    .myth-grid {
+    /* ---------- Mini-grid interactables (classifier / autopsy / myth) ---------- */
+    .lab-head { display: grid; gap: 8px; margin-bottom: 16px; }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .mini-card {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .myth-card {
-      display: grid;
-      gap: 13px;
-      border: 1px solid var(--hair);
-      border-radius: 6px;
-      background: var(--white);
-      padding: 16px;
-    }
-
-    .myth-card p {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .choice-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .myth-feedback {
-      min-height: 46px;
-      border-left: 3px solid var(--hair);
-      padding-left: 10px;
-      color: var(--ink-soft);
-      font-size: 0.92rem;
-    }
-
-    .myth-card.correct {
-      border-color: var(--right);
-      background: var(--right-bg);
-    }
-
-    .myth-card.incorrect {
-      border-color: var(--wrong);
-      background: var(--wrong-bg);
-    }
-
-    .scenario {
-      overflow: hidden;
-    }
-
-    .scenario-brief {
-      display: grid;
-      gap: 10px;
-      padding: 22px 22px 0;
-    }
-
-    .scenario-brief p {
-      max-width: 920px;
-    }
-
-    .scenario-stage {
-      position: relative;
-      min-height: 720px;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(226, 221, 208, 0.34) 1px, transparent 1px) 0 0 / 72px 72px,
-        linear-gradient(180deg, #fbfaf6 0%, #eef3f6 100%);
-    }
-
-    .scenario-stage svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .case-scene {
-      position: absolute;
-      left: 50%;
-      top: 40px;
-      width: min(900px, calc(100% - 46px));
-      height: 448px;
-      transform: translateX(-50%);
-    }
-
-    .case-surface {
-      position: absolute;
-      inset: 18px 0 0;
+      gap: 11px;
+      align-content: start;
       border: 1px solid var(--hair);
       border-radius: 8px;
-      background:
-        linear-gradient(90deg, rgba(202, 216, 231, 0.22) 1px, transparent 1px) 0 0 / 52px 52px,
-        rgba(255, 255, 255, 0.7);
-      box-shadow: 0 18px 46px rgba(21, 25, 42, 0.1);
-    }
-
-    .case-title {
-      position: absolute;
-      left: 22px;
-      top: 0;
-      z-index: 4;
-      display: inline-grid;
-      border: 1px solid var(--hair);
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--navy);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      padding: 8px 12px;
-      text-transform: uppercase;
-    }
-
-    .case-card,
-    .case-doc,
-    .case-tool,
-    .case-review,
-    .case-log {
-      position: absolute;
-      z-index: 2;
-      border: 1px solid rgba(127, 157, 198, 0.46);
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 14px 34px rgba(21, 25, 42, 0.12);
-      color: var(--ink);
-    }
-
-    .case-card {
-      left: 46px;
-      top: 74px;
-      width: 230px;
-      padding: 16px;
-    }
-
-    .case-doc {
-      left: 92px;
-      top: 204px;
-      width: 190px;
-      height: 212px;
-      padding: 18px;
-    }
-
-    .case-tool {
-      left: 342px;
-      top: 96px;
-      width: 306px;
-      height: 230px;
-      overflow: hidden;
-    }
-
-    .case-review {
-      left: 354px;
-      top: 352px;
-      width: 278px;
-      padding: 16px;
-    }
-
-    .case-log {
-      right: 44px;
-      top: 156px;
-      width: 220px;
-      height: 252px;
-      padding: 18px;
-    }
-
-    .case-card strong,
-    .case-doc strong,
-    .case-tool strong,
-    .case-review strong,
-    .case-log strong {
-      display: block;
-      color: var(--navy);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .case-card p,
-    .case-review p,
-    .case-log p {
-      color: var(--ink-soft);
-      font-size: 0.94rem;
-      font-weight: 700;
-      line-height: 1.34;
-    }
-
-    .case-meta {
-      display: grid;
-      gap: 7px;
-      margin-top: 12px;
-    }
-
-    .case-meta span,
-    .tool-field,
-    .log-row {
-      border: 1px solid var(--hair);
-      border-radius: 5px;
       background: #fbfaf6;
-      color: var(--ink-soft);
-      font-size: 0.76rem;
-      font-weight: 800;
-      padding: 7px 8px;
+      padding: 15px;
     }
-
-    .doc-lines {
-      display: grid;
-      gap: 9px;
-      margin-top: 14px;
+    .mini-card .q { color: var(--ink); font-weight: 700; font-size: 0.98rem; }
+    .mini-card .row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .mini-card .row button { min-height: 34px; padding: 6px 12px; font-size: 0.82rem; }
+    .mark {
+      display: inline-grid; place-items: center;
+      width: 20px; height: 20px; margin-right: 8px;
+      border: 1.5px solid var(--hair); border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: transparent; vertical-align: middle;
     }
+    .mini-card.good { background: var(--right-bg); border-color: var(--right); }
+    .mini-card.good .mark { border-color: var(--right); background: var(--right); color: var(--white); }
+    .mini-card.bad { background: var(--wrong-bg); border-color: var(--wrong); }
+    .mini-card.bad .mark { border-color: var(--wrong); background: var(--wrong); color: var(--white); }
+    .lab-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 16px; }
+    .status { min-height: 22px; font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); }
+    .status.good { color: var(--right); }
+    .status.bad { color: var(--wrong); }
 
-    .doc-lines span {
-      display: block;
-      height: 7px;
-      border-radius: 999px;
-      background: #dce6f4;
-    }
-
-    .doc-lines span:nth-child(2) {
-      width: 78%;
-    }
-
-    .doc-lines span:nth-child(3) {
-      width: 62%;
-    }
-
-    .tool-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--hair);
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      padding: 12px 14px;
-      text-transform: uppercase;
-    }
-
-    .tool-dots {
-      display: flex;
-      gap: 5px;
-    }
-
-    .tool-dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.68);
-    }
-
-    .tool-body {
-      display: grid;
-      gap: 10px;
-      padding: 16px;
-    }
-
-    .model-task {
-      display: grid;
-      gap: 7px;
-      border-left: 3px solid var(--blue-3);
-      background: #eef3f6;
-      color: var(--navy);
-      font-size: 0.92rem;
-      font-weight: 900;
-      line-height: 1.25;
-      padding: 12px;
-    }
-
-    .model-task small {
-      color: var(--ink-soft);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .log-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .case-line {
-      position: absolute;
-      z-index: 1;
-      background: var(--blue-3);
-      opacity: 0.9;
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.9s ease;
-    }
-
-    .case-line.horizontal {
-      height: 3px;
-    }
-
-    .case-line.vertical {
-      width: 3px;
-      transform: scaleY(0);
-      transform-origin: top center;
-    }
-
-    .case-line-boundary {
-      left: 276px;
-      top: 156px;
-      width: 66px;
-    }
-
-    .case-line-tool {
-      left: 282px;
-      top: 292px;
-      width: 60px;
-    }
-
-    .case-line-workflow {
-      left: 496px;
-      top: 326px;
-      height: 26px;
-    }
-
-    .case-line-review {
-      left: 632px;
-      top: 378px;
-      width: 64px;
-    }
-
-    .case-governance {
-      position: absolute;
-      inset: 46px 26px 22px;
-      z-index: 3;
-      border: 2px solid rgba(28, 39, 66, 0.86);
-      border-radius: 10px;
-      pointer-events: none;
-    }
-
-    .case-governance-tags {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      top: -14px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .case-governance-tags span {
-      border-radius: 999px;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.64rem;
-      font-weight: 900;
-      letter-spacing: 0.09em;
-      padding: 6px 9px;
-      text-transform: uppercase;
-    }
-
-    .scenario-stage[data-phase="2"] .case-line-boundary,
-    .scenario-stage[data-phase="3"] .case-line-boundary,
-    .scenario-stage[data-phase="4"] .case-line-boundary,
-    .scenario-stage[data-phase="5"] .case-line-boundary,
-    .scenario-stage[data-phase="6"] .case-line-boundary,
-    .scenario-stage[data-phase="3"] .case-line-tool,
-    .scenario-stage[data-phase="4"] .case-line-tool,
-    .scenario-stage[data-phase="5"] .case-line-tool,
-    .scenario-stage[data-phase="6"] .case-line-tool,
-    .scenario-stage[data-phase="5"] .case-line-review,
-    .scenario-stage[data-phase="6"] .case-line-review {
-      transform: scaleX(1);
-    }
-
-    .scenario-stage[data-phase="4"] .case-line-workflow,
-    .scenario-stage[data-phase="5"] .case-line-workflow,
-    .scenario-stage[data-phase="6"] .case-line-workflow {
-      transform: scaleY(1);
-    }
-
-    .scenario-controls {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      border-top: 1px solid var(--hair);
-      background: rgba(255, 255, 255, 0.92);
-      padding: 14px 18px;
-    }
-
-    .scene-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .beat-status {
-      color: var(--ink-soft);
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .scene-progress {
+    /* ---------- Step-through flow (Applied scenario) ---------- */
+    .flow-wrap { display: grid; gap: 16px; }
+    .flow {
       position: relative;
-      flex: 1;
-      min-width: 180px;
-      height: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+      background:
+        linear-gradient(90deg, rgba(226,221,208,0.34) 1px, transparent 1px) 0 0 / 46px 46px,
+        linear-gradient(180deg, #fffdf8 0%, #eef3f6 100%);
+      padding: 20px;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .flow.is-complete { border: 2px solid var(--navy); box-shadow: 0 22px 50px rgba(21,25,42,0.14); }
+    .flow-tags {
+      flex-basis: 100%;
+      display: none;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 4px;
+    }
+    .flow.is-complete .flow-tags { display: flex; }
+    .flow-tags .et { color: var(--gold); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; align-self: center; margin-right: 4px; }
+    .flow-tags span.tag {
       border-radius: 999px;
-      background: var(--hair);
-      overflow: hidden;
-    }
-
-    .scene-progress span {
-      display: block;
-      width: var(--progress, 0%);
-      height: 100%;
-      border-radius: inherit;
       background: var(--navy);
-      transition: width 0.42s ease;
+      color: var(--white);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      padding: 5px 10px;
+      text-transform: uppercase;
     }
-
-    .flow-caption {
-      position: absolute;
-      left: 50%;
-      bottom: 30px;
+    .flow-node {
+      flex: 1 1 116px;
+      min-width: 116px;
       display: grid;
       gap: 6px;
-      width: min(700px, calc(100% - 40px));
-      border: 1px solid rgba(28, 39, 66, 0.16);
+      align-content: start;
+      border: 1px solid var(--hair);
+      border-radius: 9px;
+      background: var(--white);
+      padding: 13px;
+      opacity: 0.32;
+      transform: translateY(6px);
+      transition: opacity 0.34s ease, transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
+    }
+    .flow-node.on { opacity: 1; transform: none; border-color: var(--blue-3); box-shadow: 0 10px 24px rgba(21,25,42,0.08); }
+    .flow-node.current { border-color: var(--navy); box-shadow: 0 14px 30px rgba(21,25,42,0.16); }
+    .flow-node .step-no {
+      display: inline-grid; place-items: center;
+      width: 22px; height: 22px;
+      border: 1px solid var(--blue-3); border-radius: 50%;
+      font-size: 0.7rem; font-weight: 800; color: var(--navy);
+    }
+    .flow-node.current .step-no { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .flow-node strong { color: var(--navy); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .flow-node p { font-size: 0.82rem; font-weight: 600; line-height: 1.34; }
+
+    .flow-caption {
+      display: grid;
+      gap: 7px;
       border-left: 4px solid var(--navy);
-      border-radius: 6px;
-      background: rgba(255,255,255,0.97);
-      box-shadow: var(--shadow);
-      padding: 16px 18px;
-      transform: translateX(-50%);
-      transition: opacity 0.24s ease, transform 0.24s ease;
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(21,25,42,0.04);
+      padding: 18px 20px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
+    .flow-caption.is-changing { opacity: 0; transform: translateY(6px); }
+    .flow-caption strong { color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+    .flow-caption span { color: var(--navy); font-size: clamp(1.05rem, 1.7vw, 1.32rem); font-weight: 700; line-height: 1.25; }
+    .flow-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .progress { position: relative; flex: 1; min-width: 150px; height: 6px; border-radius: 999px; background: var(--hair); overflow: hidden; }
+    .progress span { display: block; width: var(--p, 0%); height: 100%; background: var(--navy); transition: width 0.4s ease; }
+    .beat-count { font-size: 0.86rem; font-weight: 700; color: var(--ink-soft); min-width: 88px; }
 
-    .flow-caption.is-swapping {
-      opacity: 0;
-      transform: translateX(-50%) translateY(8px);
-    }
+    /* ---------- Sources drawer ---------- */
+    .src-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+    .src-card { display: grid; gap: 10px; align-content: start; border: 1px solid var(--hair); border-radius: 8px; background: #fbfaf6; padding: 15px; }
+    .src-card strong { color: var(--navy); font-size: 0.96rem; font-weight: 700; }
+    .src-card .src-detail { font-size: 0.88rem; color: var(--ink-soft); }
+    .src-card a { color: var(--navy); font-weight: 700; font-size: 0.84rem; text-decoration: none; border-bottom: 1px solid var(--gold); width: fit-content; }
 
-    .flow-caption strong {
-      color: var(--ink-soft);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .flow-caption span {
-      color: var(--navy);
-      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-      font-weight: 800;
-      line-height: 1.18;
-    }
-
-    .scene-object {
-      transform-box: fill-box;
-      transform-origin: center;
-      transition: opacity 0.46s ease, transform 0.46s ease, stroke-dashoffset 0.52s ease;
-    }
-
-    .scene-object[data-show] {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-
-    .scene-line {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-    }
-
-    .scenario-stage[data-phase="1"] [data-show~="1"],
-    .scenario-stage[data-phase="2"] [data-show~="1"],
-    .scenario-stage[data-phase="2"] [data-show~="2"],
-    .scenario-stage[data-phase="3"] [data-show~="1"],
-    .scenario-stage[data-phase="3"] [data-show~="2"],
-    .scenario-stage[data-phase="3"] [data-show~="3"],
-    .scenario-stage[data-phase="4"] [data-show~="1"],
-    .scenario-stage[data-phase="4"] [data-show~="2"],
-    .scenario-stage[data-phase="4"] [data-show~="3"],
-    .scenario-stage[data-phase="4"] [data-show~="4"],
-    .scenario-stage[data-phase="5"] [data-show~="1"],
-    .scenario-stage[data-phase="5"] [data-show~="2"],
-    .scenario-stage[data-phase="5"] [data-show~="3"],
-    .scenario-stage[data-phase="5"] [data-show~="4"],
-    .scenario-stage[data-phase="5"] [data-show~="5"],
-    .scenario-stage[data-phase="6"] [data-show] {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .scenario-stage[data-phase="2"] .line-boundary,
-    .scenario-stage[data-phase="3"] .line-boundary,
-    .scenario-stage[data-phase="4"] .line-boundary,
-    .scenario-stage[data-phase="5"] .line-boundary,
-    .scenario-stage[data-phase="6"] .line-boundary,
-    .scenario-stage[data-phase="3"] .line-tool,
-    .scenario-stage[data-phase="4"] .line-tool,
-    .scenario-stage[data-phase="5"] .line-tool,
-    .scenario-stage[data-phase="6"] .line-tool,
-    .scenario-stage[data-phase="4"] .line-workflow,
-    .scenario-stage[data-phase="5"] .line-workflow,
-    .scenario-stage[data-phase="6"] .line-workflow,
-    .scenario-stage[data-phase="5"] .line-review,
-    .scenario-stage[data-phase="6"] .line-review,
-    .scenario-stage[data-phase="6"] .line-record {
-      stroke-dashoffset: 0;
-    }
-
-    .model-pulse {
-      opacity: 0;
-      transform-origin: center;
-    }
-
-    .scenario-stage[data-phase="3"] .model-pulse,
-    .scenario-stage[data-phase="4"] .model-pulse,
-    .scenario-stage[data-phase="5"] .model-pulse,
-    .scenario-stage[data-phase="6"] .model-pulse {
-      opacity: 1;
-      animation: modelPulse 1.4s ease-in-out infinite;
-    }
-
-    .governance-frame {
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center;
-      transform: scale(0.98);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .scenario-stage[data-phase="6"] .governance-frame {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .scenario-stage[data-phase="6"] .case-card,
-    .scenario-stage[data-phase="6"] .case-doc,
-    .scenario-stage[data-phase="6"] .case-tool,
-    .scenario-stage[data-phase="6"] .case-review,
-    .scenario-stage[data-phase="6"] .case-line {
-      opacity: 0.38;
-    }
-
-    .scenario-stage[data-phase="6"] .case-log {
-      opacity: 1;
-      transform: translateY(0) scale(1.02);
-    }
-
-    @keyframes modelPulse {
-      0%, 100% {
-        transform: scale(0.94);
-        opacity: 0.46;
-      }
-      50% {
-        transform: scale(1.08);
-        opacity: 0.9;
-      }
-    }
-
-    .quiz {
-      display: grid;
-      gap: 18px;
-    }
-
-    .quiz-card {
-      display: grid;
-      gap: 16px;
-      padding: 22px;
-    }
-
-    .quiz-card h3 {
-      font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 1.12rem;
-      font-weight: 800;
-      line-height: 1.25;
-    }
-
-    .options {
-      display: grid;
-      gap: 10px;
-    }
-
+    /* ---------- Quiz ---------- */
+    .quiz { display: grid; gap: 16px; }
+    .quiz-card { display: grid; gap: 15px; }
+    .quiz-card .q { color: var(--ink); font-weight: 700; font-size: 1.08rem; line-height: 1.32; }
+    .options { display: grid; gap: 10px; }
     .option {
       display: grid;
-      grid-template-columns: 28px 1fr;
+      grid-template-columns: 26px 1fr;
       gap: 12px;
       align-items: start;
       width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
       text-align: left;
-      padding: 13px;
+      padding: 13px 14px;
+      font-weight: 600;
     }
-
-    .marker {
-      display: grid;
-      place-items: center;
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid var(--hair);
-      border-radius: 50%;
-      color: transparent;
-      font-size: 0.82rem;
-      font-weight: 900;
-      line-height: 1;
-      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+    .option .marker {
+      display: grid; place-items: center;
+      width: 22px; height: 22px;
+      border: 1.5px solid var(--hair); border-radius: 50%;
+      font-size: 0.78rem; font-weight: 900; color: transparent; line-height: 1;
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
     }
+    .option.correct { border-color: var(--right); background: var(--right-bg); }
+    .option.correct .marker { border-color: var(--right); background: var(--right); color: var(--white); }
+    .option.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+    .option.wrong .marker { border-color: var(--wrong); background: var(--wrong); color: var(--white); }
+    .quiz-feedback { min-height: 20px; border-left: 3px solid var(--hair); padding-left: 12px; color: var(--ink-soft); font-size: 0.94rem; font-weight: 600; }
 
-    .option.correct {
-      border-color: var(--right);
-      background: var(--right-bg);
-    }
+    /* ---------- Completion ---------- */
+    .completion { display: grid; gap: 12px; }
+    .completion[hidden] { display: none; }
 
-    .option.correct .marker {
-      border-color: var(--right);
-      background: var(--right);
-      color: var(--white);
-      transform: scale(1.04);
-    }
-
-    .option.wrong {
-      border-color: var(--wrong);
-      background: var(--wrong-bg);
-    }
-
-    .option.wrong .marker {
-      border-color: var(--wrong);
-      background: var(--wrong);
-      color: var(--white);
-      transform: scale(1.04);
-    }
-
-    .quiz-feedback {
-      min-height: 42px;
-      border-left: 3px solid var(--hair);
-      padding-left: 12px;
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-    }
-
-    .completion {
-      display: grid;
-      gap: 12px;
-      border-left: 4px solid var(--navy);
-      padding: 24px;
-      margin-top: 28px;
-    }
-
-    .completion[hidden] {
-      display: none;
-    }
-
-    .line {
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
+    /* ---------- Athena ---------- */
     .athena {
       position: fixed;
       right: 24px;
-      bottom: 88px;
-      z-index: 30;
+      bottom: 24px;
+      z-index: 40;
       display: grid;
-      grid-template-columns: minmax(210px, 280px) 84px;
+      grid-template-columns: minmax(210px, 290px) 82px;
       gap: 10px;
       align-items: end;
       opacity: 0;
@@ -1455,358 +462,72 @@
       transform: translateY(12px);
       transition: opacity 0.34s ease, transform 0.34s ease;
     }
-
-    .athena.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
+    .athena.visible { opacity: 1; pointer-events: auto; transform: none; }
     .athena-card {
       position: relative;
-      border: 1px solid rgba(181, 106, 66, 0.24);
-      border-left: 4px solid #b66a42;
-      border-radius: 8px 8px 4px 8px;
+      border: 1px solid rgba(184, 154, 88, 0.3);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px 10px 4px 10px;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 18px 46px rgba(21, 25, 42, 0.18);
+      box-shadow: var(--shadow);
       color: var(--ink);
       padding: 15px 18px;
     }
-
-    .athena-card strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--navy);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 0.98rem;
-      font-weight: 600;
-    }
-
-    .athena-card p {
-      color: var(--ink-soft);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 0.98rem;
-      line-height: 1.32;
-    }
-
-    .athena-state {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--navy);
-      font-size: 0.66rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
+    .athena-card .athena-state { display: block; margin-bottom: 4px; color: var(--gold); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+    .athena-card strong { display: block; color: var(--navy); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; font-weight: 600; }
+    .athena-card p { margin-top: 4px; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.36; }
     .athena-dismiss {
-      position: absolute;
-      right: 8px;
-      top: 6px;
-      min-height: 26px;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      color: var(--ink-soft);
-      padding: 0 5px;
-      font-size: 1.2rem;
-      line-height: 1;
+      position: absolute; right: 7px; top: 6px;
+      min-height: 24px; border: 0; border-radius: 0;
+      background: transparent; color: var(--ink-soft);
+      padding: 0 5px; font-size: 1.1rem; line-height: 1; font-weight: 700;
     }
-
-    .athena-dismiss:hover,
-    .athena-dismiss:focus-visible {
-      color: var(--navy);
-      transform: none;
-    }
-
+    .athena-dismiss:hover, .athena-dismiss:focus-visible { color: var(--navy); transform: none; }
     .athena-portrait {
-      width: 84px;
-      height: 84px;
-      border: 1px solid rgba(181, 106, 66, 0.24);
+      width: 82px; height: 82px;
+      border: 1px solid rgba(184, 154, 88, 0.3);
       border-radius: 50%;
       background: #f4efe4;
-      box-shadow: 0 10px 28px rgba(21, 25, 42, 0.16);
+      box-shadow: 0 10px 28px rgba(21,25,42,0.16);
       object-fit: cover;
     }
-
     .athena-inline {
       display: grid;
-      grid-template-columns: 72px 1fr;
+      grid-template-columns: 70px 1fr;
       gap: 14px;
       align-items: center;
-      max-width: 560px;
-      margin: 18px 0 0 auto;
-      border: 1px solid rgba(181, 106, 66, 0.24);
-      border-left: 4px solid #b66a42;
-      border-radius: 8px;
+      max-width: 620px;
+      border: 1px solid rgba(184, 154, 88, 0.3);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 18px 46px rgba(21, 25, 42, 0.12);
-      color: var(--ink);
-      padding: 14px;
+      box-shadow: var(--shadow);
+      padding: 15px;
     }
+    .athena-inline[hidden] { display: none; }
+    .athena-inline img { width: 70px; height: 70px; border-radius: 50%; background: #f4efe4; border: 1px solid rgba(184,154,88,0.3); object-fit: cover; }
+    .athena-inline .athena-state { display: block; color: var(--gold); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+    .athena-inline strong { display: block; color: var(--navy); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; font-weight: 600; }
+    .athena-inline p { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.36; }
 
-    .athena-inline[hidden] {
-      display: none;
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .stack-lab { grid-template-columns: 1fr; }
+      .mini-grid, .src-grid { grid-template-columns: 1fr; }
     }
-
-    .athena-inline img {
-      width: 72px;
-      height: 72px;
-      border: 1px solid rgba(181, 106, 66, 0.24);
-      border-radius: 50%;
-      background: #f4efe4;
-      object-fit: cover;
+    @media (max-width: 600px) {
+      main { width: min(100% - 24px, 620px); padding-bottom: 150px; }
+      .topline { flex-direction: column; align-items: flex-start; }
+      .flow-node { flex-basis: 100%; }
+      .athena { right: 14px; bottom: 14px; left: 14px; grid-template-columns: 1fr 64px; }
+      .athena-portrait { width: 64px; height: 64px; }
+      .define::after { max-width: min(260px, calc(100vw - 2rem)); }
     }
-
-    .athena-inline strong {
-      display: block;
-      color: var(--navy);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.06rem;
-      font-weight: 600;
-    }
-
-    .athena-inline p {
-      color: var(--ink-soft);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1rem;
-      line-height: 1.32;
-    }
-
-    .athena-scene-inline {
-      margin: 14px 18px 18px auto;
-    }
-
-    @media (max-width: 900px) {
-      .intro,
-      .stack-lab {
-        grid-template-columns: 1fr;
-      }
-
-      .lesson-grid,
-      .myth-grid,
-      .situation-strip {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      main {
-        width: min(100% - 24px, 620px);
-        padding-top: 22px;
-        padding-bottom: 150px;
-      }
-
-      .topline,
-      header,
-      .scene-bar,
-      .scenario-controls {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .scenario-stage {
-        min-height: 760px;
-      }
-
-      .scene-board {
-        min-height: 340px;
-      }
-
-      .scene-artifact.meeting {
-        left: 18px;
-        top: 24px;
-        width: 210px;
-      }
-
-      .scene-artifact.client {
-        left: 74px;
-        top: 122px;
-        width: 230px;
-      }
-
-      .scene-artifact.platform {
-        right: 18px;
-        top: 224px;
-        width: 214px;
-      }
-
-      .why-stage,
-      .binder-stage {
-        grid-template-columns: 1fr;
-      }
-
-      .why-visual,
-      .binder-visual {
-        min-height: 360px;
-      }
-
-      .why-node[data-node="model"] {
-        left: 18px;
-        top: 28px;
-        width: 180px;
-      }
-
-      .why-node[data-node="tool"] {
-        left: 92px;
-        top: 132px;
-        width: 212px;
-      }
-
-      .why-node[data-node="governance"] {
-        right: 18px;
-        top: 250px;
-        width: 206px;
-      }
-
-      .binder-node[data-node="policy"] {
-        left: 18px;
-        top: 34px;
-      }
-
-      .binder-node[data-node="vendor"] {
-        right: 18px;
-        left: auto;
-        top: 82px;
-      }
-
-      .binder-node[data-node="review"] {
-        left: 46px;
-        top: 184px;
-      }
-
-      .binder-node[data-node="logs"] {
-        right: 18px;
-        top: 264px;
-      }
-
-      .why-connector.one {
-        left: 132px;
-        top: 108px;
-        width: 82px;
-        transform: rotate(58deg);
-      }
-
-      .why-connector.two {
-        left: 190px;
-        top: 220px;
-        width: 74px;
-        transform: rotate(42deg);
-      }
-
-      .binder-connector.one {
-        left: 148px;
-        top: 94px;
-        width: 80px;
-        transform: rotate(6deg);
-      }
-
-      .binder-connector.two {
-        left: 94px;
-        top: 164px;
-        width: 72px;
-        transform: rotate(68deg);
-      }
-
-      .binder-connector.three {
-        left: 210px;
-        top: 246px;
-        width: 76px;
-        transform: rotate(28deg);
-      }
-
-      .case-scene {
-        top: 58px;
-        left: 50%;
-        width: 620px;
-        height: 448px;
-        transform: translateX(-50%) scale(0.58);
-        transform-origin: top center;
-      }
-
-      .case-card {
-        left: 34px;
-        width: 218px;
-      }
-
-      .case-doc {
-        left: 74px;
-        width: 186px;
-      }
-
-      .case-tool {
-        left: 292px;
-        width: 248px;
-      }
-
-      .case-review {
-        left: 300px;
-        width: 218px;
-      }
-
-      .case-log {
-        right: 28px;
-        width: 188px;
-      }
-
-      .case-line-boundary {
-        left: 252px;
-        width: 40px;
-      }
-
-      .case-line-tool {
-        left: 260px;
-        width: 32px;
-      }
-
-      .case-line-workflow {
-        left: 414px;
-      }
-
-      .case-line-review {
-        left: 518px;
-        width: 30px;
-      }
-
-      .flow-caption {
-        bottom: 18px;
-      }
-
-      .athena {
-        right: 14px;
-        bottom: 78px;
-        grid-template-columns: minmax(0, 1fr) 62px;
-        max-width: calc(100% - 28px);
-      }
-
-      .athena-portrait {
-        width: 62px;
-        height: 62px;
-      }
-
-      .athena-card p {
-        font-size: 0.9rem;
-      }
-
-      .athena-inline {
-        grid-template-columns: 56px 1fr;
-        max-width: 100%;
-      }
-
-      .athena-inline img {
-        width: 56px;
-        height: 56px;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -1819,939 +540,584 @@
         <span class="section-label">Lesson 1</span>
       </div>
       <h1>Legal AI Is Not One Thing</h1>
-      <p class="lede">The first lawyer move is to name which layer is actually moving.</p>
+      <p class="lede">When the room says &ldquo;AI,&rdquo; the first lawyer move is to name which layer is actually moving.</p>
       <details class="premise-drawer">
         <summary>Full premise</summary>
         <p>Inside a legal workplace, AI rarely arrives as a single thing. It arrives as a vendor update, a client request, a practice-group experiment, a workflow proposal, a new button inside a platform everyone already uses, and eventually as an evidence problem, because someone will need to show what legal allowed, what data moved, who reviewed the output, and what survived the decision.</p>
       </details>
     </header>
 
-    <section class="intro" id="situation">
-      <div class="intro-copy">
-        <span class="eyebrow">The Situation</span>
-        <h2>AI can mean many things.</h2>
-        <div class="scene-reader">
-          <div class="scene-tabs" aria-label="Situation moments">
-            <button type="button" data-situation="meeting" aria-pressed="true">Practice meeting</button>
-            <button type="button" data-situation="client" aria-pressed="false">Client call</button>
-            <button type="button" data-situation="platform" aria-pressed="false">Platform note</button>
-          </div>
-          <div class="scene-board" id="situationBoard" data-active="meeting">
-            <div class="scene-artifact meeting">
-              <strong>Practice meeting</strong>
-              <p>An adjacent group is piloting AI for contract review.</p>
-            </div>
-            <div class="scene-artifact client">
-              <strong>Client call</strong>
-              <p>Legal is asked to summarize a hundred-page policy with AI.</p>
-            </div>
-            <div class="scene-artifact platform">
-              <strong>Platform note</strong>
-              <p>The vendor announces a legal reasoning engine.</p>
-            </div>
-          </div>
-          <div class="scene-copy" aria-live="polite">
-            <p id="situationPrimary">Monday afternoon, the practice meeting is already running long when a junior associate mentions that the adjacent group is piloting AI for contract review.</p>
-            <p id="situationSecondary">That moment concerns the operating question behind the model: what system generates the language, what task has it been asked to perform, and where does legal judgment return?</p>
-          </div>
+    <!-- 1. The Monday scene -->
+    <section id="situation">
+      <span class="eyebrow">The Situation</span>
+      <div class="scene">
+        <div class="tabrow" id="sceneTabs" aria-label="Monday afternoon, three moments">
+          <button type="button" data-scene="meeting" aria-pressed="true">Practice meeting</button>
+          <button type="button" data-scene="client" aria-pressed="false">Client call</button>
+          <button type="button" data-scene="platform" aria-pressed="false">Platform note</button>
         </div>
+        <div class="scene-panel" id="scenePanel" aria-live="polite">
+          <p class="moment" id="sceneMoment"></p>
+          <p id="sceneDetail"></p>
+          <span class="scene-tag">Layer in motion: <b id="sceneLayer"></b></span>
+        </div>
+        <p style="max-width:74ch;">Each moment shares the same word and points to a different operating question. One is about the <span class="define" data-def="The engine that predicts and generates language. Powerful, but only one layer of the arrangement.">model</span>, one about the <span class="define" data-def="The interface that packages the model for a task: a chat window, review panel, intake form, or document analyzer.">tool</span> and the <span class="define" data-def="The operating path around the tool: intake, prompts, who sees output, where it is stored, when it escalates, and whether it can leave the team.">workflow</span>, and one about the <span class="define" data-def="The permission and evidence structure: data rules, review duties, vendor limits, logging, accountability, and proof.">governance</span> record.</p>
       </div>
-      <aside class="quiet-card">
-        <span class="small-label">Core Concept</span>
-        <div class="core-tabs" aria-label="Core concept layers">
-          <button type="button" data-core="model" aria-pressed="true">Model</button>
-          <button type="button" data-core="tool" aria-pressed="false">Tool</button>
-          <button type="button" data-core="workflow" aria-pressed="false">Workflow</button>
-          <button type="button" data-core="governance" aria-pressed="false">Governance</button>
-        </div>
-        <div class="core-body" aria-live="polite">
-          <h3 id="coreTitle">Model</h3>
-          <p id="coreText">The model generates, classifies, summarizes, or transforms language. It is powerful, but it is still only one layer of the legal AI arrangement.</p>
-        </div>
-      </aside>
     </section>
 
-    <section id="why">
-      <span class="eyebrow">Why It Matters</span>
-      <div class="why-interactive">
-        <div class="why-tabs" aria-label="Why it matters lenses">
-          <button type="button" data-why="model" aria-pressed="true">Model task</button>
-          <button type="button" data-why="tool" aria-pressed="false">Tool surface</button>
-          <button type="button" data-why="governance" aria-pressed="false">Governance record</button>
-          </div>
-          <div class="why-stage">
-          <div class="why-visual" id="whyVisual" data-active="model">
-            <div class="why-connector one" aria-hidden="true"></div>
-            <div class="why-connector two" aria-hidden="true"></div>
-            <div class="why-node" data-node="model">
-              <strong>Model</strong>
-              <p>Language task</p>
-            </div>
-            <div class="why-node" data-node="tool">
-              <strong>Tool</strong>
-              <p>Usable surface</p>
-            </div>
-            <div class="why-node" data-node="governance">
-              <strong>Governance</strong>
-              <p>Evidence story</p>
-            </div>
-          </div>
-          <div class="why-copy" aria-live="polite">
-            <h3 id="whyTitle">The model performs a bounded language task.</h3>
-            <p id="whyText">A model can produce a useful summary, classification, clause comparison, or intake draft, but the output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user's ability to recognize when the answer has moved beyond the task legal allowed it to perform.</p>
-          </div>
+    <!-- 2. The four layers -->
+    <section id="layers">
+      <span class="eyebrow">The Core Distinction</span>
+      <h2>Separate the stack.</h2>
+      <p style="max-width:70ch; margin-top:10px;">When everyone in the room says AI, slow the word down. Inspect all four layers, because the approval analysis changes depending on which one is moving. Click each layer.</p>
+      <div class="stack-lab card pad" style="margin-top:18px;">
+        <div class="stack" id="stackButtons" aria-label="The four layers of legal AI"></div>
+        <div class="layer-panel" id="layerPanel" aria-live="polite">
+          <span class="small-label" id="layerLabel"></span>
+          <h3 id="layerTitle"></h3>
+          <p class="role" id="layerRole"></p>
+          <p class="why" id="layerWhy"></p>
+          <div class="bars" id="layerBars" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <section class="lab stack-lab" id="lab" data-required="stack">
-      <div>
-        <span class="eyebrow">Interactive Lab</span>
-        <h2>Separate the stack.</h2>
-        <p>Inspect all four layers before moving on. The approval analysis changes with the layer.</p>
-        <div class="stack-buttons" id="layerButtons" aria-label="Legal AI stack layers">
-          <button class="layer-button" data-layer="model" aria-pressed="true"><span class="layer-index">1</span><span>Model</span></button>
-          <button class="layer-button" data-layer="tool" aria-pressed="false"><span class="layer-index">2</span><span>Tool</span></button>
-          <button class="layer-button" data-layer="workflow" aria-pressed="false"><span class="layer-index">3</span><span>Workflow</span></button>
-          <button class="layer-button" data-layer="governance" aria-pressed="false"><span class="layer-index">4</span><span>Governance</span></button>
+    <!-- 3. Apply it: classifier -->
+    <section id="classify">
+      <div class="card pad">
+        <div class="lab-head">
+          <span class="eyebrow">Apply It</span>
+          <h2>Name the layer.</h2>
+          <p>Each sentence describes one layer at work. Place it before you check.</p>
         </div>
-      </div>
-      <div class="layer-panel" id="layerPanel">
-        <span class="small-label" id="layerLabel">Model</span>
-        <h3 id="layerTitle">The model performs the language task.</h3>
-        <p id="layerBody">A model generates, classifies, summarizes, compares, or transforms language based on the input it receives and the surrounding instructions it can see. The legal question is what information reaches it, what task it has been asked to perform, what uncertainty remains in the answer, and whether the user can recognize when the output has crossed from language support into legal judgment.</p>
-        <div class="stack-visual" aria-hidden="true">
-          <div class="stack-row active" data-stack="model"><span>Model</span><div class="stack-bar"><span class="stack-fill" style="--w:46%"></span></div></div>
-          <div class="stack-row" data-stack="tool"><span>Tool</span><div class="stack-bar"><span class="stack-fill" style="--w:60%"></span></div></div>
-          <div class="stack-row" data-stack="workflow"><span>Workflow</span><div class="stack-bar"><span class="stack-fill" style="--w:74%"></span></div></div>
-          <div class="stack-row" data-stack="governance"><span>Governance</span><div class="stack-bar"><span class="stack-fill" style="--w:88%"></span></div></div>
+        <div class="mini-grid" id="classifierGrid"></div>
+        <div class="lab-foot">
+          <button id="checkClassifier" class="primary">Check placements</button>
+          <p class="status" id="classifierStatus" aria-live="polite"></p>
         </div>
       </div>
     </section>
 
-    <section id="lenses">
-      <span class="eyebrow">How It Shows Up</span>
-      <div class="binder-lab">
-        <div class="binder-tabs" aria-label="Practice lenses">
-          <button type="button" data-binder="day" aria-pressed="true">Day-to-day</button>
-          <button type="button" data-binder="firm" aria-pressed="false">Law firm</button>
-          <button type="button" data-binder="house" aria-pressed="false">In-house</button>
+    <!-- 4. Vendor demo autopsy -->
+    <section id="autopsy">
+      <div class="card pad">
+        <div class="lab-head">
+          <span class="eyebrow">See Through The Screen</span>
+          <h2>Autopsy the demo.</h2>
+          <p>A polished interface can make a system feel mature before the hard questions are answered. Tag what each line of the vendor pitch is really describing.</p>
         </div>
-        <div class="binder-stage">
-          <div class="binder-visual" id="binderVisual" data-active="day">
-            <div class="binder-connector one" aria-hidden="true"></div>
-            <div class="binder-connector two" aria-hidden="true"></div>
-            <div class="binder-connector three" aria-hidden="true"></div>
-            <div class="binder-node" data-node="policy">
-              <strong>Policy</strong>
-              <p>Input</p>
-            </div>
-            <div class="binder-node" data-node="vendor">
-              <strong>Vendor</strong>
-              <p>Scope</p>
-            </div>
-            <div class="binder-node" data-node="review">
-              <strong>Review</strong>
-              <p>Counsel</p>
-            </div>
-            <div class="binder-node" data-node="logs">
-              <strong>Logs</strong>
-              <p>Record</p>
-            </div>
+        <div class="mini-grid" id="vendorGrid"></div>
+        <div class="lab-foot">
+          <button id="checkVendor" class="primary">Check the pitch</button>
+          <p class="status" id="vendorStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Myth sorter -->
+    <section id="myth">
+      <div class="card pad">
+        <div class="lab-head">
+          <span class="eyebrow">Myth Sorter</span>
+          <h2>Sort the sentence before the hype.</h2>
+          <p>True or myth in a legal-work setting?</p>
+        </div>
+        <div class="mini-grid" id="mythGrid"></div>
+        <div class="lab-foot">
+          <p class="status" id="mythStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Applied scenario: step-through flow -->
+    <section id="scenario">
+      <span class="eyebrow">Applied Scenario</span>
+      <h2>The Policy Summary Request</h2>
+      <p style="max-width:80ch; margin:10px 0 18px;">A client asks for a same-day summary of a hundred-page policy. Step through the work as it becomes a data boundary, a tool use, a model task, a review path, an approval record, and a governance perimeter.</p>
+      <div class="flow-wrap">
+        <div class="flow" id="flow" data-step="0">
+          <div class="flow-tags" id="flowTags" aria-hidden="true">
+            <span class="et">Governance perimeter</span>
+            <span class="tag">Data limit</span>
+            <span class="tag">Review duty</span>
+            <span class="tag">Logging</span>
+            <span class="tag">Vendor terms</span>
+            <span class="tag">Owner</span>
           </div>
-          <div class="binder-copy" aria-live="polite">
-            <h3 id="binderTitle">Day-to-day example</h3>
-            <p id="binderText">The client sends a long policy and asks for a same-day summary. The model generates language, the interface lets the lawyer request and read it, the workflow determines whether the result becomes a matter note, a redline comment, a client-facing email, or nothing at all, and governance decides whether the policy text may enter the system, who may see the result, which review step must occur, and what record survives the task.</p>
+          <!-- nodes injected -->
+        </div>
+        <div class="flow-caption" id="flowCaption" aria-live="polite">
+          <strong id="flowLabel"></strong>
+          <span id="flowText"></span>
+        </div>
+        <div class="flow-controls">
+          <span class="beat-count" id="beatCount"></span>
+          <div class="progress" aria-hidden="true"><span id="flowProgress"></span></div>
+          <button id="flowBack" class="ghost">Back</button>
+          <button id="flowNext" class="primary">Next</button>
+          <button id="flowAuto" class="ghost">Auto-play</button>
+          <button id="flowReset" class="ghost">Restart</button>
+        </div>
+        <div class="athena-inline" id="athenaScene" hidden aria-live="polite">
+          <img id="athenaScenePortrait" src="../assets/athena/athena-hold.svg" alt="Athena">
+          <div>
+            <span class="athena-state">Hold</span>
+            <strong>Athena</strong>
+            <p id="athenaSceneLine">Stop at the perimeter. The approval only means something if the movement, the reviewer, and the record all survive.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lab myth-lab" id="myth" data-required="myth">
-      <span class="eyebrow">Myth Sorter</span>
-      <h2>Sort the sentence before the hype.</h2>
-      <p>Choose whether each sentence is true or a myth in a legal work setting.</p>
-      <div class="myth-grid">
-        <article class="myth-card" data-answer="myth">
-          <p>If the model is strong, the legal workflow is automatically safe.</p>
-          <div class="choice-row">
-            <button data-choice="true">True</button>
-            <button data-choice="myth">Myth</button>
-          </div>
-          <div class="myth-feedback" aria-live="polite"></div>
-        </article>
-        <article class="myth-card" data-answer="true">
-          <p>A vendor demo can show tool polish without proving governance readiness.</p>
-          <div class="choice-row">
-            <button data-choice="true">True</button>
-            <button data-choice="myth">Myth</button>
-          </div>
-          <div class="myth-feedback" aria-live="polite"></div>
-        </article>
-        <article class="myth-card" data-answer="true">
-          <p>The review path matters before AI output reaches a client or business team.</p>
-          <div class="choice-row">
-            <button data-choice="true">True</button>
-            <button data-choice="myth">Myth</button>
-          </div>
-          <div class="myth-feedback" aria-live="polite"></div>
-        </article>
-        <article class="myth-card" data-answer="myth">
-          <p>Once a tool is approved, every future use of it has the same risk profile.</p>
-          <div class="choice-row">
-            <button data-choice="true">True</button>
-            <button data-choice="myth">Myth</button>
-          </div>
-          <div class="myth-feedback" aria-live="polite"></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="scenario" id="scenario" data-required="scenario">
-      <div class="scenario-brief">
-        <span class="eyebrow">Applied Scenario</span>
-        <h2>The Policy Summary Request</h2>
-        <p>A client asks for a same-day summary of a hundred-page policy. The work starts as an ordinary email, then becomes a data boundary, a tool use, a model task, a review path, and an approval record.</p>
-      </div>
-      <div class="scenario-stage" id="scenarioStage" data-phase="0">
-        <div class="case-scene" role="img" aria-label="Animated case file showing a client email, policy document, tool surface, model task, counsel review, approval record, and governance perimeter.">
-          <div class="case-surface"></div>
-          <div class="case-title">Policy Summary Request</div>
-
-          <div class="case-governance governance-frame">
-            <div class="case-governance-tags">
-              <span>Data limit</span>
-              <span>Review duty</span>
-              <span>Logging</span>
-              <span>Vendor terms</span>
-              <span>Owner</span>
-            </div>
-          </div>
-
-          <div class="case-card scene-object" data-show="1">
-            <strong>Client email</strong>
-            <p>Can legal summarize the new policy by today?</p>
-            <div class="case-meta">
-              <span>Requester: Business lead</span>
-              <span>Use: Internal planning</span>
-            </div>
-          </div>
-
-          <div class="case-line case-line-boundary horizontal"></div>
-
-          <div class="case-doc scene-object" data-show="2">
-            <strong>Policy.pdf</strong>
-            <p>100 pages</p>
-            <div class="doc-lines">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="case-meta">
-              <span>Allowed: policy text</span>
-              <span>Excluded: client strategy</span>
-            </div>
-          </div>
-
-          <div class="case-line case-line-tool horizontal"></div>
-
-          <div class="case-tool scene-object" data-show="3">
-            <div class="tool-head">
-              <span>Legal AI workspace</span>
-              <span class="tool-dots"><span></span><span></span><span></span></span>
-            </div>
-            <div class="tool-body">
-              <div class="tool-field">Prompt: summarize scope, exclusions, obligations.</div>
-              <div class="model-task model-pulse">
-                <small>Model task</small>
-                Draft policy summary for internal review.
-              </div>
-              <div class="tool-field">Status: draft output only</div>
-            </div>
-          </div>
-
-          <div class="case-line case-line-workflow vertical"></div>
-
-          <div class="case-review scene-object" data-show="4">
-            <strong>Counsel review</strong>
-            <p>Check accuracy, privilege boundary, client-facing language, and whether the summary can leave the team.</p>
-          </div>
-
-          <div class="case-line case-line-review horizontal"></div>
-
-          <div class="case-log scene-object" data-show="5">
-            <strong>Approval record</strong>
-            <p>Legal can explain what moved and why.</p>
-            <div class="log-list">
-              <div class="log-row">Use case approved</div>
-              <div class="log-row">Reviewer named</div>
-              <div class="log-row">Data boundary logged</div>
-              <div class="log-row">Output marked internal</div>
-            </div>
-          </div>
-        </div>
-        <div class="flow-caption" id="flowCaption">
-          <strong id="flowLabel">Client email</strong>
-          <span id="flowText">The work begins as a simple request: summarize the policy by today.</span>
-        </div>
-      </div>
-      <div class="scenario-controls">
-        <span class="beat-status" id="beatStatus">Case file ready</span>
-        <div class="scene-progress" aria-hidden="true"><span id="sceneProgress"></span></div>
-        <div class="scene-actions">
-          <button id="toggleScene">Play</button>
-          <button class="primary" id="replayScene">Replay</button>
-        </div>
-      </div>
-      <div class="athena-inline athena-scene-inline" id="athenaSceneInline" hidden aria-live="polite">
-        <img id="athenaScenePortrait" src="../assets/athena/athena-hold.svg" alt="Athena">
-        <div>
-          <span class="athena-state" id="athenaSceneState">Hold</span>
-          <strong>Athena</strong>
-          <p id="athenaSceneLine">Stop. Check the premise. The approval only means something if the movement, reviewer, and record survive.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="quiz" id="quiz">
+    <!-- 7. Quiz -->
+    <section id="quiz">
       <span class="eyebrow">Applied Quiz</span>
       <h2>Use the stack in judgment calls.</h2>
-      <article class="quiz-card" data-correct="b">
-        <h3>After the Monday practice meeting, someone forwards an approval note saying the firm can use a legal AI product for contract work. The deal team wants to upload confidential diligence files tomorrow. What should counsel ask before anyone opens the tool?</h3>
-        <div class="options">
-          <button class="option" data-option="a"><span class="marker">x</span><span>Whether the product demo showed accurate contract summaries.</span></button>
-          <button class="option" data-option="b"><span class="marker">✓</span><span>Which data, matters, users, and review path the approval covers.</span></button>
-          <button class="option" data-option="c"><span class="marker">x</span><span>Whether the vendor markets the product as built for law firms.</span></button>
-          <button class="option" data-option="d"><span class="marker">x</span><span>Which model family the vendor uses under the interface.</span></button>
-        </div>
-        <div class="quiz-feedback" aria-live="polite"></div>
-      </article>
-
-      <article class="quiz-card" data-correct="c">
-        <h3>The client call ends, and the business team asks for an intake assistant that drafts routine answers while sending exceptions to counsel. Which layer does that routing describe?</h3>
-        <div class="options">
-          <button class="option" data-option="a"><span class="marker">x</span><span>The model, because it generates the first draft.</span></button>
-          <button class="option" data-option="b"><span class="marker">x</span><span>The tool, because users see the intake interface.</span></button>
-          <button class="option" data-option="c"><span class="marker">✓</span><span>The workflow, because it decides where output goes.</span></button>
-          <button class="option" data-option="d"><span class="marker">x</span><span>The policy, because legal owns the final answer.</span></button>
-        </div>
-        <div class="quiz-feedback" aria-live="polite"></div>
-      </article>
-
-      <article class="quiz-card" data-correct="a">
-        <h3>Before you close the day, the platform vendor says its new legal reasoning engine "does not train on your data." The use case involves sensitive policy material. What should counsel review next?</h3>
-        <div class="options">
-          <button class="option" data-option="a"><span class="marker">✓</span><span>Review retention, access, confidentiality, and review obligations.</span></button>
-          <button class="option" data-option="b"><span class="marker">x</span><span>Accept the statement because training is the only risk.</span></button>
-          <button class="option" data-option="c"><span class="marker">x</span><span>Focus only on whether the model output sounds accurate.</span></button>
-          <button class="option" data-option="d"><span class="marker">x</span><span>Move ahead if the same tool is used by other firms.</span></button>
-        </div>
-        <div class="quiz-feedback" aria-live="polite"></div>
-      </article>
-
-      <article class="quiz-card" data-correct="d">
-        <h3>The screen looks polished, the summary reads cleanly, and someone wants to send the output to the client. Which response best applies this lesson?</h3>
-        <div class="options">
-          <button class="option" data-option="a"><span class="marker">x</span><span>Approve it if the interface clearly labels each answer.</span></button>
-          <button class="option" data-option="b"><span class="marker">x</span><span>Reject it until every output can be perfectly reliable.</span></button>
-          <button class="option" data-option="c"><span class="marker">x</span><span>Use it only when the model name is publicly known.</span></button>
-          <button class="option" data-option="d"><span class="marker">✓</span><span>Separate the screen, workflow, review path, and governance perimeter.</span></button>
-        </div>
-        <div class="quiz-feedback" aria-live="polite"></div>
-      </article>
+      <div class="quiz" id="quizList" style="margin-top:18px;"></div>
     </section>
 
-    <section class="completion" id="completion" hidden>
-      <span class="eyebrow">Lesson complete</span>
-      <h2>You can now name the work.</h2>
-      <p>When someone says "AI," you can ask which layer they mean. That one move turns a vague conversation into one the room can act on.</p>
-    </section>
-
-    <section class="athena-inline" id="athenaInline" hidden aria-live="polite">
-      <img id="athenaInlinePortrait" src="../assets/athena/athena-close.svg" alt="Athena">
-      <div>
-        <span class="athena-state" id="athenaInlineState">Close</span>
-        <strong>Athena</strong>
-        <p id="athenaInlineLine">That conclusion can stand. The next AI conversation starts with the layer, the movement, and the record.</p>
+    <!-- Sources -->
+    <section id="sources">
+      <div class="card pad">
+        <div class="lab-head">
+          <span class="eyebrow">Source Check</span>
+          <h2>Where this comes from.</h2>
+          <p>Every claim in this lesson traces to a primary source. Open each one.</p>
+        </div>
+        <div class="src-grid" id="sourceGrid"></div>
       </div>
     </section>
+
+    <!-- Completion -->
+    <section class="completion card pad accent" id="completion" hidden>
+      <span class="eyebrow">Lesson complete</span>
+      <h2>You can now name the work.</h2>
+      <p>When someone says &ldquo;AI,&rdquo; you can ask which layer they mean. That one move turns a vague conversation into one the room can act on.</p>
+    </section>
+
+    <div class="athena-inline" id="athenaClose" hidden aria-live="polite" style="margin-top:18px;">
+      <img id="athenaClosePortrait" src="../assets/athena/athena-close.svg" alt="Athena">
+      <div>
+        <span class="athena-state">Close</span>
+        <strong>Athena</strong>
+        <p>That conclusion can stand. The next AI conversation starts with the layer, the movement, and the record.</p>
+      </div>
+    </div>
   </main>
 
-  <aside class="athena" id="athena" aria-live="polite" aria-hidden="true">
+  <!-- Athena floating guide -->
+  <aside class="athena" id="athena" aria-live="polite">
     <div class="athena-card">
-      <button class="athena-dismiss" id="athenaDismiss" aria-label="Dismiss Athena">x</button>
+      <button class="athena-dismiss" id="athenaDismiss" aria-label="Dismiss Athena">&times;</button>
       <span class="athena-state" id="athenaState">Ask</span>
       <strong>Athena</strong>
-      <p id="athenaLine">What are we assuming when the room says AI? Choose the layer before you approve the work.</p>
+      <p id="athenaLine">I am Athena, your guide for this lesson. What are we assuming when the room says &ldquo;AI&rdquo;? Name the layer before you approve the work.</p>
     </div>
     <img class="athena-portrait" id="athenaPortrait" src="../assets/athena/athena-ask.svg" alt="Athena">
   </aside>
 
-  <script type="application/json" id="source-check">
-    {
-      "lesson": "Legal AI Is Not One Thing",
-      "sources": [
-        {
-          "name": "ABA Formal Opinion 512",
-          "url": "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
-          "use": "Checked lawyer duties around competence, confidentiality, supervision, and generative AI."
-        },
-        {
-          "name": "NIST AI Risk Management Framework",
-          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
-          "use": "Checked governance/risk framing for AI systems and organizational use."
-        },
-        {
-          "name": "OpenAI text generation and tools documentation",
-          "url": "https://developers.openai.com/api/docs/guides/text",
-          "use": "Checked plain-English distinctions among model response generation and tool-enabled systems."
-        }
-      ]
-    }
-  </script>
-
-  <script type="application/json" id="athena-messages">
-    {
-      "intro": {
-        "state": "Ask",
-        "line": "What are we assuming when the room says AI? Choose the layer before you approve the work."
-      },
-      "nudge": {
-        "state": "Trace",
-        "line": "Let's follow that reasoning. Name the movement first, then find the governance perimeter."
-      },
-      "observe": {
-        "state": "Hold",
-        "line": "Stop. Check the premise. The approval only means something if the movement, reviewer, and record survive."
-      },
-      "approve": {
-        "state": "Close",
-        "line": "That conclusion can stand. The next AI conversation starts with the layer, the movement, and the record."
-      },
-      "celebrate": {
-        "state": "Close",
-        "line": "That conclusion can stand. Trace the movement before you bless the work."
-      }
-    }
-  </script>
-
   <script>
-    const situationContent = {
-      meeting: {
-        primary: "Monday afternoon, the practice meeting is already running long when a junior associate mentions that the adjacent group is piloting AI for contract review.",
-        secondary: "That moment concerns the operating question behind the model: what system generates the language, what task has it been asked to perform, and where does legal judgment return?"
-      },
-      client: {
-        primary: "You leave with a headache and walk into a client call, where the client asks whether legal can summarize the scope of a new hundred-page policy with AI.",
-        secondary: "That moment concerns the tool and the workflow: what interface packages the capability for the user, where the output goes, and whether the result can become work product."
-      },
-      platform: {
-        primary: "Before you close the day, your team's paralegal tells you the platform everyone has used for years now advertises a legal reasoning engine powered by the newest model.",
-        secondary: "That moment concerns the governance record: what changed in the system, what data can move through it, who reviewed the output, and what evidence would show that legal judgment stayed in the loop."
-      }
-    };
-
-    const coreContent = {
-      model: {
-        title: "Model",
-        body: "The model generates, classifies, summarizes, or transforms language. It is powerful, but it is still only one layer of the legal AI arrangement."
-      },
-      tool: {
-        title: "Tool",
-        body: "The tool gives model behavior a usable surface: a chat window, review panel, research assistant, intake form, or document analyzer."
-      },
-      workflow: {
-        title: "Workflow",
-        body: "The workflow decides who sees the output, where it is stored, when it escalates, and whether it can leave the team."
-      },
-      governance: {
-        title: "Governance",
-        body: "Governance surrounds the arrangement with data rules, review duties, vendor limits, logging, accountability, and proof."
-      }
-    };
-
-    const whyContent = {
-      model: {
-        title: "The model performs a bounded language task.",
-        body: "A model can produce a useful summary, classification, clause comparison, or intake draft, but the output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user's ability to recognize when the answer has moved beyond the task legal allowed it to perform."
-      },
-      tool: {
-        title: "The tool turns hidden architecture into a screen.",
-        body: "A polished interface can make a system feel mature before the hard questions have been answered, because the visible screen rarely shows retention, access, privilege boundaries, logging, retrieval scope, escalation rules, or the contractual promises sitting underneath the demo."
-      },
-      governance: {
-        title: "Governance preserves the evidence story.",
-        body: "Lawyers still carry competence, confidentiality, supervision, and judgment, and the relevant question is where that responsibility re-enters the system: before data enters, before output moves, before a business user acts, before a client sees language, and before the organization later has to explain what happened."
-      }
-    };
-
-    const binderContent = {
-      day: {
-        title: "Day-to-day example",
-        body: "The client sends a long policy and asks for a same-day summary. The model generates language, the interface lets the lawyer request and read it, the workflow determines whether the result becomes a matter note, a redline comment, a client-facing email, or nothing at all, and governance decides whether the policy text may enter the system, who may see the result, which review step must occur, and what record survives the task."
-      },
-      firm: {
-        title: "Law firm lens",
-        body: "A firm pilot can fail when the policy approves a tool name without defining matter types, eligible users, data limits, privilege treatment, vendor restrictions, human review, client communication rules, and the path by which an output may become part of a file, a memo, a pleading, or advice."
-      },
-      house: {
-        title: "In-house lens",
-        body: "A legal department moves faster when business users know which intake questions can use automation, which questions trigger counsel review, which answers can remain internal, which answers require legal signoff, and which facts should stay out of the system in the first place."
-      }
-    };
-
-    const layerContent = {
+    /* ============ Shared layer model ============ */
+    const layers = {
       model: {
         label: "Model",
-        title: "The model performs the language task.",
-        body: "A model generates, classifies, summarizes, compares, or transforms language based on the input it receives and the surrounding instructions it can see. The legal question is what information reaches it, what task it has been asked to perform, what uncertainty remains in the answer, and whether the user can recognize when the output has crossed from language support into legal judgment."
+        role: "The model performs a bounded language task.",
+        why: "It can produce a useful summary, classification, clause comparison, or intake draft, but the output still depends on the prompt, the data supplied, the retrieval layer, the vendor environment, and the user's ability to recognize when the answer has moved beyond the task legal allowed."
       },
       tool: {
         label: "Tool",
-        title: "The tool packages model behavior into a usable surface.",
-        body: "A tool is the product surface lawyers and business users touch: a chat window, review panel, research assistant, intake form, or document analyzer. The harder analysis usually sits underneath that surface, in retrieval, prompts, permissions, connectors, retention settings, admin controls, usage logs, and vendor commitments that matter more than the demo."
+        role: "The tool turns hidden architecture into a screen.",
+        why: "A polished interface can feel mature before the hard questions are answered, because the visible screen rarely shows retention, access, privilege boundaries, logging, retrieval scope, escalation rules, or the contractual promises sitting underneath the demo."
       },
       workflow: {
         label: "Workflow",
-        title: "The workflow decides how output moves.",
-        body: "A workflow defines who starts the task, what material can enter, which user receives the answer, where the answer is stored, which exceptions escalate, and when counsel must step back in before the output becomes advice, a matter record, a business instruction, or a client-facing document."
+        role: "The workflow decides how output moves.",
+        why: "It defines who starts the task, what material can enter, which user receives the answer, where it is stored, which exceptions escalate, and when counsel must step back in before the output becomes advice, a matter record, a business instruction, or a client-facing document."
       },
       governance: {
         label: "Governance",
-        title: "Governance surrounds the whole arrangement.",
-        body: "Governance is the permission and evidence structure around the system: confidentiality, privilege, supervision, data handling, vendor terms, approved use cases, human review, logging, auditability, and accountability. In sum, governance answers the question a later reviewer will ask first: what did legal allow, on what facts, under which limits, and with what proof."
+        role: "Governance preserves the evidence story.",
+        why: "Lawyers still carry competence, confidentiality, supervision, and judgment. The relevant question is where that responsibility re-enters the system: before data enters, before output moves, before a business user acts, before a client sees language, and before the organization later has to explain what happened."
       }
     };
+    const layerKeys = Object.keys(layers);
+    const layerWeight = { model: 46, tool: 60, workflow: 74, governance: 88 };
 
-    function setPressed(buttons, activeValue, key) {
-      buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset[key] === activeValue)));
+    function setStatus(node, text, good) {
+      node.textContent = text;
+      node.classList.remove("good", "bad");
+      if (good === true) node.classList.add("good");
+      if (good === false) node.classList.add("bad");
+    }
+    function optionTags(selected) {
+      return `<option value="" ${selected ? "" : "selected"} disabled>Choose a layer</option>` +
+        layerKeys.map(k => `<option value="${k}" ${selected === k ? "selected" : ""}>${layers[k].label}</option>`).join("");
     }
 
-    const situationButtons = [...document.querySelectorAll("[data-situation]")];
-    const situationBoard = document.getElementById("situationBoard");
-    situationButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const key = button.dataset.situation;
-        setPressed(situationButtons, key, "situation");
-        situationBoard.dataset.active = key;
-        document.getElementById("situationPrimary").textContent = situationContent[key].primary;
-        document.getElementById("situationSecondary").textContent = situationContent[key].secondary;
-      });
-    });
+    /* completion tracking + lesson-wide state flags (declared early to avoid TDZ) */
+    const done = { stack: new Set(["model"]), classifier: false, vendor: false, myth: new Set(), scenario: false, quiz: new Set() };
+    let nudged = false, completed = false, athenaDismissed = false;
 
-    const coreButtons = [...document.querySelectorAll("[data-core]")];
-    coreButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const key = button.dataset.core;
-        setPressed(coreButtons, key, "core");
-        document.getElementById("coreTitle").textContent = coreContent[key].title;
-        document.getElementById("coreText").textContent = coreContent[key].body;
-      });
-    });
-
-    const whyButtons = [...document.querySelectorAll("[data-why]")];
-    const whyVisual = document.getElementById("whyVisual");
-    whyButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const key = button.dataset.why;
-        setPressed(whyButtons, key, "why");
-        whyVisual.dataset.active = key;
-        document.getElementById("whyTitle").textContent = whyContent[key].title;
-        document.getElementById("whyText").textContent = whyContent[key].body;
-      });
-    });
-
-    const binderButtons = [...document.querySelectorAll("[data-binder]")];
-    const binderVisual = document.getElementById("binderVisual");
-    binderButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const key = button.dataset.binder;
-        setPressed(binderButtons, key, "binder");
-        binderVisual.dataset.active = key;
-        document.getElementById("binderTitle").textContent = binderContent[key].title;
-        document.getElementById("binderText").textContent = binderContent[key].body;
-      });
-    });
-
-    const required = {
-      stack: new Set(["model"]),
-      myth: new Set(),
-      scenario: false,
-      quiz: new Set(),
-      scroll: false
+    /* ============ 1. Monday scene tab reader ============ */
+    const sceneContent = {
+      meeting: {
+        moment: "Monday afternoon. The practice meeting is already running long when a junior associate mentions that the adjacent group is piloting AI for contract review.",
+        detail: "That moment concerns the system that generates the language: what task it has been asked to perform, and where legal judgment returns.",
+        layer: "Model"
+      },
+      client: {
+        moment: "You leave with a headache and walk into a client call, where the client asks whether legal can summarize the scope of a new hundred-page policy with AI.",
+        detail: "That moment concerns the tool and the workflow: what interface packages the capability, where the output goes, and whether the result can become work product.",
+        layer: "Tool + Workflow"
+      },
+      platform: {
+        moment: "Before you close the day, your paralegal tells you the platform everyone has used for years now advertises a legal reasoning engine powered by the newest model.",
+        detail: "That moment concerns the governance record: what changed in the system, what data can move through it, who reviewed the output, and what evidence shows that legal judgment stayed in the loop.",
+        layer: "Governance"
+      }
     };
-
-    const athenaMessages = JSON.parse(document.getElementById("athena-messages").textContent);
-    const athenaAssets = {
-      nudge: "../assets/athena/athena-trace.svg",
-      intro: "../assets/athena/athena-ask.svg",
-      observe: "../assets/athena/athena-hold.svg",
-      approve: "../assets/athena/athena-close.svg",
-      celebrate: "../assets/athena/athena-close.svg"
-    };
-    const athenaElement = document.getElementById("athena");
-    const athenaState = document.getElementById("athenaState");
-    const athenaLine = document.getElementById("athenaLine");
-    const athenaPortrait = document.getElementById("athenaPortrait");
-    const athenaInline = document.getElementById("athenaInline");
-    const athenaInlineState = document.getElementById("athenaInlineState");
-    const athenaInlineLine = document.getElementById("athenaInlineLine");
-    const athenaInlinePortrait = document.getElementById("athenaInlinePortrait");
-    const athenaSceneInline = document.getElementById("athenaSceneInline");
-    const athenaSceneState = document.getElementById("athenaSceneState");
-    const athenaSceneLine = document.getElementById("athenaSceneLine");
-    const athenaScenePortrait = document.getElementById("athenaScenePortrait");
-    let scenarioAnnounced = false;
-    let completionAnnounced = false;
-    let athenaTimer = 0;
-    let athenaIntroTimer = 0;
-    let athenaIntroduced = false;
-    let sceneWaitingForIntro = false;
-
-    function renderInlineAthena(target, state) {
-      const message = athenaMessages[state] || athenaMessages.observe;
-      target.state.textContent = message.state;
-      target.line.textContent = message.line;
-      target.portrait.src = athenaAssets[state] || athenaAssets.observe;
-      target.element.hidden = false;
+    const sceneTabs = [...document.querySelectorAll("[data-scene]")];
+    const scenePanel = document.getElementById("scenePanel");
+    function showScene(key) {
+      sceneTabs.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.scene === key)));
+      scenePanel.classList.add("is-changing");
+      window.setTimeout(() => {
+        document.getElementById("sceneMoment").textContent = sceneContent[key].moment;
+        document.getElementById("sceneDetail").textContent = sceneContent[key].detail;
+        document.getElementById("sceneLayer").textContent = sceneContent[key].layer;
+        scenePanel.classList.remove("is-changing");
+      }, 140);
     }
+    sceneTabs.forEach(b => b.addEventListener("click", () => showScene(b.dataset.scene)));
+    showScene("meeting");
 
-    const Athena = {
-      show(state, options = {}) {
-        window.clearTimeout(athenaTimer);
-        const message = athenaMessages[state] || athenaMessages.observe;
-        athenaState.textContent = message.state;
-        athenaLine.textContent = message.line;
-        athenaPortrait.src = athenaAssets[state] || athenaAssets.observe;
-        athenaElement.classList.add("visible");
-        athenaElement.setAttribute("aria-hidden", "false");
-        if (options.autoHide) {
-          athenaTimer = window.setTimeout(Athena.hide, options.autoHide);
-        }
-      },
-      hide() {
-        window.clearTimeout(athenaTimer);
-        athenaElement.classList.remove("visible");
-        athenaElement.setAttribute("aria-hidden", "true");
-      },
-      introduce() {
-        Athena.show("intro");
-        window.clearTimeout(athenaIntroTimer);
-      },
-      showScene(state) {
-        Athena.hide();
-        renderInlineAthena({
-          element: athenaSceneInline,
-          state: athenaSceneState,
-          line: athenaSceneLine,
-          portrait: athenaScenePortrait
-        }, state);
-      },
-      showInline(state) {
-        renderInlineAthena({
-          element: athenaInline,
-          state: athenaInlineState,
-          line: athenaInlineLine,
-          portrait: athenaInlinePortrait
-        }, state);
-      }
-    };
-
-    function finishAthenaIntro() {
-      if (athenaIntroduced) return;
-      athenaIntroduced = true;
-      window.clearTimeout(athenaIntroTimer);
-      Athena.hide();
-      if (sceneWaitingForIntro && !sceneStarted) {
-        sceneWaitingForIntro = false;
-        playScene();
-      }
-    }
-
-    document.getElementById("athenaDismiss").addEventListener("click", () => {
-      if (!athenaIntroduced) {
-        finishAthenaIntro();
-      } else {
-        Athena.hide();
-      }
-    });
-
-    const layerButtons = [...document.querySelectorAll(".layer-button")];
+    /* ============ 2. Stack revealer ============ */
+    const stackButtons = document.getElementById("stackButtons");
     const layerPanel = document.getElementById("layerPanel");
-
-    function updateLayer(layer) {
-      required.stack.add(layer);
-      layerButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.layer === layer)));
-      document.querySelectorAll(".stack-row").forEach(row => row.classList.toggle("active", row.dataset.stack === layer));
+    layerKeys.forEach((key, i) => {
+      const b = document.createElement("button");
+      b.className = "stack-btn";
+      b.type = "button";
+      b.dataset.layer = key;
+      b.setAttribute("aria-pressed", String(i === 0));
+      b.innerHTML = `<span class="idx">${i + 1}</span><span class="lbl">${layers[key].label}<span class="sub">${layers[key].role}</span></span>`;
+      b.addEventListener("click", () => showLayer(key));
+      stackButtons.appendChild(b);
+    });
+    function showLayer(key) {
+      done.stack.add(key);
+      stackButtons.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.layer === key)));
       layerPanel.classList.add("is-changing");
       window.setTimeout(() => {
-        document.getElementById("layerLabel").textContent = layerContent[layer].label;
-        document.getElementById("layerTitle").textContent = layerContent[layer].title;
-        document.getElementById("layerBody").textContent = layerContent[layer].body;
+        document.getElementById("layerLabel").textContent = `Layer ${layerKeys.indexOf(key) + 1} of 4`;
+        document.getElementById("layerTitle").textContent = layers[key].label;
+        document.getElementById("layerRole").textContent = layers[key].role;
+        document.getElementById("layerWhy").textContent = layers[key].why;
+        document.getElementById("layerBars").innerHTML = layerKeys.map(k =>
+          `<div class="bar-row ${k === key ? "on" : ""}"><span>${layers[k].label}</span><div class="bar"><span style="--w:${layerWeight[k]}%"></span></div></div>`
+        ).join("");
         layerPanel.classList.remove("is-changing");
+        if (done.stack.size === 4 && !nudged) { nudged = true; Athena.flash("trace", "Trace", "Good. You traced all four. Now apply the distinction below.", 6000); }
         checkCompletion();
-      }, 150);
+      }, 130);
     }
+    showLayer("model");
 
-    layerButtons.forEach(button => button.addEventListener("click", () => updateLayer(button.dataset.layer)));
-
-    const mythFeedback = [
-      {
-        correct: "Yes. A strong model still needs a legal process around it.",
-        wrong: "Look again. Model strength leaves the workflow question open."
-      },
-      {
-        correct: "Yes. A demo proves the screen. Governance still needs evidence.",
-        wrong: "Look again. Product polish leaves permission unresolved."
-      },
-      {
-        correct: "Yes. Review is where legal judgment re-enters the work.",
-        wrong: "Look again. Output needs a review path before it becomes usable."
-      },
-      {
-        correct: "Yes. Approval attaches to a defined use, data boundary, and review path.",
-        wrong: "Look again. Approval needs a use case and a boundary."
-      }
+    /* ============ 3. Layer classifier ============ */
+    const classifierItems = [
+      { id: "c1", text: "A frontier engine predicts the next useful words in a summary.", answer: "model" },
+      { id: "c2", text: "A contract-review product highlights unusual indemnity language on screen.", answer: "tool" },
+      { id: "c3", text: "The team requires human review before any output reaches a client.", answer: "workflow" },
+      { id: "c4", text: "A policy bars privileged facts from consumer tools.", answer: "governance" }
     ];
-
-    document.querySelectorAll(".myth-card").forEach((card, index) => {
-      card.querySelectorAll("[data-choice]").forEach(button => {
-        button.addEventListener("click", () => {
-          const correct = button.dataset.choice === card.dataset.answer;
-          card.classList.remove("correct", "incorrect");
-          card.classList.add(correct ? "correct" : "incorrect");
-          card.querySelectorAll("button").forEach(option => option.disabled = true);
-          card.querySelector(".myth-feedback").textContent = correct
-            ? mythFeedback[index].correct
-            : mythFeedback[index].wrong;
-          required.myth.add(index);
-          checkCompletion();
-        });
+    const classifierGrid = document.getElementById("classifierGrid");
+    classifierGrid.innerHTML = classifierItems.map(item => `
+      <div class="mini-card" data-id="${item.id}">
+        <div class="q"><span class="mark"></span>${item.text}</div>
+        <select aria-label="Choose the layer">${optionTags("")}</select>
+      </div>`).join("");
+    document.getElementById("checkClassifier").addEventListener("click", () => {
+      let score = 0;
+      classifierItems.forEach(item => {
+        const card = classifierGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.querySelector("select").value === item.answer;
+        card.classList.toggle("good", ok); card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "✓" : "✕";
+        if (ok) score++;
       });
+      const all = score === classifierItems.length;
+      setStatus(document.getElementById("classifierStatus"), `${score} of ${classifierItems.length} placed correctly.`, all);
+      done.classifier = all; checkCompletion();
     });
 
-    const scenePhases = [
+    /* ============ 4. Vendor demo autopsy ============ */
+    const vendorItems = [
+      { id: "v1", text: "“Our system runs on a frontier language model.”", answer: "model" },
+      { id: "v2", text: "“The product drops a clean redline straight into your review view.”", answer: "tool" },
+      { id: "v3", text: "“Associates submit work through a matter-intake screen that routes exceptions.”", answer: "workflow" },
+      { id: "v4", text: "“Admins can restrict use by practice group, matter type, and data class.”", answer: "governance" }
+    ];
+    const vendorGrid = document.getElementById("vendorGrid");
+    vendorGrid.innerHTML = vendorItems.map(item => `
+      <div class="mini-card" data-id="${item.id}" data-choice="">
+        <div class="q"><span class="mark"></span>${item.text}</div>
+        <div class="row">${layerKeys.map(k => `<button type="button" data-choice="${k}">${layers[k].label}</button>`).join("")}</div>
+      </div>`).join("");
+    vendorGrid.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => {
+      const card = btn.closest(".mini-card");
+      card.dataset.choice = btn.dataset.choice;
+      card.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === btn));
+      card.classList.remove("good", "bad");
+      card.querySelector(".mark").textContent = "";
+    }));
+    document.getElementById("checkVendor").addEventListener("click", () => {
+      let score = 0;
+      vendorItems.forEach(item => {
+        const card = vendorGrid.querySelector(`[data-id="${item.id}"]`);
+        const ok = card.dataset.choice === item.answer;
+        card.classList.toggle("good", ok); card.classList.toggle("bad", !ok);
+        card.querySelector(".mark").textContent = ok ? "✓" : "✕";
+        if (ok) score++;
+      });
+      const all = score === vendorItems.length;
+      setStatus(document.getElementById("vendorStatus"), `${score} of ${vendorItems.length} claims diagnosed.`, all);
+      done.vendor = all; checkCompletion();
+    });
+
+    /* ============ 5. Myth sorter ============ */
+    const mythItems = [
+      { id: "m1", text: "If the model is strong, the legal workflow is automatically safe.", answer: "myth", ok: "A strong model still needs a legal process around it.", no: "Model strength leaves the workflow question open." },
+      { id: "m2", text: "A vendor demo can show tool polish without proving governance readiness.", answer: "true", ok: "A demo proves the screen. Governance still needs evidence.", no: "Product polish leaves permission and proof unresolved." },
+      { id: "m3", text: "The review path matters before AI output reaches a client or business team.", answer: "true", ok: "Review is where legal judgment re-enters the work.", no: "Output needs a review path before it becomes usable." },
+      { id: "m4", text: "Once a tool is approved, every future use carries the same risk profile.", answer: "myth", ok: "Approval attaches to a defined use, data boundary, and review path.", no: "A new use can change the data, the stakes, and the risk." }
+    ];
+    const mythGrid = document.getElementById("mythGrid");
+    mythGrid.innerHTML = mythItems.map(item => `
+      <div class="mini-card" data-id="${item.id}">
+        <div class="q"><span class="mark"></span>${item.text}</div>
+        <div class="row">
+          <button type="button" data-choice="true">True</button>
+          <button type="button" data-choice="myth">Myth</button>
+        </div>
+        <div class="quiz-feedback" data-fb></div>
+      </div>`).join("");
+    mythGrid.querySelectorAll(".mini-card").forEach(card => {
+      const item = mythItems.find(i => i.id === card.dataset.id);
+      card.querySelectorAll("[data-choice]").forEach(btn => btn.addEventListener("click", () => {
+        const ok = btn.dataset.choice === item.answer;
+        card.classList.remove("good", "bad");
+        card.classList.add(ok ? "good" : "bad");
+        card.querySelectorAll("button").forEach(b => b.disabled = true);
+        card.querySelector(".mark").textContent = ok ? "✓" : "✕";
+        card.querySelector("[data-fb]").textContent = ok ? item.ok : item.no;
+        done.myth.add(item.id);
+        setStatus(document.getElementById("mythStatus"), `${done.myth.size} of ${mythItems.length} sorted.`, done.myth.size === mythItems.length ? true : undefined);
+        checkCompletion();
+      }));
+    });
+
+    /* ============ 6. Step-through scenario ============ */
+    const phases = [
+      { label: "Client request", node: ["Client email", "Can legal summarize the new policy by today?"], text: "The work begins as a simple request: summarize the policy by today." },
+      { label: "Data boundary", node: ["Data boundary", "Allowed: policy text. Excluded: client strategy."], text: "Legal names the use case, the user group, the policy material that may enter, and the facts that stay outside the system." },
+      { label: "Tool surface", node: ["Tool surface", "A clean workspace over settings, logs, and retrieval."], text: "The tool gives the work a clean surface, but the review still has to reach the settings, logs, permissions, retrieval, and vendor commitments underneath it." },
+      { label: "Model task", node: ["Model task", "Draft a policy summary for internal review only."], text: "The model performs one bounded task: a draft summary, marked internal, not yet advice and not yet client-facing." },
+      { label: "Counsel review", node: ["Counsel review", "Accuracy, privilege, client-facing language, and exit."], text: "The draft moves to counsel before anyone treats the summary as advice, client language, a business instruction, or a final matter record." },
+      { label: "Approval record", node: ["Approval record", "Use approved, reviewer named, boundary logged, output internal."], text: "The record now shows the approved use case, the reviewer, the data boundary, and the internal-only status of the output." },
+      { label: "Governance perimeter", node: ["Governance perimeter", "Limits, review duties, logs, vendor terms, ownership."], text: "Governance surrounds the file with the limits, review duties, logs, vendor terms, and ownership that make the approval explainable later." }
+    ];
+    const flow = document.getElementById("flow");
+    const flowCaption = document.getElementById("flowCaption");
+    const flowTags = document.getElementById("flowTags");
+    phases.forEach((p, i) => {
+      const n = document.createElement("div");
+      n.className = "flow-node";
+      n.dataset.i = i;
+      n.innerHTML = `<span class="step-no">${i + 1}</span><strong>${p.node[0]}</strong><p>${p.node[1]}</p>`;
+      flow.appendChild(n);
+    });
+    const flowNodes = [...flow.querySelectorAll(".flow-node")];
+    let step = 0, autoTimer = 0, autoOn = false;
+    function renderFlow() {
+      flowNodes.forEach((n, i) => {
+        n.classList.toggle("on", i <= step);
+        n.classList.toggle("current", i === step);
+      });
+      const last = step === phases.length - 1;
+      flow.classList.toggle("is-complete", last);
+      flow.dataset.step = String(step);
+      flowCaption.classList.add("is-changing");
+      window.setTimeout(() => {
+        document.getElementById("flowLabel").textContent = phases[step].label;
+        document.getElementById("flowText").textContent = phases[step].text;
+        flowCaption.classList.remove("is-changing");
+      }, 130);
+      document.getElementById("beatCount").textContent = `Beat ${step + 1} of ${phases.length}`;
+      document.getElementById("flowProgress").style.setProperty("--p", `${(step / (phases.length - 1)) * 100}%`);
+      document.getElementById("flowBack").disabled = step === 0;
+      document.getElementById("flowNext").disabled = last;
+      if (last) {
+        done.scenario = true;
+        document.getElementById("athenaScene").hidden = false;
+        stopAuto();
+        checkCompletion();
+      }
+    }
+    function go(n) { step = Math.max(0, Math.min(phases.length - 1, n)); renderFlow(); }
+    function stopAuto() { autoOn = false; window.clearTimeout(autoTimer); document.getElementById("flowAuto").textContent = "Auto-play"; document.getElementById("flowAuto").classList.remove("active"); }
+    function tickAuto() {
+      if (!autoOn) return;
+      if (step < phases.length - 1) { go(step + 1); autoTimer = window.setTimeout(tickAuto, 4200); }
+      else stopAuto();
+    }
+    document.getElementById("flowNext").addEventListener("click", () => { stopAuto(); go(step + 1); });
+    document.getElementById("flowBack").addEventListener("click", () => { stopAuto(); go(step - 1); });
+    document.getElementById("flowReset").addEventListener("click", () => { stopAuto(); document.getElementById("athenaScene").hidden = true; go(0); });
+    document.getElementById("flowAuto").addEventListener("click", () => {
+      if (autoOn) { stopAuto(); return; }
+      if (step === phases.length - 1) { document.getElementById("athenaScene").hidden = true; step = 0; }
+      autoOn = true;
+      document.getElementById("flowAuto").textContent = "Pause";
+      document.getElementById("flowAuto").classList.add("active");
+      renderFlow();
+      autoTimer = window.setTimeout(tickAuto, 4200);
+    });
+    renderFlow();
+
+    /* ============ 7. Quiz ============ */
+    const quiz = [
       {
-        label: "Client email",
-        status: "Request received",
-        text: "The work begins as a simple request: summarize the policy by today."
+        q: "After the Monday meeting, an approval note says the firm can use a legal AI product for contract work. The deal team wants to upload confidential diligence files tomorrow. What should counsel establish before anyone opens the tool?",
+        options: [
+          "Whether the product performed well in the vendor demo.",
+          "Which data, matters, users, and review path the approval actually covers.",
+          "Whether peer firms have already approved the same product.",
+          "Which model family the vendor runs under the interface."
+        ],
+        correct: 1,
+        ok: "Approval has a perimeter. Find it before anyone uploads data.",
+        no: "Each of the others is real, but none defines what the approval covers. Find the perimeter first."
       },
       {
-        label: "Data boundary",
-        status: "Boundary set",
-        text: "Legal names the use case, the user group, the policy material that may enter, and the facts that stay outside the system."
+        q: "The business team asks for an intake assistant that drafts routine answers and sends exceptions to counsel. Which layer does that routing describe?",
+        options: [
+          "The model, because it generates the first draft.",
+          "The tool, because users see the intake interface.",
+          "The workflow, because it decides where output goes and what escalates.",
+          "Governance, because legal signs off on the exceptions."
+        ],
+        correct: 2,
+        ok: "Routing belongs to workflow: it decides where the answer goes and when counsel re-enters.",
+        no: "Every layer is present, but the routing itself, where output goes and what escalates, is the workflow."
       },
       {
-        label: "Tool surface",
-        status: "Tool opened",
-        text: "The tool gives the work a clean surface, but the review still has to reach settings, logs, permissions, retrieval, and vendor commitments underneath it."
+        q: "The platform vendor says its new legal reasoning engine “does not train on your data.” The use case involves sensitive policy material. What should counsel review next?",
+        options: [
+          "Retention, access, confidentiality, and supervision obligations across the whole use.",
+          "Nothing further; the no-training promise resolves the confidentiality question.",
+          "Only whether the model output reads accurately before it is sent.",
+          "Whether enough other firms already rely on the same engine."
+        ],
+        correct: 0,
+        ok: "Training answers one question inside a broader review of retention, access, confidentiality, and supervision.",
+        no: "The data statement answers one narrow question. The use still needs a full retention, access, and supervision review."
       },
       {
-        label: "Counsel review",
-        status: "Review point",
-        text: "The draft moves to counsel before anyone treats the summary as advice, client language, a business instruction, or a final matter record."
-      },
-      {
-        label: "Approval record",
-        status: "Record created",
-        text: "The record now shows the approved use case, the reviewer, the data boundary, and the internal-only status of the output."
-      },
-      {
-        label: "Governance perimeter",
-        status: "Record preserved",
-        text: "Governance surrounds the file with the limits, review duties, logs, vendor terms, and ownership that make the approval explainable later."
+        q: "The screen looks polished, the summary reads cleanly, and someone wants to send the output to the client. Which response best applies this lesson?",
+        options: [
+          "Approve it once the interface labels each answer with a source.",
+          "Hold it until the underlying model is guaranteed error-free.",
+          "Send it as long as the underlying model is well known.",
+          "Separate the screen, the workflow, the review path, and the governance perimeter, then decide."
+        ],
+        correct: 3,
+        ok: "The screen is one layer. Workflow, review, and governance surround the whole use.",
+        no: "A polished screen is one layer. The decision needs workflow, review path, and governance separated out."
       }
     ];
-
-    let currentPhase = 0;
-    let sceneStarted = false;
-    let scenePlaying = false;
-    let sceneTimer = 0;
-    const stage = document.getElementById("scenarioStage");
-    const flowCaption = document.getElementById("flowCaption");
-    const flowLabel = document.getElementById("flowLabel");
-    const flowText = document.getElementById("flowText");
-    const sceneProgress = document.getElementById("sceneProgress");
-    const toggleScene = document.getElementById("toggleScene");
-    const replayScene = document.getElementById("replayScene");
-
-    function renderScenePhase() {
-      const phase = scenePhases[currentPhase];
-      flowCaption.classList.add("is-swapping");
-      window.setTimeout(() => {
-        flowLabel.textContent = phase.label;
-        flowText.textContent = phase.text;
-        document.getElementById("beatStatus").textContent = phase.status;
-        sceneProgress.style.setProperty("--progress", `${(currentPhase / (scenePhases.length - 1)) * 100}%`);
-        stage.dataset.phase = String(currentPhase + 1);
-        flowCaption.classList.remove("is-swapping");
-        if (currentPhase === scenePhases.length - 1) {
-          required.scenario = true;
-          scenePlaying = false;
-          toggleScene.textContent = "Play";
-          if (!scenarioAnnounced) {
-            scenarioAnnounced = true;
-            Athena.showScene("observe");
-          }
-          checkCompletion();
-        }
-      }, 180);
-    }
-
-    function scheduleScene() {
-      window.clearTimeout(sceneTimer);
-      if (!scenePlaying) return;
-      sceneTimer = window.setTimeout(() => {
-        if (currentPhase < scenePhases.length - 1) {
-          currentPhase += 1;
-          renderScenePhase();
-          scheduleScene();
-        }
-      }, currentPhase === 0 ? 5200 : 6500);
-    }
-
-    function playScene() {
-      if (currentPhase === scenePhases.length - 1) {
-        currentPhase = 0;
-        required.scenario = false;
-        scenarioAnnounced = false;
-        athenaSceneInline.hidden = true;
-        Athena.hide();
-      }
-      sceneStarted = true;
-      scenePlaying = true;
-      toggleScene.textContent = "Pause";
-      renderScenePhase();
-      scheduleScene();
-    }
-
-    function pauseScene() {
-      scenePlaying = false;
-      window.clearTimeout(sceneTimer);
-      toggleScene.textContent = "Play";
-    }
-
-    toggleScene.addEventListener("click", () => {
-      if (!athenaIntroduced) {
-        sceneWaitingForIntro = true;
-        document.getElementById("beatStatus").textContent = "Close Athena to begin";
-        return;
-      }
-      if (scenePlaying) {
-        pauseScene();
-      } else {
-        playScene();
-      }
+    const quizList = document.getElementById("quizList");
+    quiz.forEach((item, qi) => {
+      const card = document.createElement("article");
+      card.className = "quiz-card card pad";
+      card.innerHTML = `
+        <div class="q">${item.q}</div>
+        <div class="options">${item.options.map((opt, oi) =>
+          `<button class="option" type="button" data-q="${qi}" data-o="${oi}"><span class="marker"></span><span>${opt}</span></button>`).join("")}</div>
+        <div class="quiz-feedback" aria-live="polite"></div>`;
+      quizList.appendChild(card);
+    });
+    quizList.querySelectorAll(".quiz-card").forEach((card, qi) => {
+      card.querySelectorAll(".option").forEach(btn => btn.addEventListener("click", () => {
+        const oi = Number(btn.dataset.o);
+        const item = quiz[qi];
+        card.querySelectorAll(".option").forEach(b => {
+          b.disabled = true;
+          if (Number(b.dataset.o) === item.correct) { b.classList.add("correct"); b.querySelector(".marker").textContent = "✓"; }
+        });
+        const ok = oi === item.correct;
+        if (!ok) { btn.classList.add("wrong"); btn.querySelector(".marker").textContent = "✕"; }
+        card.querySelector(".quiz-feedback").textContent = ok ? item.ok : item.no;
+        done.quiz.add(qi);
+        checkCompletion();
+      }));
     });
 
-    replayScene.addEventListener("click", () => {
-      if (!athenaIntroduced) {
-        sceneWaitingForIntro = true;
-        document.getElementById("beatStatus").textContent = "Close Athena to begin";
-        return;
-      }
-      currentPhase = 0;
-      required.scenario = false;
-      scenarioAnnounced = false;
-      athenaSceneInline.hidden = true;
-      Athena.hide();
-      playScene();
-      checkCompletion();
-    });
+    /* ============ Sources drawer ============ */
+    const sources = [
+      { name: "ABA Formal Opinion 512", detail: "Lawyer duties on competence, confidentiality, supervision, and generative AI.", url: "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf" },
+      { name: "NIST AI Risk Management Framework", detail: "Governance and risk framing for AI systems and organizational use.", url: "https://www.nist.gov/itl/ai-risk-management-framework" },
+      { name: "OpenAI text generation & tools docs", detail: "Plain-English distinction between model generation and tool-enabled systems.", url: "https://platform.openai.com/docs/guides/text-generation" }
+    ];
+    document.getElementById("sourceGrid").innerHTML = sources.map(s => `
+      <div class="src-card">
+        <strong>${s.name}</strong>
+        <span class="src-detail">${s.detail}</span>
+        <a href="${s.url}" target="_blank" rel="noopener">Open source &rarr;</a>
+      </div>`).join("");
 
-    function startSceneOnce() {
-      if (!sceneStarted) {
-        if (!athenaIntroduced) {
-          sceneWaitingForIntro = true;
-          document.getElementById("beatStatus").textContent = "Close Athena to begin";
+    /* ============ Athena ============ */
+    const athenaAssets = {
+      ask: "../assets/athena/athena-ask.svg",
+      trace: "../assets/athena/athena-trace.svg",
+      hold: "../assets/athena/athena-hold.svg",
+      close: "../assets/athena/athena-close.svg"
+    };
+    const athenaEl = document.getElementById("athena");
+    let athenaTimer = 0;
+    const Athena = {
+      show() { athenaEl.classList.add("visible"); },
+      hide() { athenaEl.classList.remove("visible"); window.clearTimeout(athenaTimer); },
+      flash(stateKey, stateLabel, line, ms) {
+        if (athenaDismissed && stateKey === "trace") {
+          // respect dismissal for low-priority nudges
           return;
         }
-        playScene();
+        document.getElementById("athenaState").textContent = stateLabel;
+        document.getElementById("athenaLine").textContent = line;
+        document.getElementById("athenaPortrait").src = athenaAssets[stateKey] || athenaAssets.ask;
+        Athena.show();
+        window.clearTimeout(athenaTimer);
+        if (ms) athenaTimer = window.setTimeout(Athena.hide, ms);
       }
-    }
+    };
+    document.getElementById("athenaDismiss").addEventListener("click", () => { athenaDismissed = true; Athena.hide(); });
+    // Introduce on load and persist (Ask) until dismissed.
+    window.setTimeout(Athena.show, 600);
 
-    if ("IntersectionObserver" in window) {
-      const sceneObserver = new IntersectionObserver(entries => {
-        if (entries.some(entry => entry.isIntersecting)) {
-          startSceneOnce();
-          sceneObserver.disconnect();
-        }
-      }, { threshold: 0.28 });
-      sceneObserver.observe(document.getElementById("scenario"));
-    } else {
-      window.setTimeout(startSceneOnce, 900);
-    }
-
-    const quizFeedback = [
-      {
-        correct: "Yes. Approval has a perimeter. Find it before anyone uploads data.",
-        wrong: "Look again. Demo quality leaves the approval perimeter undefined."
-      },
-      {
-        correct: "Yes. Routing belongs to workflow because it decides where the answer goes.",
-        wrong: "Look again. Name the process that decides where the answer goes."
-      },
-      {
-        correct: "Yes. Training answers one question inside a broader review of retention, access, confidentiality, and supervision.",
-        wrong: "Look again. The data statement answers one question inside a broader use-case review."
-      },
-      {
-        correct: "Yes. The screen is one layer, and governance surrounds the whole use.",
-        wrong: "Look again. A polished screen leaves workflow, review path, and governance perimeter unresolved."
-      }
-    ];
-
-    document.querySelectorAll(".quiz-card").forEach((card, index) => {
-      card.querySelectorAll(".option").forEach(option => {
-        option.addEventListener("click", () => {
-          const isCorrect = option.dataset.option === card.dataset.correct;
-          card.querySelectorAll(".option").forEach(candidate => {
-            candidate.disabled = true;
-            if (candidate.dataset.option === card.dataset.correct) {
-              candidate.classList.add("correct");
-            }
-          });
-          if (!isCorrect) {
-            option.classList.add("wrong");
-          }
-          card.querySelector(".quiz-feedback").textContent = isCorrect
-            ? quizFeedback[index].correct
-            : quizFeedback[index].wrong;
-          required.quiz.add(index);
-          checkCompletion();
-        });
-      });
-    });
-
+    /* ============ Completion ============ */
     function checkCompletion() {
-      const complete =
-        required.stack.size === 4 &&
-        required.myth.size === 4 &&
-        required.scenario &&
-        required.quiz.size === 4 &&
-        required.scroll;
-
+      const complete = done.stack.size === 4 && done.classifier && done.vendor &&
+        done.myth.size === 4 && done.scenario && done.quiz.size === 4;
       document.getElementById("completion").hidden = !complete;
-      if (complete && !completionAnnounced) {
-        completionAnnounced = true;
+      if (complete && !completed) {
+        completed = true;
+        athenaDismissed = true;
         Athena.hide();
-        athenaSceneInline.hidden = true;
-        Athena.showInline("approve");
+        document.getElementById("athenaClose").hidden = false;
+        document.getElementById("completion").scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
-
-    window.addEventListener("scroll", () => {
-      const nearEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12;
-      if (nearEnd) {
-        required.scroll = true;
-        checkCompletion();
-      }
-    }, { passive: true });
-
-    renderScenePhase();
-    Athena.introduce();
   </script>
+  <script src="/js/bedazzler-analytics.js"></script>
 </body>
 </html>
