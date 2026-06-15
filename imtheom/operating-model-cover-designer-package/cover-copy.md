@@ -30,7 +30,7 @@ jhmacal.com
 
 ## Disclaimer
 
-This is not legal advice, creates no attorney-client relationship, and requires adaptation to your own sector, market footprint, and regulatory perimeter before implementation. It is an illustrative operating model for a hypothetical company.
+Disclaimer: prepared for informational purposes only, based on information available at the time of publication. It is not intended and does not constitute legal advice or legal opinion on any specific facts or circumstances. I shall not have any liability in connection with any use of these materials. This post does not establish an attorney-client relationship with the recipient. Please seek advice from qualified counsel. The output may vary and not cover your circumstances in full and should not be relied upon as is.
 
 ## Optional Inside Title Page
 
@@ -38,7 +38,7 @@ AI Governance Operating Model
 
 An Operating Model for AI Governance
 
-This document presents an illustrative and generalized operating model for AI governance. It is not legal advice, and reading or using it creates no attorney-client relationship. It describes a hypothetical enterprise and does not address the facts or obligations of any particular organization, so a reader should obtain advice from qualified counsel before relying on any part of it. The content is current as of June 2026.
+Disclaimer: prepared for informational purposes only, based on information available at the time of publication. It is not intended and does not constitute legal advice or legal opinion on any specific facts or circumstances. I shall not have any liability in connection with any use of these materials. This post does not establish an attorney-client relationship with the recipient. Please seek advice from qualified counsel. The output may vary and not cover your circumstances in full and should not be relied upon as is.
 
 ## Annex Cover Template
 

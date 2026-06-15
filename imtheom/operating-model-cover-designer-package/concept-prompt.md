@@ -36,6 +36,6 @@ jhmacal.com
 
 Include the disclaimer in small text at the bottom or on an inside title page:
 
-This is not legal advice, creates no attorney-client relationship, and requires adaptation to your own sector, market footprint, and regulatory perimeter before implementation. It is an illustrative operating model for a hypothetical company.
+Disclaimer: prepared for informational purposes only, based on information available at the time of publication. It is not intended and does not constitute legal advice or legal opinion on any specific facts or circumstances. I shall not have any liability in connection with any use of these materials. This post does not establish an attorney-client relationship with the recipient. Please seek advice from qualified counsel. The output may vary and not cover your circumstances in full and should not be relied upon as is.
 
 Typography direction: serious serif title, clean sans metadata. The title should look institutional, not literary. The final design must work as a printable US Letter PDF cover and as a first page in a browser-generated PDF.

@@ -1164,8 +1164,35 @@ body.om-doc .om-print-button:hover {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+  body.om-landing {
+    --om-field: #fff;
+    --om-rail: #fff;
+    --om-sheet: #fff;
+    --om-ink: #111;
+    --om-muted: #4d5660;
+    --om-line: #d4d6d1;
+    --om-navy: #fff;
+    --om-navy-soft: #e8ebef;
+    --om-cream: #111;
+    --om-gold: #8f6f2c;
+    --om-gold-deep: #755a1d;
+    display: block;
+    background: #fff !important;
+    color: #111 !important;
+  }
   body.om-doc,
   body.om-annex {
+    --om-field: #fff;
+    --om-rail: #fff;
+    --om-sheet: #fff;
+    --om-ink: #111;
+    --om-muted: #4d5660;
+    --om-line: #d4d6d1;
+    --om-navy: #111827;
+    --om-navy-soft: #e8ebef;
+    --om-cream: #fff;
+    --om-gold: #8f6f2c;
+    --om-gold-deep: #755a1d;
     background: #fff;
     color: #111;
   }
@@ -1176,6 +1203,115 @@ body.om-doc .om-print-button:hover {
   .om-helper-message,
   .om-external-actions {
     display: none !important;
+  }
+  body.om-landing .nav,
+  body.om-landing .footer,
+  body.om-landing .om-button {
+    display: none !important;
+  }
+  body.om-landing .om-landing-wrap {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0.62in;
+  }
+  body.om-landing .om-gold-rule {
+    width: 0.55in;
+    height: 2px;
+    margin-bottom: 0.22in;
+    background: #111 !important;
+  }
+  body.om-landing .om-eyebrow,
+  body.om-landing .om-label {
+    color: #555 !important;
+  }
+  body.om-landing .om-eyebrow {
+    margin-bottom: 0.12in;
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+  }
+  body.om-landing h1 {
+    max-width: 12ch;
+    margin-bottom: 0.14in;
+    color: #111 !important;
+    font-size: 32pt;
+    line-height: 1.02;
+  }
+  body.om-landing .om-landing-sub {
+    max-width: 5.8in;
+    margin-bottom: 0.24in;
+    color: #333 !important;
+    font-size: 15pt;
+    line-height: 1.32;
+  }
+  body.om-landing .om-config-panel {
+    padding-top: 0.24in;
+    border-top-color: #d4d6d1;
+  }
+  body.om-landing .om-form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.22in;
+  }
+  body.om-landing .om-market-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.08in;
+  }
+  body.om-landing .om-field {
+    margin-bottom: 0.16in;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+  body.om-landing .om-label {
+    margin-bottom: 0.05in;
+    font-size: 7.4pt;
+    letter-spacing: 0.12em;
+  }
+  body.om-landing .om-input,
+  body.om-landing .om-select {
+    border-color: #bbb;
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt;
+    padding: 0.075in 0.09in;
+  }
+  body.om-landing .om-select-wrap::after {
+    display: none;
+  }
+  body.om-landing .om-field-note {
+    margin-top: 0.07in;
+    color: #444 !important;
+    font-size: 8.5pt;
+    line-height: 1.42;
+  }
+  body.om-landing .om-toggle {
+    min-height: 0.32in;
+    border-color: #aaa;
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 8.3pt;
+    letter-spacing: 0.02em;
+  }
+  body.om-landing .om-toggle::before {
+    width: 0.1in;
+    height: 0.1in;
+    border-color: #111;
+  }
+  body.om-landing .om-toggle:has(input:checked)::before {
+    background: #111;
+    border-color: #111;
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+  body.om-landing .om-disclaimer {
+    max-width: none;
+    margin: 0.18in 0 0;
+    color: #111 !important;
+    font-size: 8.7pt;
+    font-style: normal;
+    line-height: 1.42;
+  }
+  body.om-landing .om-disclaimer strong {
+    color: #111 !important;
+    font-size: 7.5pt;
   }
   .om-shell,
   .om-main,
@@ -1190,6 +1326,7 @@ body.om-doc .om-print-button:hover {
     padding: 0;
     border: 0;
     box-shadow: none;
+    background: #fff;
   }
   .om-cover {
     display: block;
@@ -1211,16 +1348,22 @@ body.om-doc .om-print-button:hover {
   }
   .om-doc-identity {
     border-top: 1px solid #111;
+    margin-top: 1.8rem;
+    padding-top: 0.8rem;
   }
   .om-title {
     font-size: 30pt;
+    color: #111 !important;
+    text-shadow: none !important;
   }
   .om-subtitle {
     font-size: 14pt;
+    color: #444 !important;
   }
   .om-meta-row,
   .om-print-config {
     font-size: 8.5pt;
+    color: #555 !important;
   }
   .om-doc-disclaimer,
   .om-body p,
@@ -1230,8 +1373,31 @@ body.om-doc .om-print-button:hover {
     line-height: 1.38;
     orphans: 2;
     widows: 2;
+    color: #111 !important;
+  }
+  .om-doc-disclaimer {
+    font-style: normal;
+  }
+  .om-document-kicker,
+  .om-section-mark,
+  .om-annex-kicker {
+    color: #a6822c !important;
   }
   .om-section h2,
+  .om-doc-contents h2,
+  .om-annex-section h2,
+  .om-annex-section h3,
+  .om-section-mark,
+  .om-exhibit__label,
+  .om-flow__item strong,
+  .om-gate-map__item strong,
+  .om-tier-ladder__item strong,
+  .om-registry-map span {
+    color: #111 !important;
+    text-shadow: none !important;
+  }
+  .om-section h2,
+  .om-doc-contents h2,
   .om-annex-section h2,
   .om-annex-section h3,
   .om-section-mark {
@@ -1247,8 +1413,9 @@ body.om-doc .om-print-button:hover {
   .om-table {
     min-width: 0;
     table-layout: fixed;
-    font-size: 8.3pt;
-    line-height: 1.24;
+    border-top: 1px solid #111;
+    font-size: 9.1pt;
+    line-height: 1.32;
   }
   .om-table thead {
     display: table-header-group;
@@ -1260,21 +1427,46 @@ body.om-doc .om-print-button:hover {
   .om-table th,
   .om-table td,
   .om-meta-table td {
-    padding: 0.07in 0.08in;
+    padding: 0.075in 0.085in;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .om-table th {
+    border-bottom: 1px solid #111;
+    background: #eef1f4 !important;
+    color: #111 !important;
+    font-size: 7.8pt;
+    letter-spacing: 0.055em;
+    line-height: 1.25;
+  }
+  .om-table td {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .om-table td:first-child {
+    color: #111 !important;
+    font-weight: 700;
   }
   .om-exhibit {
     margin: 0.14in 0 0.18in;
     padding: 0.12in;
     border-color: #999;
     border-left-color: #111;
-    background: #f5f5f5;
+    background: #fff !important;
     break-inside: avoid-page;
     page-break-inside: avoid;
+  }
+  .om-exhibit__label {
+    letter-spacing: 0.08em;
   }
   .om-flow,
   .om-gate-map,
   .om-registry-map {
+    grid-template-columns: 1fr !important;
     gap: 0.05in;
+  }
+  .om-flow__item:not(:last-child)::after {
+    display: none !important;
   }
   .om-flow__item,
   .om-gate-map__item {
@@ -1285,11 +1477,23 @@ body.om-doc .om-print-button:hover {
   .om-tier-ladder__item,
   .om-registry-map span {
     border-color: #bbb;
+    background: #fff !important;
+  }
+  .om-flow__item span,
+  .om-gate-map__item span,
+  .om-tier-ladder__item span {
+    color: #333 !important;
+  }
+  .om-tier-ladder__item {
+    grid-template-columns: 1.1in 1fr;
   }
   .om-term {
     border-bottom: 0;
   }
   .om-term::after {
+    display: none;
+  }
+  .om-doc-identity {
     display: none;
   }
   .om-section,
