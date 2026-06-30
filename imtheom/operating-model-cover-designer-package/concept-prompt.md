@@ -4,7 +4,7 @@ Design a serious PDF cover for an AI Governance Operating Model by Julio Macedo,
 
 The cover should read as institutional, precise, board-facing, and operator-grade. It should feel like a governance manual, audit committee packet, or regulatory operating model. Use restrained typography, disciplined margins, subtle rule lines, a thin control-grid motif, and a quiet lifecycle structure that hints at intake, risk tiering, review gates, registry, monitoring, and escalation.
 
-Use a deep navy, paper cream, ink, muted grey, and a restrained gold accent. Gold should appear only as a rule, small label, or metadata accent. Avoid glossy effects, glowing cards, startup AI gradients, robot imagery, neural networks, gavels, scales, courthouse imagery, and anything that reads like a sales deck or fashion magazine.
+Use deep navy, white, ink, grey-blue body background, muted grey-blue, and a restrained gold accent. Gold should appear only as a rule, small label, or metadata accent. Avoid glossy effects, glowing cards, startup AI gradients, robot imagery, neural networks, gavels, scales, courthouse imagery, ivory, warm paper, and anything that reads like a sales deck or fashion magazine.
 
 Required cover text:
 

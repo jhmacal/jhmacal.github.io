@@ -41,17 +41,17 @@ Preferred implementation: live HTML/CSS cover so the company, sector, posture, a
 
 Navy: `#0a1628`
 
-Ink: `#1c2834`
+Ink: `#142030`
 
-Cream: `#f4ede0`
+White: `#ffffff`
 
-Paper: `#fbfaf6`
+Grey-blue body background: approved brand body background image, with `#d6d9e1` as the sampled fallback
 
 Gold: `#c9a961`
 
 Deep gold: `#a6822c`
 
-Muted grey: `#65707b`
+Muted grey-blue: `#526070`
 
 ## Quality Bar
 

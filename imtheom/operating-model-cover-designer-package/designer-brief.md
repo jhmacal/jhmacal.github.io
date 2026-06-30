@@ -22,7 +22,7 @@ The cover should feel closer to a governance manual, audit committee packet, reg
 - Heavy decorative serif use.
 - Fashion magazine cover energy.
 - Sales-deck composition.
-- Overly soft cream stationery.
+- Ivory, warm paper, or soft stationery treatments.
 - Dense prose on the cover.
 
 ## Visual Direction
@@ -44,12 +44,12 @@ The cover should connect to jhmacal.com without looking like the website.
 Core palette:
 
 - Navy: `#0a1628`
-- Ink: `#1c2834`
-- Cream: `#f4ede0`
-- Paper: `#fbfaf6`
+- Ink: `#142030`
+- White: `#ffffff`
+- Grey-blue body background: use the approved brand body background image, with `#d6d9e1` as the sampled fallback
 - Gold accent: `#c9a961`
 - Deep gold: `#a6822c`
-- Muted grey: `#65707b`
+- Muted grey-blue: `#526070`
 
 Gold should be an accent, not the visual subject.
 

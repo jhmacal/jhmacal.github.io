@@ -1,14 +1,18 @@
-/* AI Governance Operating Model pages. Built on the jhmacal.com navy, cream, gold, Cormorant, and Inter system. */
+/* AI Governance Operating Model pages. Built on the jhmacal.com navy, white, grey-blue, gold, Cormorant, and Inter system. */
 :root {
-  --om-field: #eceee9;
-  --om-rail: #f3f1ea;
-  --om-sheet: #fbfaf6;
-  --om-ink: #1c2834;
-  --om-muted: #65707b;
-  --om-line: #dcddd4;
+  --om-field: #c4ceda;
+  --om-rail: #cdd6e1;
+  --om-sheet: #dce2ea;
+  --om-surface: #eef3f8;
+  --om-surface-soft: #e5ebf3;
+  --om-body-bg: #d6d9e1;
+  --om-body-image: url('/imtheom/assets/body-background.png');
+  --om-ink: #142030;
+  --om-muted: #526070;
+  --om-line: #aebccc;
   --om-navy: var(--navy, #0a1628);
   --om-navy-soft: #132742;
-  --om-cream: var(--cream, #f4ede0);
+  --om-white: #ffffff;
   --om-gold: var(--gold, #c9a961);
   --om-gold-deep: #a6822c;
   --om-doc-serif: "Times New Roman", Times, serif;
@@ -18,6 +22,8 @@ body.om-landing,
 body.om-doc,
 body.om-annex {
   min-height: 100vh;
+  --cream: var(--om-white);
+  --cream-warm: var(--om-white);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -25,7 +31,7 @@ body.om-landing {
   display: flex;
   flex-direction: column;
   background: var(--om-navy);
-  color: var(--om-cream);
+  color: var(--om-white);
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
@@ -66,7 +72,7 @@ body.om-landing {
 
 .om-eyebrow {
   margin: 0 0 1.15rem;
-  color: rgba(244, 237, 224, 0.58);
+  color: rgba(255, 255, 255, 0.58);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -76,7 +82,7 @@ body.om-landing {
 .om-landing h1 {
   max-width: 14ch;
   margin: 0 0 0.8rem;
-  color: var(--om-cream);
+  color: var(--om-white);
   font-size: clamp(2.65rem, 5vw, 3.7rem);
   font-weight: 300;
   line-height: 0.97;
@@ -85,7 +91,7 @@ body.om-landing {
 .om-landing-sub {
   max-width: 31rem;
   margin: 0 0 1.55rem;
-  color: rgba(244, 237, 224, 0.72);
+  color: rgba(255, 255, 255, 0.72);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   font-style: italic;
@@ -94,7 +100,7 @@ body.om-landing {
 
 .om-config-panel {
   padding-top: 1.9rem;
-  border-top: 1px solid rgba(244, 237, 224, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .om-field {
@@ -104,7 +110,7 @@ body.om-landing {
 .om-label {
   display: block;
   margin-bottom: 0.48rem;
-  color: rgba(244, 237, 224, 0.58);
+  color: rgba(255, 255, 255, 0.58);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -117,9 +123,9 @@ body.om-landing {
 .om-rail-select {
   width: 100%;
   border-radius: 4px;
-  border: 1px solid rgba(244, 237, 224, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.045);
-  color: var(--om-cream);
+  color: var(--om-white);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.25;
@@ -137,13 +143,13 @@ body.om-landing {
 }
 
 .om-input::placeholder {
-  color: rgba(244, 237, 224, 0.36);
+  color: rgba(255, 255, 255, 0.36);
   font-style: italic;
 }
 
 .om-field-note {
   margin: 0.55rem 0 0;
-  color: rgba(244, 237, 224, 0.62);
+  color: rgba(255, 255, 255, 0.62);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.82rem;
   line-height: 1.62;
@@ -173,7 +179,7 @@ body.om-landing {
   height: 0.42rem;
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-  color: rgba(244, 237, 224, 0.58);
+  color: rgba(255, 255, 255, 0.58);
   transform: translateY(-68%) rotate(45deg);
   pointer-events: none;
 }
@@ -196,9 +202,9 @@ body.om-landing {
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
-  border: 1px solid rgba(244, 237, 224, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 4px;
-  color: rgba(244, 237, 224, 0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
@@ -220,14 +226,14 @@ body.om-landing {
   height: 0.78rem;
   margin-right: 0.48rem;
   border-radius: 3px;
-  border: 1px solid rgba(244, 237, 224, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: inset 0 0 0 2px transparent;
 }
 
 .om-toggle:has(input:checked),
 .om-market-mini:has(input:checked) {
   border-color: rgba(201, 169, 97, 0.72);
-  color: var(--om-cream);
+  color: var(--om-white);
   background: rgba(201, 169, 97, 0.08);
 }
 
@@ -241,7 +247,7 @@ body.om-landing {
 .om-disclaimer {
   max-width: 44rem;
   margin: 1.85rem 0 1.65rem;
-  color: rgba(244, 237, 224, 0.66);
+  color: rgba(255, 255, 255, 0.66);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.12rem;
   font-style: italic;
@@ -249,7 +255,7 @@ body.om-landing {
 }
 
 .om-disclaimer strong {
-  color: var(--om-cream);
+  color: var(--om-white);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.78rem;
   font-style: normal;
@@ -283,7 +289,7 @@ body.om-landing {
 
 body.om-doc,
 body.om-annex {
-  background: var(--om-field);
+  background: var(--om-body-bg) var(--om-body-image) center top / cover fixed;
   color: var(--om-ink);
   font-family: var(--om-doc-serif);
 }
@@ -295,7 +301,7 @@ body.om-annex {
   z-index: 30;
   border: 1px solid rgba(201, 169, 97, 0.48);
   border-radius: 999px;
-  background: rgba(251, 250, 246, 0.92);
+  background: rgba(238, 243, 248, 0.92);
   color: var(--om-navy);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.74rem;
@@ -310,16 +316,16 @@ body.om-annex {
 
 .om-home-pill:hover {
   border-color: var(--om-gold);
-  background: #fff;
+  background: #f5f8fb;
 }
 
 body.om-landing .om-home-pill {
-  background: rgba(244, 237, 224, 0.08);
-  color: var(--om-cream);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--om-white);
 }
 
 body.om-landing .om-home-pill:hover {
-  background: rgba(244, 237, 224, 0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .om-shell {
@@ -370,7 +376,7 @@ body.om-landing .om-home-pill:hover {
 .om-rail-input,
 .om-rail-select {
   border-color: var(--om-line);
-  background: #fff;
+  background: var(--om-surface);
   color: var(--om-navy);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.06rem;
@@ -404,7 +410,7 @@ body.om-landing .om-home-pill:hover {
 .om-market-mini {
   min-height: 2.38rem;
   border-color: var(--om-line);
-  background: #fff;
+  background: var(--om-surface);
   color: var(--om-muted);
   font-size: 0.78rem;
 }
@@ -473,9 +479,9 @@ body.om-landing .om-home-pill:hover {
 .om-annex-sheet {
   width: min(900px, 100%);
   margin-inline: auto;
-  border: 1px solid #eeefe8;
+  border: 1px solid #b7c3d1;
   border-radius: 3px;
-  background: var(--om-sheet);
+  background: var(--om-sheet) var(--om-body-image) top center / 100% auto repeat-y;
   font-family: var(--om-doc-serif);
   box-shadow: 0 1px 0 rgba(10, 22, 40, 0.04), 0 26px 65px -42px rgba(10, 22, 40, 0.36);
 }
@@ -574,7 +580,7 @@ body.om-landing .om-home-pill:hover {
   padding: 0.58rem 0.68rem;
   border: 1px solid rgba(166, 130, 44, 0.38);
   border-radius: 3px;
-  background: #fff;
+  background: var(--om-surface);
   box-shadow: 0 18px 36px -26px rgba(10, 22, 40, 0.48);
   color: var(--om-navy);
   content: attr(data-definition);
@@ -666,7 +672,7 @@ body.om-landing .om-home-pill:hover {
   padding: 1rem;
   border: 1px solid var(--om-line);
   border-left: 4px solid var(--om-navy-soft);
-  background: #f3f5f4;
+  background: var(--om-surface-soft);
   break-inside: avoid;
 }
 
@@ -697,7 +703,7 @@ body.om-landing .om-home-pill:hover {
 .om-tier-ladder__item,
 .om-registry-map span {
   border: 1px solid #d4d8d4;
-  background: #fff;
+  background: var(--om-surface);
   color: var(--om-ink);
 }
 
@@ -821,7 +827,7 @@ body.om-landing .om-home-pill:hover {
 
 .om-table th {
   background: var(--om-navy-soft);
-  color: var(--om-cream);
+  color: var(--om-white);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.11em;
@@ -833,7 +839,7 @@ body.om-landing .om-home-pill:hover {
 
 .om-table td {
   border-bottom: 1px solid var(--om-line);
-  background: #fff;
+  background: var(--om-surface);
   color: var(--om-ink);
   font-family: var(--om-doc-serif);
   padding: 0.78rem 0.85rem;
@@ -888,7 +894,7 @@ body.om-landing .om-home-pill:hover {
   padding: 0.62rem 0.74rem;
   border: 1px solid rgba(166, 130, 44, 0.38);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(238, 243, 248, 0.97);
   box-shadow: 0 18px 40px -28px rgba(10, 22, 40, 0.46);
   color: var(--om-navy);
   font-family: 'Inter', system-ui, sans-serif;
@@ -987,7 +993,7 @@ body.om-doc .om-print-button {
   height: 3.35rem;
   place-items: center;
   border-radius: 999px;
-  background: rgba(251, 250, 246, 0.96);
+  background: rgba(238, 243, 248, 0.96);
   line-height: 1;
   padding: 0;
   text-align: center;
@@ -1011,7 +1017,7 @@ body.om-doc .om-print-button svg {
 }
 
 body.om-doc .om-print-button:hover {
-  background: #fff;
+  background: #f5f8fb;
   border-color: var(--om-gold);
 }
 
@@ -1064,7 +1070,7 @@ body.om-doc .om-print-button:hover {
 
 .om-meta-table td:first-child {
   width: 10rem;
-  background: #e8ecec;
+  background: var(--om-surface-soft);
   color: var(--om-navy);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.72rem;
@@ -1134,6 +1140,15 @@ body.om-doc .om-print-button:hover {
 }
 
 @media (max-width: 620px) {
+  body.om-doc,
+  body.om-annex {
+    overflow-x: clip;
+  }
+  .om-home-pill {
+    position: static;
+    display: inline-flex;
+    margin: 0.75rem 0 0 0.7rem;
+  }
   .om-form-row,
   .om-market-row {
     grid-template-columns: 1fr;
@@ -1158,8 +1173,21 @@ body.om-doc .om-print-button:hover {
   .om-external-actions .om-print-button:not(:has(svg)) {
     width: 100%;
   }
+  .om-table-wrap {
+    overflow-x: visible;
+  }
   .om-table {
-    min-width: 560px;
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 0.84rem;
+  }
+  .om-table th,
+  .om-table td {
+    overflow-wrap: anywhere;
+    padding: 0.62rem 0.55rem;
+  }
+  .om-term::after {
+    display: none;
   }
   .om-tier-ladder__item {
     grid-template-columns: 1fr;
@@ -1188,7 +1216,7 @@ body.om-doc .om-print-button:hover {
     --om-line: #d4d6d1;
     --om-navy: #fff;
     --om-navy-soft: #e8ebef;
-    --om-cream: #111;
+    --om-white: #111;
     --om-gold: #8f6f2c;
     --om-gold-deep: #755a1d;
     display: block;
@@ -1205,7 +1233,7 @@ body.om-doc .om-print-button:hover {
     --om-line: #d4d6d1;
     --om-navy: #111827;
     --om-navy-soft: #e8ebef;
-    --om-cream: #fff;
+    --om-white: #fff;
     --om-gold: #8f6f2c;
     --om-gold-deep: #755a1d;
     background: #fff;
