@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Authority | Legal AI Governance Case Study | Julio Macedo</title>
+  <meta name="description" content="The Authority, a legal AI governance case study on why models cannot certify themselves.">
+  <meta property="og:title" content="The Authority | Julio Macedo">
+  <meta property="og:description" content="A legal AI governance case study on why models cannot certify themselves.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/studies/the-authority/">
+  <link rel="canonical" href="https://www.jhmacal.com/studies/the-authority/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
+  <style>
+    :root {
+      --authority-ink: #0f1c2c;
+      --authority-paper: #e9eef4;
+      --authority-paper-line: #bcc8d7;
+      --authority-orange: #ef7626;
+      --authority-red: #c9352b;
+      --authority-blue: #156c86;
+      --authority-gold-edge: #dbad5f;
+      --authority-gold-sheen: #e6cf9b;
+    }
+
+    body.authority-page {
+      background: var(--navy);
+    }
+
+    .authority-hero {
+      padding: calc(var(--nav-height) + var(--space-20)) 0 var(--space-16);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.14);
+    }
+
+    .authority-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 680px) minmax(220px, 1fr);
+      gap: var(--space-12);
+      align-items: end;
+    }
+
+    .authority-hero__eyebrow,
+    .authority-section__marker,
+    .authority-kicker,
+    .authority-disposition,
+    .authority-flow__label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .authority-hero__eyebrow,
+    .authority-section__marker,
+    .authority-kicker,
+    .authority-disposition,
+    .authority-flow__label {
+      color: var(--gold);
+    }
+
+    .authority-hero h1 {
+      margin: var(--space-4) 0 var(--space-5);
+      color: var(--cream);
+      font-size: clamp(2.5rem, 5vw, var(--text-5xl));
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    .authority-hero__sub {
+      max-width: 600px;
+      color: rgba(244, 237, 224, 0.6);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    .authority-download-anchor {
+      position: fixed;
+      top: 50vh;
+      left: 0.45rem;
+      z-index: 40;
+      width: clamp(3.15rem, 4.5vw, 3.65rem);
+      height: clamp(3.15rem, 4.5vw, 3.65rem);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(244, 237, 224, 0.92);
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+      transform: translateY(-50%);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .authority-download-anchor:hover,
+    .authority-download-anchor:focus-visible {
+      border-color: #ffffff;
+      background: #10284a;
+      transform: translateY(-50%) translateX(0.12rem);
+    }
+
+    .authority-download-anchor:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 4px;
+    }
+
+    .authority-download-anchor svg {
+      width: 48%;
+      height: 48%;
+      stroke: currentColor;
+    }
+
+    .authority-note {
+      border-left: 1px solid rgba(201, 169, 97, 0.45);
+      padding-left: var(--space-5);
+      color: rgba(244, 237, 224, 0.64);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .authority-study {
+      padding: var(--space-16) 0 var(--space-24);
+    }
+
+    .authority-section {
+      position: relative;
+      margin: 0 auto;
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      overflow: visible;
+      border-top: 1px solid rgba(201, 169, 97, 0.14);
+      background: transparent;
+      color: var(--cream);
+      scroll-margin-top: calc(var(--nav-height) + var(--space-8));
+    }
+
+    .authority-section:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .authority-section::before {
+      display: none;
+    }
+
+    .authority-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .authority-page-bg {
+      display: none;
+    }
+
+    .authority-section__marker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: var(--space-8);
+    }
+
+    .authority-section__marker::before {
+      content: "";
+      width: 0.62rem;
+      height: 0.62rem;
+      background: var(--gold);
+    }
+
+    .authority-section h2 {
+      max-width: 820px;
+      margin: 0 0 var(--space-8);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, var(--text-4xl));
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 1.15;
+      text-transform: none;
+      color: var(--cream);
+    }
+
+    .authority-copy {
+      max-width: 900px;
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .authority-copy p,
+    .authority-list li {
+      color: rgba(244, 237, 224, 0.78);
+      font-size: clamp(1rem, 1.2vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .authority-copy strong {
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .authority-question {
+      margin-top: var(--space-8);
+      padding: 0.4rem 0 0.4rem var(--space-5);
+      border-left: 3px solid var(--gold);
+      max-width: 920px;
+    }
+
+    .authority-question h3 {
+      margin: 0;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1.08rem, 1.55vw, 1.34rem);
+      font-weight: 300;
+      font-style: normal;
+      letter-spacing: 0.08em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .authority-question p {
+      margin-top: var(--space-3);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+      font-weight: 300;
+      font-style: normal;
+      letter-spacing: 0.08em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .authority-question strong {
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    .authority-evidence {
+      margin: var(--space-10) 0;
+    }
+
+    .authority-evidence--wide {
+      max-width: 1120px;
+    }
+
+    .authority-evidence--right {
+      max-width: 880px;
+      margin-left: auto;
+    }
+
+    .authority-disposition {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: var(--space-3);
+      margin-bottom: 0;
+      color: rgba(244, 237, 224, 0.66);
+      font-size: clamp(0.78rem, 0.86vw, 0.9rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.45;
+      text-transform: none;
+    }
+
+    .authority-disposition::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(201, 169, 97, 0.24);
+    }
+
+    .authority-evidence-board {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(0.75rem, 1.6vw, 1.3rem);
+      align-items: center;
+      margin-top: var(--space-4);
+      max-width: 980px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .authority-evidence-piece {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(244, 237, 224, 0.12);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .authority-evidence-card {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .authority-evidence-card__label,
+    .authority-evidence-note__label {
+      color: #a94f14;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .authority-evidence-note {
+      padding: 0.85rem 0;
+      border-top: 1px solid rgba(201, 169, 97, 0.26);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.26);
+      color: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1rem, 1.4vw, 1.24rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .authority-evidence-note__label {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .authority-evidence-piece--no-frame {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .authority-evidence-piece--thesis-model { grid-column: 2 / 10; }
+    .authority-evidence-piece--thesis-gate { grid-column: 1 / 13; }
+    .authority-evidence-piece--thesis-principle { grid-column: 3 / 13; }
+    .authority-evidence-piece--thesis-trigger { grid-column: 2 / 11; }
+
+    .authority-evidence-piece--gov-recommendation { grid-column: 3 / 12; }
+    .authority-evidence-piece--gov-register { grid-column: 2 / 7; grid-row: span 2; }
+    .authority-evidence-piece--gov-score { grid-column: 3 / 12; }
+    .authority-evidence-note--gov-a { grid-column: 7 / 12; }
+    .authority-evidence-note--gov-b { grid-column: 7 / 12; }
+
+    .authority-evidence-card--stress-left { grid-column: 1 / 7; }
+    .authority-evidence-card--stress-right { grid-column: 7 / 13; }
+    .authority-evidence-card--stress-wide-left { grid-column: 1 / 7; }
+    .authority-evidence-card--stress-wide-right { grid-column: 7 / 13; }
+    .authority-evidence-piece--stress-principle { grid-column: 5 / 13; }
+
+    .authority-evidence-piece--gate-log { grid-column: 1 / 9; }
+    .authority-evidence-piece--gate-bypass { grid-column: 5 / 13; }
+
+    .authority-evidence-card--signal-operator { grid-column: 1 / 6; }
+    .authority-evidence-card--signal-model { grid-column: 7 / 13; }
+    .authority-evidence-piece--signal-wrong { grid-column: 5 / 10; }
+    .authority-evidence-piece--signal-auditor { grid-column: 1 / 8; }
+    .authority-evidence-piece--signal-line { grid-column: 3 / 13; }
+
+    .authority-evidence-board--compact {
+      gap: clamp(0.45rem, 1vw, 0.8rem);
+    }
+
+    .authority-manual-stage {
+      position: relative;
+      width: min(100%, 1120px);
+      margin: 0 auto var(--space-3);
+      background: transparent;
+      isolation: isolate;
+    }
+
+    .authority-manual-stage--thesis {
+      width: min(100%, 1040px);
+    }
+
+    .authority-manual-stage--governance {
+      aspect-ratio: 1120 / 720;
+    }
+
+    .authority-manual-stage--stress {
+      aspect-ratio: 1120 / 720;
+    }
+
+    .authority-manual-stage--gate {
+      aspect-ratio: 1120 / 540;
+    }
+
+    .authority-manual-stage--signal {
+      width: min(100%, 1120px);
+      aspect-ratio: 1120 / 560;
+    }
+
+    .authority-manual-img {
+      display: block;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      filter:
+        drop-shadow(0 0 1px rgba(255, 244, 207, 0.58))
+        drop-shadow(0 0 7px rgba(219, 173, 95, 0.28))
+        drop-shadow(0 0 18px rgba(201, 169, 97, 0.16));
+    }
+
+    .authority-manual-img--free {
+      width: 100%;
+      height: auto;
+      margin-inline: auto;
+    }
+
+    .authority-manual-img--placed {
+      position: absolute;
+      z-index: 2;
+      height: auto;
+    }
+
+    .authority-manual-label {
+      position: absolute;
+      z-index: 3;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(0.62rem, 0.86vw, 0.78rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .authority-manual-note {
+      position: absolute;
+      z-index: 3;
+      max-width: 35%;
+      padding: 0.85rem 0;
+      border-top: 1px solid rgba(201, 169, 97, 0.28);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.28);
+      color: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(0.92rem, 1.18vw, 1.12rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .authority-manual-note span {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #ef7626;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .authority-stress-connectors {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .authority-stress-connectors path,
+    .authority-stress-connectors polyline,
+    .authority-stress-connectors line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .authority-stress-connectors__line {
+      stroke: #c9a961;
+      stroke-width: 2.8;
+    }
+
+    .authority-manual-img--gov-recommendation {
+      top: 2%;
+      left: 18%;
+      width: 68%;
+    }
+
+    .authority-manual-img--gov-register {
+      top: 24%;
+      left: 9%;
+      width: 37%;
+    }
+
+    .authority-manual-note--gov-a {
+      top: 25%;
+      left: 52%;
+    }
+
+    .authority-manual-note--gov-b {
+      top: 53%;
+      left: 52%;
+    }
+
+    .authority-manual-img--gov-score {
+      top: 78%;
+      left: 17%;
+      width: 68%;
+    }
+
+    .authority-manual-img--stress-scope {
+      top: 6%;
+      left: 3%;
+      width: 42.5%;
+    }
+
+    .authority-manual-img--stress-dodge {
+      top: 8%;
+      left: 51.5%;
+      width: 31%;
+    }
+
+    .authority-manual-img--stress-handoff {
+      top: 31%;
+      left: 3%;
+      width: 42.5%;
+    }
+
+    .authority-manual-img--stress-gate {
+      top: 31%;
+      left: 50.3%;
+      width: 47%;
+    }
+
+    .authority-manual-img--stress-sequence {
+      top: 57%;
+      left: 20.5%;
+      width: 54.5%;
+    }
+
+    .authority-manual-img--gate-log {
+      top: 8%;
+      left: 0;
+      width: 68%;
+    }
+
+    .authority-manual-img--gate-bypass {
+      right: 0;
+      bottom: 2%;
+      width: 54%;
+    }
+
+    .authority-manual-img--signal-operator {
+      top: 4%;
+      left: 0;
+      width: 50%;
+    }
+
+    .authority-manual-img--signal-model {
+      right: 0;
+      bottom: 3%;
+      width: 66%;
+    }
+
+    .authority-manual-label--stress-1 { top: 0; left: 3%; }
+    .authority-manual-label--stress-2 { top: 0; left: 51.5%; }
+    .authority-manual-label--stress-3 { top: 25%; left: 3%; }
+    .authority-manual-label--stress-4 { top: 25%; left: 50.3%; }
+    .authority-manual-label--stress-5 { top: 51%; left: 15%; }
+
+    .authority-gate-flow {
+      max-width: 1020px;
+      margin: var(--space-8) auto var(--space-10);
+      border: 0.5px solid rgba(201, 169, 97, 0.24);
+      border-radius: 6px;
+      background: rgba(13, 26, 48, 0.78);
+      overflow: hidden;
+    }
+
+    .authority-gate-flow__head {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-5);
+      align-items: end;
+      padding: clamp(1.1rem, 2.2vw, 1.55rem);
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.08);
+    }
+
+    .authority-gate-flow__label {
+      margin: 0 0 0.45rem;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .authority-gate-flow__title {
+      margin: 0;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.05rem);
+      font-weight: 300;
+      line-height: 1.12;
+    }
+
+    .authority-gate-flow__status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.9rem;
+      padding: 0.28rem 0.62rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.36);
+      border-radius: 3px;
+      background: rgba(201, 169, 97, 0.07);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .authority-gate-flow__rail {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.08);
+    }
+
+    .authority-gate-flow__node {
+      min-width: 0;
+      min-height: 8.4rem;
+      display: grid;
+      align-content: center;
+      gap: 0.38rem;
+      padding: clamp(1rem, 2vw, 1.35rem);
+      background: rgba(244, 237, 224, 0.025);
+      text-align: left;
+    }
+
+    .authority-gate-flow__node--hold {
+      background: rgba(201, 53, 43, 0.075);
+    }
+
+    .authority-gate-flow__node--human {
+      background: rgba(21, 108, 134, 0.095);
+    }
+
+    .authority-gate-flow__node-label {
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .authority-gate-flow__node h3 {
+      margin: 0;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.24rem, 1.7vw, 1.55rem);
+      font-weight: 500;
+      line-height: 1.16;
+    }
+
+    .authority-gate-flow__node p {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.7);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .authority-gate-flow__arrow {
+      display: grid;
+      place-items: center;
+      width: 2.3rem;
+      border-right: 0.5px solid rgba(244, 237, 224, 0.08);
+      border-left: 0.5px solid rgba(244, 237, 224, 0.08);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1;
+      opacity: 0.72;
+    }
+
+    .authority-gate-flow__footer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(201, 169, 97, 0.1);
+    }
+
+    .authority-gate-flow__footer-item {
+      min-height: 4.7rem;
+      display: grid;
+      align-content: center;
+      gap: 0.22rem;
+      padding: 0.78rem 0.85rem;
+      background: rgba(13, 26, 48, 0.9);
+      color: rgba(244, 237, 224, 0.68);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.78rem;
+      line-height: 1.42;
+    }
+
+    .authority-gate-flow__footer-item strong {
+      color: var(--gold);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .authority-release-timeline {
+      margin: var(--space-8) 0 var(--space-6);
+      padding: clamp(1.4rem, 2.4vw, 2.1rem);
+      border: 1px solid rgba(201, 169, 97, 0.28);
+      border-radius: 12px;
+      background: rgba(13, 26, 48, 0.78);
+      box-shadow:
+        0 0 18px rgba(196, 170, 107, 0.12),
+        0 18px 34px rgba(0, 0, 0, 0.2);
+    }
+
+    .authority-release-timeline__track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      margin: 0.4rem 0 1.35rem;
+      padding: 0.25rem 0 0.35rem;
+    }
+
+    .authority-release-timeline__track::before {
+      content: "";
+      position: absolute;
+      top: 1.03rem;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: rgba(201, 169, 97, 0.36);
+    }
+
+    .authority-release-node {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: center;
+      gap: 0.5rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .authority-release-node:focus-visible {
+      outline: none;
+    }
+
+    .authority-release-node__dot {
+      width: 1.65rem;
+      height: 1.65rem;
+      border: 2px solid rgba(201, 169, 97, 0.62);
+      border-radius: 50%;
+      background: rgba(10, 24, 48, 0.96);
+      box-shadow: 0 0 0 0 rgba(201, 169, 97, 0);
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .authority-release-node:hover .authority-release-node__dot,
+    .authority-release-node:focus-visible .authority-release-node__dot,
+    .authority-release-node.is-active .authority-release-node__dot {
+      border-color: var(--gold);
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(201, 169, 97, 0.15);
+    }
+
+    .authority-release-node__label {
+      min-height: 4rem;
+      display: grid;
+      align-content: center;
+      gap: 0.12rem;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.08;
+    }
+
+    .authority-release-node__label-line {
+      display: block;
+      font-size: clamp(1rem, 1.65vw, 1.34rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .authority-release-node__label-line--soft {
+      color: rgba(244, 237, 224, 0.92);
+      font-size: clamp(0.98rem, 1.5vw, 1.25rem);
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      text-transform: none;
+    }
+
+    .authority-release-detail {
+      min-height: 13.5rem;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 1rem;
+      padding: clamp(1.1rem, 2vw, 1.55rem);
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      border-radius: 8px;
+      background: rgba(244, 237, 224, 0.035);
+      text-align: center;
+      transition: opacity 0.18s ease;
+    }
+
+    .authority-release-facts {
+      display: grid;
+      justify-items: center;
+      gap: 0.18rem;
+      margin: 0;
+    }
+
+    .authority-release-facts span {
+      display: block;
+      color: rgba(244, 237, 224, 0.76);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.34rem);
+      font-weight: 450;
+      line-height: 1.18;
+    }
+
+    .authority-release-timeline[data-state="human"] .authority-release-facts {
+      gap: 0.75rem;
+    }
+
+    .authority-release-timeline[data-state="human"] .authority-release-facts span {
+      color: var(--cream);
+      font-size: clamp(1.08rem, 1.9vw, 1.4rem);
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .authority-release-detail__rule {
+      display: grid;
+      gap: 0.1rem;
+      margin-top: 0.25rem;
+      color: var(--authority-red);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1rem, 1.7vw, 1.32rem);
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .authority-release-detail__rule span {
+      display: block;
+    }
+
+    .authority-release-timeline[data-state="deviation"] .authority-release-detail__rule {
+      color: var(--authority-orange);
+    }
+
+    .authority-release-timeline[data-state="human"] .authority-release-detail__rule {
+      color: #82c2d6;
+    }
+
+    .authority-list {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: var(--space-4);
+    }
+
+    .authority-list li {
+      position: relative;
+      padding-left: 1.65rem;
+    }
+
+    .authority-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.92rem;
+      width: 1rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .authority-redaction-line,
+    .authority-redaction-inline {
+      display: inline-block;
+      background: #000000;
+      color: transparent;
+      overflow: hidden;
+      forced-color-adjust: none;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .authority-redaction-row {
+      margin: 0.05rem 0 -0.05rem;
+      line-height: 1;
+    }
+
+    .authority-redaction-line {
+      width: clamp(7.25rem, 12vw, 9.5rem);
+      height: 1.35rem;
+    }
+
+    .authority-redaction-inline {
+      width: clamp(5.25rem, 8vw, 7.1rem);
+      height: 1.2rem;
+      margin-right: 0.35rem;
+      vertical-align: -0.16rem;
+    }
+
+    .authority-print-cover {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .authority-hero__grid,
+      .authority-evidence-board {
+        grid-template-columns: 1fr;
+      }
+
+      .authority-gate-flow__head {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .authority-gate-flow__status {
+        justify-self: start;
+      }
+
+      .authority-gate-flow__rail {
+        grid-template-columns: 1fr;
+      }
+
+      .authority-gate-flow__arrow {
+        width: auto;
+        min-height: 2rem;
+        border: 0;
+        border-top: 0.5px solid rgba(244, 237, 224, 0.08);
+        border-bottom: 0.5px solid rgba(244, 237, 224, 0.08);
+        transform: rotate(90deg);
+      }
+
+      .authority-gate-flow__footer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .authority-evidence-piece,
+      .authority-evidence-card,
+      .authority-evidence-note,
+      .authority-manual-img--placed,
+      .authority-manual-label,
+      .authority-manual-note {
+        position: relative;
+        inset: auto !important;
+        grid-column: auto !important;
+        margin-top: 0 !important;
+      }
+
+      .authority-stress-connectors {
+        display: none;
+      }
+
+      .authority-manual-stage {
+        display: grid;
+        gap: var(--space-4);
+        aspect-ratio: auto;
+      }
+
+      .authority-manual-img--placed,
+      .authority-manual-note {
+        width: 100% !important;
+        max-width: none;
+      }
+
+      .authority-release-timeline {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .authority-download-anchor {
+        top: auto;
+        bottom: 1rem;
+        left: 0.55rem;
+        width: 3rem;
+        height: 3rem;
+        transform: none;
+      }
+
+      .authority-download-anchor:hover,
+      .authority-download-anchor:focus-visible {
+        transform: translateX(0.12rem);
+      }
+
+      .authority-gate-flow__node {
+        min-height: auto;
+        padding: 0.9rem;
+      }
+
+      .authority-gate-flow__footer {
+        grid-template-columns: 1fr;
+      }
+
+      .authority-release-timeline__track {
+        grid-template-columns: 1fr;
+        gap: 0.95rem;
+        margin-top: 0;
+        padding: 0;
+      }
+
+      .authority-release-timeline__track::before {
+        top: 0.82rem;
+        bottom: 0.82rem;
+        left: 0.82rem;
+        right: auto;
+        width: 1px;
+        height: auto;
+      }
+
+      .authority-release-node {
+        grid-template-columns: 1.65rem minmax(0, 1fr);
+        justify-items: start;
+        column-gap: 0.8rem;
+        text-align: left;
+      }
+
+      .authority-release-node__dot {
+        grid-row: 1 / span 2;
+      }
+
+      .authority-release-node__label {
+        min-height: auto;
+      }
+
+      .authority-release-detail {
+        min-height: auto;
+      }
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+        color: var(--authority-ink) !important;
+        font-size: 10.5pt;
+        line-height: 1.35;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .nav,
+      .footer,
+      .scroll-indicator,
+      .authority-hero,
+      .authority-download-anchor,
+      .authority-note {
+        display: none !important;
+      }
+
+      .authority-study {
+        padding: 0 !important;
+      }
+
+      .authority-print-cover {
+        display: block !important;
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        overflow: hidden;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .authority-print-cover img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .authority-section {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0;
+        padding: 0.54in 0.5in 0.42in;
+        border: 0;
+        background: var(--authority-paper) !important;
+        page-break-after: always;
+        break-after: page;
+        overflow: hidden;
+      }
+
+      .authority-section:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .authority-section::before {
+        display: none !important;
+      }
+
+      .authority-page-bg {
+        display: block !important;
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1;
+      }
+
+      .authority-section > *:not(.authority-page-bg) {
+        position: relative;
+        z-index: 1;
+      }
+
+      .authority-section__marker {
+        margin-bottom: 0.34in;
+        color: var(--authority-ink) !important;
+        font-size: 9pt;
+        letter-spacing: 0.03em;
+      }
+
+      .authority-section__marker::before {
+        width: 0.09in;
+        height: 0.09in;
+        background: var(--authority-ink);
+      }
+
+      .authority-section__marker::after {
+        content: "";
+        position: absolute;
+        top: 0.42in;
+        left: 0;
+        right: 0;
+        height: 1pt;
+        background: var(--authority-orange);
+      }
+
+      .authority-section h2 {
+        max-width: none;
+        margin-bottom: 0.18in;
+        color: var(--authority-ink) !important;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 29pt;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        line-height: 1.12;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      .authority-copy {
+        max-width: none;
+        gap: 0.06in;
+      }
+
+      .authority-copy p,
+      .authority-list li,
+      .authority-question p,
+      .authority-release-detail__rule,
+      .authority-release-facts span {
+        color: var(--authority-ink) !important;
+        font-size: 13.2pt;
+        line-height: 1.34;
+        orphans: 2;
+        widows: 2;
+      }
+
+      .authority-copy strong {
+        color: var(--authority-ink) !important;
+      }
+
+      .authority-evidence {
+        margin: 0.18in 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .authority-evidence--wide,
+      .authority-evidence--right {
+        max-width: none;
+      }
+
+      .authority-evidence img {
+        max-height: 3.05in;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        border: 0;
+        filter: none;
+      }
+
+      .authority-evidence-board {
+        gap: 0.06in;
+      }
+
+      .authority-evidence-board .authority-evidence-piece {
+        width: 100%;
+        max-height: none;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .authority-evidence-card,
+      .authority-evidence-note {
+        grid-column: auto !important;
+      }
+
+      .authority-evidence-card__label,
+      .authority-evidence-note__label {
+        color: #a94f14 !important;
+        font-size: 6.4pt;
+      }
+
+      .authority-evidence-note {
+        padding: 0.04in 0;
+        color: var(--authority-ink) !important;
+        font-size: 8.8pt;
+        line-height: 1.18;
+      }
+
+      .authority-disposition {
+        margin-top: 0.06in;
+        margin-bottom: 0;
+        color: #a94f14 !important;
+        font-size: 7.5pt;
+        letter-spacing: 0.02em;
+        line-height: 1.28;
+        text-transform: none;
+      }
+
+      .authority-disposition::after {
+        background: rgba(15, 28, 44, 0.22);
+      }
+
+      .authority-question {
+        margin-top: 0.14in;
+        padding-left: 0.1in;
+        border-left: 2pt solid var(--gold);
+      }
+
+      .authority-question h3,
+      .authority-question p {
+        color: var(--authority-ink) !important;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 9.2pt;
+        font-weight: 300;
+        font-style: normal;
+        letter-spacing: 0.06em;
+        line-height: 1.32;
+        text-transform: uppercase;
+      }
+
+      .authority-gate-flow {
+        margin: 0.12in 0 0.16in;
+        border: 1pt solid rgba(15, 28, 44, 0.22);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.62) !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .authority-gate-flow__head {
+        display: block;
+        padding: 0.08in 0.1in;
+        border-bottom: 1pt solid rgba(15, 28, 44, 0.18);
+      }
+
+      .authority-gate-flow__label,
+      .authority-gate-flow__status,
+      .authority-gate-flow__node-label,
+      .authority-gate-flow__footer-item strong {
+        color: #a94f14 !important;
+        font-size: 6.4pt;
+        letter-spacing: 0.12em;
+      }
+
+      .authority-gate-flow__title,
+      .authority-gate-flow__node h3 {
+        color: var(--authority-ink) !important;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 11.5pt;
+        font-weight: 700;
+        line-height: 1.16;
+      }
+
+      .authority-gate-flow__status {
+        display: inline-flex;
+        min-height: 0;
+        margin-top: 0.05in;
+        padding: 0.025in 0.05in;
+        border-color: rgba(15, 28, 44, 0.25);
+        background: #ffffff !important;
+      }
+
+      .authority-gate-flow__rail {
+        grid-template-columns: 1fr 0.22in 1fr 0.22in 1fr;
+      }
+
+      .authority-gate-flow__node {
+        min-height: 0.62in;
+        padding: 0.06in;
+        background: rgba(255, 255, 255, 0.72) !important;
+      }
+
+      .authority-gate-flow__node p,
+      .authority-gate-flow__footer-item {
+        color: var(--authority-ink) !important;
+        font-size: 7.4pt;
+        line-height: 1.22;
+      }
+
+      .authority-gate-flow__arrow {
+        width: auto;
+        color: #a94f14 !important;
+        border-color: rgba(15, 28, 44, 0.18);
+      }
+
+      .authority-gate-flow__footer {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .authority-gate-flow__footer-item {
+        min-height: 0.42in;
+        padding: 0.04in;
+        background: rgba(255, 255, 255, 0.72) !important;
+      }
+
+      .authority-flow__label {
+        margin-bottom: 0.08in;
+        color: #74808f !important;
+        font-size: 7.4pt;
+        letter-spacing: 0.16em;
+      }
+
+      .authority-release-timeline {
+        margin: 0.14in 0 0.1in;
+        padding: 0.1in;
+        border-color: rgba(15, 28, 44, 0.22);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.62) !important;
+        box-shadow: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .authority-release-timeline__track {
+        margin: 0 0 0.08in;
+        padding: 0.02in 0 0.04in;
+      }
+
+      .authority-release-timeline__track::before {
+        top: 0.11in;
+        background: rgba(15, 28, 44, 0.25);
+      }
+
+      .authority-release-node {
+        gap: 0.03in;
+      }
+
+      .authority-release-node__dot {
+        width: 0.18in;
+        height: 0.18in;
+        border-color: rgba(15, 28, 44, 0.34);
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+
+      .authority-release-node.is-active .authority-release-node__dot {
+        background: #a94f14 !important;
+      }
+
+      .authority-release-node__label {
+        color: #a94f14 !important;
+        font-size: 10pt;
+      }
+
+      .authority-release-node__label-line {
+        font-size: 9pt;
+      }
+
+      .authority-release-detail {
+        min-height: 0;
+        padding: 0.08in;
+        border-color: rgba(15, 28, 44, 0.18);
+        border-radius: 0;
+        background: #ffffff !important;
+      }
+
+      .authority-release-facts span {
+        font-size: 6.3pt;
+      }
+
+      .authority-release-detail__rule {
+        font-size: 8pt;
+        line-height: 1.25;
+      }
+
+      .authority-release-facts {
+        gap: 0.025in;
+        margin-top: 0.05in;
+      }
+
+      .authority-release-detail__rule {
+        margin-top: 0.06in;
+      }
+
+      .authority-list {
+        gap: 0.02in;
+        margin-top: 0.08in;
+      }
+
+      .authority-list li {
+        padding-left: 0.2in;
+      }
+
+      .authority-list li::before {
+        top: 0.13in;
+        width: 0.12in;
+        background: var(--authority-orange);
+      }
+
+    }
+  </style>
+</head>
+<body class="authority-page">
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/">Articles</a></li>
+        <li><a href="/studies/" class="active">Case Studies</a></li>
+        <li><a href="/ai/">AI Portfolio</a></li>
+        <li><a href="/resume/">Resume</a></li>
+        <li><a href="/books/">Books</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <a class="authority-download-anchor" href="/assets/studies/the-authority/case-study-legal-ai-governance.pdf" aria-label="Download the study" data-download>
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v10"></path>
+      <path d="m7 10 5 5 5-5"></path>
+      <path d="M5 20h14"></path>
+    </svg>
+  </a>
+
+  <section class="authority-hero">
+    <div class="container">
+      <div class="authority-hero__grid">
+        <div>
+          <p class="authority-hero__eyebrow">Case Study</p>
+          <h1>The Authority</h1>
+          <p class="authority-hero__sub">A Legal AI Governance Case Study on Why Models Cannot Certify Themselves</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="authority-study">
+    <section class="authority-print-cover" aria-label="Printable cover">
+      <img src="/assets/studies/the-authority/cover.png" alt="The Authority case study cover">
+    </section>
+
+    <article class="container">
+      <section class="authority-section" id="thesis">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">1 | Thesis</p>
+        <h2>The human layer is irreducible</h2>
+        <div class="authority-copy">
+          <p>The project&rsquo;s baseline: outputs are drafts, never authority.</p>
+          <p>Every system requires controls and visibility.</p>
+          <p>Behavior observed under challenge: <strong>The model produced a self-protective explanation when asked to evaluate itself.</strong></p>
+        </div>
+        <figure class="authority-evidence authority-evidence--wide">
+          <div class="authority-manual-stage authority-manual-stage--thesis">
+            <img class="authority-manual-img authority-manual-img--free" src="/assets/studies/the-authority/contour/manual/Picture1.png" alt="Redacted irregular exhibit montage showing the model's self-description, offscreen gate, principle, and trigger">
+          </div>
+          <figcaption class="authority-disposition">1.A Model's own words. Unverified self-description. The model rates confidence in its own output and marks its inferences with visible delimiters.</figcaption>
+        </figure>
+        <aside class="authority-question">
+          <h3>Can rubrics govern the evaluator?</h3>
+          <p>In plain English: <strong>If it cannot stop itself from appearing authoritative, can the controls stop it?</strong></p>
+          <p>In AI: <strong>It is not whether the model can judge itself. It is whether governance can stop the model from sounding like it can.</strong></p>
+        </aside>
+      </section>
+
+      <section class="authority-section" id="governance">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">2 | Governance</p>
+        <h2>The architecture makes judgment visible.</h2>
+        <div class="authority-copy">
+          <p>From prompt design to governance rulebook, the workflow exposed evidence, uncertainty, provenance, and release conditions.</p>
+          <p>Inferences are marked, sources are named, the workflow stops at gates, creates an audit trail, and records why a claim can or cannot move forward.</p>
+        </div>
+        <figure class="authority-evidence authority-evidence--wide">
+          <div class="authority-manual-stage authority-manual-stage--governance">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--gov-recommendation" src="/assets/studies/the-authority/contour/evidence/governance-recommendation.png" alt="Redacted recommendation exhibit">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--gov-register" src="/assets/studies/the-authority/contour/evidence/governance-source-register.png" alt="Redacted source register exhibit">
+            <p class="authority-manual-note authority-manual-note--gov-a"><span>2.A</span>The workflow separates sourced information from operator judgment, so the reviewer can see where the output moves from evidence into judgment.</p>
+            <p class="authority-manual-note authority-manual-note--gov-b"><span>2.B</span>The governance record shows what was checked before reliance: sources opened, official sources prioritized, claims registered, counterevidence searched, and dependency gaps resolved or held.</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--gov-score" src="/assets/studies/the-authority/contour/evidence/governance-trust-score.png" alt="Redacted trust score and confidence exhibit">
+          </div>
+          <figcaption class="authority-disposition">Evidence, provenance, and judgment boundaries</figcaption>
+        </figure>
+        <aside class="authority-question">
+          <h3>The system became more inspectable, but not self-verifying.</h3>
+        </aside>
+      </section>
+
+      <section class="authority-section" id="stress-test">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">3 | Stress Test</p>
+        <h2>Self-review failed under stress.</h2>
+        <figure class="authority-evidence authority-evidence--wide">
+          <div class="authority-manual-stage authority-manual-stage--stress">
+            <svg class="authority-stress-connectors" viewBox="0 0 1120 720" aria-hidden="true" focusable="false">
+              <g class="authority-stress-connectors__line">
+                <line x1="500" y1="82" x2="588" y2="146" />
+                <line x1="500" y1="224" x2="588" y2="156" />
+                <line x1="500" y1="238" x2="572" y2="282" />
+                <polyline points="573 352 526 352 526 420" />
+              </g>
+            </svg>
+            <p class="authority-manual-label authority-manual-label--stress-1">1 Scope Expanded · Operator</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--stress-scope" src="/assets/studies/the-authority/contour/manual/stress-scope-expanded.png" alt="Redacted operator scope expanded exhibit">
+            <p class="authority-manual-label authority-manual-label--stress-2">2 Dodge Admitted · Model</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--stress-dodge" src="/assets/studies/the-authority/contour/manual/stress-dodge-admitted.png" alt="Redacted model dodge admitted exhibit">
+            <p class="authority-manual-label authority-manual-label--stress-3">3 Handoff Exposed · Operator</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--stress-handoff" src="/assets/studies/the-authority/contour/manual/stress-handoff-exposed.png" alt="Redacted operator handoff exposed exhibit">
+            <p class="authority-manual-label authority-manual-label--stress-4">4 Gate Named · Model</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--stress-gate" src="/assets/studies/the-authority/contour/manual/stress-gate-named.png" alt="Redacted model gate named exhibit">
+            <p class="authority-manual-label authority-manual-label--stress-5">5 Sequence Reconstructed · Model</p>
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--stress-sequence" src="/assets/studies/the-authority/contour/evidence/stress-sequence-reconstructed.png" alt="Redacted model sequence reconstructed exhibit">
+          </div>
+          <figcaption class="authority-disposition">Operator pressure and model admission sequence</figcaption>
+        </figure>
+        <div class="authority-copy">
+          <p><strong>These statements are behavioral evidence, not technical proof.</strong></p>
+        </div>
+        <aside class="authority-question">
+          <h3>The audit trail recorded the judgment, which does not on its own validate it.</h3>
+        </aside>
+      </section>
+
+      <section class="authority-section" id="governance-gate">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">4 | The Governance Gate</p>
+        <h2>A release gate is real only if it can refuse movement.</h2>
+        <div class="authority-copy">
+          <p>The control stack made each output conditional on the record.</p>
+        </div>
+        <section class="authority-gate-flow" aria-label="Gate flow diagram">
+          <div class="authority-gate-flow__head">
+            <div>
+              <p class="authority-gate-flow__label">Gate flow</p>
+              <h3 class="authority-gate-flow__title">The record decides whether the workflow moves.</h3>
+            </div>
+            <div class="authority-gate-flow__status">HOLD preserved</div>
+          </div>
+          <div class="authority-gate-flow__rail">
+            <div class="authority-gate-flow__node">
+              <span class="authority-gate-flow__node-label">Pressure</span>
+              <h3>Operator push</h3>
+              <p>Bypass attempts to move the workflow and becomes part of the record.</p>
+            </div>
+            <span class="authority-gate-flow__arrow" aria-hidden="true">&rarr;</span>
+            <div class="authority-gate-flow__node authority-gate-flow__node--hold">
+              <span class="authority-gate-flow__node-label">Gate check</span>
+              <h3>Required conditions</h3>
+              <p>Absent predecessors keep the release state in HOLD.</p>
+            </div>
+            <span class="authority-gate-flow__arrow" aria-hidden="true">&rarr;</span>
+            <div class="authority-gate-flow__node authority-gate-flow__node--human">
+              <span class="authority-gate-flow__node-label">Authority</span>
+              <h3>Human review</h3>
+              <p>PASS remains outside the model and requires a complete record.</p>
+            </div>
+          </div>
+          <div class="authority-gate-flow__footer" aria-label="Control stack">
+            <div class="authority-gate-flow__footer-item"><strong>Rubric</strong><span>Sets the standard.</span></div>
+            <div class="authority-gate-flow__footer-item"><strong>Ledger</strong><span>Preserves prior findings.</span></div>
+            <div class="authority-gate-flow__footer-item"><strong>Trace</strong><span>Logs movement.</span></div>
+            <div class="authority-gate-flow__footer-item"><strong>Report</strong><span>Compresses the record for review.</span></div>
+          </div>
+        </section>
+        <aside class="authority-question">
+          <h3>Release authority remained outside the model.</h3>
+        </aside>
+        <figure class="authority-evidence authority-evidence--wide">
+          <div class="authority-manual-stage authority-manual-stage--gate">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--gate-log" src="/assets/studies/the-authority/contour/evidence/gate-log.png" alt="Redacted gate log exhibit showing HOLD and bypass registration">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--gate-bypass" src="/assets/studies/the-authority/contour/evidence/gate-bypass.png" alt="Redacted bypass refusal exhibit">
+          </div>
+          <figcaption class="authority-disposition">HOLD preserved under bypass pressure</figcaption>
+        </figure>
+        <aside class="authority-question">
+          <h3>A gate preserves truth when/if the model rationalizes moving.</h3>
+        </aside>
+      </section>
+
+      <section class="authority-section" id="signal">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">5 | Signal</p>
+        <h2>Self-report is not a control.</h2>
+        <div class="authority-copy">
+          <p>The model later produced the limitation the workflow was designed to expose:</p>
+        </div>
+        <figure class="authority-evidence authority-evidence--wide">
+          <div class="authority-manual-stage authority-manual-stage--signal">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--signal-operator" src="/assets/studies/the-authority/contour/manual/Picture4.png" alt="Redacted operator question about principles and layers">
+            <img class="authority-manual-img authority-manual-img--placed authority-manual-img--signal-model" src="/assets/studies/the-authority/contour/manual/Picture8.png" alt="Redacted irregular exhibit montage showing self-account limitation, external auditor language, and self-report limitation">
+          </div>
+          <figcaption class="authority-disposition">7 Layers Questioned · Operator | 8 Self-Account Limitation · Model</figcaption>
+        </figure>
+        <div class="authority-copy">
+          <p class="authority-kicker">Legal AI Operator Signal</p>
+          <ul class="authority-list">
+            <li>Build the workflow, test it, observe.</li>
+            <li>Govern the model, adapt, test again.</li>
+            <li>Verify the evidence.</li>
+            <li>Escalate when the record does not hold.</li>
+          </ul>
+        </div>
+        <aside class="authority-question">
+          <h3>Self-diagnosis cannot be treated as independent verification.</h3>
+        </aside>
+      </section>
+
+      <section class="authority-section" id="release-rule">
+        <img class="authority-page-bg" src="/assets/studies/the-authority/body-background.png" alt="">
+        <p class="authority-section__marker">6 | Legal AI Release Rule</p>
+        <h2>NDA Drafting: The Release Gate</h2>
+        <div class="authority-copy">
+          <p>(1) A business user requests a mutual NDA for a vendor evaluation.</p>
+          <p>(2) The model may collect facts, select a template, draft clauses, explain changes, and score confidence.</p>
+          <p>(3) The draft cannot move forward until the workflow verifies the record.</p>
+        </div>
+        <div class="authority-release-timeline" data-release-timeline data-state="intake" aria-label="NDA release gate interactive node timeline">
+          <div class="authority-release-timeline__track" role="tablist" aria-label="NDA release checks">
+            <button class="authority-release-node is-active" type="button" role="tab" aria-selected="true" aria-controls="release-detail" data-release-node="intake">
+              <span class="authority-release-node__dot" aria-hidden="true"></span>
+              <span class="authority-release-node__label">
+                <span class="authority-release-node__label-line">Intake</span>
+                <span class="authority-release-node__label-line authority-release-node__label-line--soft">Complete</span>
+              </span>
+            </button>
+            <button class="authority-release-node" type="button" role="tab" aria-selected="false" aria-controls="release-detail" data-release-node="source">
+              <span class="authority-release-node__dot" aria-hidden="true"></span>
+              <span class="authority-release-node__label">
+                <span class="authority-release-node__label-line">Source</span>
+                <span class="authority-release-node__label-line">Base</span>
+                <span class="authority-release-node__label-line authority-release-node__label-line--soft">Approved</span>
+              </span>
+            </button>
+            <button class="authority-release-node" type="button" role="tab" aria-selected="false" aria-controls="release-detail" data-release-node="deviation">
+              <span class="authority-release-node__dot" aria-hidden="true"></span>
+              <span class="authority-release-node__label">
+                <span class="authority-release-node__label-line">Deviation</span>
+                <span class="authority-release-node__label-line">Check</span>
+              </span>
+            </button>
+            <button class="authority-release-node" type="button" role="tab" aria-selected="false" aria-controls="release-detail" data-release-node="human">
+              <span class="authority-release-node__dot" aria-hidden="true"></span>
+              <span class="authority-release-node__label">
+                <span class="authority-release-node__label-line">Human</span>
+                <span class="authority-release-node__label-line">Release</span>
+              </span>
+            </button>
+          </div>
+
+          <article class="authority-release-detail" id="release-detail" role="tabpanel" aria-live="polite" aria-label="Intake Complete details" data-release-detail>
+            <div class="authority-release-facts" data-release-facts aria-label="Current release details">
+              <span>Parties</span>
+              <span>Purpose</span>
+              <span>NDA type</span>
+              <span>Term</span>
+              <span>Jurisdiction</span>
+              <span>Signer</span>
+              <span>Data / trade-secret sensitivity</span>
+            </div>
+            <div class="authority-release-detail__rule" data-release-rule>Missing fact &rarr; HOLD</div>
+          </article>
+        </div>
+        <aside class="authority-question">
+          <h3>If the record does not support release, the NDA stays in HOLD.</h3>
+        </aside>
+      </section>
+    </article>
+  </main>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+  <script>
+    (function () {
+      var root = document.querySelector('[data-release-timeline]');
+      if (!root) return;
+
+      var data = {
+        intake: {
+          label: 'Intake Complete details',
+          facts: ['Parties', 'Purpose', 'NDA type', 'Term', 'Jurisdiction', 'Signer', 'Data / trade-secret sensitivity'],
+          rule: ['Missing fact \u2192 HOLD']
+        },
+        source: {
+          label: 'Source Base Approved details',
+          facts: ['Template', 'Playbook', 'Clause library', 'Approved fallbacks'],
+          rule: ['Unsupported clause \u2192 HOLD']
+        },
+        deviation: {
+          label: 'Deviation Check details',
+          facts: ['Confidentiality term', 'Residuals', 'Data use', 'Return / destruction', 'Injunctive relief', 'Governing law'],
+          rule: ['Unreviewed', 'deviation', '\u2192 ESCALATE']
+        },
+        human: {
+          label: 'Human Release details',
+          facts: ['PASS', 'HOLD', 'ESCALATE'],
+          rule: []
+        }
+      };
+
+      var buttons = Array.prototype.slice.call(root.querySelectorAll('[data-release-node]'));
+      var detail = root.querySelector('[data-release-detail]');
+      var facts = root.querySelector('[data-release-facts]');
+      var rule = root.querySelector('[data-release-rule]');
+
+      function renderLines(container, lines) {
+        container.textContent = '';
+        lines.forEach(function (line) {
+          var span = document.createElement('span');
+          span.textContent = line;
+          container.appendChild(span);
+        });
+      }
+
+      function activate(button) {
+        var key = button.getAttribute('data-release-node');
+        var item = data[key];
+        if (!item) return;
+        root.setAttribute('data-state', key);
+        detail.setAttribute('aria-label', item.label);
+        renderLines(facts, item.facts);
+        renderLines(rule, item.rule);
+        rule.hidden = !item.rule.length;
+
+        buttons.forEach(function (candidate) {
+          var selected = candidate === button;
+          candidate.classList.toggle('is-active', selected);
+          candidate.setAttribute('aria-selected', selected ? 'true' : 'false');
+        });
+      }
+
+      buttons.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+          activate(button);
+        });
+
+        button.addEventListener('keydown', function (event) {
+          var nextIndex = index;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % buttons.length;
+          else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + buttons.length) % buttons.length;
+          else if (event.key === 'Home') nextIndex = 0;
+          else if (event.key === 'End') nextIndex = buttons.length - 1;
+          else return;
+
+          event.preventDefault();
+          buttons[nextIndex].focus();
+          activate(buttons[nextIndex]);
+        });
+      });
+    })();
+  </script>
+  <script src="/js/bedazzler-analytics.js"></script>
+</body>
+</html>
