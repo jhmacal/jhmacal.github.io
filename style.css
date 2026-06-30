@@ -399,6 +399,8 @@ p {
   margin: 0 0 1.5rem;
   text-align: center;
   color: var(--cream);
+  font-variant: small-caps;   /* full-size J/M, small caps for the rest (resume style) */
+  letter-spacing: 0.04em;
 }
 .hero-tagline {
   font-family: 'Inter', system-ui, sans-serif;
@@ -411,6 +413,19 @@ p {
   white-space: nowrap;
   color: var(--gold);
   margin: 0 0 4rem;
+}
+
+/* Phones: wrap to two lines, breaking only at the " | " dividers
+   (phrases are glued with &nbsp; in the markup, so no word ever splits) */
+@media (max-width: 600px) {
+  .hero-tagline {
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    font-size: clamp(0.5rem, 2.6vw, 0.9rem);
+    line-height: 1.5;
+  }
 }
 
 /* ============================================================
