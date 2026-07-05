@@ -6,7 +6,7 @@
 /* ============================================================
    1. GOOGLE FONTS IMPORT
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ============================================================
    2. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
@@ -19,8 +19,6 @@
   --cream-warm:   #f0e6d2;
   --gold:         #c9a961;
   --gold-light:   #d4b068;
-  --coppper-warm: #c9a961;
-  --copper-warm:  var(--coppper-warm);
 
   /* --- Type scale --- */
   --text-xs:   0.75rem;   /*  12px */
@@ -542,8 +540,10 @@ p {
   font-weight: 300;
   line-height: 1.55;
   color: var(--cream);
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .positioning__text strong {
@@ -665,8 +665,10 @@ p {
   font-size: var(--text-sm);
   color: rgba(244, 237, 224, 0.7);
   line-height: 1.7;
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 /* ============================================================
@@ -1025,17 +1027,15 @@ p {
 }
 
 .article__pullquote {
-  border-left: 3px solid var(--coppper-warm);
+  border-left: 3px solid var(--gold);
   padding-left: var(--space-6);
   margin-block: var(--space-10);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(0.95rem, 1.35vw, 1.18rem);
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: 0.12em;
-  line-height: 1.55;
-  color: var(--coppper-warm);
-  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream-warm);
+  line-height: 1.5;
 }
 
 .article__meta {
