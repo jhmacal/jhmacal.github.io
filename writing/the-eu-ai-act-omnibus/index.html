@@ -635,6 +635,111 @@
       .carousel__article-name { font-size: 1.9rem; }
       .gov-reveal { grid-template-columns: 1fr; }
     }
+
+    /* ===== Inline Definition ===== */
+    .define {
+      position: relative;
+      display: inline;
+    }
+    .define__trigger {
+      appearance: none;
+      -webkit-appearance: none;
+      display: inline;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px dotted rgba(201, 169, 97, 0.65);
+      background: transparent;
+      color: #d4b068;
+      font: inherit;
+      line-height: inherit;
+      text-align: inherit;
+      cursor: help;
+    }
+    .define__trigger:focus-visible {
+      outline: 1px solid rgba(201, 169, 97, 0.8);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .define__tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translate(-50%, 4px);
+      width: max-content;
+      max-width: min(280px, calc(100vw - 2rem));
+      padding: 0.6rem 0.78rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.45);
+      border-radius: 7px;
+      background: #0d1a30;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.45;
+      text-align: left;
+      white-space: normal;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+      z-index: 20;
+    }
+    .define__tooltip::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 8px;
+    }
+    .define__tooltip a {
+      color: #d4b068;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .define__trigger:focus-visible + .define__tooltip,
+    .define__tooltip:focus-within,
+    .define.is-open .define__tooltip {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .define.define--align-left .define__tooltip {
+      left: 0;
+      transform: translate(0, 4px);
+    }
+    .define.define--align-left .define__trigger:focus-visible + .define__tooltip,
+    .define.define--align-left .define__tooltip:focus-within,
+    .define.define--align-left.is-open .define__tooltip {
+      transform: translate(0, 0);
+    }
+    .define.define--align-right .define__tooltip {
+      right: 0;
+      left: auto;
+      transform: translate(0, 4px);
+    }
+    .define.define--align-right .define__trigger:focus-visible + .define__tooltip,
+    .define.define--align-right .define__tooltip:focus-within,
+    .define.define--align-right.is-open .define__tooltip {
+      transform: translate(0, 0);
+    }
+    @media (hover: hover) {
+      .define:hover .define__tooltip {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .define.define--align-left:hover .define__tooltip,
+      .define.define--align-right:hover .define__tooltip {
+        transform: translate(0, 0);
+      }
+    }
+
     /* Touch-first fallback: no hover available -> show body by default */
     @media (hover: none) {
       .gov-reveal__card { min-height: auto; }
@@ -713,9 +818,15 @@
       .carousel__nav,
       .carousel__byline,
       .gov-reveal__byline,
+      .define__tooltip,
       .block-watermark,
       .scroll-indicator {
         display: none !important;
+      }
+
+      .define__trigger {
+        color: inherit !important;
+        border-bottom: 0 !important;
       }
 
       .omnibus-timeline__track {
@@ -1111,7 +1222,7 @@
 
           <p>The deeper implementation problem remains the same. A firm still has to know which AI systems it uses, where those systems sit in the business, what data they touch, who owns the decision, which third parties sit underneath them, and what evidence would show that the system has been governed rather than merely purchased.</p>
 
-          <p>The provisional agreement still requires formal adoption by the European Parliament and the Council, and the Official Journal has not yet published the amendments. Until that happens, the original deadlines remain the legally binding ones.</p>
+          <p>The provisional agreement still requires <span class="define" data-inline-definition><button class="define__trigger" type="button" aria-describedby="formal-adoption-definition" aria-expanded="false">formal adoption</button><span class="define__tooltip" id="formal-adoption-definition" role="tooltip">Update, 29 June 2026: the Council gave final adoption (Parliament approved 16 June). Until Official Journal publication the original timeline remains binding. Source: <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/" target="_blank" rel="noopener">Council of the EU press release</a>.</span></span> by the European Parliament and the Council, and the Official Journal has not yet published the amendments. Until that happens, the original deadlines remain the legally binding ones.</p>
 
           <h2>What is already live</h2>
 
@@ -1442,6 +1553,63 @@
     if (!detail || !nodes.length) return;
 
     detail.style.transition = 'opacity 0.25s ease';
+
+    var definitions = document.querySelectorAll('[data-inline-definition]');
+
+    function closeDefinition(root, releaseFocus) {
+      var trigger = root.querySelector('.define__trigger');
+      root.classList.remove('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (releaseFocus && trigger === document.activeElement) trigger.blur();
+    }
+
+    function positionDefinition(root) {
+      var tooltip = root.querySelector('.define__tooltip');
+      if (!tooltip) return;
+
+      root.classList.remove('define--align-left', 'define--align-right');
+      var rect = tooltip.getBoundingClientRect();
+      if (rect.left < 16) root.classList.add('define--align-left');
+      if (rect.right > window.innerWidth - 16) root.classList.add('define--align-right');
+    }
+
+    definitions.forEach(function (root) {
+      var trigger = root.querySelector('.define__trigger');
+      if (!trigger) return;
+
+      function queuePosition() {
+        window.requestAnimationFrame(function () {
+          positionDefinition(root);
+        });
+      }
+
+      root.addEventListener('mouseenter', queuePosition);
+      trigger.addEventListener('focus', queuePosition);
+      trigger.addEventListener('click', function () {
+        var opening = !root.classList.contains('is-open');
+        definitions.forEach(function (item) {
+          closeDefinition(item, false);
+        });
+        root.classList.toggle('is-open', opening);
+        trigger.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        if (opening) queuePosition();
+        if (!opening) closeDefinition(root, true);
+      });
+      trigger.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        closeDefinition(root, true);
+      });
+      root.addEventListener('focusout', function (event) {
+        if (!root.contains(event.relatedTarget)) closeDefinition(root, false);
+      });
+    });
+
+    document.addEventListener('pointerdown', function (event) {
+      if (event.target.closest('[data-inline-definition]')) return;
+      definitions.forEach(function (root) {
+        closeDefinition(root, true);
+      });
+    });
 
     // ===== Independent carousels (LIVE and POSTPONED) =====
     // Each [data-carousel] manages its own current-card index. Paging one
