@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Governance for Business Professionals | Legal AI Governance Case Study | Julio Macedo</title>
+  <meta name="description" content="The questions and vocabulary business professionals carry into any room on AI governance: U.S. law, the EU AI Act, Mobley v. Workday, and the human release gate.">
+  <meta property="og:title" content="AI Governance for Business Professionals | Julio Macedo">
+  <meta property="og:description" content="A legal AI governance case study on the questions and vocabulary that decide whether AI output becomes action.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/studies/ai-governance-for-business/">
+  <link rel="canonical" href="https://www.jhmacal.com/studies/ai-governance-for-business/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260723-ai-governance">
+  <style>
+    body.gov-page {
+      background: var(--navy);
+      --gov-col: 760px;
+    }
+
+    /* ---------- Hero ---------- */
+    .gov-hero {
+      padding: calc(var(--nav-height) + var(--space-20)) 0 var(--space-16);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.14);
+    }
+
+    .gov-hero__eyebrow,
+    .gov-section__marker,
+    .gov-kicker {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .gov-hero h1 {
+      margin: var(--space-4) 0 var(--space-5);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, var(--text-5xl));
+      font-weight: 300;
+      line-height: 1.08;
+      max-width: 900px;
+    }
+
+    .gov-hero__sub {
+      max-width: 640px;
+      color: rgba(244, 237, 224, 0.62);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.3rem, 2.2vw, var(--text-2xl));
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .gov-hero__meta {
+      margin-top: var(--space-8);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      color: rgba(244, 237, 224, 0.5);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .gov-hero__meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .gov-hero__meta span::before {
+      content: "";
+      width: 0.42rem;
+      height: 0.42rem;
+      background: var(--gold);
+    }
+
+    .gov-hero__note-wrap {
+      max-width: var(--gov-col);
+      margin: var(--space-8) 0 0;
+    }
+    .gov-hero__note {
+      max-width: 300px;
+      margin: 0 0 0 auto;
+      color: rgba(244, 237, 224, 0.45);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* ---------- Study + sections ---------- */
+    .gov-study {
+      padding: var(--space-16) 0 var(--space-24);
+    }
+
+    .gov-section {
+      position: relative;
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-top: 1px solid rgba(201, 169, 97, 0.14);
+      color: var(--cream);
+      scroll-margin-top: calc(var(--nav-height) + var(--space-8));
+    }
+
+    .gov-section:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .gov-section__marker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: var(--space-6);
+    }
+
+    .gov-section__marker::before {
+      content: "";
+      width: 0.62rem;
+      height: 0.62rem;
+      background: var(--gold);
+    }
+
+    .gov-section h2 {
+      max-width: 900px;
+      margin: var(--space-10) 0 var(--space-6);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, var(--text-4xl));
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cream);
+    }
+
+    .gov-section__marker + h2 {
+      margin-top: 0;
+    }
+
+    .gov-copy {
+      max-width: 760px;
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .gov-copy p {
+      color: rgba(244, 237, 224, 0.78);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1rem, 1.15vw, 1.12rem);
+      line-height: 1.78;
+    }
+
+    .gov-copy strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .gov-copy a,
+    .gov-sources a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 169, 97, 0.35);
+    }
+
+    .gov-copy a:hover,
+    .gov-sources a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    sup.gov-cite {
+      font-size: 0.62em;
+      font-weight: 700;
+      color: var(--gold);
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    sup.gov-cite a {
+      color: var(--gold);
+      text-decoration: none;
+      border: 0;
+    }
+
+    .gov-kicker {
+      display: block;
+      margin: var(--space-8) 0 0;
+    }
+
+    /* ---------- Pull quote / principle ---------- */
+    .gov-quote {
+      margin: var(--space-10) 0;
+      max-width: 900px;
+      padding: 0 0 0 var(--space-8);
+      border-left: 3px solid var(--gold);
+    }
+
+    .gov-quote p {
+      margin: 0;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.34;
+    }
+
+    .gov-quote cite {
+      display: block;
+      margin-top: var(--space-4);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: var(--text-xs);
+      font-style: normal;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Question aside ---------- */
+    .gov-question {
+      margin-top: var(--space-8);
+      max-width: 900px;
+      padding: 0.4rem 0 0.4rem var(--space-5);
+      border-left: 3px solid var(--gold);
+    }
+
+    .gov-question h3 {
+      margin: 0;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1.02rem, 1.5vw, 1.28rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Card grid ---------- */
+    .gov-cards {
+      display: grid;
+      gap: clamp(0.9rem, 1.6vw, 1.3rem);
+      margin: var(--space-8) 0 var(--space-4);
+    }
+
+    .gov-cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gov-cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gov-cards--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .gov-card {
+      padding: clamp(1.3rem, 2vw, 1.7rem);
+      border: 1px solid rgba(201, 169, 97, 0.16);
+      border-radius: 4px;
+      background: var(--navy-light);
+      transition: border-color var(--transition-base);
+    }
+
+    .gov-card:hover {
+      border-color: rgba(201, 169, 97, 0.4);
+    }
+
+    .gov-card__eyebrow {
+      display: block;
+      margin-bottom: 0.55rem;
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gov-card h3 {
+      margin: 0 0 0.6rem;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .gov-card p {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.66);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.62;
+    }
+
+    .gov-card p + p {
+      margin-top: 0.6rem;
+    }
+
+    .gov-card--accent {
+      border-color: rgba(201, 169, 97, 0.4);
+      background: linear-gradient(180deg, rgba(201, 169, 97, 0.08), rgba(13, 26, 48, 0.6));
+    }
+
+    /* ---------- Stacked layer cards ---------- */
+    .gov-layers {
+      display: grid;
+      gap: 0.85rem;
+      margin: var(--space-8) 0 var(--space-4);
+      max-width: 820px;
+    }
+
+    .gov-layer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.35rem;
+      padding: 1.1rem 1.3rem;
+      border: 1px solid rgba(201, 169, 97, 0.16);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      background: var(--navy-light);
+    }
+
+    .gov-layer h3 {
+      margin: 0;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .gov-layer p {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.66);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ---------- Horizontal rail (flow) ---------- */
+    .gov-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+      align-items: stretch;
+      gap: 0;
+      margin: var(--space-8) 0 var(--space-4);
+      border: 1px solid rgba(201, 169, 97, 0.18);
+      border-radius: 6px;
+      overflow: hidden;
+      background: rgba(13, 26, 48, 0.6);
+    }
+
+    .gov-rail__node {
+      display: grid;
+      align-content: center;
+      gap: 0.3rem;
+      padding: 1.15rem 1rem;
+      text-align: center;
+      background: rgba(244, 237, 224, 0.02);
+      border-right: 1px solid rgba(201, 169, 97, 0.12);
+    }
+
+    .gov-rail__node:last-child { border-right: 0; }
+
+    .gov-rail__node span {
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gov-rail__node strong {
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .gov-rail__node--flag {
+      background: rgba(201, 53, 43, 0.09);
+    }
+
+    .gov-rail__node--human {
+      background: rgba(21, 108, 134, 0.11);
+    }
+
+    /* ---------- Numbered steps ---------- */
+    .gov-steps {
+      display: grid;
+      gap: 0.7rem;
+      margin: var(--space-8) 0 var(--space-4);
+      counter-reset: gov-step;
+    }
+
+    .gov-steps--split {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gov-step {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: 0.95rem 1.1rem;
+      border: 1px solid rgba(201, 169, 97, 0.14);
+      border-radius: 4px;
+      background: var(--navy-light);
+    }
+
+    .gov-step::before {
+      counter-increment: gov-step;
+      content: counter(gov-step);
+      display: grid;
+      place-items: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 1px solid rgba(201, 169, 97, 0.4);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .gov-step__body {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .gov-step__title {
+      color: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .gov-step__body p {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.68);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ---------- Timeline ---------- */
+    .gov-timeline {
+      display: grid;
+      gap: 0;
+      margin: var(--space-8) 0 var(--space-4);
+      max-width: 760px;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      border-radius: 10px;
+      background: rgba(13, 26, 48, 0.7);
+    }
+
+    .gov-timeline__item {
+      position: relative;
+      display: grid;
+      gap: 0.2rem;
+      padding: 0 0 1.4rem 1.9rem;
+      border-left: 1px solid rgba(201, 169, 97, 0.3);
+    }
+
+    .gov-timeline__item:last-child {
+      padding-bottom: 0;
+    }
+
+    .gov-timeline__item::before {
+      content: "";
+      position: absolute;
+      top: 0.15rem;
+      left: -0.52rem;
+      width: 0.95rem;
+      height: 0.95rem;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      background: var(--navy);
+    }
+
+    .gov-timeline__date {
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gov-timeline__item p {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.74);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    /* ---------- Four-fifths meter ---------- */
+    .gov-meter {
+      margin: var(--space-8) 0 var(--space-4);
+      max-width: 640px;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      border-radius: 8px;
+      background: rgba(13, 26, 48, 0.7);
+    }
+
+    .gov-meter__row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3rem;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .gov-meter__row:last-of-type { margin-bottom: 0; }
+
+    .gov-meter__label {
+      color: rgba(244, 237, 224, 0.7);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .gov-meter__bar {
+      height: 0.85rem;
+      border-radius: 2px;
+      background: rgba(244, 237, 224, 0.08);
+      overflow: hidden;
+    }
+
+    .gov-meter__fill {
+      display: block;
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .gov-meter__fill--full { width: 100%; background: var(--gold); }
+    .gov-meter__fill--under { width: 72%; background: #ef7626; }
+
+    .gov-meter__pct {
+      text-align: right;
+      color: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .gov-meter__note {
+      margin: 1.1rem 0 0;
+      color: rgba(244, 237, 224, 0.56);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    /* ---------- Checklist table ---------- */
+    .gov-table-wrap {
+      margin: var(--space-8) 0 var(--space-4);
+      border: 1px solid rgba(201, 169, 97, 0.18);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .gov-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .gov-table th {
+      padding: 0.8rem 1.1rem;
+      text-align: left;
+      background: rgba(201, 169, 97, 0.08);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gov-table td {
+      padding: 0.85rem 1.1rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.12);
+      vertical-align: top;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    .gov-table td:first-child {
+      width: 11rem;
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .gov-table td:last-child {
+      color: rgba(244, 237, 224, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Sources ---------- */
+    .gov-sources {
+      counter-reset: gov-src;
+      display: grid;
+      gap: 0.7rem;
+      margin: var(--space-8) 0 0;
+      max-width: 860px;
+    }
+
+    .gov-sources li {
+      position: relative;
+      padding-left: 2.4rem;
+      color: rgba(244, 237, 224, 0.62);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.84rem;
+      line-height: 1.6;
+      list-style: none;
+    }
+
+    .gov-sources li::before {
+      counter-increment: gov-src;
+      content: counter(gov-src);
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      display: grid;
+      place-items: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      border: 1px solid rgba(201, 169, 97, 0.35);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .gov-sources strong {
+      color: rgba(244, 237, 224, 0.85);
+      font-weight: 600;
+    }
+
+    .gov-src-cite {
+      color: rgba(244, 237, 224, 0.45);
+      font-style: italic;
+    }
+
+    .gov-sources__note {
+      max-width: 860px;
+      margin-bottom: var(--space-6);
+      color: rgba(244, 237, 224, 0.5);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Unified content column: every block aligns with the body text and stays left */
+    .gov-section h2,
+    .gov-copy,
+    .gov-quote,
+    .gov-question,
+    .gov-cards,
+    .gov-layers,
+    .gov-rail,
+    .gov-steps,
+    .gov-timeline,
+    .gov-meter,
+    .gov-table-wrap,
+    .gov-sources,
+    .gov-sources__note {
+      max-width: var(--gov-col);
+      margin-right: auto;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .gov-cards--3,
+      .gov-cards--4,
+      .gov-steps--split {
+        grid-template-columns: 1fr;
+      }
+
+      .gov-rail {
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+      }
+
+      .gov-rail__node {
+        border-right: 0;
+        border-bottom: 1px solid rgba(201, 169, 97, 0.12);
+      }
+
+      .gov-rail__node:last-child { border-bottom: 0; }
+
+      .gov-meter__row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+
+      .gov-meter__pct { text-align: left; }
+    }
+
+    @media (max-width: 560px) {
+      .gov-cards--2 {
+        grid-template-columns: 1fr;
+      }
+
+      .gov-table td:first-child {
+        width: auto;
+      }
+    }
+
+    @media print {
+      .nav, .footer, .scroll-indicator, .gov-hero__meta { display: none !important; }
+      body.gov-page { background: #ffffff; color: #0f1c2c; }
+      .gov-section h2, .gov-copy p, .gov-copy strong, .gov-card h3, .gov-card p,
+      .gov-quote p, .gov-layer h3, .gov-layer p, .gov-step__body p, .gov-timeline__item p,
+      .gov-table td, .gov-sources li { color: #0f1c2c !important; }
+      .gov-section { break-inside: avoid; }
+    }
+
+    /* ===== Approved graphic components ===== */
+    .gov-page{--red:#c9352b;--blue:#156c86;--orange:#ef7626;}
+
+    /* G3 release gate */
+    .gov-gate{max-width:var(--gov-col);margin:var(--space-8) 0 var(--space-4);display:grid;grid-template-columns:auto 1.5rem auto 1.5rem minmax(0,1.25fr);align-items:center;}
+    .gov-gate__box{border:1px solid rgba(201,169,97,0.28);border-radius:6px;padding:0.8rem 0.95rem;text-align:center;background:rgba(244,237,224,0.025);}
+    .gov-gate__box b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.12rem;font-weight:500;color:var(--cream);}
+    .gov-gate__box span{font-size:0.6rem;color:rgba(244,237,224,0.55);letter-spacing:0.1em;text-transform:uppercase;}
+    .gov-gate__box--dec{border-style:dashed;border-color:var(--gold);background:rgba(201,169,97,0.06);}
+    .gov-gate__arrow{text-align:center;color:var(--gold);opacity:0.7;font-size:0.9rem;}
+    .gov-gate__outs{display:grid;gap:0.5rem;}
+    .gov-gate__chip{padding:0.6rem 0.85rem;border-radius:6px;font-size:0.85rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:0.6rem;}
+    .gov-gate__chip small{font-weight:400;opacity:0.85;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;}
+    .gov-gate__chip--yes{border:1px solid var(--gold);background:rgba(201,169,97,0.1);color:var(--gold-light);}
+    .gov-gate__chip--no{border:1px solid rgba(201,53,43,0.5);background:rgba(201,53,43,0.09);color:#e8837b;}
+    @media(max-width:640px){.gov-gate{grid-template-columns:1fr;gap:0.5rem;}.gov-gate__arrow{transform:rotate(90deg);}}
+
+    /* G2 fork */
+    .gov-fork{max-width:var(--gov-col);margin:var(--space-8) 0 var(--space-4);}
+    .gov-fork__top{margin:0 auto;max-width:240px;text-align:center;padding:0.5rem;border:1px solid rgba(201,169,97,0.4);border-radius:6px;background:rgba(201,169,97,0.06);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.02rem;color:var(--cream);}
+    .gov-fork__stem{width:1px;height:15px;background:rgba(201,169,97,0.4);margin:0 auto;}
+    .gov-fork__branches{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+    .gov-fork__path{border:1px solid rgba(201,169,97,0.16);border-radius:8px;padding:0.8rem 0.85rem 0.95rem;text-align:center;background:rgba(244,237,224,0.02);}
+    .gov-fork__path--risk{border-top:2px solid var(--red);}
+    .gov-fork__path--priv{border-top:2px solid var(--blue);}
+    .gov-fork__tag{display:block;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+    .gov-fork__arrow{color:rgba(201,169,97,0.55);margin:0.35rem 0;font-size:0.8rem;}
+    .gov-fork__out{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.08rem;color:var(--cream);}
+    .gov-fork__result{margin-top:0.3rem;font-size:0.78rem;font-weight:600;}
+    .gov-fork__path--risk .gov-fork__result{color:#e8837b;}
+    .gov-fork__path--priv .gov-fork__result{color:#7fc4d8;}
+    @media(max-width:560px){.gov-fork__branches{grid-template-columns:1fr;}}
+
+    /* G4 pyramid (interactive) */
+    .gov-pyr{max-width:var(--gov-col);margin:var(--space-8) 0 var(--space-4);display:flex;flex-direction:column;gap:0.4rem;}
+    .gov-pyr__item{display:flex;flex-direction:column;align-items:center;}
+    .gov-pyr__tier{border:0;font:inherit;color:inherit;cursor:pointer;text-align:center;border-radius:5px;padding:0.7rem 1rem;transition:filter 0.15s ease;}
+    .gov-pyr__tier:hover{filter:brightness(1.16);}
+    .gov-pyr__tier b{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-weight:500;display:block;color:var(--cream);}
+    .gov-pyr__tier span{font-size:0.7rem;letter-spacing:0.04em;color:rgba(244,237,224,0.62);}
+    .gov-pyr__more{display:block;margin-top:0.2rem;color:var(--gold);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;}
+    .gov-pyr__item.is-open .gov-pyr__more{opacity:0;}
+    .gov-pyr__item--1 .gov-pyr__tier{width:46%;background:rgba(201,53,43,0.16);border:1px solid rgba(201,53,43,0.55);}
+    .gov-pyr__item--2 .gov-pyr__tier{width:64%;background:rgba(201,169,97,0.16);border:1px solid rgba(201,169,97,0.5);}
+    .gov-pyr__item--3 .gov-pyr__tier{width:82%;background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.32);}
+    .gov-pyr__item--4 .gov-pyr__tier{width:100%;background:rgba(244,237,224,0.03);border:1px solid rgba(244,237,224,0.14);}
+    .gov-pyr__detail{width:100%;max-height:0;overflow:hidden;transition:max-height 0.28s ease;}
+    .gov-pyr__item.is-open .gov-pyr__detail{max-height:260px;}
+    .gov-pyr__detail-inner{margin-top:0.45rem;padding:0.85rem 1.05rem;border:1px solid rgba(201,169,97,0.2);border-radius:6px;background:rgba(13,26,48,0.72);color:rgba(244,237,224,0.8);font-size:0.9rem;line-height:1.6;}
+    @media(max-width:560px){.gov-pyr__item--1 .gov-pyr__tier,.gov-pyr__item--2 .gov-pyr__tier,.gov-pyr__item--3 .gov-pyr__tier{width:100%;}}
+
+    /* G1 & G5 interactive timeline */
+    .gov-caseline{max-width:var(--gov-col);margin:var(--space-8) 0 var(--space-4);}
+    .gov-caseline__track{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:relative;}
+    .gov-caseline__track::before{content:"";position:absolute;top:0.52rem;left:9%;right:9%;height:2px;background:rgba(201,169,97,0.3);}
+    .gov-caseline__node{border:0;background:transparent;cursor:pointer;font:inherit;color:inherit;display:grid;justify-items:center;gap:0.28rem;padding:0 0.35rem;text-align:center;}
+    .gov-caseline__dot{width:0.95rem;height:0.95rem;border:2px solid var(--gold);border-radius:50%;background:var(--navy);position:relative;z-index:1;transition:background 0.15s ease,box-shadow 0.15s ease;}
+    .gov-caseline__node:hover .gov-caseline__dot,.gov-caseline__node.is-active .gov-caseline__dot{background:var(--gold);box-shadow:0 0 0 4px rgba(201,169,97,0.15);}
+    .gov-caseline__date{color:var(--gold);font-size:0.66rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+    .gov-caseline__lab{color:rgba(244,237,224,0.72);font-family:'Cormorant Garamond',Georgia,serif;font-size:0.95rem;line-height:1.15;}
+    .gov-caseline__node.is-active .gov-caseline__lab{color:var(--gold-light);}
+    .gov-caseline__panels{margin-top:1rem;}
+    .gov-caseline__panel{display:none;padding:1rem 1.2rem;border:1px solid rgba(201,169,97,0.22);border-radius:8px;background:rgba(13,26,48,0.72);}
+    .gov-caseline__panel.is-active{display:block;}
+    .gov-caseline__panel h4{margin:0 0 0.45rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:500;color:var(--cream);}
+    .gov-caseline__panel p{margin:0;color:rgba(244,237,224,0.82);font-size:0.92rem;line-height:1.68;}
+    .gov-caseline__panel strong{color:var(--gold-light);font-weight:600;}
+    .gov-caseline__hint{margin-top:0.5rem;font-size:0.62rem;color:rgba(244,237,224,0.4);letter-spacing:0.1em;text-transform:uppercase;text-align:center;}
+    .gov-caseline__foot{margin-top:0.8rem;font-size:0.8rem;color:rgba(244,237,224,0.55);text-align:center;border-top:1px solid rgba(201,169,97,0.16);padding-top:0.7rem;}
+    @media(max-width:640px){.gov-caseline__track{grid-auto-flow:row;gap:0.7rem;}.gov-caseline__track::before{display:none;}.gov-caseline__node{grid-template-columns:1rem auto;justify-items:start;align-items:center;column-gap:0.6rem;}.gov-caseline__lab{text-align:left;}}
+
+    /* G6 spectrum */
+    .gov-spectrum{max-width:var(--gov-col);margin:var(--space-8) 0 var(--space-4);}
+    .gov-spectrum__ends{display:flex;justify-content:space-between;font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+    .gov-spectrum__bar{height:0.85rem;border-radius:0.45rem;background:linear-gradient(90deg,var(--blue) 0%,var(--gold) 55%,var(--red) 100%);position:relative;}
+    .gov-spectrum__thr{position:absolute;top:-0.3rem;bottom:-0.3rem;left:58%;width:2px;background:var(--cream);}
+    .gov-spectrum__thrlab{position:absolute;left:58%;top:1.05rem;transform:translateX(-50%);font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);white-space:nowrap;}
+    .gov-spectrum__row{display:flex;justify-content:space-between;gap:1.5rem;margin-top:2.3rem;}
+    .gov-spectrum__side{flex:1;font-size:0.85rem;line-height:1.5;color:rgba(244,237,224,0.66);}
+    .gov-spectrum__side b{display:block;margin-bottom:0.2rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;color:var(--cream);}
+    .gov-spectrum__side--r{text-align:right;}
+    @media(max-width:560px){.gov-spectrum__row{flex-direction:column;gap:0.8rem;}.gov-spectrum__side--r{text-align:left;}}
+
+    /* G7 oversight controls */
+    .gov-oversight{max-width:var(--gov-col);margin:var(--space-6) 0 var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+    .gov-oversight__chip{display:flex;align-items:center;gap:0.7rem;padding:0.7rem 0.85rem;border:1px solid rgba(201,169,97,0.16);border-radius:6px;background:rgba(244,237,224,0.02);font-size:0.88rem;color:rgba(244,237,224,0.85);}
+    .gov-oversight__check{width:1.15rem;height:1.15rem;flex:none;border-radius:50%;background:rgba(21,108,134,0.18);border:1px solid var(--blue);color:#8fd0e2;display:grid;place-items:center;font-size:0.6rem;font-weight:700;}
+    .gov-oversight__chip--wide{grid-column:1 / -1;}
+    @media(max-width:560px){.gov-oversight{grid-template-columns:1fr;}}
+
+    .gov-rail__caption{max-width:var(--gov-col);margin:0.75rem 0 0;color:rgba(244,237,224,0.55);font-family:'Inter',system-ui,sans-serif;font-size:0.85rem;font-style:italic;line-height:1.55;}
+  </style>
+</head>
+<body class="gov-page">
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/">Articles</a></li>
+        <li><a href="/studies/" class="active">Case Studies</a></li>
+        <li><a href="/ai/">AI Portfolio</a></li>
+        <li><a href="/resume/">Resume</a></li>
+        <li><a href="/books/">Books</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="gov-hero">
+    <div class="container">
+      <p class="gov-hero__eyebrow">Case Study</p>
+      <h1>AI Governance for Business Professionals</h1>
+      <p class="gov-hero__sub">The questions and vocabulary you carry into any room.</p>
+      <div class="gov-hero__meta">
+        <span>Executive Foundation</span>
+        <span>Current Regime</span>
+      </div>
+      <div class="gov-hero__note-wrap">
+        <p class="gov-hero__note">*Originally prepared for graduate students in the Queens and McColl School of Business as companion reading for a guest lecture.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="gov-study">
+    <article class="container">
+
+      <!-- 1 | Thesis -->
+      <section class="gov-section" id="thesis">
+        <p class="gov-section__marker">1 | Thesis</p>
+        <div class="gov-copy">
+          <p>Have you ever used AI to make a life-changing decision? A job to apply for, a class to take, a loan, apartment, school, medical, or legal question.</p>
+          <p>The first business question is where AI output stops before it becomes action. A system may draft a rejection email, rank job applicants, recommend fraud review, summarize a disciplinary record, or flag a worker for low productivity. Those outputs matter because someone may rely on them. The legal and ethical risk usually appears at the moment the organization lets the output affect a person.</p>
+          <p>Model confidence does not solve that problem. Confidence is a signal generated by the system or around the system. It is not independent review. It does not tell the business that the output is lawful, fair, accurate, documented, or ready for use.</p>
+          <p>The core principle we will go over here:</p>
+        </div>
+        <figure class="gov-gate" aria-label="The release gate">
+          <div class="gov-gate__box"><b>AI output</b><span>draft</span></div>
+          <div class="gov-gate__arrow">&rarr;</div>
+          <div class="gov-gate__box gov-gate__box--dec"><b>Reviewer</b><span>the gate check</span></div>
+          <div class="gov-gate__arrow">&rarr;</div>
+          <div class="gov-gate__outs">
+            <div class="gov-gate__chip gov-gate__chip--yes"><span>Can reject, revise, or escalate</span><small>release gate</small></div>
+            <div class="gov-gate__chip gov-gate__chip--no"><span>Can only watch it move</span><small>decoration</small></div>
+          </div>
+        </figure>
+        <blockquote class="gov-quote">
+          <p>An AI model cannot certify its own work. The authority to release the work has to sit outside the model, with a person who is able to stop movement.</p>
+        </blockquote>
+        <div class="gov-copy">
+          <p>The control has to sit outside the model. That control can be a trained reviewer, a compliance process, a legal review, a technical audit, a manager with defined authority, or a structured workflow with escalation rules. The form can vary, the power cannot. The gate has to stop movement.</p>
+          <p>The practical test is simple. If the reviewer cannot reject, revise, or escalate the output before it affects someone, the organization has not created a release gate. It has created a ritual.</p>
+        </div>
+      </section>
+
+      <!-- 2 | Speed Needs Control -->
+      <section class="gov-section" id="speed">
+        <p class="gov-section__marker">2 | Speed Needs Control</p>
+        <div class="gov-copy">
+          <p>The risk is that weak controls scale with the same speed. A bad screening rule can reject qualified applicants at volume. A biased dataset can reproduce historical exclusion. A vendor claim can move through procurement without anyone testing what the tool actually does. A monitoring system can turn ordinary worker behavior into discipline before anyone asks whether the signal is valid.</p>
+          <p>The National Institute of Standards and Technology describes trustworthy AI through characteristics that include validity, reliability, safety, security, resilience, accountability, transparency, explainability, interpretability, privacy, and fairness. Its AI Risk Management Framework organizes AI risk work around 4 functions: govern, map, measure, and manage. That structure matters because business governance is a system of decisions, records, testing, review, and accountability. It is not a slogan.<sup class="gov-cite"><a href="#src-1">1</a></sup></p>
+        </div>
+      </section>
+
+      <!-- 3 | The United States -->
+      <section class="gov-section" id="united-states">
+        <p class="gov-section__marker">3 | The United States</p>
+        <div class="gov-copy">
+          <p>The United States does not have one comprehensive federal AI statute. Businesses operate in a layered environment made of executive action, agency enforcement, state and local law, private litigation, and existing legal regimes such as employment discrimination, consumer protection, privacy, contract, procurement, and discovery. Federal agencies have continued to use existing authority while states move ahead with AI-specific rules.</p>
+          <p>That means a company does not need to violate an AI law to create AI liability. If a hiring tool creates discriminatory outcomes, employment law may apply. If a consumer scoring tool misleads people or treats them unfairly, consumer protection law may apply. If an AI system uses data in ways the business did not disclose, privacy law may apply. The old laws did not disappear when the new tools arrived.</p>
+          <p>Federal policy has moved toward national uniformity. Executive Order 14365, issued December 11, 2025, criticized state-by-state regulation, created an AI Litigation Task Force, directed Commerce to identify conditions on certain remaining BEAD non-deployment funds, and directed preparation of a legislative recommendation for a uniform federal framework that would preempt conflicting state AI laws.<sup class="gov-cite"><a href="#src-3">3</a>,<a href="#src-4">4</a></sup></p>
+        </div>
+        <div class="gov-rail" aria-label="Preemption flow">
+          <div class="gov-rail__node"><span>Step 1</span><strong>Executive order</strong></div>
+          <div class="gov-rail__node"><span>Step 2</span><strong>No direct preemption</strong></div>
+          <div class="gov-rail__node"><span>Step 3</span><strong>Congress or authorized agency</strong></div>
+          <div class="gov-rail__node gov-rail__node--flag"><span>Step 4</span><strong>Possible preemption</strong></div>
+        </div>
+        <div class="gov-copy">
+          <p>An executive order does not erase state law by itself. Federal preemption usually comes from Congress, or from agency action when Congress has clearly delegated authority to the agency. At the time of this reading, the order itself had not displaced state AI laws, and Congress had not enacted the broad AI preemption requested by the administration.</p>
+          <p>Congress has also resisted broad state-law displacement. In July 2025, the Senate stripped an AI moratorium from a budget reconciliation bill by a 99 to 1 vote, and a later attempt to block state AI laws through the National Defense Authorization Act was dropped before enactment.<sup class="gov-cite"><a href="#src-5">5</a>,<a href="#src-6">6</a></sup></p>
+          <p>The business answer is direct. Comply with the state and local AI rules that apply now, keep the program flexible, and do not treat a federal policy announcement as a compliance exemption.</p>
+        </div>
+      </section>
+
+      <!-- 4 | Four Jurisdictions -->
+      <section class="gov-section" id="jurisdictions">
+        <p class="gov-section__marker">4 | Four Jurisdictions</p>
+        <div class="gov-cards gov-cards--2">
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Employment AI and civil rights</span>
+            <h3>California</h3>
+            <p>California has several relevant AI laws and rules. SB 53 requires large frontier AI developers to publish frontier AI frameworks and make disclosures related to catastrophic risk and safety incidents. AB 2013 requires generative AI developers to post training-data documentation by January 1, 2026. AB 853 delayed parts of California's AI-generated-content transparency regime to August 2, 2026. California civil rights regulators also confirmed that state employment anti-discrimination law applies to automated decision systems used in employment, with rules effective October 1, 2025.<sup class="gov-cite"><a href="#src-8">8</a>,<a href="#src-9">9</a>,<a href="#src-10">10</a>,<a href="#src-11">11</a></sup></p>
+          </div>
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Operational difficulty</span>
+            <h3>Colorado</h3>
+            <p>Colorado has enacted a narrower automated decision-making law focused on automated decision-making technology used for consequential decisions. The statute addresses developer documentation, records, consumer notice, correction, human review or reconsideration for certain adverse decisions, and enforcement by the state attorney general. Key provisions are set for January 1, 2027.<sup class="gov-cite"><a href="#src-7">7</a></sup></p>
+          </div>
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Discriminatory employment AI</span>
+            <h3>Illinois</h3>
+            <p>Illinois folded AI into its existing civil rights law rather than writing a separate AI statute. The amendment, effective January 2026, makes it a civil rights violation for an employer to use AI in a way that discriminates in employment decisions, and it bars using zip code as a proxy for a protected class. Because the rule runs through the existing civil rights framework, its ordinary enforcement and remedies attach, and the violation turns on the discriminatory outcome rather than on proof that the employer intended it.<sup class="gov-cite"><a href="#src-12">12</a></sup></p>
+          </div>
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Bias audits and enforcement</span>
+            <h3>New York City</h3>
+            <p>New York City's Local Law 144 regulates automated employment decision tools. Employers and employment agencies generally cannot use covered tools unless a bias audit has been completed, required information has been made public, and required notices have been provided. Enforcement began July 5, 2023. A later New York State Comptroller audit found weaknesses in enforcement, including an ineffective complaint process and limited detection of possible noncompliance.<sup class="gov-cite"><a href="#src-13">13</a>,<a href="#src-14">14</a></sup></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 | Mobley v. Workday -->
+      <section class="gov-section" id="mobley">
+        <p class="gov-section__marker">5 | Mobley v. Workday</p>
+        <div class="gov-copy">
+          <p>Mobley v. Workday puts the abstract risk into a business setting. Derek Mobley alleged that Workday's algorithmic applicant-screening tools discriminated against applicants based on race, age, and disability. These are allegations. At the pleading stage, the court was deciding whether claims could proceed, not whether Workday violated the law.<sup class="gov-cite"><a href="#src-15">15</a></sup></p>
+        </div>
+        <div class="gov-rail" aria-label="Screening flow">
+          <div class="gov-rail__node"><span>Input</span><strong>Applicant</strong></div>
+          <div class="gov-rail__node"><span>Vendor tool</span><strong>Workday tool</strong></div>
+          <div class="gov-rail__node"><span>Process</span><strong>Screening</strong></div>
+          <div class="gov-rail__node gov-rail__node--flag"><span>Output</span><strong>Rejection</strong></div>
+        </div>
+        <p class="gov-rail__caption">The hiring steps an employer handed to the vendor's tool. Screening and rejection happen with no person deciding, which is how the discrimination claim could reach Workday, the vendor, and not only the employers.</p>
+        <div class="gov-caseline" data-caseline aria-label="Mobley v. Workday timeline">
+          <div class="gov-caseline__track" role="tablist">
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Jul 2024</span><span class="gov-caseline__lab">Pleading stage</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">May 2025</span><span class="gov-caseline__lab">Group certified</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">May 2026</span><span class="gov-caseline__lab">Discovery</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Jun 2026</span><span class="gov-caseline__lab">Motion to dismiss</span></button>
+          </div>
+          <div class="gov-caseline__panels">
+            <div class="gov-caseline__panel" role="tabpanel"><h4>Pleading stage</h4><p>The earliest phase of a lawsuit. The court only decides whether the claims may move forward, not whether anyone actually broke the law. Here it let the case proceed against Workday on an <strong>agent theory</strong>: a company stays responsible for work it hands to an outside tool, so an employer cannot escape anti-discrimination law by letting a vendor's software do the screening. The court allowed <strong>disparate-impact</strong> claims (a neutral-looking practice that produces worse outcomes for a protected group, where the outcome matters, not the intent) and dismissed the <strong>intentional-discrimination</strong> claim, because the complaint did not show the tool was built to discriminate on purpose.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>Group certified</h4><p>The court let older applicants sue as a group. It used an <strong>opt-in collective</strong> (workers must actively join) rather than a <strong>Rule 23 class</strong> (which would automatically include everyone who fits unless they opt out). The difference decides how many people the case ultimately covers.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>Discovery</h4><p>The stage where each side can demand the other's documents. The court held that Workday's own <strong>bias testing</strong> (checking whether the tool produced skewed outcomes across groups) was shielded by <strong>attorney-client privilege</strong>, because lawyers directed and curated it for legal advice. The same test run as a routine business task would not have been protected. Who runs the test, and why, decided whether it stayed private or could be pulled into court.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>Motion to dismiss</h4><p>The court kept the strongest theories alive and trimmed the rest. Key claims under California's anti-discrimination law (<strong>FEHA</strong>, the Fair Employment and Housing Act) and a disability theory under the <strong>ADA</strong> (the Americans with Disabilities Act) moved forward, while weaker theories narrowed. AI cases rarely end in one clean yes or no; claims survive, narrow, and shift as the court tests them against the record.</p></div>
+          </div>
+          <p class="gov-caseline__hint">Tap a milestone for a plain-English explanation</p>
+          <p class="gov-caseline__foot">Scale on the record: roughly 1.1 billion applications rejected on the platform &mdash; Workday's account of scale, not a finding.</p>
+        </div>
+        <div class="gov-copy">
+          <p>The important point for business professionals is the vendor theory. Workday argued that it was a software vendor rather than an employer. The court allowed certain federal discrimination claims to proceed under an agency theory, reasoning that anti-discrimination laws reach agents and that employers cannot avoid liability by delegating traditional hiring functions. The complaint plausibly alleged that Workday's customers delegated screening and rejection functions to Workday's tools.</p>
+          <p>The court dismissed the employment-agency theory, allowed disparate-impact claims to proceed, and dismissed intentional-discrimination claims because the complaint did not adequately plead discriminatory intent. That distinction matters. Disparate impact focuses on outcomes, so a tool can create risk even when nobody set out to discriminate.<sup class="gov-cite"><a href="#src-15">15</a></sup></p>
+          <p>The case also shows how quickly scale changes the risk profile. In a preliminary collective-certification order, the court noted Workday's representation that roughly 1.1 billion applications were rejected using Workday during the relevant period. That was Workday's account of platform scale, not a finding that its AI independently rejected 1.1 billion people. The same order treated the certified older-applicant group as an opt-in collective, which is different from a Rule 23 class.<sup class="gov-cite"><a href="#src-16">16</a></sup></p>
+          <p>The case kept moving. In a later order, the court allowed key California FEHA claims and a disability proxy-discrimination theory to go forward while dismissing other theories, including a race-based disparate-impact claim by one plaintiff and the direct-employer theory. The detail matters because AI litigation rarely moves as one clean yes or no. Claims survive, narrow, and change as the court tests the theory against the record.<sup class="gov-cite"><a href="#src-17">17</a></sup></p>
+          <p>The discovery fight adds the governance lesson that many businesses miss. In May 2026, the court held that certain Workday bias-testing material was protected by attorney-client privilege because lawyers directed and curated the testing for legal advice. The ruling did not say that all bias testing is privileged. It showed that audit structure matters: who runs the test, why the test is run, who controls the records, and how the purpose is documented can change the legal posture of the evidence.<sup class="gov-cite"><a href="#src-18">18</a></sup></p>
+          <p>The lesson is a design choice the business makes before the audit runs, not after it. A bias audit performed as a routine operational task creates an ordinary business record that an opposing party can request in litigation. The same test, directed by counsel for the purpose of legal advice, may carry privilege. A business cannot relabel the record once a dispute begins, and privilege can still be waived by how the results are circulated. The purpose, the owner, and the record path have to be decided at the start.</p>
+        </div>
+        <figure class="gov-fork" aria-label="Same test, two postures">
+          <div class="gov-fork__top">A bias audit</div>
+          <div class="gov-fork__stem"></div>
+          <div class="gov-fork__branches">
+            <div class="gov-fork__path gov-fork__path--risk">
+              <span class="gov-fork__tag">Run as routine operations</span>
+              <div class="gov-fork__arrow">&darr;</div>
+              <div class="gov-fork__out">Ordinary business record</div>
+              <div class="gov-fork__result">Discoverable by an opposing party</div>
+            </div>
+            <div class="gov-fork__path gov-fork__path--priv">
+              <span class="gov-fork__tag">Directed by counsel for legal advice</span>
+              <div class="gov-fork__arrow">&darr;</div>
+              <div class="gov-fork__out">Legal-advice work product</div>
+              <div class="gov-fork__result">May carry privilege</div>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <!-- 6 | The EU AI Act -->
+      <section class="gov-section" id="eu-ai-act">
+        <p class="gov-section__marker">6 | The EU AI Act</p>
+        <div class="gov-copy">
+          <p>The EU AI Act matters to U.S. businesses because of its reach. It applies to certain providers placing AI systems or general-purpose AI models on the EU market, deployers located in the EU, and providers or deployers outside the EU when the AI system's output is used in the European Union. A U.S. company can therefore face EU AI Act obligations even when the company itself sits outside Europe.</p>
+          <p>For a U.S. company, the practical trigger is not where the company sits but where the output is used. If an AI system's results are used inside the EU, the obligations can apply even when the company has no European office. The company then faces a choice between building one product that meets the stricter standard and maintaining two versions for two markets. Because running two products usually costs more than complying once, the stricter rule tends to become the default, which is how an EU requirement reaches a business that never planned to operate in Europe.</p>
+        </div>
+        <h2>The Act regulates practices, systems, and duties.</h2>
+        <div class="gov-pyr" aria-label="EU AI Act risk tiers">
+          <div class="gov-pyr__item gov-pyr__item--1">
+            <button class="gov-pyr__tier" type="button" aria-expanded="false"><b>Prohibited</b><span>Article 5 &middot; banned outright</span><span class="gov-pyr__more">Tap to expand</span></button>
+            <div class="gov-pyr__detail"><div class="gov-pyr__detail-inner">Banned outright. The business cannot use the system for these purposes at all. Examples include social scoring and certain uses that manipulate people or exploit vulnerable groups.</div></div>
+          </div>
+          <div class="gov-pyr__item gov-pyr__item--2">
+            <button class="gov-pyr__tier" type="button" aria-expanded="false"><b>High-risk</b><span>Articles 6 to 49 &middot; heavy obligations</span><span class="gov-pyr__more">Tap to expand</span></button>
+            <div class="gov-pyr__detail"><div class="gov-pyr__detail-inner">Allowed only after meeting heavy duties: risk management, technical documentation, human oversight, transparency, and ongoing monitoring. Most hiring, promotion, and worker-monitoring AI falls in this tier.</div></div>
+          </div>
+          <div class="gov-pyr__item gov-pyr__item--3">
+            <button class="gov-pyr__tier" type="button" aria-expanded="false"><b>Transparency</b><span>Article 50 &middot; disclosure and labeling</span><span class="gov-pyr__more">Tap to expand</span></button>
+            <div class="gov-pyr__detail"><div class="gov-pyr__detail-inner">Allowed, but you must disclose. People have to be told when they are interacting with an AI system, or viewing content that AI created or altered.</div></div>
+          </div>
+          <div class="gov-pyr__item gov-pyr__item--4">
+            <button class="gov-pyr__tier" type="button" aria-expanded="false"><b>General-purpose and other duties</b><span>Separate rules, including generative AI</span><span class="gov-pyr__more">Tap to expand</span></button>
+            <div class="gov-pyr__detail"><div class="gov-pyr__detail-inner">Separate rules govern general-purpose models that can support many different uses, including generative AI, layered on top of the tiers above.</div></div>
+          </div>
+        </div>
+        <div class="gov-copy">
+          <p>High-risk systems carry heavier obligations, including risk management, technical documentation, transparency, human oversight, accuracy, robustness, cybersecurity, monitoring, and recordkeeping. Employment uses listed in Annex III require Article 6 analysis, including the exceptions for certain narrow procedural or preparatory uses.<sup class="gov-cite"><a href="#src-19">19</a>,<a href="#src-20">20</a></sup></p>
+        </div>
+        <h2>The EU AI Act Business Check</h2>
+        <div class="gov-steps">
+          <div class="gov-step">
+            <div class="gov-step__body">
+              <span class="gov-step__title">Where will the output be used?</span>
+              <p>If the output will be used in the European Union, the Act may apply even when the company is based outside Europe.</p>
+            </div>
+          </div>
+          <div class="gov-step">
+            <div class="gov-step__body">
+              <span class="gov-step__title">Is the use prohibited?</span>
+              <p>Prohibited means the business cannot use the system for that purpose. Examples include social scoring and certain uses that manipulate people or exploit vulnerable groups.</p>
+            </div>
+          </div>
+          <div class="gov-step">
+            <div class="gov-step__body">
+              <span class="gov-step__title">Is the use high-risk?</span>
+              <p>High-risk means the business can use the system only after meeting specific requirements, including testing, records, ongoing checks, and a person with authority to stop the output. Many hiring and workforce systems fall into this category.</p>
+            </div>
+          </div>
+          <div class="gov-step">
+            <div class="gov-step__body">
+              <span class="gov-step__title">Does the use require disclosure?</span>
+              <p>Disclosure means telling people when they are interacting with certain AI systems or viewing certain content created or altered by AI.</p>
+            </div>
+          </div>
+          <div class="gov-step">
+            <div class="gov-step__body">
+              <span class="gov-step__title">Who can stop the output?</span>
+              <p>Name the person who can reject, override, or pause the system before it affects an applicant, worker, customer, or other person.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gov-copy">
+          <p>The timing has changed, and precision matters. In June 2026, the Council gave final approval to a Digital Omnibus package that moved certain high-risk AI obligations. Stand-alone high-risk systems move to December 2, 2027, and high-risk systems embedded in regulated products move to August 2, 2028. The same package sets December 2, 2026 for certain synthetic-content marking transition rules.</p>
+        </div>
+        <div class="gov-caseline" data-caseline aria-label="Digital Omnibus deadlines">
+          <div class="gov-caseline__track" role="tablist">
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Aug 2, 2026</span><span class="gov-caseline__lab">Transparency holds</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Dec 2, 2026</span><span class="gov-caseline__lab">Content marking</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Dec 2, 2027</span><span class="gov-caseline__lab">Stand-alone high-risk</span></button>
+            <button class="gov-caseline__node" type="button" role="tab"><span class="gov-caseline__dot"></span><span class="gov-caseline__date">Aug 2, 2028</span><span class="gov-caseline__lab">Embedded high-risk</span></button>
+          </div>
+          <div class="gov-caseline__panels">
+            <div class="gov-caseline__panel" role="tabpanel"><h4>August 2, 2026 &middot; transparency holds</h4><p>The Act's <strong>transparency</strong> duties under Article 50 still take effect on this original date. Transparency here means telling people when they are dealing with an AI system, or with content that AI generated or altered. This date did not move.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>December 2, 2026 &middot; content marking</h4><p>A short grace period for <strong>synthetic-content marking</strong>: labeling AI-generated or AI-altered content in a machine-readable way, for systems already on the market before August 2026. It is a transition allowance, not relief from the duty itself.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>December 2, 2027 &middot; stand-alone high-risk</h4><p>The new deadline for <strong>stand-alone high-risk</strong> systems, meaning AI used on its own for consequential decisions such as hiring or credit. This moved from August 2026. The obligations themselves (testing, records, human oversight) did not get lighter; the authorities and standards needed to apply them were not ready in time.</p></div>
+            <div class="gov-caseline__panel" role="tabpanel"><h4>August 2, 2028 &middot; embedded high-risk</h4><p>The deadline for <strong>embedded high-risk</strong> systems, meaning AI built into another already-regulated product such as a medical device, machine, or vehicle. These get the longest runway because they ride on top of existing product-safety rules.</p></div>
+          </div>
+          <p class="gov-caseline__hint">Tap a date for a plain-English explanation</p>
+          <p class="gov-caseline__foot">The delay is a readiness signal, not a reprieve.</p>
+        </div>
+        <div class="gov-copy">
+          <p>The delay is a readiness signal, not a reprieve. The high-risk obligations moved because the standards, guidance, and national authorities needed to apply them were not ready in time, not because the requirements themselves got lighter. The core high-risk obligations remain, but the package also changes how parts of the regime apply and interact with sector-specific rules. The practical reading for a business is that the extra time exists for building the compliance framework, and treating the new dates as permission to wait leaves less runway than it looks.<sup class="gov-cite"><a href="#src-21">21</a>,<a href="#src-22">22</a></sup></p>
+          <p>The Act also imposes transparency duties. People must be informed when they are interacting with certain AI systems, and certain AI-generated or manipulated content must be marked or disclosed.</p>
+          <p>The Act separately requires providers and deployers to take measures to ensure a sufficient level of AI literacy among staff and others involved in AI operation and use. AI literacy means that the people using the system understand enough about its risks, limits, and proper use to operate it responsibly.</p>
+          <p>AI literacy is an obligation, not a slogan. It means the people operating an AI system can judge its outputs, recognize when it is likely wrong, and understand where its limits fall, well enough to use it responsibly. That is the same capability this reading builds: the vocabulary to ask what the system did, who it affects, whether anyone tested it, and who can hold release authority. A workforce that cannot answer those questions is not AI literate, whatever the training record says.</p>
+          <p>The business answer is practical. If an AI tool is placed on the EU market, used in the EU, or produces output used in the EU, the company has to analyze EU obligations. If the tool affects hiring or workforce management, analyze whether the intended use falls within Annex III and build oversight into the workflow now. Retrofitting governance is expensive.<sup class="gov-cite"><a href="#src-19">19</a>,<a href="#src-20">20</a></sup></p>
+        </div>
+      </section>
+
+      <!-- 7 | Carry Three Terms -->
+      <section class="gov-section" id="vocabulary">
+        <p class="gov-section__marker">7 | Carry Three Terms</p>
+        <h2>They give you the tools for asking the right questions.</h2>
+        <div class="gov-cards gov-cards--3">
+          <div class="gov-card gov-card--accent">
+            <h3>Explainability</h3>
+            <p>Explainability answers a basic question: can the business understand and state why the system produced a particular output?</p>
+            <p>Explainability: A lender can state, in plain words, the main factors that drove a denial.</p>
+          </div>
+          <div class="gov-card gov-card--accent">
+            <h3>Adverse impact</h3>
+            <p>Adverse impact, also called disparate impact, means that a neutral-looking practice produces significantly worse outcomes for a protected group.</p>
+            <p>Adverse impact: A screening tool advances 100 of one group and 72 of another at equal qualification.</p>
+          </div>
+          <div class="gov-card gov-card--accent">
+            <h3>Human release authority</h3>
+            <p>Human release authority answers the governance question that matters most: who decides whether AI output becomes action?</p>
+            <p>Release authority: A named manager can pull a flagged file out of the queue before it triggers a rejection.</p>
+          </div>
+        </div>
+        <div class="gov-copy">
+          <p>For business use, explainability does not always require exposing every internal mathematical feature of a model, just enough understanding to govern the system, challenge the result, document the decision, and explain the main drivers in ordinary language when a person is affected. A black box may be acceptable for low-stakes automation. It is much harder to defend when the system rejects, ranks, flags, disciplines, monitors, prices, or deprioritizes people.</p>
+        </div>
+        <div class="gov-spectrum" aria-label="Explainability by stakes">
+          <div class="gov-spectrum__ends"><span>Low stakes</span><span>High stakes</span></div>
+          <div class="gov-spectrum__bar"><span class="gov-spectrum__thr"></span><span class="gov-spectrum__thrlab">explainability expected</span></div>
+          <div class="gov-spectrum__row">
+            <div class="gov-spectrum__side"><b>Black box may be acceptable</b>Routine, low-consequence automation where no one is directly affected.</div>
+            <div class="gov-spectrum__side gov-spectrum__side--r"><b>Hard to defend</b>When the system rejects, ranks, flags, disciplines, monitors, prices, or deprioritizes people.</div>
+          </div>
+        </div>
+<div class="gov-copy">
+          <p>The four-fifths rule is an evidentiary screen: a selection rate below 80 percent may indicate adverse impact.<sup class="gov-cite"><a href="#src-23">23</a></sup></p>
+        </div>
+        <div class="gov-meter" aria-label="Four-fifths rule selection-rate example">
+          <div class="gov-meter__row">
+            <span class="gov-meter__label">One group</span>
+            <span class="gov-meter__bar"><span class="gov-meter__fill gov-meter__fill--full"></span></span>
+            <span class="gov-meter__pct">100</span>
+          </div>
+          <div class="gov-meter__row">
+            <span class="gov-meter__label">Another group</span>
+            <span class="gov-meter__bar"><span class="gov-meter__fill gov-meter__fill--under"></span></span>
+            <span class="gov-meter__pct">72</span>
+          </div>
+          <p class="gov-meter__note">A rate below 80 percent is a screening indicator, not a dispositive finding.<sup class="gov-cite"><a href="#src-23">23</a></sup></p>
+        </div>
+        <div class="gov-copy">
+          <p>The AI-specific lesson is direct. A system can be facially neutral and still produce discriminatory outcomes. The organization does not solve that risk by saying the model did not know the applicant's race, sex, age, disability, or other protected trait. Proxy variables can carry the signal. Zip code, employment gaps, school history, commute patterns, medical-leave patterns, language, scheduling availability, or work history can operate as substitutes for protected traits in practice.</p>
+          <p>The federal Uniform Guidelines on Employee Selection Procedures define adverse impact in employment selection and require recordkeeping that allows employers and enforcement agencies to assess selection effects. The common rule of thumb is the four-fifths rule: if the selection rate for a race, sex, or ethnic group is less than 80 percent of the selection rate for the group with the highest selection rate, that difference is generally treated as evidence of adverse impact. Smaller differences may still matter where they are statistically or practically significant.<sup class="gov-cite"><a href="#src-23">23</a></sup></p>
+          <p>A human in the loop is useful only when the person has real authority, enough information, and the power to stop the process. A reviewer who only watches the output move through the system does not create oversight. A manager who can rubber-stamp but cannot reject does not create oversight. A policy that says human review while the workflow auto-rejects people before review does not create oversight.</p>
+          <p>The EU AI Act's human-oversight provision for high-risk systems points in this direction. It requires oversight measures that allow a natural person to:<sup class="gov-cite"><a href="#src-19">19</a></sup></p>
+        </div>
+        <div class="gov-oversight" aria-label="Human-oversight measures">
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Understand relevant capacities and limitations</div>
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Monitor operation</div>
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Remain aware of automation bias</div>
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Interpret outputs</div>
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Decide not to use or to disregard an output</div>
+          <div class="gov-oversight__chip"><span class="gov-oversight__check">&check;</span>Override or reverse an output</div>
+          <div class="gov-oversight__chip gov-oversight__chip--wide"><span class="gov-oversight__check">&check;</span>Interrupt the system where appropriate</div>
+        </div>
+      </section>
+
+      <!-- 8 | Procurement -->
+      <section class="gov-section" id="vendor-review">
+        <p class="gov-section__marker">8 | Procurement</p>
+        <h2>The vendor review</h2>
+        <div class="gov-copy">
+          <p>A clean vendor review should answer 12 questions.</p>
+        </div>
+        <div class="gov-steps gov-steps--split">
+          <div class="gov-step"><div class="gov-step__body"><p>What decision or action will the tool influence?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Who is affected if the output is used?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Does the tool draft, recommend, rank, screen, reject, monitor, or trigger workflow movement?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>What data does the tool use?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>What data does the vendor retain?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Does the vendor use customer data to train or improve models?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>What sub-processors or third parties receive data?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Can the vendor explain the main factors behind a consequential output?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Has the tool been tested for adverse impact?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Who performed the testing, for what purpose, and where are the records?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>Who inside the business has release authority?</p></div></div>
+          <div class="gov-step"><div class="gov-step__body"><p>What challenge, correction, or reconsideration path exists for the affected person?</p></div></div>
+        </div>
+        <div class="gov-copy">
+          <p>These questions do not slow the business for the sake of caution. They protect the business from adopting a system it cannot explain, defend, or stop.</p>
+        </div>
+      </section>
+
+      <!-- 9 | Implementation -->
+      <section class="gov-section" id="implementation">
+        <p class="gov-section__marker">9 | Implementation</p>
+        <h2>The implementation checklist</h2>
+        <div class="gov-copy">
+          <p>A responsible AI implementation should produce clear answers before the system goes live.</p>
+        </div>
+        <div class="gov-table-wrap">
+          <table class="gov-table">
+            <thead>
+              <tr><th scope="col">Area</th><th scope="col">Required answer</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Use case</td><td>State what the AI system will do in ordinary language.</td></tr>
+              <tr><td>Consequence</td><td>State what happens to a person, customer, employee, applicant, or business partner if the output is used.</td></tr>
+              <tr><td>Legal regime</td><td>Identify the federal, state, local, international, sector-specific, and contractual rules that may apply.</td></tr>
+              <tr><td>Vendor role</td><td>Describe the vendor's actual role in the workflow, not just the vendor's product category.</td></tr>
+              <tr><td>Data</td><td>Identify what data enters the system, what leaves the system, what is retained, and what may be used for training.</td></tr>
+              <tr><td>Explainability</td><td>Confirm whether the business can understand and explain the main drivers of consequential outputs.</td></tr>
+              <tr><td>Adverse impact</td><td>Test outcomes across protected groups where the use case affects employment, housing, credit, education, benefits, or similar opportunities.</td></tr>
+              <tr><td>Audit posture</td><td>Decide who runs the audit, why it is run, who directs it, who receives the results, and how the records are protected.</td></tr>
+              <tr><td>Human gate</td><td>Name the person or process with authority to approve, reject, revise, or escalate.</td></tr>
+              <tr><td>Challenge path</td><td>Give affected people a meaningful way to seek review, correction, or reconsideration where the use case requires it.</td></tr>
+              <tr><td>Monitoring</td><td>Retest the system after deployment, especially when data, vendors, prompts, models, or business processes change.</td></tr>
+              <tr><td>Documentation</td><td>Keep records showing that the business governed the system rather than merely trusted it.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gov-copy">
+          <p>The checklist is only useful if the business can answer it with evidence. A policy statement is not evidence. A vendor assurance is not evidence. A release gate that cannot stop anything is not evidence.</p>
+        </div>
+      </section>
+
+      <!-- 10 | The Responsible Position -->
+      <section class="gov-section" id="close">
+        <p class="gov-section__marker">10 | The Responsible Position</p>
+        <div class="gov-cards gov-cards--3">
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Efficiency</span>
+            <p>Use AI where it creates real value, because speed, scale, and consistency are legitimate business advantages.</p>
+          </div>
+          <div class="gov-card">
+            <span class="gov-card__eyebrow">Caution</span>
+            <p>Treat caution as a design principle, which means testing, documentation, challenge paths, and review authority exist before deployment.</p>
+          </div>
+          <div class="gov-card gov-card--accent">
+            <span class="gov-card__eyebrow">Release</span>
+            <p>Keep final authority over consequential decisions outside the model, with a person or accountable process that can say no.</p>
+          </div>
+        </div>
+        <div class="gov-copy">
+          <p>For business professionals, the point is operational. Do not say human oversight in the abstract. Name the person, the decision, the information available to that person, and the exact action that person can stop.</p>
+        </div>
+      </section>
+
+      <!-- Sources -->
+      <section class="gov-section" id="sources">
+        <p class="gov-section__marker">Sources and legal authorities</p>
+        <p class="gov-sources__note">Sources are numbered in order of first appearance. Each entry identifies the claim location and a legal pinpoint where available. All links were accessed July 13, 2026.</p>
+        <ol class="gov-sources">
+          <li id="src-1"><strong>National Institute of Standards and Technology, Artificial Intelligence Risk Management Framework (AI RMF 1.0),</strong> NIST AI 100-1 (Jan. 2023). Pinpoint: pp. 1 to 5, 12 to 13. Supports pp. 4 to 5. <a href="https://doi.org/10.6028/NIST.AI.100-1" target="_blank" rel="noopener">doi.org/10.6028/NIST.AI.100-1</a></li>
+          <li id="src-2"><strong>Morgan Lewis,</strong> AI Enforcement Accelerates as Federal Policy Stalls and States Step In (Apr. 2, 2026). Supports p. 6. Secondary overview. <span class="gov-src-cite">morganlewis.com, Apr. 2, 2026</span></li>
+          <li id="src-3"><strong>Executive Order 14365,</strong> Ensuring a National Policy Framework for Artificial Intelligence (Dec. 11, 2025). Pinpoint: sections 1, 3, 5, and 8. Supports p. 7. <span class="gov-src-cite">whitehouse.gov, Executive Order 14365</span></li>
+          <li id="src-4"><strong>White &amp; Case,</strong> State AI Laws Under Federal Scrutiny (2026). Supports p. 7. Secondary analysis of Executive Order 14365. <span class="gov-src-cite">whitecase.com, state AI laws analysis</span></li>
+          <li id="src-5"><strong>United States Senate, Roll Call Vote No. 363,</strong> amendment removing the proposed AI moratorium from the 2025 reconciliation bill (July 1, 2025). Supports p. 8. <span class="gov-src-cite">senate.gov, Roll Call Vote 363</span></li>
+          <li id="src-6"><strong>Fisher Phillips,</strong> Congress Again Drops Bid to Block State AI Laws (Dec. 2025). Supports p. 8. Secondary report on the NDAA provision. <span class="gov-src-cite">fisherphillips.com, NDAA report</span></li>
+          <li id="src-7"><strong>Colorado General Assembly, SB26-189,</strong> Automated Decision-Making Technology, signed act (May 14, 2026). Pinpoint: enacted bill summary and signed act. Supports p. 11. <span class="gov-src-cite">leg.colorado.gov, SB26-189</span></li>
+          <li id="src-8"><strong>California Legislative Information, SB 53,</strong> Transparency in Frontier Artificial Intelligence Act, 2025 to 2026 Regular Session. Supports p. 10. <span class="gov-src-cite">leginfo.legislature.ca.gov, SB 53</span></li>
+          <li id="src-9"><strong>California Legislative Information, AB 2013,</strong> Generative Artificial Intelligence: Training Data Transparency, 2023 to 2024 Regular Session. Supports p. 10. <span class="gov-src-cite">leginfo.legislature.ca.gov, AB 2013</span></li>
+          <li id="src-10"><strong>California Legislative Information, AB 853,</strong> Artificial Intelligence, 2025 to 2026 Regular Session. Supports p. 10. <span class="gov-src-cite">leginfo.legislature.ca.gov, AB 853</span></li>
+          <li id="src-11"><strong>California Civil Rights Department,</strong> Civil Rights Council Secures Approval for Regulations to Protect Against Employment Discrimination Related to Artificial Intelligence (June 30, 2025). Supports p. 10. <span class="gov-src-cite">calcivilrights.ca.gov, June 30, 2025</span></li>
+          <li id="src-12"><strong>Illinois Public Act 103-0804,</strong> amending the Illinois Human Rights Act, approved Aug. 9, 2024, effective Jan. 1, 2026. Pinpoint: sections 5 and 30. Supports p. 10. <span class="gov-src-cite">ilga.gov, Public Act 103-0804</span></li>
+          <li id="src-13"><strong>New York City Department of Consumer and Worker Protection,</strong> Automated Employment Decision Tools, Local Law 144 guidance and enforcement materials. Supports pp. 9 to 10. <span class="gov-src-cite">nyc.gov, Local Law 144</span></li>
+          <li id="src-14"><strong>Office of the New York State Comptroller,</strong> Enforcement of Local Law 144, Automated Employment Decision Tools (Dec. 2, 2025). Supports p. 10. <span class="gov-src-cite">osc.ny.gov, Audit 2025-N-3</span></li>
+          <li id="src-15"><strong>Mobley v. Workday, Inc.,</strong> No. 3:23-cv-00770, Dkt. 80 (N.D. Cal. July 12, 2024). Pinpoint: agency and discrimination rulings. Supports pp. 12 to 13. <span class="gov-src-cite">courtlistener.com, case docket</span></li>
+          <li id="src-16"><strong>Mobley v. Workday, Inc.,</strong> No. 3:23-cv-00770, Dkt. 128, Order Granting Preliminary Collective Certification (N.D. Cal. May 16, 2025). Pinpoint: ECF pp. 1 to 2 and 17 to 18. Supports p. 14. <span class="gov-src-cite">govinfo.gov, Dkt. 128 PDF</span></li>
+          <li id="src-17"><strong>Mobley v. Workday, Inc.,</strong> No. 3:23-cv-00770, Dkt. 360, Order Granting in Part and Denying in Part Motion to Dismiss (N.D. Cal. June 22, 2026). Pinpoint: ECF pp. 1 to 12. Supports p. 14. <span class="gov-src-cite">Dkt. 360 hosted PDF</span></li>
+          <li id="src-18"><strong>Mobley v. Workday, Inc.,</strong> No. 3:23-cv-00770, Dkt. 340, Discovery Order (N.D. Cal. May 29, 2026). Pinpoint: ECF pp. 1 to 13. Supports p. 15. <span class="gov-src-cite">govinfo.gov, Dkt. 340 PDF</span></li>
+          <li id="src-19"><strong>Regulation (EU) 2024/1689,</strong> Artificial Intelligence Act (June 13, 2024; OJ publication July 12, 2024). Pinpoint: Articles 2, 4 to 6, 9 to 15, 26, 50, 99, and 113; Annex III. Supports pp. 17 to 23 and 27. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">EUR-Lex, Regulation 2024/1689</a></li>
+          <li id="src-20"><strong>European Commission AI Act Service Desk, Annex III,</strong> High-Risk AI Systems Referred to in Article 6(2). Pinpoint: item 4, employment and worker management. Supports pp. 18 and 23. <span class="gov-src-cite">European Commission, Annex III</span></li>
+          <li id="src-21"><strong>Council of the European Union, Press Release 553/26,</strong> Artificial Intelligence: Council Gives Final Green Light to Simplify and Streamline Rules (June 29, 2026). Pinpoint: p. 1. Supports p. 20. <span class="gov-src-cite">consilium.europa.eu, Press Release 553/26</span></li>
+          <li id="src-22"><strong>Council of the European Union, PE-CONS 30/26,</strong> Digital Omnibus on AI (June 18, 2026). Pinpoint: recital 2 and amended Article 113. Supports pp. 20 and 22. <span class="gov-src-cite">data.consilium.europa.eu, PE-CONS 30/26</span></li>
+          <li id="src-23"><strong>29 C.F.R. Part 1607,</strong> Uniform Guidelines on Employee Selection Procedures. Pinpoint: section 1607.4(D), adverse impact and the four-fifths rule. Supports p. 26. <a href="https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XIV/part-1607" target="_blank" rel="noopener">ecfr.gov, 29 C.F.R. Part 1607</a></li>
+        </ol>
+      </section>
+
+    </article>
+  </main>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+  <script>
+    (function(){
+      document.querySelectorAll('.gov-caseline').forEach(function(cl){
+        var nodes=Array.prototype.slice.call(cl.querySelectorAll('.gov-caseline__node'));
+        var panels=Array.prototype.slice.call(cl.querySelectorAll('.gov-caseline__panel'));
+        function show(i){
+          nodes.forEach(function(n,j){var a=j===i;n.classList.toggle('is-active',a);n.setAttribute('aria-selected',a?'true':'false');});
+          panels.forEach(function(p,j){p.classList.toggle('is-active',j===i);});
+        }
+        nodes.forEach(function(n,i){n.addEventListener('click',function(){show(i);});});
+        show(0);
+      });
+      document.querySelectorAll('.gov-pyr').forEach(function(pyr){
+        var items=Array.prototype.slice.call(pyr.querySelectorAll('.gov-pyr__item'));
+        items.forEach(function(item){
+          var btn=item.querySelector('.gov-pyr__tier');
+          btn.addEventListener('click',function(){
+            var open=item.classList.contains('is-open');
+            items.forEach(function(it){it.classList.remove('is-open');it.querySelector('.gov-pyr__tier').setAttribute('aria-expanded','false');});
+            if(!open){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
+          });
+        });
+      });
+    })();
+  </script>
+<script data-goatcounter="https://jhmacal.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
