@@ -42,6 +42,7 @@
   --jm-plate-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='p' width='250' height='250' patternUnits='userSpaceOnUse'%3E%3Cg fill='none' stroke='%23c9a961' stroke-width='.5' opacity='.5'%3E%3Ccircle cx='125' cy='125' r='118'/%3E%3Ccircle cx='125' cy='125' r='100'/%3E%3Ccircle cx='125' cy='125' r='82'/%3E%3Ccircle cx='125' cy='125' r='64'/%3E%3Ccircle cx='125' cy='125' r='46'/%3E%3Ccircle cx='125' cy='125' r='28'/%3E%3Cellipse cx='125' cy='125' rx='122' ry='54'/%3E%3Cellipse cx='125' cy='125' rx='54' ry='122'/%3E%3Cellipse cx='125' cy='125' rx='108' ry='76' transform='rotate(40 125 125)'/%3E%3Cellipse cx='125' cy='125' rx='108' ry='76' transform='rotate(-40 125 125)'/%3E%3Cellipse cx='125' cy='125' rx='90' ry='118' transform='rotate(18 125 125)'/%3E%3C/g%3E%3C/pattern%3E%3CradialGradient id='a' cx='26%25' cy='22%25' r='44%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='74%25' cy='58%25' r='40%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='46%25' cy='92%25' r='44%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='.9'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cmask id='m'%3E%3Crect width='100%25' height='100%25' fill='%23fff' opacity='.82'/%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23c)'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)' mask='url(%23m)'/%3E%3C/svg%3E");
   --jm-grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.16'/%3E%3C/svg%3E");
 
+  --jm-plate-band:  780px;   /* height of the plate band, see .plates */
   --jm-drift-duration: 54s;
   --jm-plate-fade:     2.6s;
   --jm-plate-delay:    0.4s;
@@ -133,7 +134,14 @@ body::after {
 
 .plates {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Fixed band, not inset:0. The host sections differ enormously in height
+     -- Articles' header holds one eyebrow, Case Studies' holds the whole card
+     grid -- so stretching the sheets to the host made them a different size on
+     every page. A fixed band renders them identically everywhere. */
+  height: var(--jm-plate-band, 780px);
   z-index: -1;
   pointer-events: none;
   overflow: visible;
