@@ -1,0 +1,139 @@
+/* ============================================================
+   atmosphere.css -- jhmacal.com layered ground
+   ------------------------------------------------------------
+   Four fixed layers painted behind all page content, with no
+   markup of any kind. Adding one <link> to a page is the entire
+   integration; nothing in the body changes.
+
+     html::before   gradient field, slow drift
+     html::after    engraved plate, fades in on first paint
+     body::before   film grain, blended into everything beneath
+     body::after    vignette
+
+   All four sit at negative z-index, so they paint above the
+   canvas background and below every in-flow element. Page
+   content needs no position or z-index changes.
+
+   Every custom property here is namespaced --jm-*. The ground
+   and the engraving colour are read from the shared stylesheet
+   tokens rather than redefined, with literal fallbacks so this
+   file degrades safely if it ever loads alone.
+   ============================================================ */
+
+:root {
+  /* Ground. Reads the shared token; the literal is the fallback only. */
+  --jm-ground:      var(--navy, #0a1628);
+
+  /* Diffusion field. Atmosphere only -- these are not brand colours. */
+  --jm-bloom-1:     rgba(46, 88, 150, 0.70);
+  --jm-bloom-2:     rgba(10, 34, 74, 0.88);
+  --jm-bloom-3:     rgba(28, 60, 110, 0.50);
+  --jm-bloom-crown: rgba(150, 180, 220, 0.12);
+
+  /* Vignette floor. */
+  --jm-vignette:    rgba(0, 0, 0, 0.60);
+
+  /* Documentation only. The engraved plate is a data URI, and an SVG
+     used as a background image cannot read CSS custom properties, so
+     the gold below is also written literally inside --jm-plate-image
+     as %23c9a961. Change both together or not at all. */
+  --jm-plate-ink:   var(--gold, #c9a961);
+
+  --jm-plate-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='p' width='250' height='250' patternUnits='userSpaceOnUse'%3E%3Cg fill='none' stroke='%23c9a961' stroke-width='.5' opacity='.5'%3E%3Ccircle cx='125' cy='125' r='118'/%3E%3Ccircle cx='125' cy='125' r='100'/%3E%3Ccircle cx='125' cy='125' r='82'/%3E%3Ccircle cx='125' cy='125' r='64'/%3E%3Ccircle cx='125' cy='125' r='46'/%3E%3Ccircle cx='125' cy='125' r='28'/%3E%3Cellipse cx='125' cy='125' rx='122' ry='54'/%3E%3Cellipse cx='125' cy='125' rx='54' ry='122'/%3E%3Cellipse cx='125' cy='125' rx='108' ry='76' transform='rotate(40 125 125)'/%3E%3Cellipse cx='125' cy='125' rx='108' ry='76' transform='rotate(-40 125 125)'/%3E%3Cellipse cx='125' cy='125' rx='90' ry='118' transform='rotate(18 125 125)'/%3E%3C/g%3E%3C/pattern%3E%3CradialGradient id='a' cx='26%25' cy='22%25' r='44%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='74%25' cy='58%25' r='40%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='46%25' cy='92%25' r='44%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='.9'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cmask id='m'%3E%3Crect width='100%25' height='100%25' fill='%23fff' opacity='.82'/%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23c)'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)' mask='url(%23m)'/%3E%3C/svg%3E");
+  --jm-grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.16'/%3E%3C/svg%3E");
+
+  --jm-drift-duration: 54s;
+  --jm-plate-fade:     2.6s;
+  --jm-plate-delay:    0.4s;
+}
+
+/* The ground moves to html so that body can be transparent. A negative
+   z-index pseudo-element is painted behind its own element's background,
+   so an opaque body would hide all four layers. */
+html { background-color: var(--jm-ground); }
+body { background-color: transparent; }
+
+html::before,
+html::after,
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------- 1. diffusion field ---------- */
+html::before {
+  z-index: -4;
+  background-image:
+    radial-gradient(52% 46% at 26% 22%, var(--jm-bloom-1) 0%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(44% 42% at 74% 58%, var(--jm-bloom-2) 0%, rgba(0, 0, 0, 0) 72%),
+    radial-gradient(58% 44% at 46% 92%, var(--jm-bloom-3) 0%, rgba(0, 0, 0, 0) 74%),
+    radial-gradient(84% 60% at 50% -6%, var(--jm-bloom-crown) 0%, rgba(0, 0, 0, 0) 72%);
+  transform-origin: 50% 50%;
+  will-change: transform;
+  animation: jm-drift var(--jm-drift-duration) ease-in-out infinite;
+}
+
+/* Animate the pseudo-element, never html or body. A transform on either
+   would become the containing block for every position:fixed descendant
+   on the page and detach them from the viewport. */
+@keyframes jm-drift {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  50%      { transform: scale(1.06) translate(-1.2%, 1%); }
+}
+
+/* ---------- 2. engraved plate ---------- */
+/* The pattern and its radial mask both live inside the data URI. An
+   internal url(#id) is a same-document reference, which resolves even
+   in the restricted mode an SVG runs in when used as an image. */
+html::after {
+  z-index: -3;
+  background-image: var(--jm-plate-image);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0;
+  animation: jm-plate-in var(--jm-plate-fade) var(--jm-plate-delay) ease forwards;
+}
+
+@keyframes jm-plate-in { to { opacity: 1; } }
+
+/* ---------- 3. grain ---------- */
+/* mix-blend-mode, not background-blend-mode: the grain has to blend with
+   the field and plate painted beneath it on other elements, and
+   background-blend-mode only blends layers within one element.
+   The .16 is baked into the SVG as a rect attribute. */
+body::before {
+  z-index: -2;
+  background-image: var(--jm-grain-image);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+}
+
+/* ---------- 4. vignette ---------- */
+body::after {
+  z-index: -1;
+  background-image:
+    radial-gradient(100% 100% at 50% 118%, var(--jm-vignette) 0%, rgba(0, 0, 0, 0) 58%);
+}
+
+/* ---------- reduced motion ---------- */
+/* Motion stops; the plate still has to arrive, so it is pinned open
+   rather than left at its opacity:0 start state. */
+@media (prefers-reduced-motion: reduce) {
+  html::before { animation: none; transform: none; }
+  html::after  { animation: none; opacity: 1; }
+}
+
+/* ---------- print ---------- */
+/* The shared stylesheet inverts to a white ground for print. None of
+   these layers should reach paper. */
+@media print {
+  html { background-color: #ffffff; }
+  html::before,
+  html::after,
+  body::before,
+  body::after { display: none !important; }
+}
