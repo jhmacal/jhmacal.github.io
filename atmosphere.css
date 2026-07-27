@@ -119,6 +119,58 @@ body::after {
     radial-gradient(100% 100% at 50% 118%, var(--jm-vignette) 0%, rgba(0, 0, 0, 0) 58%);
 }
 
+
+/* ---------- engraved plates ---------- */
+/* Three translucent sheets that sit behind the top of a page. Add
+   <div class="plates" aria-hidden="true"> with three .plate children as the
+   first child of a header or hero section; the :has() rule below gives that
+   section its own stacking context so the sheets stay scoped to it instead
+   of escaping to the root and colliding with the vignette. */
+:where(section, header, main, div, article):has(> .plates) {
+  position: relative;
+  z-index: 0;
+}
+
+.plates {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.plate {
+  position: absolute;
+  border: 1px solid var(--jm-plate-edge-c, rgba(201, 169, 97, 0.17));
+  background: linear-gradient(155deg,
+    rgba(232, 227, 214, 0.030) 0%,
+    rgba(232, 227, 214, 0.006) 42%,
+    rgba(232, 227, 214, 0) 68%);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 227, 214, 0.055),
+    0 44px 110px rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  animation: jm-plate-rise 1.8s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.plate.p1 { top: 34px;  right: 2%;   bottom: 76px; left: 43%; animation-delay: .56s; }
+.plate.p2 { top: 98px;  right: -6%;  bottom: 6px;  left: 51%; animation-delay: .76s; }
+.plate.p3 { top: 162px; right: -14%; bottom: -64px; left: 59%; animation-delay: .96s; }
+
+@keyframes jm-plate-rise { to { opacity: 1; transform: none; } }
+
+@media (max-width: 1100px) {
+  .plate.p1 { left: 36%; } .plate.p2 { left: 46%; } .plate.p3 { left: 56%; }
+}
+@media (max-width: 900px) {
+  .plates { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plate { animation: none; opacity: 1; transform: none; }
+}
+
 /* ---------- reduced motion ---------- */
 /* Motion stops; the plate still has to arrive, so it is pinned open
    rather than left at its opacity:0 start state. */
@@ -136,4 +188,5 @@ body::after {
   html::after,
   body::before,
   body::after { display: none !important; }
+  .plates { display: none !important; }
 }
