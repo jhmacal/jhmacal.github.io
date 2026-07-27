@@ -2,3 +2,13 @@
 assets/.DS_Store
 writing/.DS_Store
 [client]/
+
+# not published
+courses/
+SITE_STRUCTURE.md
+audit-cheap-language.txt
+**/README.md
+*.textClipping
+quant-study/test.txt
+legal-reasoning/*.md
+imtheom/operating-model-cover-designer-package/
