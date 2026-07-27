@@ -20,6 +20,14 @@
   --gold:         #c9a961;
   --gold-light:   #d4b068;
 
+  /* --- Display face --- */
+  /* Bodoni Moda with Cormorant as the immediate fallback, so the page stays
+     readable while the webfont loads and degrades safely if it fails.
+     Bodoni's weight axis starts at 400: rules that previously set Cormorant
+     at 300 now render at 400. Running text, interface labels and captions
+     stay on Cormorant and are not pointed at this token. */
+  --jm-display: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+
   /* --- Type scale --- */
   --text-xs:   0.75rem;   /*  12px */
   --text-sm:   0.875rem;  /*  14px */
@@ -117,10 +125,27 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 300;
   line-height: 1.15;
   color: var(--cream);
+}
+
+/* h1 to h3 are display sizes on every template here, so they take the display
+   face. Without this the base rule left unclassed headings behind: the page
+   title on The Authority and on the operating model, the only heading on
+   Contact, and seven section heads inside the legal-reasoning article all sat
+   in the text face while their own subheads had already moved. h4 to h6 are
+   small subheads and stay in the text face. */
+h1,
+h2,
+h3 {
+  font-family: var(--jm-display);
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 h1 { font-size: var(--text-5xl); }
@@ -141,7 +166,7 @@ p {
 
 /* Display headline */
 .display {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(3rem, 7vw, var(--text-6xl));
   font-weight: 300;
   line-height: 1.1;
@@ -354,7 +379,7 @@ p {
 }
 
 .hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 300;
   line-height: 1.08;
@@ -390,7 +415,7 @@ p {
 
 /* Hero name / tagline / meta (landing page changes) */
 .hero-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-weight: 400;
   font-size: clamp(2.75rem, 6.5vw, 5rem);
   line-height: 1.05;
@@ -535,7 +560,7 @@ p {
    8. POSITIONING SECTION
    ============================================================ */
 .positioning__text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 300;
   line-height: 1.55;
@@ -605,7 +630,7 @@ p {
 }
 
 .diff-block__number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-4xl);
   font-weight: 300;
   color: var(--gold);
@@ -614,7 +639,7 @@ p {
 }
 
 .diff-block__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   color: var(--cream);
@@ -640,7 +665,7 @@ p {
 }
 
 .differentiator__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   color: var(--cream);
@@ -759,7 +784,7 @@ p {
 }
 
 .practice-item__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-3xl);
   font-weight: 400;
   color: var(--cream);
@@ -964,7 +989,7 @@ p {
 }
 
 .page-header__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(2.5rem, 5vw, var(--text-5xl));
   font-weight: 300;
   line-height: 1.1;
@@ -989,7 +1014,7 @@ p {
 }
 
 .article__body .lede {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 300;
   line-height: 1.5;
@@ -1030,7 +1055,7 @@ p {
   border-left: 3px solid var(--gold);
   padding-left: var(--space-6);
   margin-block: var(--space-10);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 300;
   font-style: italic;
@@ -1070,7 +1095,7 @@ p {
 }
 
 .calculator__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   color: var(--cream);
@@ -1179,7 +1204,7 @@ input[type='range']::-moz-range-track {
 }
 
 .calc-output__number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-4xl);
   font-weight: 300;
   color: var(--gold);
@@ -1206,7 +1231,7 @@ input[type='range']::-moz-range-track {
 }
 
 .cost-figure__number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 300;
   color: var(--gold);
@@ -1240,7 +1265,7 @@ input[type='range']::-moz-range-track {
 .ai-portfolio-hero__title {
   margin: 0;
   color: var(--cream);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(3rem, 5.2vw, 4.9rem);
   font-weight: 300;
   line-height: 1.04;
@@ -1313,7 +1338,7 @@ input[type='range']::-moz-range-track {
 
 .ai-ledger .ai-work-row__title {
   color: var(--cream);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(1.55rem, 2vw, 2.1rem);
   font-weight: 400;
   line-height: 1.12;
@@ -1361,7 +1386,7 @@ input[type='range']::-moz-range-track {
 }
 
 .tool-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   color: var(--cream);
@@ -1620,7 +1645,7 @@ input[type='range']::-moz-range-track {
 }
 
 .writing-item__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-3xl);
   font-weight: 300;
   color: var(--cream);
@@ -1663,7 +1688,7 @@ input[type='range']::-moz-range-track {
 }
 
 .studies-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   color: var(--cream);
@@ -2093,7 +2118,7 @@ input[type='range']::-moz-range-track {
 }
 
 .book__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--jm-display);
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.1;
@@ -2103,7 +2128,7 @@ input[type='range']::-moz-range-track {
 }
 
 .book__line {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--jm-display);
   font-size: 1.25rem;
   font-weight: 300;
   font-style: italic;
@@ -2120,7 +2145,7 @@ input[type='range']::-moz-range-track {
 }
 
 .book__quote p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--jm-display);
   font-size: 1.25rem;
   font-weight: 300;
   font-style: italic;

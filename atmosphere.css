@@ -130,6 +130,13 @@ body::after {
 :where(section, header, main, div, article):has(> .plates) {
   position: relative;
   z-index: 0;
+  /* The third sheet is meant to run off the right edge, which otherwise adds
+     269px of scrollable width at 1920 and lets the page pan sideways. `clip`
+     rather than `hidden`: clip contains the bleed without turning the host
+     into a scroll container, so overflow-y stays visible and any sticky
+     descendant keeps working. Browsers without `clip` ignore the line and
+     get today's behaviour. */
+  overflow-x: clip;
 }
 
 .plates {

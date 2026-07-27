@@ -92,7 +92,7 @@ body.om-landing {
   max-width: 31rem;
   margin: 0 0 1.55rem;
   color: rgba(255, 255, 255, 0.72);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--jm-display);
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   font-style: italic;
   line-height: 1.35;
