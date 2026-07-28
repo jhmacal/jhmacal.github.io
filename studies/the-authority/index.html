@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
+  <link rel="stylesheet" href="/atmosphere.css">
   <style>
     :root {
       --authority-ink: #0f1c2c;
@@ -24,10 +25,6 @@
       --authority-blue: #156c86;
       --authority-gold-edge: #dbad5f;
       --authority-gold-sheen: #e6cf9b;
-    }
-
-    body.authority-page {
-      background: var(--navy);
     }
 
     .authority-hero {
@@ -1040,6 +1037,16 @@
       }
     }
 
+    /* Left-focused reading column with the gold rail */
+    .authority-section {
+      border-left: 1px solid rgba(201, 169, 97, 0.28);
+      padding-left: clamp(1.6rem, 4vw, 3rem);
+    }
+    .authority-copy,
+    .authority-question {
+      max-width: 680px;
+    }
+
     @media print {
       @page {
         size: letter;
@@ -1464,6 +1471,9 @@
   </a>
 
   <section class="authority-hero">
+      <div class="plates" aria-hidden="true">
+        <div class="plate p1"></div><div class="plate p2"></div><div class="plate p3"></div>
+      </div>
     <div class="container">
       <div class="authority-hero__grid">
         <div>
