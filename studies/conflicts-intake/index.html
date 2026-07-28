@@ -88,6 +88,49 @@
     .limit-label{color:var(--cream)!important;font-weight:600;font-size:1rem!important;margin:1.8rem 0 .5rem!important}
     .limit-label i{font-style:normal;color:var(--gold);margin-right:.5rem}
     @media(max-width:760px){.failure-cards,.zero-duo,.trail-grid,.stat-duo{grid-template-columns:1fr}}
+    /* compact widget pass */
+    .evidence-graphic{padding:clamp(16px,2.2vw,24px)!important;margin:2.2rem 0!important}
+    .graphic-heading h3,.tool-heading h3{font-size:clamp(1.1rem,1.7vw,1.45rem)!important;line-height:1.35!important}
+    .graphic-heading span,.tool-heading span{font-size:.62rem!important}
+    .entity-layout{gap:12px!important}
+    .entity-row{padding:8px 10px!important}
+    .entity-row strong{font-size:.76rem!important}
+    .entity-details{min-height:150px!important}
+    .entity-detail{padding:14px!important}
+    .detail-index{font-size:1.35rem!important}
+    .entity-detail strong{font-size:1rem!important}
+    .entity-detail p{font-size:.72rem!important}
+    .workflow-tool{padding:16px 18px!important;margin:2rem 0!important}
+    .workflow-rows{gap:6px!important}
+    .workflow-row{padding:7px 10px!important;gap:10px!important}
+    .workflow-row strong{font-size:.85rem!important}
+    .workflow-row small{font-size:.72rem!important}
+    .workflow-number{font-size:1rem!important}
+    .work-badge{font-size:.58rem!important}
+    .toggle-group button{padding:6px 12px!important;font-size:.62rem!important}
+    [data-work-panel]{font-size:.8rem!important}
+    .failure-cards{gap:10px}
+    .failure-card{padding:12px 14px}
+    .failure-card b{font-size:.72rem}
+    .failure-card b i{font-size:.66rem}
+    .failure-card p{font-size:.7rem!important}
+    .argument-pull{font-family:'Inter',system-ui,sans-serif!important;font-size:1em!important;line-height:inherit!important}
+    /* access gate, unframed */
+    .access-gate{margin:2.4rem 0}
+    .ag-mono{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace}
+    .ag-label{color:var(--gold);font-size:.7rem!important;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin:0 0 .45rem!important}
+    .ag-sub{font-family:var(--jm-display);font-size:1.35rem!important;color:var(--cream);margin:0 0 1.7rem!important}
+    .ag-flow{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto minmax(0,1.1fr);gap:20px;align-items:center}
+    .ag-pills{display:grid;gap:10px}
+    .ag-pill{font-size:.76rem;color:rgba(244,237,224,.78);border:1px solid rgba(244,237,224,.22);border-radius:999px;padding:8px 18px;min-width:200px}
+    .ag-pill small{display:block;font-size:.6rem;color:var(--danger);letter-spacing:.02em}
+    .ag-screened{border:1px dashed rgba(219,157,131,.6);color:var(--danger)}
+    .ag-arrow{color:rgba(244,237,224,.5);font-size:1.05rem}
+    .ag-box{border:1px solid rgba(201,169,97,.55);border-radius:14px;padding:26px 28px;background:rgba(247,248,252,.015)}
+    .ag-box b{display:block;font-size:.82rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+    .ag-box p{font-size:.97rem!important;line-height:1.6!important;color:var(--muted);margin:0!important}
+    .ag-caption{font-size:.72rem!important;color:rgba(247,248,252,.45)!important;border-top:1px solid rgba(247,248,252,.08);padding-top:.8rem;margin:1.9rem 0 0!important}
+    @media(max-width:760px){.ag-flow{grid-template-columns:1fr}.ag-arrow{transform:rotate(90deg);justify-self:center}.ag-pill{min-width:0}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -250,34 +293,25 @@
 <p class="part-marker">The Proposal</p>
 <p>Screened matters must disappear before retrieval assembles the candidate set because hiding a summary after generation leaves the protected content inside the model's context, whereas a properly timed access decision excludes the record and still leaves audit evidence that the control ran.</p>
 
-<figure class="evidence-graphic" aria-label="Access gate: the permission decision runs before retrieval">
-<svg class="case-svg" style="margin:0" viewBox="0 0 1200 400" role="img" aria-label="Six record piles pass a permission gate; screened records drop out; only the authorized candidate set reaches the model">
-  <text x="30" y="28" fill="#c9a961" font-size="14" letter-spacing="3" font-weight="600">ACCESS GATE</text>
-  <text x="30" y="54" fill="#f4ede0" font-size="19" font-family="Georgia,serif">The permission decision runs before retrieval.</text>
-  <g font-size="14" letter-spacing="1">
-    <rect x="30" y="86" width="220" height="38" rx="19" fill="rgba(201,169,97,.05)" stroke="#c9a961" stroke-opacity=".5"/><text x="140" y="110" text-anchor="middle" fill="#f4ede0">Client</text>
-    <rect x="30" y="132" width="220" height="38" rx="19" fill="rgba(201,169,97,.05)" stroke="#c9a961" stroke-opacity=".5"/><text x="140" y="156" text-anchor="middle" fill="#f4ede0">Prospective-client</text>
-    <rect x="30" y="178" width="220" height="50" rx="19" fill="rgba(219,157,131,.05)" stroke="#db9d83" stroke-opacity=".7" stroke-dasharray="6 5"/><text x="140" y="199" text-anchor="middle" fill="#db9d83">Screened</text><text x="140" y="218" text-anchor="middle" fill="rgba(219,157,131,.8)" font-size="11">excluded before retrieval</text>
-    <rect x="30" y="236" width="220" height="38" rx="19" fill="rgba(201,169,97,.05)" stroke="#c9a961" stroke-opacity=".5"/><text x="140" y="260" text-anchor="middle" fill="#f4ede0">Declined</text>
-    <rect x="30" y="282" width="220" height="38" rx="19" fill="rgba(201,169,97,.05)" stroke="#c9a961" stroke-opacity=".5"/><text x="140" y="306" text-anchor="middle" fill="#f4ede0">Public</text>
-    <rect x="30" y="328" width="220" height="38" rx="19" fill="rgba(201,169,97,.05)" stroke="#c9a961" stroke-opacity=".5"/><text x="140" y="352" text-anchor="middle" fill="#f4ede0">Commercial</text>
-  </g>
-  <g stroke="#c9a961" stroke-opacity=".7" stroke-width="2" fill="#c9a961" fill-opacity=".7">
-    <line x1="270" y1="215" x2="410" y2="215"/><path d="M410 215 l-10 -5 v10 z"/>
-    <line x1="790" y1="215" x2="900" y2="215"/><path d="M900 215 l-10 -5 v10 z"/>
-  </g>
-  <rect x="430" y="150" width="340" height="130" rx="10" fill="rgba(201,169,97,.06)" stroke="#c9a961"/>
-  <text x="600" y="190" text-anchor="middle" fill="#c9a961" font-size="15" letter-spacing="3" font-weight="600">PERMISSION GATE</text>
-  <text x="600" y="222" text-anchor="middle" fill="rgba(244,237,224,.75)" font-size="14">The task and the reviewer's authority</text>
-  <text x="600" y="244" text-anchor="middle" fill="rgba(244,237,224,.75)" font-size="14">decide what may pass.</text>
-  <rect x="920" y="140" width="250" height="150" rx="10" fill="rgba(201,169,97,.04)" stroke="#c9a961" stroke-opacity=".7"/>
-  <text x="1045" y="180" text-anchor="middle" fill="#c9a961" font-size="14" letter-spacing="2" font-weight="600">AUTHORIZED</text>
-  <text x="1045" y="200" text-anchor="middle" fill="#c9a961" font-size="14" letter-spacing="2" font-weight="600">CANDIDATE SET</text>
-  <text x="1045" y="232" text-anchor="middle" fill="rgba(244,237,224,.75)" font-size="13">Only the records this task may</text>
-  <text x="1045" y="252" text-anchor="middle" fill="rgba(244,237,224,.75)" font-size="13">read: the model never sees the rest.</text>
-</svg>
-<figcaption>Author's access design, responding to duties in ABA Formal Opinion 512, Oregon Formal Opinion 2026-208, and the Pennsylvania and Philadelphia Joint Formal Opinion 2024-200.</figcaption>
-</figure>
+<div class="access-gate" role="img" aria-label="Access gate: matter categories pass a permission gate before retrieval builds the authorized candidate set">
+  <p class="ag-label ag-mono">Access gate</p>
+  <p class="ag-sub">The permission decision runs before retrieval.</p>
+  <div class="ag-flow">
+    <div class="ag-pills ag-mono">
+      <span class="ag-pill">Client</span>
+      <span class="ag-pill">Prospective-client</span>
+      <span class="ag-pill ag-screened">Screened<small>excluded before retrieval</small></span>
+      <span class="ag-pill">Declined</span>
+      <span class="ag-pill">Public</span>
+      <span class="ag-pill">Commercial</span>
+    </div>
+    <span class="ag-arrow">&#8594;</span>
+    <div class="ag-box"><b class="ag-mono">Permission gate</b><p>The task and the reviewer's authority decide what may pass.</p></div>
+    <span class="ag-arrow">&#8594;</span>
+    <div class="ag-box"><b class="ag-mono">Authorized candidate set</b><p>Only the records this task may read; the model never sees the rest.</p></div>
+  </div>
+  <p class="ag-caption">Author's access design, responding to duties in ABA Formal Opinion 512, Oregon Formal Opinion 2026-208, and the Pennsylvania and Philadelphia Joint Formal Opinion 2024-200.</p>
+</div>
 
 <p>While a generated letter remains in a review queue, a lawyer can decide whether it should communicate acceptance, request a waiver, impose conditions, or decline the representation. Once the system sends it, the recipient may reasonably read the same language as the firm's decision, and the workflow has exercised the authority it was supposed to preserve for counsel.</p>
 </section>
