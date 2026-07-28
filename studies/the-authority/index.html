@@ -1046,19 +1046,26 @@
     .authority-question {
       max-width: 680px;
     }
-    .authority-gate-flow {
+    .authority-section h2 {
+      max-width: 680px;
+    }
+    .authority-gate-flow,
+    .authority-release-timeline,
+    .authority-disposition,
+    .authority-list {
+      max-width: 680px;
       margin-left: 0;
       margin-right: auto;
     }
-    .authority-release-timeline {
-      max-width: 1020px;
-    }
-    .authority-evidence,
-    .authority-evidence--wide,
-    .authority-evidence--right {
-      max-width: 820px;
-      margin-left: 0;
-      margin-right: auto;
+    /* Exhibits scale down as one piece so nothing crosses the column */
+    @media screen {
+      .authority-evidence,
+      .authority-evidence--wide,
+      .authority-evidence--right {
+        zoom: 0.6;
+        margin-left: 0;
+        margin-right: auto;
+      }
     }
 
     @media print {
