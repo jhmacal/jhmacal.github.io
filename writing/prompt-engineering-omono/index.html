@@ -63,6 +63,60 @@
       border-top: 1px solid rgba(201, 169, 97, 0.15);
     }
 
+    /* ===== Notes and Sources =====
+       Back matter, set smaller and quieter than the running text. */
+    .article__notes ol,
+    .article__notes ul {
+      padding-left: 1.35rem;
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .article__notes li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: rgba(240, 230, 210, 0.55);
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+
+    .article__notes li:last-child {
+      margin-bottom: 0;
+    }
+
+    .article__notes-lead {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: rgba(240, 230, 210, 0.55);
+      line-height: 1.65;
+      margin: 1.35rem 0 0.8rem;
+    }
+
+    .article__notes-lead strong {
+      color: rgba(244, 237, 224, 0.8);
+      font-weight: 500;
+    }
+
+    .article__notes-back {
+      color: rgba(201, 169, 97, 0.65);
+      text-decoration: none;
+      margin-left: 0.2rem;
+    }
+
+    .article__notes-back:hover {
+      color: var(--gold);
+    }
+
+    sup a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.75em;
+    }
+
+    sup a:hover {
+      text-decoration: underline;
+    }
+
     /* ===== Application exhibits =====
        Every exhibit is an opaque rectangular screenshot lifted from the source
        document with the document's own crop applied. The visible asset fills
@@ -314,6 +368,27 @@
         break-inside: avoid;
       }
 
+      .article__notes li,
+      .article__notes-lead {
+        font-size: 8pt !important;
+        line-height: 1.4 !important;
+        color: #222222 !important;
+        margin-bottom: 0.06in !important;
+      }
+
+      .article__notes-lead {
+        margin: 0.14in 0 0.08in !important;
+      }
+
+      .article__notes-lead strong {
+        color: #111111 !important;
+      }
+
+      /* The back-links are screen navigation. On paper they point nowhere. */
+      .article__notes-back {
+        display: none !important;
+      }
+
       .footer {
         padding-block: 0.14in !important;
         page-break-inside: avoid;
@@ -364,7 +439,7 @@
 
           <p class="lede">An associate types a sentence about a training session she must run on Thursday, and seconds later reads why the system decided her prompt needed a Role, why it drafted an example but refused to include it, and what rule she could carry into the next prompt she writes.</p>
 
-          <p>Sixty-nine percent of legal professionals now use generative AI at work, and fifty-four percent of their firms provide no training and have no plans to provide any. Asked what they expect from new lawyers, seventy-six percent of practicing attorneys named cite-checking AI output and fourteen percent named prompt engineering, which leaves the skill that decides what the model produces near the bottom of what the profession has agreed to require. Tools like O'Mono live in that gap.</p>
+          <p>Sixty-nine percent of legal professionals now use generative AI at work, and fifty-four percent of their firms provide no training and have no plans to provide any.<sup><a href="#note-1" id="ref-1">1</a></sup> Asked what they expect from new lawyers, seventy-six percent of practicing attorneys named cite-checking AI output and fourteen percent named prompt engineering, which leaves the skill that decides what the model produces near the bottom of what the profession has agreed to require.<sup><a href="#note-2" id="ref-2">2</a></sup> Tools like O'Mono live in that gap.</p>
 
           <h2>1. The Final Product</h2>
 
@@ -374,7 +449,7 @@
 
           <p>Eight fields come back from a single sentence of input, two of them deliberately left out of the prompt itself, each one carrying a verdict on whether it belongs, a reason written for this input, and a rule of thumb built to travel.</p>
 
-          <p>The reason expires with the input that produced it, and the rule of thumb is registered locally, since it is written for somebody who no longer has the application in front of them.</p>
+          <p>The reason expires with the input that produced it. The rule of thumb is registered on the machine and outlives both, since it is written for somebody who no longer has the application in front of them.</p>
 
           <figure class="omono-figure">
             <img src="/assets/prompt-engineering-omono/03-role-field-verdict.png" alt="The Role field marked advisable, showing the drafted role text, a Why explanation written for this input, and a rule of thumb about naming a role by who it teaches">
@@ -396,7 +471,7 @@
 
           <h2>2. Data</h2>
 
-          <p>The average conversation with a general AI tool runs two prompts, while the heaviest five percent of users average eighteen. Two prompts is a question, a disappointing answer, and a person deciding the tool is not for them. Nobody files a ticket to report that, so the department never learns it happened.</p>
+          <p>The average conversation with a general AI tool runs two prompts, while the heaviest five percent of users average eighteen.<sup><a href="#note-3" id="ref-3">3</a></sup> Two prompts is a question, a disappointing answer, and a person deciding the tool is not for them. Nobody files a ticket to report that, so the department never learns it happened.</p>
 
           <p>I designed and redesigned O'Mono repeatedly to find out whether the enablement layer could carry more weight, and what follows is what the building taught me. The record here exists because I kept meeting the same corrections and had no way to tell which ones they were. A recurrence a person can feel but cannot name is not yet a curriculum.</p>
 
@@ -409,7 +484,7 @@
 
           <p>Each entry carries a direction, and the entry at the foot of that view shows a rule marked gone, meaning it stopped appearing partway through the record and has not come back, which is the closest thing to evidence that somebody learned it.</p>
 
-          <p>Two phrasings of one rule fold into a single entry, since a view that counted them separately would measure vocabulary where it means to measure habit. The horizon runs to the last prompt in the log, not to today, so that one week away from the application cannot present itself as progress.</p>
+          <p>Two phrasings of one rule fold into a single entry, since a view that counted them separately would measure vocabulary where it means to measure habit. The horizon runs to the last prompt in the log, not to today, so that a week away from the application cannot present itself as progress.</p>
 
           <p>That record is mine, and what it changed is the part I can vouch for directly. My prompts now carry the parts I used to leave out. I number the tasks so the model does not skip one, I name a role when the work is specific enough that the answer depends on who gives it, and I supply the fields the model treats loosely before it asks for them. None of that arrived in a course. It came from reading, on my own work, why a field was judged weak, one prompt at a time.</p>
 
@@ -417,13 +492,13 @@
 
           <h3>2.1 The Enterprise's Curriculum</h3>
 
-          <p>In its enterprise version, the administrators only access the centralized folder of reports, one file for each installation, and the page that merges them states its limits before it states a number, so the page cannot be opened onto a person by any setting:</p>
+          <p>In the enterprise version an administrator reaches only the central folder of reports, one file for each installation, and the page that merges them states its limits before it states a number, so the page cannot be opened onto a person by any setting:</p>
 
           <figure class="omono-figure">
             <img src="/assets/prompt-engineering-omono/08-enterprise-view-limits.png" alt="The merged enterprise report page headed 'What this view can and cannot show,' listing three things the view reports and three things it cannot, including who wrote any prompt and what anybody was working on">
           </figure>
 
-          <p>From the prose delivered per prompt, only the rules of thumb across Role, Task, Context, Input, Constraints, Examples, Format, Tone leave the user's machine. The wording of the rule itself is named in the export as a single literal path that every other field is refused against. What leaves the machine is what somebody needed to learn, and never what they were working on.</p>
+          <p>From the prose a prompt produces, only the rules of thumb leave the user's machine, filed against the eight prompt fields: Role, Task, Context, Input, Constraints, Examples, Format and Tone. The export names the wording of the rule as a single literal path and refuses every other field against it. What leaves the machine is what somebody needed to learn, and never what they were working on.</p>
 
           <p>Across an enterprise with hundreds of users and months of usage, the data becomes curriculum.</p>
 
@@ -433,7 +508,7 @@
             <img src="/assets/prompt-engineering-omono/09-privilege-stop.png" alt="An on-device stop message reading that the prompt was stopped on your Mac before anything was sent, that it looks like it carries client or privileged material, and offering Redact, an override with a reason, or editing the text">
           </figure>
 
-          <p>A prompt carrying sensitive terms or data, as well as attaching protected documents and images, stops on the machine before any request leaves it, and the message names what it found in ordinary language rather than in a class code the reader would have to look up. The attorney can also explain to a client what happens to a document inside the application, showing it live.</p>
+          <p>A prompt carrying sensitive terms or data, or attaching a protected document or image, stops on the machine before any request leaves it, and the message names what it found in ordinary language rather than in a class code the reader would have to look up. The attorney can also explain to a client what happens to a document inside the application, showing it live.</p>
 
           <figure class="omono-figure">
             <img src="/assets/prompt-engineering-omono/10-redact-choices.png" alt="The Redact screen showing two of two findings changed, a note that nothing has been sent and that tokens keep their meaning and come back through Restore, and per-finding choices of Placeholder, Delete, Generalize, My own text and Not that">
@@ -445,9 +520,7 @@
 
           <p>The check runs with no network involved, because the machine is the only place a transmission can be prevented. Every block arrives with a way forward, since hard stops without an alternative are what push people into unapproved tools.</p>
 
-          <p>LayerX's State of AI Usage Report 2026 finds that nearly half of all enterprise AI conversations happen through personal identities rather than managed corporate accounts, and that over 14 percent of conversations on corporate identities are tied to personal AI licenses. Enterprise-shaped products like Copilot M365 and Gemini Enterprise are used mostly through managed accounts, while ChatGPT and Claude stay dominated by personal use even inside companies that bought the enterprise version. More than 6 percent of those conversations carry sensitive data. The constraint layer is not redundant in a firm with enterprise licenses: it is aimed at exactly the traffic the enterprise license does not cover.</p>
-
-          <p>A firm that bought an enterprise licence has not thereby covered the traffic that matters. Nearly half of enterprise AI conversations run through personal identities rather than managed accounts, and more than six percent of them carry sensitive data.</p>
+          <p>LayerX's State of AI Usage Report 2026 finds that nearly half of all enterprise AI conversations happen through personal identities rather than managed corporate accounts, and that over 14 percent of conversations on corporate identities are tied to personal AI licenses. Enterprise-shaped products like Copilot M365 and Gemini Enterprise are used mostly through managed accounts, while ChatGPT and Claude stay dominated by personal use even inside companies that bought the enterprise version. More than 6 percent of those conversations carry sensitive data.<sup><a href="#note-4" id="ref-4">4</a></sup> The constraint layer is not redundant in a firm with enterprise licenses: it is aimed at exactly the traffic the enterprise license does not cover.</p>
 
           <h2>4. Embedded AI Governance Frameworks</h2>
 
@@ -505,9 +578,9 @@
             </div>
           </div>
 
-          <p>Most of the AI Act obligations cited bind providers and deployers of high-risk systems specifically, while Article 4 binds providers and deployers of AI systems generally and has stood since 2 February 2025, untouched when the Digital Omnibus deferred the high-risk obligations to late 2027. The table shows that a control exists in the code and corresponds to a cited requirement, which is not the same as full compliance.</p>
+          <p>Most of the AI Act obligations cited bind providers and deployers of high-risk systems specifically, while Article 4 binds providers and deployers of AI systems generally and has stood since 2 February 2025, untouched when the Digital Omnibus deferred the high-risk obligations to late 2027.<sup><a href="#note-5" id="ref-5">5</a></sup> The table shows that a control exists in the code and corresponds to a cited requirement, which is not the same as full compliance.</p>
 
-          <p>A general counsel who buys a monitoring product in November 2027 will have bought inspection, and inspection answers a different question from the one Article 4 asks. What Article 4 asks for is evidence that the people operating these systems understood what they were operating, and that evidence is a history of what a team was taught, week by week, out of the work it was doing. A history of that kind cannot be bought in the quarter a regulator asks for it, which is the argument for building the teaching layer first.</p>
+          <p>A general counsel who buys a monitoring product in November 2027 will have bought inspection, and inspection answers a different question from the one Article 4 asks. What Article 4 asks for is evidence that the people operating these systems understood what they were operating, and that evidence is a history of what a team was taught, week by week, out of the work it was doing.<sup><a href="#note-6" id="ref-6">6</a></sup> A history of that kind cannot be bought in the quarter a regulator asks for it, which is the argument for building the teaching layer first.</p>
 
           <p>The professional rules did not move either. The ABA Model Rules bind lawyers rather than software, and no state bar's competence obligation changed when the European timetable did.</p>
 
@@ -518,6 +591,47 @@
           <p>Numbering the tasks is decomposition, naming a role decides who the answer is for, saying what not to do is a constraint, and naming the jurisdiction is scope. None of that is a trick about wording, and none of it arrives with a better model, because it encodes what the person wanted and intent is the part a lawyer is paid for. Stronger models make a vague instruction cheaper to survive. They do not remove the need to say what you want, and a system that runs forty steps before anybody looks raises the cost of not saying it.</p>
 
           <p>Somewhere around the end of next year a regulator or a client or a bar will ask a department what its people understood about these systems and when they understood it, and the answer will be a history that already exists or an assurance nobody can check.</p>
+
+          <h2>Notes</h2>
+
+          <div class="article__notes">
+            <ol>
+              <li id="note-1">Sixty-nine percent using generative AI, and fifty-four percent of firms providing no training and having no plans to provide any: 8am, <em>2026 Legal Industry Report</em>, 1,300+ legal professionals, fielded 19 September to 18 October 2025. The sample skews small, 45 percent solo and 38 percent two-to-five lawyers, so it evidences the profession broadly rather than large firms. <a href="#ref-1" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-2">Seventy-six percent expecting cite-checking of AI output and fourteen percent expecting prompt engineering: Bloomberg Law, <em>2026 Path to Practice Survey</em>, 1,800+ law students, faculty and practicing attorneys. <a href="#ref-2" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-3">Two prompts per conversation on average, eighteen among the heaviest five percent of users: LayerX Security, <em>State of AI Usage Report 2026</em>. <a href="#ref-3" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-4">Nearly half of enterprise AI conversations on personal identities, over 14 percent of conversations on corporate identities tied to personal licenses, Copilot M365 and Gemini Enterprise used mostly through managed accounts while ChatGPT and Claude remain dominated by personal use, and more than 6 percent of conversations carrying sensitive data: LayerX Security, <em>State of AI Usage Report 2026</em>. LayerX sells browser security and the figures are telemetry from its own deployments, so they evidence its customer base rather than the market. <a href="#ref-4" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-5">Article 4 binding providers and deployers of AI systems generally since 2 February 2025: Regulation (EU) 2024/1689, Article 4. Deferral of the high-risk obligations to late 2027: Regulation (EU) 2026/1744, the Digital Omnibus on AI. <a href="#ref-5" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-6">What Article 4 requires of providers and deployers: Regulation (EU) 2024/1689, Article 4. <a href="#ref-6" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+            </ol>
+
+            <p class="article__notes-lead"><strong>Table citations, by row.</strong> No markers in the table; its right column carries the citation. Listed here for the record.</p>
+
+            <ol start="7">
+              <li>Row 1: EU AI Act Article 4; ABA Model Rules of Professional Conduct, Rule 1.1 comment 8.</li>
+              <li>Row 2: NIST AI RMF 1.0, MAP 3.5; EU AI Act Article 26(2).</li>
+              <li>Row 3: EU AI Act Articles 12(1) and 26(6); GDPR Articles 5(2) and 32(1)(b); ISO/IEC 42001:2023 A.6.2.8.</li>
+              <li>Row 4: ISO/IEC 42001:2023 A.7; GDPR Articles 5(1)(c) and 25; ABA Model Rule 1.6.</li>
+              <li>Row 5: GDPR Articles 4(5) and 32(1)(a).</li>
+              <li>Row 6: ABA Formal Opinion 512; NIST AI RMF 1.0, MEASURE 2.5.</li>
+              <li>Row 7: NIST AI RMF 1.0, MANAGE 4.1; ISO/IEC 42001:2023 A.6.2.6.</li>
+              <li>Row 8: ISO/IEC 42001:2023 A.6.2.7.</li>
+              <li>Row 9: GDPR Articles 30(1)(d) and 28(1).</li>
+            </ol>
+          </div>
+
+          <h2>Sources</h2>
+
+          <div class="article__notes">
+            <ul>
+              <li>Regulation (EU) 2024/1689, the EU AI Act, Articles 4, 12 and 26.</li>
+              <li>Regulation (EU) 2026/1744, the Digital Omnibus on AI, amending Regulation (EU) 2024/1689.</li>
+              <li>Regulation (EU) 2016/679, the General Data Protection Regulation.</li>
+              <li>ABA Model Rules of Professional Conduct, Rules 1.1 and 1.6; ABA Formal Opinion 512.</li>
+              <li>NIST AI Risk Management Framework 1.0.</li>
+              <li>ISO/IEC 42001:2023, Annex A.</li>
+              <li>Bloomberg Law, <em>2026 Path to Practice Survey</em>; 8am, <em>2026 Legal Industry Report</em>; LayerX Security, <em>State of AI Usage Report 2026</em>.</li>
+            </ul>
+          </div>
 
           <div class="article__cta">
             <a href="/contact/" class="btn">Discuss this analysis</a>
