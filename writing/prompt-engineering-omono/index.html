@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering (O'Mono) | Julio Macedo</title>
+  <meta name="description" content="A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.">
+  <meta property="og:title" content="Prompt Engineering (O'Mono) | Julio Macedo">
+  <meta property="og:description" content="A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/writing/prompt-engineering-omono/">
+  <link rel="canonical" href="https://www.jhmacal.com/writing/prompt-engineering-omono/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
+  <link rel="stylesheet" href="/atmosphere.css">
+  <style>
+    /* Article-local rules only. Anything global lives in /style.css. */
+
+    .article__byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      font-style: italic;
+      color: rgba(240, 230, 210, 0.55);
+      margin: 0 0 2.5rem;
+    }
+
+    .article__body p,
+    .article__body .lede {
+      text-align: left;
+      hyphens: none;
+    }
+
+    .article__body h2 {
+      margin-top: 3.2rem;
+      margin-bottom: 1.2rem;
+      font-family: var(--jm-display);
+      font-size: 1.85rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      font-variant: normal;
+      color: #c9a961;
+      line-height: 1.2;
+    }
+
+    .article__body h3 {
+      margin-top: 2.4rem;
+      margin-bottom: 0.95rem;
+      font-family: var(--jm-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: rgba(201, 169, 97, 0.82);
+      line-height: 1.25;
+    }
+
+    .article__cta {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.15);
+    }
+
+    /* ===== Application exhibits =====
+       Every exhibit is an opaque rectangular screenshot lifted from the source
+       document with the document's own crop applied. The visible asset fills
+       its frame edge to edge, so the radius, hairline and shadow below sit on
+       real pixels rather than on empty canvas. */
+    .omono-figure {
+      display: grid;
+      gap: 0.85rem;
+      margin: 2.4rem 0 2.7rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .omono-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      box-shadow: 0 16px 38px rgba(3, 8, 18, 0.5);
+    }
+
+    .omono-figure--hero {
+      margin-top: 0.25rem;
+      margin-bottom: 2.9rem;
+    }
+
+    /* ===== Control and requirement map =====
+       The source table rebuilt as a site-native mapping component. Two columns
+       in the reading column on wide screens, stacked with inline labels below
+       600px so no cell loses its heading. */
+    .omono-map {
+      margin: 2.2rem 0 2.8rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.28);
+      border-radius: 12px;
+      background: rgba(13, 26, 48, 0.72);
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .omono-map__head,
+    .omono-map__row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1.1rem;
+      padding: 0.95rem 1.25rem;
+    }
+
+    .omono-map__head {
+      background: rgba(201, 169, 97, 0.07);
+      border-bottom: 0.5px solid rgba(201, 169, 97, 0.25);
+    }
+
+    .omono-map__head span {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+
+    .omono-map__row {
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.07);
+      align-items: start;
+    }
+
+    .omono-map__row:last-child {
+      border-bottom: 0;
+    }
+
+    .omono-map__control,
+    .omono-map__req {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    .omono-map__control {
+      font-size: 0.85rem;
+      color: rgba(244, 237, 224, 0.92);
+    }
+
+    .omono-map__req {
+      font-size: 0.8rem;
+      color: rgba(244, 237, 224, 0.62);
+    }
+
+    .omono-map__label {
+      display: none;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 97, 0.8);
+      margin-bottom: 0.35rem;
+    }
+
+    @media (max-width: 599px) {
+      .omono-map__head {
+        display: none;
+      }
+      .omono-map__row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.85rem;
+        padding: 1.1rem 1.1rem;
+      }
+      .omono-map__label {
+        display: block;
+      }
+      .omono-figure {
+        margin: 1.9rem 0 2.1rem;
+      }
+    }
+
+    @media print {
+      .omono-figure img {
+        box-shadow: none;
+        border: 0.5pt solid #c9c9c9;
+      }
+      .omono-map {
+        background: #ffffff !important;
+        border: 0.5pt solid #c9c9c9;
+      }
+      .omono-map__head {
+        background: #ffffff !important;
+      }
+      .omono-map__control,
+      .omono-map__req {
+        color: #222222 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/" class="active">Articles</a></li>
+        <li><a href="/studies/">Case Studies</a></li>
+        <li><a href="/ai/">AI Portfolio</a></li>
+        <li><a href="/resume/">Resume</a></li>
+        <li><a href="/books/">Books</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+      <div class="plates" aria-hidden="true">
+        <div class="plate p1"></div><div class="plate p2"></div><div class="plate p3"></div>
+      </div>
+    <div class="container">
+      <p class="page-header__eyebrow">Enablement &amp; Teaching</p>
+      <h1 class="page-header__title">Prompt Engineering (O'Mono)</h1>
+      <p class="page-header__sub">A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <article class="article">
+        <div class="article__body">
+
+          <p class="article__byline">By Julio Macedo</p>
+
+          <figure class="omono-figure omono-figure--hero">
+            <img src="/assets/prompt-engineering-omono/01-input-bar.png" alt="The O'Mono input bar reading 'Type the idea the way it comes,' with a Write button, Text and Image attachment controls, a prompt count on the ledger, and Restore, History and Settings controls">
+          </figure>
+
+          <p class="lede">An associate types a sentence about a training session she must run on Thursday, and seconds later reads why the system decided her prompt needed a Role, why it drafted an example but refused to include it, and what rule she could carry into the next prompt she writes.</p>
+
+          <p>Sixty-nine percent of legal professionals now use generative AI at work, and fifty-four percent of their firms provide no training and have no plans to provide any. Asked what they expect from new lawyers, seventy-six percent of practicing attorneys named cite-checking AI output and fourteen percent named prompt engineering, which leaves the skill that decides what the model produces near the bottom of what the profession has agreed to require. Tools like O'Mono live in that gap.</p>
+
+          <h2>1. The Final Product</h2>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/02-eight-fields-prompt.png" alt="The generated prompt screen showing eight field chips for Role, Task, Context, Input, Constraints, Examples, Format and Tone, with Input and Examples dimmed, above the assembled prompt text and a Copy prompt control">
+          </figure>
+
+          <p>Eight fields come back from a single sentence of input, two of them deliberately left out of the prompt itself, each one carrying a verdict on whether it belongs, a reason written for this input, and a rule of thumb built to travel.</p>
+
+          <p>The reason expires with the input that produced it, and the rule of thumb is registered locally, since it is written for somebody who no longer has the application in front of them.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/03-role-field-verdict.png" alt="The Role field marked advisable, showing the drafted role text, a Why explanation written for this input, and a rule of thumb about naming a role by who it teaches">
+          </figure>
+
+          <p>With her own prompt in front of her, the associate reads that once and learns what a training module could have told her in the abstract and never made stick.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/04-examples-omitted.png" alt="The Examples field marked inadvisable, showing the drafted example text that was cut, the reason for omitting it, and the rule of thumb that an example inventing facts is worse than no example">
+          </figure>
+
+          <p>The application drafts an example, decides against including it, and shows her the draft anyway, with the reason for leaving it out and the rule of thumb that follows from it.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/05-reasoning-strategy.png" alt="The Reasoning view labelled overall strategy, explaining how the deliverable shape was fixed, why failure modes were supplied, and why the drafted examples were cut">
+          </figure>
+
+          <p>Above the field level sits the construction strategy for the whole prompt, and a toggle appends all of it, strategy and verdicts and rules of thumb together, to whatever gets copied. The teaching travels wherever the prompt travels, to the colleague who receives it and into the matter file where it lands.</p>
+
+          <h2>2. Data</h2>
+
+          <p>The average conversation with a general AI tool runs two prompts, while the heaviest five percent of users average eighteen. Two prompts is a question, a disappointing answer, and a person deciding the tool is not for them. Nobody files a ticket to report that, so the department never learns it happened.</p>
+
+          <p>I designed and redesigned O'Mono repeatedly to find out whether the enablement layer could carry more weight, and what follows is what the building taught me. The record here exists because I kept meeting the same corrections and had no way to tell which ones they were. A recurrence a person can feel but cannot name is not yet a curriculum.</p>
+
+          <p>Every prompt it generates stores its rules of thumb, and months of those entries, read together, describe what one person keeps getting wrong.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/06-learning-record.png" alt="The Learning view header showing 26 prompts and 20 rated across 78 days, with the first ranked rule of thumb about naming the reader rather than the document type">
+            <img src="/assets/prompt-engineering-omono/07-learning-record-gone.png" alt="Lower in the Learning view, the fourth ranked rule about constraining by what the reader can do, followed by the rest of the record including an entry marked gone">
+          </figure>
+
+          <p>Each entry carries a direction, and the entry at the foot of that view shows a rule marked gone, meaning it stopped appearing partway through the record and has not come back, which is the closest thing to evidence that somebody learned it.</p>
+
+          <p>Two phrasings of one rule fold into a single entry, since a view that counted them separately would measure vocabulary where it means to measure habit. The horizon runs to the last prompt in the log, not to today, so that one week later from the application cannot present itself as progress.</p>
+
+          <p>That record is mine, and what it changed is the part I can vouch for directly. My prompts now carry the parts I used to leave out. I number the tasks so the model does not skip one, I name a role when the work is specific enough that the answer depends on who gives it, and I supply the fields the model treats loosely before it asks for them. None of that arrived in a course. It came from reading, on my own work, why a field was judged weak, one prompt at a time.</p>
+
+          <p>A department that has run this for a year holds something no vendor can sell: a dated account of what its own people found hard, what they stopped finding hard, and roughly when the change happened.</p>
+
+          <h3>2.1 The Enterprise's Curriculum</h3>
+
+          <p>In its enterprise version, the administrators only accesses the centralized folder of reports, one file for each installation, and the page that merges them states its limits before it states a number, so the page cannot be opened onto a person by any setting:</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/08-enterprise-view-limits.png" alt="The merged enterprise report page headed 'What this view can and cannot show,' listing three things the view reports and three things it cannot, including who wrote any prompt and what anybody was working on">
+          </figure>
+
+          <p>From the prose delivered per prompt, only the rules of thumb across Role, Task, Context, Input, Constraints, Examples, Format, Tone leave the user's machine. The wording of the rule itself, named in the export as a single literal path that every other field is refused against. What leaves the machine is what somebody needed to learn, and never what they were working on.</p>
+
+          <p>Across an enterprise with hundreds of users and months of usage, the data becomes curriculum.</p>
+
+          <h2>3. Privilege</h2>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/09-privilege-stop.png" alt="An on-device stop message reading that the prompt was stopped on your Mac before anything was sent, that it looks like it carries client or privileged material, and offering Redact, an override with a reason, or editing the text">
+          </figure>
+
+          <p>A prompt carrying a sensitive terms or data, as well as attaching protected documents and images, stops on the machine before any request leaves it, and the message names what it found in ordinary language rather than in a class code the reader would have to look up. The attorney can also explain to a client what happens to a document inside the application, showing it live.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/10-redact-choices.png" alt="The Redact screen showing two of two findings changed, a note that nothing has been sent and that tokens keep their meaning and come back through Restore, and per-finding choices of Placeholder, Delete, Generalize, My own text and Not that">
+          </figure>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/11-what-will-be-sent.png" alt="A 'What will be sent' panel showing the redacted prompt text, a 'Why this is the right call' panel noting that the replaced values are never recorded, and a line confirming the text was re-checked after redaction and is clear to send">
+          </figure>
+
+          <p>The check runs with no network involved, because the machine is the only place a transmission can be prevented. Every block arrives with a way forward, since hard stops without an alternative are what push people into unapproved tools.</p>
+
+          <p>LayerX's State of AI Usage Report 2026 finds that nearly half of all enterprise AI conversations happen through personal identities rather than managed corporate accounts, and that over 14 percent of conversations on corporate identities are tied to personal AI licenses. Enterprise-shaped products like Copilot M365 and Gemini Enterprise are used mostly through managed accounts, while ChatGPT and Claude stay dominated by personal use even inside companies that bought the enterprise version. More than 6 percent of those conversations carry sensitive data. The constraint layer is not redundant in a firm with enterprise licenses: it is aimed at exactly the traffic the enterprise license does not cover.</p>
+
+          <p>A firm that bought an enterprise licence has not thereby covered the traffic that matters. Nearly half of enterprise AI conversations run through personal identities rather than managed accounts, and more than six percent of them carry sensitive data.</p>
+
+          <h2>4. Embedded AI Governance Frameworks</h2>
+
+          <p>Every control in the application traces to a published requirement, and the table below sets each one beside the requirement it answers.</p>
+
+          <div class="omono-map" role="table" aria-label="Controls in the code and the requirements they answer">
+            <div class="omono-map__head" role="row">
+              <span role="columnheader">Control in the code</span>
+              <span role="columnheader">Requirement it answers</span>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Field-level verdicts, reasons, and rules of thumb, written in non-specialist language for teaching and enablement</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 4, AI literacy for staff operating AI systems, and ABA Model Rule 1.1 comment 8, technology competence</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Human confirmation before generation, a contestable recommendation, and an override that records its reason</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MAP 3.5, human oversight, and EU AI Act Article 26(2), deployer oversight by competent natural persons</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Hash-chained append-only record of every generation, override, redaction, and outcome, with the engine version on each entry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 12(1), automatic event recording, Article 26(6), deployer log retention, GDPR Article 5(2), accountability, and Article 32(1)(b), integrity of processing systems, alongside ISO/IEC 42001 A.6.2.8, AI system event logs</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Local screening, the matter list, redaction and restoration, all running before any network call</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.7, data for AI systems, GDPR Article 5(1)(c), data minimization, and Article 25, data protection by design and by default, alongside the confidentiality duty under ABA Model Rule 1.6</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Redaction of the terms the screen identifies, with restoration handled on the machine</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 4(5), pseudonymisation, and Article 32(1)(a), pseudonymisation as a measure appropriate to the risk</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The pre-filing verification checklist and its elapsed-time record</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ABA Formal Opinion 512 on verification of AI-assisted work, and NIST AI RMF MEASURE 2.5</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The outcome loop and the repeated-lesson ranking</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MANAGE 4.1 and ISO/IEC 42001 A.6.2.6, operation and monitoring</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>One engine file holding every rule, version-stamped into each record entry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.6.2.7, technical documentation</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The register of assessed AI destinations, recording what each one permits, what it bars, and when the assessment expires</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 30(1)(d), categories of recipients, and Article 28(1), the duty to use only processors offering sufficient guarantees</p>
+            </div>
+          </div>
+
+          <p>Most of the AI Act obligations cited bind providers and deployers of high-risk systems specifically, while Article 4 binds providers and deployers of AI systems generally and has stood since 2 February 2025, untouched when the Digital Omnibus deferred the high-risk obligations to late 2027. The table shows that a control exists in the code and corresponds to a cited requirement, which is not the same as full compliance.</p>
+
+          <p>A general counsel who buys a monitoring product in November 2027 will have bought inspection, and inspection answers a different question from the one Article 4 asks. What Article 4 asks for is evidence that the people operating these systems understood what they were operating, and that evidence is a history of what a team was taught, week by week, out of the work it was doing. A history of that kind cannot be bought in the quarter a regulator asks for it, which is the argument for building the teaching layer first.</p>
+
+          <p>The professional rules did not move either. The ABA Model Rules bind lawyers rather than software, and no state bar's competence obligation changed when the European timetable did.</p>
+
+          <h2>5. The Lesson</h2>
+
+          <p>The teaching layer changed behavior, and the governance layer settled how much of the real work that teaching could reach. A tool trusted with a real matter gets opened on that matter, gets read while somebody is deciding something, and leaves a rule of thumb behind that outlives the session, while a tool nobody trusts with anything sensitive teaches people on the easy half of their job.</p>
+
+          <p>Numbering the tasks is decomposition, naming a role decides who the answer is for, saying what not to do is a constraint, and naming the jurisdiction is scope. None of that is a trick about wording, and none of it arrives with a better model, because it encodes what the person wanted and intent is the part a lawyer is paid for. Stronger models make a vague instruction cheaper to survive. They do not remove the need to say what you want, and a system that runs forty steps before anybody looks raises the cost of not saying it.</p>
+
+          <p>Somewhere around the end of next year a regulator or a client or a bar will ask a department what its people understood about these systems and when they understood it, and the answer will be a history that already exists or an assurance nobody can check.</p>
+
+          <div class="article__cta">
+            <a href="/contact/" class="btn">Discuss this analysis</a>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+<script data-goatcounter="https://jhmacal.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
