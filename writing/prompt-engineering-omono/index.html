@@ -180,21 +180,144 @@
       }
     }
 
+    /* ===== Print =====
+       /style.css already inverts the page to a white ground, drops the nav and
+       the scroll indicator, and sets orphans and widows. What follows is the
+       article's own furniture, matched to the treatment the other articles give
+       their figures: each exhibit becomes a bordered white card carrying a
+       numbered label, and the mapping component is compacted enough to sit on
+       one page instead of being pushed to its own. */
     @media print {
-      .omono-figure img {
-        box-shadow: none;
-        border: 0.5pt solid #c9c9c9;
+      .omono-figure {
+        background: #ffffff !important;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        padding: 0.13in !important;
+        margin: 0.2in 0 !important;
+        gap: 0.1in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
+
+      .omono-figure::before {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #5d4618 !important;
+        margin-bottom: 0.06in;
+      }
+
+      .omono-figure:nth-of-type(1)::before  { content: 'Figure 1'; }
+      .omono-figure:nth-of-type(2)::before  { content: 'Figure 2'; }
+      .omono-figure:nth-of-type(3)::before  { content: 'Figure 3'; }
+      .omono-figure:nth-of-type(4)::before  { content: 'Figure 4'; }
+      .omono-figure:nth-of-type(5)::before  { content: 'Figure 5'; }
+      .omono-figure:nth-of-type(6)::before  { content: 'Figure 6'; }
+      .omono-figure:nth-of-type(7)::before  { content: 'Figure 7'; }
+      .omono-figure:nth-of-type(8)::before  { content: 'Figure 8'; }
+      .omono-figure:nth-of-type(9)::before  { content: 'Figure 9'; }
+      .omono-figure:nth-of-type(10)::before { content: 'Figure 10'; }
+
+      .omono-figure img {
+        border: 0.5pt solid #d7d7d7 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* overflow: hidden only exists on screen to clip the rounded corners.
+         Left on, it makes the box monolithic during pagination and Chromium
+         throws the whole map onto a fresh page even when it would fit. */
       .omono-map {
         background: #ffffff !important;
-        border: 0.5pt solid #c9c9c9;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        margin: 0.2in 0 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
+
+      .omono-map__head,
+      .omono-map__row {
+        padding: 0.075in 0.12in !important;
+        gap: 0.16in !important;
+      }
+
       .omono-map__head {
         background: #ffffff !important;
+        border-bottom: 1pt solid #d7d7d7 !important;
       }
-      .omono-map__control,
+
+      .omono-map__head span {
+        font-size: 7pt !important;
+        color: #5d4618 !important;
+      }
+
+      .omono-map__row {
+        border-bottom: 0.5pt solid #e1e1e1 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* The cells are <p>, so `.article__body p` out-specifies the component's
+         own `margin: 0` and adds a paragraph margin under every cell. That is
+         1.9in of dead space across nine rows, enough to push the whole map onto
+         a page of its own. */
+      .article__body .omono-map__control,
+      .article__body .omono-map__req {
+        margin: 0 !important;
+        line-height: 1.35 !important;
+      }
+
+      .omono-map__control {
+        font-size: 8.5pt !important;
+        color: #111111 !important;
+      }
+
       .omono-map__req {
+        font-size: 8pt !important;
         color: #222222 !important;
+      }
+
+      .article__byline {
+        color: #222222 !important;
+        margin-bottom: 0.18in !important;
+      }
+
+      /* Screen section spacing is generous on purpose. On paper it accumulates,
+         and by the last section it had pushed the footer onto a page of its own. */
+      .article__body p {
+        margin-bottom: 0.14in !important;
+      }
+
+      .article__body h2 {
+        margin-top: 0.34in !important;
+        margin-bottom: 0.12in !important;
+      }
+
+      .article__body h3 {
+        margin-top: 0.26in !important;
+        margin-bottom: 0.1in !important;
+      }
+
+      .article__cta {
+        border-top-color: #d7d7d7 !important;
+        margin-top: 0.2in !important;
+        padding-top: 0.14in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .footer {
+        padding-block: 0.14in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
     }
   </style>
