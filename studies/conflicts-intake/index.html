@@ -132,6 +132,190 @@
     .ag-caption{font-size:.72rem!important;color:rgba(247,248,252,.45)!important;border-top:1px solid rgba(247,248,252,.08);padding-top:.8rem;margin:1.9rem 0 0!important}
     @media(max-width:760px){.ag-flow{grid-template-columns:1fr}.ag-arrow{transform:rotate(90deg);justify-self:center}.ag-pill{min-width:0}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+    /* ============================================================
+       PRINT. The study's widgets carry their own navy-anchored custom
+       properties and hard-coded rgba inks, which the shared print sheet
+       in /style.css cannot reach. Everything below re-inks this page for
+       paper: white grounds, dark rules, and compact widget geometry.
+       ============================================================ */
+    @media print {
+      .conflicts-case-study{
+        --panel:#ffffff;--panel2:#ffffff;--gold2:#5d4618;--white:#111111;
+        --muted:#333333;--line:#b9b9b9;--danger:#8a3b1e;
+        padding-bottom:0!important;
+      }
+      .reading-line{display:none!important}
+
+      /* A letter page inside the shared margins measures under 760px, so the
+         site's narrow-screen rules would otherwise stack every widget into a
+         single column and cost several pages. Paper keeps the built layout. */
+      .failure-cards,.zero-duo,.stat-duo{grid-template-columns:1fr 1fr!important}
+      .trail-grid{grid-template-columns:repeat(3,1fr)!important}
+      .entity-layout{grid-template-columns:1.1fr .9fr!important}
+      .ag-flow{grid-template-columns:auto auto minmax(0,1fr) auto minmax(0,1fr)!important}
+      .ag-arrow{transform:none!important;justify-self:auto!important}
+
+      /* running text */
+      .article__byline{color:#444444!important;margin:0 0 1.2rem!important}
+      .case-disclosure{color:#333333!important;border-left-color:#6f5620!important}
+      .argument-pull{color:#222222!important;border-left-color:#6f5620!important;padding:.1in 0 .1in .16in!important}
+      .part-marker{
+        color:#5d4618!important;margin:.24in 0 .1in!important;
+        page-break-after:avoid;break-after:avoid;
+      }
+      .case-section{padding:.22in 0!important;border-top-color:#c9c9c9!important;color:#111111!important}
+      .case-section__marker{color:#5d4618!important;margin:0 0 .1in!important}
+      .case-section__marker::before{background:#6f5620!important}
+      .conflicts-case-study .article__body .case-section h2{
+        color:#111111!important;font-size:17pt!important;margin:0 0 .12in!important;
+        page-break-after:avoid;break-after:avoid;
+      }
+      .limit-label{color:#111111!important;margin:.2in 0 .06in!important}
+      .limit-label i{color:#5d4618!important}
+      .stat-note{color:#111111!important}
+      .zero-note,.stat-meta,.ag-caption,.evidence-graphic figcaption,.component-caption{color:#555555!important}
+      .evidence-graphic figcaption,.component-caption{border-top-color:#d5d5d5!important}
+
+      /* panels and widgets: white ground, printable rules, tighter geometry */
+      .in-short,.evidence-graphic,.workflow-tool{
+        background:#ffffff!important;border:1pt solid #b9b9b9!important;border-radius:0!important;
+        padding:.14in!important;margin:.18in 0!important;
+      }
+      .in-short{margin:0 0 .2in!important;page-break-inside:avoid;break-inside:avoid}
+      .in-short__label{color:#5d4618!important}
+      .in-short p{color:#333333!important;font-size:9.5pt!important;line-height:1.45!important}
+      .in-short p.gold{color:#5d4618!important}
+      .evidence-graphic{page-break-inside:avoid;break-inside:avoid}
+      .graphic-heading,.tool-heading{border-bottom-color:#c9c9c9!important;padding-bottom:.06in!important;margin-bottom:.1in!important}
+      .graphic-heading h3,.tool-heading h3{font-size:11.5pt!important;line-height:1.25!important;color:#111111!important;max-width:none}
+      .graphic-heading span,.tool-heading span{color:#5d4618!important;font-size:7.5pt!important}
+
+      /* case record 01: rows keep their source state, one detail prints */
+      .entity-layout{gap:.1in!important}
+      .entity-row{border-color:#c9c9c9!important;background:#ffffff!important;padding:5px 8px!important}
+      .entity-row strong{font-size:9pt!important;color:#111111!important}
+      .entity-row small{font-size:7.5pt!important;color:#444444!important}
+      .entity-status{color:#5d4618!important}
+      .entity-row.unsupported{border-style:dashed!important;border-color:#8a3b1e!important}
+      .entity-row.unsupported .entity-status{color:#8a3b1e!important}
+      .entity-row.is-active{border-color:#6f5620!important;background:#f2f2f2!important}
+      .entity-details{min-height:0!important;position:static!important}
+      .entity-detail{display:none!important}
+      .entity-detail.is-active{position:static!important;display:grid!important;background:#f5f5f5!important;border-left-color:#6f5620!important;padding:.1in!important}
+      .detail-index{color:#5d4618!important}
+      .entity-detail strong{color:#111111!important}
+      .entity-detail p{color:#333333!important}
+
+      /* workflow decomposition: the filter buttons are an on-screen control,
+         so paper gets the complete list at reading weight instead */
+      /* Held whole: at this size the decomposition fits one page, and keeping
+         it together costs no extra page. */
+      .workflow-tool{
+        margin:.16in 0!important;padding:.12in!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .toggle-group{display:none!important}
+      .workflow-rows{gap:3px!important}
+      .workflow-row{
+        border-color:#d0d0d0!important;background:#ffffff!important;
+        padding:5px 8px!important;gap:8px!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .workflow-row.is-dimmed{display:grid!important}
+      .workflow-row.is-matched{background:#ffffff!important;border-color:#d0d0d0!important}
+      .workflow-row strong{font-size:9pt!important;color:#111111!important}
+      .workflow-row small{font-size:7.6pt!important;color:#333333!important;line-height:1.35}
+      .workflow-number{font-size:11pt!important;color:#5d4618!important}
+      .work-badge{font-size:6.4pt!important;color:#5d4618!important}
+      .adoption-note{
+        border-left-color:#6f5620!important;color:#333333!important;
+        font-size:8pt!important;padding:.08in .1in!important;margin:.12in 0 0!important;
+      }
+      [data-work-panel]{font-size:8pt!important}
+
+      /* flowcharts: presentation-attribute ink does not respond to the
+         shared sheet, so each fill and stroke is re-declared for paper */
+      .case-svg{margin:.16in 0!important;page-break-inside:avoid;break-inside:avoid}
+      .case-svg text{fill:#111111!important;stroke:none!important}
+      .case-svg text[fill="#c9a961"]{fill:#5d4618!important}
+      .case-svg text[fill="#db9d83"]{fill:#8a3b1e!important}
+      .case-svg text[fill^="rgba(244"]{fill:#3f3f3f!important;font-size:13px!important;font-weight:500!important}
+      .case-svg text[fill^="rgba(219"]{fill:#8a3b1e!important}
+      .case-svg rect{fill:#ffffff!important;stroke-opacity:1!important;stroke-width:1.6!important}
+      .case-svg rect[stroke="#c9a961"]{stroke:#6f5620!important}
+      .case-svg rect[stroke="#db9d83"]{stroke:#8a3b1e!important}
+      .case-svg g[stroke="#c9a961"]{stroke:#6f5620!important;stroke-opacity:1!important;fill:#6f5620!important;fill-opacity:1!important}
+      .case-svg g[stroke="#db9d83"]{stroke:#8a3b1e!important;stroke-opacity:1!important;fill:#8a3b1e!important;fill-opacity:1!important}
+      .case-svg g[stroke] path[stroke-opacity]{stroke-opacity:.75!important}
+      .case-svg path[fill="none"]{fill:none!important}
+
+      /* the four failures and their build requirements */
+      .failure-cards{gap:8px!important;margin:.14in 0 .2in!important}
+      .failure-card{
+        background:#ffffff!important;border:1pt solid #c2c2c2!important;padding:8px 10px!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .failure-card b{color:#111111!important;font-size:8pt!important}
+      .failure-card b i{background:#6f5620!important;color:#ffffff!important;font-size:7.4pt!important}
+      .failure-card p{color:#333333!important;font-size:8pt!important}
+      .failure-card p.req{color:#444444!important;border-top-color:#d5d5d5!important}
+      .failure-card p.req strong{color:#5d4618!important}
+
+      /* covered zero against degraded zero */
+      .zero-duo{gap:10px!important;margin:.14in 0 .06in!important}
+      .zero-card{
+        background:#ffffff!important;border:1pt solid #c2c2c2!important;padding:10px 12px!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .zero-card.warn{background:#ffffff!important;border-color:#8a3b1e!important}
+      .zero-card>span{color:#5d4618!important}
+      .zero-card.warn>span{color:#8a3b1e!important}
+      .zero-card .zn{color:#111111!important;font-size:22pt!important}
+      .zero-card .zs,.zero-card p,.zero-card li{color:#333333!important}
+      .zero-card em{color:#5d4618!important}
+      .zero-card.warn em{color:#8a3b1e!important}
+      .zero-card li::before{background:#6f5620!important;opacity:1}
+
+      /* access gate */
+      .access-gate{margin:.18in 0!important;page-break-inside:avoid;break-inside:avoid}
+      .ag-label{color:#5d4618!important}
+      .ag-sub{color:#111111!important;font-size:12pt!important;margin:0 0 .14in!important}
+      .ag-flow{gap:10px!important}
+      .ag-pill{color:#222222!important;border-color:#a9a9a9!important;min-width:0!important;padding:5px 12px!important;font-size:8pt!important}
+      .ag-screened{border-color:#8a3b1e!important;color:#8a3b1e!important}
+      .ag-pill small{color:#8a3b1e!important}
+      .ag-arrow{color:#444444!important}
+      .ag-box{border-color:#6f5620!important;background:#ffffff!important;border-radius:0!important;padding:12px 14px!important}
+      .ag-box b{color:#5d4618!important}
+      .ag-box p{color:#333333!important;font-size:9pt!important}
+      .ag-caption{border-top-color:#d5d5d5!important;margin:.14in 0 0!important}
+
+      /* provenance strip and the measurement tiles */
+      .trail-grid{gap:8px!important;margin:.14in 0 .06in!important}
+      .trail-station{
+        background:#ffffff!important;border:1pt solid #c2c2c2!important;padding:9px 10px!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .trail-station b{color:#111111!important;font-size:8pt!important}
+      .trail-station b i{color:#5d4618!important}
+      .trail-chips span{border-color:#8f8f8f!important;color:#5d4618!important}
+      .trail-station p{color:#333333!important}
+      .stat-duo{gap:10px!important;margin:.14in 0 .06in!important}
+      .stat-tile{
+        background:#ffffff!important;border:1pt solid #c2c2c2!important;padding:12px 14px!important;
+        page-break-inside:avoid;break-inside:avoid;
+      }
+      .stat-tile strong{color:#5d4618!important;font-size:22pt!important}
+      .stat-tile p{color:#333333!important}
+
+      /* sources */
+      .article__footnotes{margin-top:.3in!important;padding-top:.16in!important;border-top-color:#c9c9c9!important}
+      .article__footnotes h2{color:#111111!important;font-size:15pt!important}
+      .article__footnotes li{color:#333333!important;font-size:8pt!important}
+      .article__footnotes a{color:#5d4618!important}
+      sup a{color:#5d4618!important}
+    }
 </style>
 </head>
 <body>
