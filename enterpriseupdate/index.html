@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering (O'Mono): Enterprise Update | Julio Macedo</title>
+  <meta name="description" content="The O'Mono article with an enterprise update appended: how the application's curriculum maps to the six AI literacy competencies implied by Article 4 of the AI Act, centred on recognizing task-specific risks.">
+  <meta property="og:title" content="Prompt Engineering (O'Mono): Enterprise Update | Julio Macedo">
+  <meta property="og:description" content="The O'Mono article with an enterprise update appended: how the application's curriculum maps to the six AI literacy competencies implied by Article 4 of the AI Act, centred on recognizing task-specific risks.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jhmacal.com/enterpriseupdate/">
+  <link rel="canonical" href="https://www.jhmacal.com/enterpriseupdate/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
+  <link rel="stylesheet" href="/atmosphere.css">
+  <style>
+    /* Article-local rules only. Anything global lives in /style.css. */
+
+    .article__byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      font-style: italic;
+      color: rgba(240, 230, 210, 0.55);
+      margin: 0 0 2.5rem;
+    }
+
+    .article__body p,
+    .article__body .lede {
+      text-align: left;
+      hyphens: none;
+    }
+
+    .article__body h2 {
+      margin-top: 3.2rem;
+      margin-bottom: 1.2rem;
+      font-family: var(--jm-display);
+      font-size: 1.85rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      font-variant: normal;
+      color: #c9a961;
+      line-height: 1.2;
+    }
+
+    .article__body h3 {
+      margin-top: 2.4rem;
+      margin-bottom: 0.95rem;
+      font-family: var(--jm-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: rgba(201, 169, 97, 0.82);
+      line-height: 1.25;
+    }
+
+    .article__cta {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.15);
+    }
+
+    /* ===== Notes and Sources =====
+       Back matter, set smaller and quieter than the running text. */
+    .article__notes ol,
+    .article__notes ul {
+      padding-left: 1.35rem;
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .article__notes li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: rgba(240, 230, 210, 0.55);
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+
+    .article__notes li:last-child {
+      margin-bottom: 0;
+    }
+
+    .article__notes-lead {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: rgba(240, 230, 210, 0.55);
+      line-height: 1.65;
+      margin: 1.35rem 0 0.8rem;
+    }
+
+    .article__notes-lead strong {
+      color: rgba(244, 237, 224, 0.8);
+      font-weight: 500;
+    }
+
+    .article__notes-back {
+      color: rgba(201, 169, 97, 0.65);
+      text-decoration: none;
+      margin-left: 0.2rem;
+    }
+
+    .article__notes-back:hover {
+      color: var(--gold);
+    }
+
+    sup a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.75em;
+    }
+
+    sup a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Application exhibits =====
+       Every exhibit is an opaque rectangular screenshot lifted from the source
+       document with the document's own crop applied. The visible asset fills
+       its frame edge to edge, so the radius, hairline and shadow below sit on
+       real pixels rather than on empty canvas. */
+    .omono-figure {
+      display: grid;
+      gap: 0.85rem;
+      margin: 2.4rem 0 2.7rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .omono-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      box-shadow: 0 16px 38px rgba(3, 8, 18, 0.5);
+    }
+
+    .omono-figure--hero {
+      margin-top: 0.25rem;
+      margin-bottom: 2.9rem;
+    }
+
+    /* ===== Control and requirement map =====
+       The source table rebuilt as a site-native mapping component. Two columns
+       in the reading column on wide screens, stacked with inline labels below
+       600px so no cell loses its heading. */
+    .omono-map {
+      margin: 2.2rem 0 2.8rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.28);
+      border-radius: 12px;
+      background: rgba(13, 26, 48, 0.72);
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .omono-map__head,
+    .omono-map__row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1.1rem;
+      padding: 0.95rem 1.25rem;
+    }
+
+    .omono-map__head {
+      background: rgba(201, 169, 97, 0.07);
+      border-bottom: 0.5px solid rgba(201, 169, 97, 0.25);
+    }
+
+    .omono-map__head span {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+
+    .omono-map__row {
+      border-bottom: 0.5px solid rgba(244, 237, 224, 0.07);
+      align-items: start;
+    }
+
+    .omono-map__row:last-child {
+      border-bottom: 0;
+    }
+
+    .omono-map__control,
+    .omono-map__req {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    .omono-map__control {
+      font-size: 0.85rem;
+      color: rgba(244, 237, 224, 0.92);
+    }
+
+    .omono-map__req {
+      font-size: 0.8rem;
+      color: rgba(244, 237, 224, 0.62);
+    }
+
+    .omono-map__label {
+      display: none;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 97, 0.8);
+      margin-bottom: 0.35rem;
+    }
+
+    @media (max-width: 599px) {
+      .omono-map__head {
+        display: none;
+      }
+      .omono-map__row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.85rem;
+        padding: 1.1rem 1.1rem;
+      }
+      .omono-map__label {
+        display: block;
+      }
+      .omono-figure {
+        margin: 1.9rem 0 2.1rem;
+      }
+    }
+
+    /* ===== Print =====
+       /style.css already inverts the page to a white ground, drops the nav and
+       the scroll indicator, and sets orphans and widows. What follows is the
+       article's own furniture, matched to the treatment the other articles give
+       their figures: each exhibit becomes a bordered white card carrying a
+       numbered label, and the mapping component is compacted enough to sit on
+       one page instead of being pushed to its own. */
+    @media print {
+      .omono-figure {
+        background: #ffffff !important;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        padding: 0.13in !important;
+        margin: 0.2in 0 !important;
+        gap: 0.1in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .omono-figure::before {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #5d4618 !important;
+        margin-bottom: 0.06in;
+      }
+
+      .omono-figure:nth-of-type(1)::before  { content: 'Figure 1'; }
+      .omono-figure:nth-of-type(2)::before  { content: 'Figure 2'; }
+      .omono-figure:nth-of-type(3)::before  { content: 'Figure 3'; }
+      .omono-figure:nth-of-type(4)::before  { content: 'Figure 4'; }
+      .omono-figure:nth-of-type(5)::before  { content: 'Figure 5'; }
+      .omono-figure:nth-of-type(6)::before  { content: 'Figure 6'; }
+      .omono-figure:nth-of-type(7)::before  { content: 'Figure 7'; }
+      .omono-figure:nth-of-type(8)::before  { content: 'Figure 8'; }
+      .omono-figure:nth-of-type(9)::before  { content: 'Figure 9'; }
+      .omono-figure:nth-of-type(10)::before { content: 'Figure 10'; }
+
+      .omono-figure img {
+        border: 0.5pt solid #d7d7d7 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* overflow: hidden only exists on screen to clip the rounded corners.
+         Left on, it makes the box monolithic during pagination and Chromium
+         throws the whole map onto a fresh page even when it would fit. */
+      .omono-map {
+        background: #ffffff !important;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        margin: 0.2in 0 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .omono-map__head,
+      .omono-map__row {
+        padding: 0.075in 0.12in !important;
+        gap: 0.16in !important;
+      }
+
+      .omono-map__head {
+        background: #ffffff !important;
+        border-bottom: 1pt solid #d7d7d7 !important;
+      }
+
+      .omono-map__head span {
+        font-size: 7pt !important;
+        color: #5d4618 !important;
+      }
+
+      .omono-map__row {
+        border-bottom: 0.5pt solid #e1e1e1 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* The cells are <p>, so `.article__body p` out-specifies the component's
+         own `margin: 0` and adds a paragraph margin under every cell. That is
+         1.9in of dead space across nine rows, enough to push the whole map onto
+         a page of its own. */
+      .article__body .omono-map__control,
+      .article__body .omono-map__req {
+        margin: 0 !important;
+        line-height: 1.35 !important;
+      }
+
+      .omono-map__control {
+        font-size: 8.5pt !important;
+        color: #111111 !important;
+      }
+
+      .omono-map__req {
+        font-size: 8pt !important;
+        color: #222222 !important;
+      }
+
+      .article__byline {
+        color: #222222 !important;
+        margin-bottom: 0.18in !important;
+      }
+
+      /* Screen section spacing is generous on purpose. On paper it accumulates,
+         and by the last section it had pushed the footer onto a page of its own. */
+      .article__body p {
+        margin-bottom: 0.14in !important;
+      }
+
+      .article__body h2 {
+        margin-top: 0.34in !important;
+        margin-bottom: 0.12in !important;
+      }
+
+      .article__body h3 {
+        margin-top: 0.26in !important;
+        margin-bottom: 0.1in !important;
+      }
+
+      .article__cta {
+        border-top-color: #d7d7d7 !important;
+        margin-top: 0.2in !important;
+        padding-top: 0.14in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .article__notes li,
+      .article__notes-lead {
+        font-size: 8pt !important;
+        line-height: 1.4 !important;
+        color: #222222 !important;
+        margin-bottom: 0.06in !important;
+      }
+
+      .article__notes-lead {
+        margin: 0.14in 0 0.08in !important;
+      }
+
+      .article__notes-lead strong {
+        color: #111111 !important;
+      }
+
+      /* The back-links are screen navigation. On paper they point nowhere. */
+      .article__notes-back {
+        display: none !important;
+      }
+
+      .footer {
+        padding-block: 0.14in !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+    /* ===== Jump pill =====
+       One control, two positions. The inline instance sits at the head of the
+       article and scrolls away with the text. The fixed instance fades in once
+       the inline one has left the viewport and fades back out when the reader
+       reaches the update, so it is never offering a jump to where they already
+       are. Two elements rather than one so nothing reflows when the state
+       changes. */
+    .eu-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: 0.5px solid var(--gold-light);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--navy);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(201, 169, 97, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .eu-jump:hover,
+    .eu-jump:focus-visible {
+      background: var(--gold-light);
+      box-shadow: 0 16px 38px rgba(201, 169, 97, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .eu-jump svg {
+      flex: none;
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* These six carry a .article__body prefix on purpose. The article's own
+       `.article__body p` and `.article__body h2` rules are one specificity
+       point heavier than a bare class, so without the prefix every label here
+       would inherit running-text size and the update's title would come back
+       gold at 1.85rem. */
+    .article__body .eu-jump-inline {
+      margin: 0 0 2.2rem;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .eu-jump--float {
+      position: fixed;
+      right: 1.75rem;
+      bottom: 1.75rem;
+      z-index: 60;
+      max-width: calc(100vw - 3.5rem);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .eu-jump--float.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .eu-jump,
+      .eu-jump--float {
+        transition: none;
+      }
+      .eu-jump:hover,
+      .eu-jump:focus-visible {
+        transform: none;
+      }
+    }
+
+    /* ===== Enterprise update =====
+       Appended after the article's back matter, opened by a full-width rule so
+       the reader can see that the piece has ended and a second document has
+       begun. */
+    .eu-section {
+      margin-top: 3.4rem;
+      padding-top: 2.6rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.28);
+      scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .article__body .eu-section__eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.7rem;
+      line-height: 1.4;
+    }
+
+    .article__body .eu-section__title {
+      font-family: var(--jm-display);
+      font-size: 2.5rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.08;
+      color: #FFFFFF;
+      margin: 0 0 1.4rem;
+    }
+
+    /* The worked example runs four phases under one h3, so it needs a fourth
+       level. /style.css stops at h3, which would leave these at browser
+       default and heavier than the h3 above them. */
+    .article__body .eu-section h4 {
+      margin: 2rem 0 0.8rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.4;
+    }
+
+    /* A quoted specimen of what the application should say to the user. Gold
+       rule on the left, so it reads as a voice rather than as running text. */
+    .eu-quote {
+      margin: 1.6rem 0 2rem;
+      padding: 0.15rem 0 0.15rem 1.15rem;
+      border-left: 2px solid rgba(201, 169, 97, 0.55);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.86);
+      break-inside: avoid;
+    }
+
+    .eu-quote p {
+      margin: 0 0 0.7rem;
+      font-family: inherit;
+      font-style: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    .eu-quote p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Named panel: a labelled card carrying one unit of the proposal, such as
+       the teaching unit or one phase of the worked example. */
+    .eu-panel {
+      margin: 1.9rem 0 2.2rem;
+      padding: 1.35rem 1.5rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.28);
+      border-radius: 12px;
+      background: rgba(13, 26, 48, 0.72);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .article__body .eu-panel__label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.85rem;
+      line-height: 1.4;
+    }
+
+    .article__body .eu-panel p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.82);
+      margin: 0 0 0.8rem;
+    }
+
+    .article__body .eu-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eu-panel__term {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* The literal prompt the application emits. Set apart from the commentary
+       around it so the reader can tell instruction from analysis. */
+    .eu-prompt {
+      margin: 1.9rem 0 2.2rem;
+      padding: 1.35rem 1.5rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.22);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      background: rgba(10, 22, 40, 0.85);
+      break-inside: avoid;
+    }
+
+    .article__body .eu-prompt p,
+    .article__body .eu-prompt li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .article__body .eu-prompt p {
+      margin: 0 0 0.85rem;
+    }
+
+    .article__body .eu-prompt > :last-child {
+      margin-bottom: 0;
+    }
+
+    /* Three parallel readings of the same idea, one per column on wide screens
+       and stacked below 720px. */
+    .eu-triad {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin: 1.9rem 0 2.2rem;
+    }
+
+    .eu-triad__card {
+      border: 0.5px solid rgba(201, 169, 97, 0.24);
+      border-radius: 10px;
+      background: rgba(13, 26, 48, 0.6);
+      padding: 1.15rem 1.2rem;
+      break-inside: avoid;
+    }
+
+    .article__body .eu-triad__head {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.75rem;
+      line-height: 1.4;
+    }
+
+    .article__body .eu-triad ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .article__body .eu-triad li {
+      position: relative;
+      padding: 0 0 0 0.85rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .article__body .eu-triad li:last-child {
+      margin-bottom: 0;
+    }
+
+    .eu-triad li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* The architecture: six competencies gathered under three movements. */
+    .eu-arch {
+      margin: 2rem 0 2.4rem;
+      border: 0.5px solid rgba(201, 169, 97, 0.28);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(13, 26, 48, 0.72);
+      break-inside: avoid;
+    }
+
+    .eu-arch__stage {
+      padding: 1.1rem 1.4rem;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .eu-arch__stage:last-child {
+      border-bottom: 0;
+    }
+
+    .article__body .eu-arch__stage-name {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.7rem;
+      line-height: 1.4;
+    }
+
+    .eu-arch__step {
+      display: grid;
+      grid-template-columns: 1.7rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: baseline;
+      margin-bottom: 0.45rem;
+    }
+
+    .eu-arch__step:last-child {
+      margin-bottom: 0;
+    }
+
+    .eu-arch__num {
+      font-family: var(--jm-display);
+      font-size: 1.15rem;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .article__body .eu-arch__text {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    @media (max-width: 720px) {
+      .eu-triad {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .eu-section__title {
+        font-size: 1.95rem;
+      }
+      .eu-jump--float {
+        right: 1rem;
+        bottom: 1rem;
+        max-width: calc(100vw - 2rem);
+      }
+      .eu-jump {
+        padding: 0.7rem 1.1rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+      }
+    }
+
+    @media print {
+      /* The jump control is a screen affordance. On paper the update simply
+         follows the article, so both instances go. */
+      .eu-jump-inline,
+      .eu-jump--float {
+        display: none !important;
+      }
+
+      .eu-section {
+        border-top: 1pt solid #c9c9c9 !important;
+        padding-top: 0.25in !important;
+        margin-top: 0.3in !important;
+        page-break-before: always;
+      }
+
+      .eu-section__eyebrow {
+        color: #5d4618 !important;
+      }
+
+      .eu-section__title {
+        color: #111111 !important;
+      }
+
+      .eu-panel,
+      .eu-prompt,
+      .eu-triad__card,
+      .eu-arch {
+        background: #ffffff !important;
+        border: 1pt solid #c9c9c9 !important;
+        border-radius: 0 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .eu-prompt {
+        border-left: 3pt solid #5d4618 !important;
+      }
+
+      .eu-panel__label,
+      .eu-triad__head,
+      .eu-arch__stage-name,
+      .eu-panel__term,
+      .eu-arch__num {
+        color: #5d4618 !important;
+      }
+
+      .eu-quote {
+        border-left: 2pt solid #5d4618 !important;
+        color: #111111 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .article__body .eu-panel p,
+      .article__body .eu-prompt p,
+      .article__body .eu-prompt li,
+      .article__body .eu-triad li,
+      .article__body .eu-arch__text,
+      .eu-quote p {
+        color: #111111 !important;
+      }
+
+      .eu-arch__stage {
+        border-bottom: 0.5pt solid #e1e1e1 !important;
+      }
+
+      .article__body .eu-section h4 {
+        color: #333333 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__monogram">Home</a>
+      <ul class="nav__links">
+        <li><a href="/writing/" class="active">Articles</a></li>
+        <li><a href="/studies/">Case Studies</a></li>
+        <li><a href="/ai/">AI Portfolio</a></li>
+        <li><a href="/resume/">Resume</a></li>
+        <li><a href="/books/">Books</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+      <div class="plates" aria-hidden="true">
+        <div class="plate p1"></div><div class="plate p2"></div><div class="plate p3"></div>
+      </div>
+    <div class="container">
+      <p class="page-header__eyebrow">Enablement &amp; Teaching</p>
+      <h1 class="page-header__title">Prompt Engineering (O'Mono)</h1>
+      <p class="page-header__sub">A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <article class="article">
+        <div class="article__body">
+
+          <p class="eu-jump-inline">
+            <a class="eu-jump" href="#enterprise-update" id="eu-jump-inline">
+              Click here to advance to Enterprise Update
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M5.5 12.5 12 19l6.5-6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <p class="article__byline">By Julio Macedo</p>
+
+          <figure class="omono-figure omono-figure--hero">
+            <img src="/assets/prompt-engineering-omono/01-input-bar.png" alt="The O'Mono input bar reading 'Type the idea the way it comes,' with a Write button, Text and Image attachment controls, a prompt count on the ledger, and Restore, History and Settings controls">
+          </figure>
+
+          <p class="lede">An associate types a sentence about a training session she must run on Thursday, and seconds later reads why the system decided her prompt needed a Role, why it drafted an example but refused to include it, and what rule she could carry into the next prompt she writes.</p>
+
+          <p>Sixty-nine percent of legal professionals now use generative AI at work, and fifty-four percent of their firms provide no training and have no plans to provide any.<sup><a href="#note-1" id="ref-1">1</a></sup> Asked what they expect from new lawyers, seventy-six percent of practicing attorneys named cite-checking AI output and fourteen percent named prompt engineering, which leaves the skill that decides what the model produces near the bottom of what the profession has agreed to require.<sup><a href="#note-2" id="ref-2">2</a></sup> Tools like O'Mono live in that gap.</p>
+
+          <h2>1. The Final Product</h2>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/02-eight-fields-prompt.png" alt="The generated prompt screen showing eight field chips for Role, Task, Context, Input, Constraints, Examples, Format and Tone, with Input and Examples dimmed, above the assembled prompt text and a Copy prompt control">
+          </figure>
+
+          <p>Eight fields come back from a single sentence of input, two of them deliberately left out of the prompt itself, each one carrying a verdict on whether it belongs, a reason written for this input, and a rule of thumb built to travel.</p>
+
+          <p>The reason expires with the input that produced it. The rule of thumb is registered on the machine and outlives both, since it is written for somebody who no longer has the application in front of them.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/03-role-field-verdict.png" alt="The Role field marked advisable, showing the drafted role text, a Why explanation written for this input, and a rule of thumb about naming a role by who it teaches">
+          </figure>
+
+          <p>With her own prompt in front of her, the associate reads that once and learns what a training module could have told her in the abstract and never made stick.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/04-examples-omitted.png" alt="The Examples field marked inadvisable, showing the drafted example text that was cut, the reason for omitting it, and the rule of thumb that an example inventing facts is worse than no example">
+          </figure>
+
+          <p>The application drafts an example, decides against including it, and shows her the draft anyway, with the reason for leaving it out and the rule of thumb that follows from it.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/05-reasoning-strategy.png" alt="The Reasoning view labelled overall strategy, explaining how the deliverable shape was fixed, why failure modes were supplied, and why the drafted examples were cut">
+          </figure>
+
+          <p>Above the field level sits the construction strategy for the whole prompt, and a toggle appends all of it, strategy and verdicts and rules of thumb together, to whatever gets copied. The teaching travels wherever the prompt travels, to the colleague who receives it and into the matter file where it lands.</p>
+
+          <h2>2. Data</h2>
+
+          <p>The average conversation with a general AI tool runs two prompts, while the heaviest five percent of users average eighteen.<sup><a href="#note-3" id="ref-3">3</a></sup> Two prompts is a question, a disappointing answer, and a person deciding the tool is not for them. Nobody files a ticket to report that, so the department never learns it happened.</p>
+
+          <p>I designed and redesigned O'Mono repeatedly to find out whether the enablement layer could carry more weight, and what follows is what the building taught me. The record here exists because I kept meeting the same corrections and had no way to tell which ones they were. A recurrence a person can feel but cannot name is not yet a curriculum.</p>
+
+          <p>Every prompt it generates stores its rules of thumb, and months of those entries, read together, describe what one person keeps getting wrong.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/06-learning-record.png" alt="The Learning view header showing 26 prompts and 20 rated across 78 days, with the first ranked rule of thumb about naming the reader rather than the document type">
+            <img src="/assets/prompt-engineering-omono/07-learning-record-gone.png" alt="Lower in the Learning view, the fourth ranked rule about constraining by what the reader can do, followed by the rest of the record including an entry marked gone">
+          </figure>
+
+          <p>Each entry carries a direction, and the entry at the foot of that view shows a rule marked gone, meaning it stopped appearing partway through the record and has not come back, which is the closest thing to evidence that somebody learned it.</p>
+
+          <p>Two phrasings of one rule fold into a single entry, since a view that counted them separately would measure vocabulary where it means to measure habit. The horizon runs to the last prompt in the log, not to today, so that a week away from the application cannot present itself as progress.</p>
+
+          <p>That record is mine, and what it changed is the part I can vouch for directly. My prompts now carry the parts I used to leave out. I number the tasks so the model does not skip one, I name a role when the work is specific enough that the answer depends on who gives it, and I supply the fields the model treats loosely before it asks for them. None of that arrived in a course. It came from reading, on my own work, why a field was judged weak, one prompt at a time.</p>
+
+          <p>A department that has run this for a year holds something no vendor can sell: a dated account of what its own people found hard, what they stopped finding hard, and roughly when the change happened.</p>
+
+          <h3>2.1 The Enterprise's Curriculum</h3>
+
+          <p>In the enterprise version an administrator reaches only the central folder of reports, one file for each installation, and the page that merges them states its limits before it states a number, so the page cannot be opened onto a person by any setting:</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/08-enterprise-view-limits.png" alt="The merged enterprise report page headed 'What this view can and cannot show,' listing three things the view reports and three things it cannot, including who wrote any prompt and what anybody was working on">
+          </figure>
+
+          <p>From the prose a prompt produces, only the rules of thumb leave the user's machine, filed against the eight prompt fields: Role, Task, Context, Input, Constraints, Examples, Format and Tone. The export names the wording of the rule as a single literal path and refuses every other field against it. What leaves the machine is what somebody needed to learn, and never what they were working on.</p>
+
+          <p>Across an enterprise with hundreds of users and months of usage, the data becomes curriculum.</p>
+
+          <h2>3. Privilege</h2>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/09-privilege-stop.png" alt="An on-device stop message reading that the prompt was stopped on your Mac before anything was sent, that it looks like it carries client or privileged material, and offering Redact, an override with a reason, or editing the text">
+          </figure>
+
+          <p>A prompt carrying sensitive terms or data, or attaching a protected document or image, stops on the machine before any request leaves it, and the message names what it found in ordinary language rather than in a class code the reader would have to look up. The attorney can also explain to a client what happens to a document inside the application, showing it live.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/10-redact-choices.png" alt="The Redact screen showing two of two findings changed, a note that nothing has been sent and that tokens keep their meaning and come back through Restore, and per-finding choices of Placeholder, Delete, Generalize, My own text and Not that">
+          </figure>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/11-what-will-be-sent.png" alt="A 'What will be sent' panel showing the redacted prompt text, a 'Why this is the right call' panel noting that the replaced values are never recorded, and a line confirming the text was re-checked after redaction and is clear to send">
+          </figure>
+
+          <p>The check runs with no network involved, because the machine is the only place a transmission can be prevented. Every block arrives with a way forward, since hard stops without an alternative are what push people into unapproved tools.</p>
+
+          <p>LayerX's State of AI Usage Report 2026 finds that nearly half of all enterprise AI conversations happen through personal identities rather than managed corporate accounts, and that over 14 percent of conversations on corporate identities are tied to personal AI licenses. Enterprise-shaped products like Copilot M365 and Gemini Enterprise are used mostly through managed accounts, while ChatGPT and Claude stay dominated by personal use even inside companies that bought the enterprise version. More than 6 percent of those conversations carry sensitive data.<sup><a href="#note-4" id="ref-4">4</a></sup> The constraint layer is not redundant in a firm with enterprise licenses: it is aimed at exactly the traffic the enterprise license does not cover.</p>
+
+          <h2>4. Embedded AI Governance Frameworks</h2>
+
+          <p>Every control in the application traces to a published requirement, and the table below sets each one beside the requirement it answers.</p>
+
+          <div class="omono-map" role="table" aria-label="Controls in the code and the requirements they answer">
+            <div class="omono-map__head" role="row">
+              <span role="columnheader">Control in the code</span>
+              <span role="columnheader">Requirement it answers</span>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Field-level verdicts, reasons, and rules of thumb, written in non-specialist language for teaching and enablement</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 4, AI literacy for staff operating AI systems, and ABA Model Rule 1.1 comment 8, technology competence</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Human confirmation before generation, a contestable recommendation, and an override that records its reason</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MAP 3.5, human oversight, and EU AI Act Article 26(2), deployer oversight by competent natural persons</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Hash-chained append-only record of every generation, override, redaction, and outcome, with the engine version on each entry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 12(1), automatic event recording, Article 26(6), deployer log retention, GDPR Article 5(2), accountability, and Article 32(1)(b), integrity of processing systems, alongside ISO/IEC 42001 A.6.2.8, AI system event logs</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Local screening, the matter list, redaction and restoration, all running before any network call</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.7, data for AI systems, GDPR Article 5(1)(c), data minimization, and Article 25, data protection by design and by default, alongside the confidentiality duty under ABA Model Rule 1.6</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Redaction of the terms the screen identifies, with restoration handled on the machine</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 4(5), pseudonymisation, and Article 32(1)(a), pseudonymisation as a measure appropriate to the risk</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The pre-filing verification checklist and its elapsed-time record</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ABA Formal Opinion 512 on verification of AI-assisted work, and NIST AI RMF MEASURE 2.5</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The outcome loop and the repeated-lesson ranking</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MANAGE 4.1 and ISO/IEC 42001 A.6.2.6, operation and monitoring</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>One engine file holding every rule, version-stamped into each record entry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.6.2.7, technical documentation</p>
+            </div>
+
+            <div class="omono-map__row" role="row">
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The register of assessed AI destinations, recording what each one permits, what it bars, and when the assessment expires</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 30(1)(d), categories of recipients, and Article 28(1), the duty to use only processors offering sufficient guarantees</p>
+            </div>
+          </div>
+
+          <p>Most of the AI Act obligations cited bind providers and deployers of high-risk systems specifically, while Article 4 binds providers and deployers of AI systems generally and has stood since 2 February 2025, untouched when the Digital Omnibus deferred the high-risk obligations to late 2027.<sup><a href="#note-5" id="ref-5">5</a></sup> The table shows that a control exists in the code and corresponds to a cited requirement, which is not the same as full compliance.</p>
+
+          <p>A general counsel who buys a monitoring product in November 2027 will have bought inspection, and inspection answers a different question from the one Article 4 asks. What Article 4 asks for is evidence that the people operating these systems understood what they were operating, and that evidence is a history of what a team was taught, week by week, out of the work it was doing.<sup><a href="#note-6" id="ref-6">6</a></sup> A history of that kind cannot be bought in the quarter a regulator asks for it, which is the argument for building the teaching layer first.</p>
+
+          <p>The professional rules did not move either. The ABA Model Rules bind lawyers rather than software, and no state bar's competence obligation changed when the European timetable did.</p>
+
+          <h2>5. The Lesson</h2>
+
+          <p>The teaching layer changed behavior, and the governance layer settled how much of the real work that teaching could reach. A tool trusted with a real matter gets opened on that matter, gets read while somebody is deciding something, and leaves a rule of thumb behind that outlives the session, while a tool nobody trusts with anything sensitive teaches people on the easy half of their job.</p>
+
+          <p>Numbering the tasks is decomposition, naming a role decides who the answer is for, saying what not to do is a constraint, and naming the jurisdiction is scope. None of that is a trick about wording, and none of it arrives with a better model, because it encodes what the person wanted and intent is the part a lawyer is paid for. Stronger models make a vague instruction cheaper to survive. They do not remove the need to say what you want, and a system that runs forty steps before anybody looks raises the cost of not saying it.</p>
+
+          <p>Somewhere around the end of next year a regulator or a client or a bar will ask a department what its people understood about these systems and when they understood it, and the answer will be a history that already exists or an assurance nobody can check.</p>
+
+          <h2>Notes</h2>
+
+          <div class="article__notes">
+            <ol>
+              <li id="note-1">Sixty-nine percent using generative AI, and fifty-four percent of firms providing no training and having no plans to provide any: 8am, <em>2026 Legal Industry Report</em>, 1,300+ legal professionals, fielded 19 September to 18 October 2025. The sample skews small, 45 percent solo and 38 percent two-to-five lawyers, so it evidences the profession broadly rather than large firms. <a href="#ref-1" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-2">Seventy-six percent expecting cite-checking of AI output and fourteen percent expecting prompt engineering: Bloomberg Law, <em>2026 Path to Practice Survey</em>, 1,800+ law students, faculty and practicing attorneys. <a href="#ref-2" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-3">Two prompts per conversation on average, eighteen among the heaviest five percent of users: LayerX Security, <em>State of AI Usage Report 2026</em>. <a href="#ref-3" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-4">Nearly half of enterprise AI conversations on personal identities, over 14 percent of conversations on corporate identities tied to personal licenses, Copilot M365 and Gemini Enterprise used mostly through managed accounts while ChatGPT and Claude remain dominated by personal use, and more than 6 percent of conversations carrying sensitive data: LayerX Security, <em>State of AI Usage Report 2026</em>. LayerX sells browser security and the figures are telemetry from its own deployments, so they evidence its customer base rather than the market. <a href="#ref-4" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-5">Article 4 binding providers and deployers of AI systems generally since 2 February 2025: Regulation (EU) 2024/1689, Article 4. Deferral of the high-risk obligations to late 2027: Regulation (EU) 2026/1744, the Digital Omnibus on AI. <a href="#ref-5" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-6">What Article 4 requires of providers and deployers: Regulation (EU) 2024/1689, Article 4. <a href="#ref-6" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+            </ol>
+
+            <p class="article__notes-lead"><strong>Table citations, by row.</strong> No markers in the table; its right column carries the citation. Listed here for the record.</p>
+
+            <ol start="7">
+              <li>Row 1: EU AI Act Article 4; ABA Model Rules of Professional Conduct, Rule 1.1 comment 8.</li>
+              <li>Row 2: NIST AI RMF 1.0, MAP 3.5; EU AI Act Article 26(2).</li>
+              <li>Row 3: EU AI Act Articles 12(1) and 26(6); GDPR Articles 5(2) and 32(1)(b); ISO/IEC 42001:2023 A.6.2.8.</li>
+              <li>Row 4: ISO/IEC 42001:2023 A.7; GDPR Articles 5(1)(c) and 25; ABA Model Rule 1.6.</li>
+              <li>Row 5: GDPR Articles 4(5) and 32(1)(a).</li>
+              <li>Row 6: ABA Formal Opinion 512; NIST AI RMF 1.0, MEASURE 2.5.</li>
+              <li>Row 7: NIST AI RMF 1.0, MANAGE 4.1; ISO/IEC 42001:2023 A.6.2.6.</li>
+              <li>Row 8: ISO/IEC 42001:2023 A.6.2.7.</li>
+              <li>Row 9: GDPR Articles 30(1)(d) and 28(1).</li>
+            </ol>
+          </div>
+
+          <h2>Sources</h2>
+
+          <div class="article__notes">
+            <ul>
+              <li>Regulation (EU) 2024/1689, the EU AI Act, Articles 4, 12 and 26.</li>
+              <li>Regulation (EU) 2026/1744, the Digital Omnibus on AI, amending Regulation (EU) 2024/1689.</li>
+              <li>Regulation (EU) 2016/679, the General Data Protection Regulation.</li>
+              <li>ABA Model Rules of Professional Conduct, Rules 1.1 and 1.6; ABA Formal Opinion 512.</li>
+              <li>NIST AI Risk Management Framework 1.0.</li>
+              <li>ISO/IEC 42001:2023, Annex A.</li>
+              <li>Bloomberg Law, <em>2026 Path to Practice Survey</em>; 8am, <em>2026 Legal Industry Report</em>; LayerX Security, <em>State of AI Usage Report 2026</em>.</li>
+            </ul>
+          </div>
+
+          <section class="eu-section" id="enterprise-update">
+
+            <p class="eu-section__eyebrow">O'Mono</p>
+            <h2 class="eu-section__title">Enterprise Update</h2>
+
+            <p>The AI Act does not prescribe six curriculum modules. It defines AI literacy broadly as the skills, knowledge, and understanding needed to make informed AI deployment decisions and understand opportunities, risks, and possible harm. Article 4 requires the measures to account for the user's background, the context of use, and the people affected.</p>
+
+            <h3>The central idea</h3>
+
+            <p>Recognizing task-specific risks should be the center of the entire curriculum.</p>
+
+            <div class="omono-map" role="table" aria-label="The six competencies and the practical question each one teaches">
+              <div class="omono-map__head" role="row">
+                <span role="columnheader">Competency</span>
+                <span role="columnheader">The practical question O'Mono teaches</span>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>1. Recognizing task-specific risks</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>What could go wrong in this particular task?</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>2. Understanding AI and its limits</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>Why might this AI system fail here?</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>3. Reviewing and verifying outputs</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>What exactly must I check before relying on this result?</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>4. Instructing AI effectively</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>How do I give the system enough direction to perform the task properly?</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>5. Selecting appropriate systems and uses</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>Should AI be used for this task, and which system is appropriate?</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Competency</span>6. Understanding human responsibility and affected persons</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">The practical question O'Mono teaches</span>Who owns the decision, who could be affected, and who must review or intervene?</p>
+              </div>
+            </div>
+
+            <p>O'Mono teaches people how to recognize and control the risks of using AI for a specific work task.</p>
+
+            <h3>1. Recognizing task-specific risks</h3>
+
+            <p>This should drive everything.</p>
+
+            <p>O'Mono should teach the user to look at the actual task and identify the concrete ways AI could produce a bad outcome.</p>
+
+            <div class="eu-triad">
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For legal research</p>
+                <ul>
+                  <li>Invented authorities.</li>
+                  <li>Real authorities mischaracterized.</li>
+                  <li>Outdated law.</li>
+                  <li>Wrong jurisdiction.</li>
+                  <li>Missing contrary authority.</li>
+                  <li>Privileged information reaching the wrong system.</li>
+                </ul>
+              </div>
+
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For a client email</p>
+                <ul>
+                  <li>Incorrect facts.</li>
+                  <li>Overstating the legal conclusion.</li>
+                  <li>Revealing internal analysis.</li>
+                  <li>Creating unintended commitments.</li>
+                  <li>Using the wrong tone with a sensitive recipient.</li>
+                </ul>
+              </div>
+
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For spreadsheet analysis</p>
+                <ul>
+                  <li>Wrong column interpretation.</li>
+                  <li>Hidden missing data.</li>
+                  <li>Incorrect formulas.</li>
+                  <li>Correlation presented as causation.</li>
+                  <li>Confident conclusions from incomplete data.</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>The lesson:</p>
+
+            <blockquote class="eu-quote">
+              <p>This task asks the model to determine whether cases remain good law. This system cannot independently guarantee that. Each case must be checked in a current legal research source.</p>
+            </blockquote>
+
+            <p>That is actual teaching.</p>
+
+            <h3>2. Understanding AI and its limits</h3>
+
+            <p>This should explain the reason behind the risk.</p>
+
+            <p>O'Mono does not need to teach transformer architecture or a technical AI course. It should teach only the limitation relevant to the current task. Examples:</p>
+
+            <ul>
+              <li>The model generates probable language; it does not inherently know whether a statement is true.</li>
+              <li>The system may lack access to current information.</li>
+              <li>The model may not have opened or accurately read the cited source.</li>
+              <li>A long document may exceed what the model can meaningfully process.</li>
+              <li>The system may lose details across a long conversation.</li>
+              <li>A model with web access is different from one with access to an authoritative legal database.</li>
+              <li>A polished answer can still be incomplete.</li>
+            </ul>
+
+            <p>The user should leave understanding:</p>
+
+            <blockquote class="eu-quote">
+              <p>This is why I cannot rely on this output in the same way I rely on the underlying source.</p>
+            </blockquote>
+
+            <h3>3. Reviewing and verifying outputs</h3>
+
+            <p>This should teach what review means for this task. "Review the output" is meaningless unless O'Mono identifies the required review actions.</p>
+
+            <div class="eu-triad">
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For a litigation draft</p>
+                <ul>
+                  <li>Open every authority.</li>
+                  <li>Confirm the quotation.</li>
+                  <li>Confirm the pincite.</li>
+                  <li>Check treatment and subsequent history.</li>
+                  <li>Check that the authority applies in the relevant jurisdiction.</li>
+                  <li>Compare the completed document against the source record.</li>
+                  <li>Look for authorities added after the verification process.</li>
+                </ul>
+              </div>
+
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For a contract summary</p>
+                <ul>
+                  <li>Compare every stated obligation with the contract.</li>
+                  <li>Confirm dates, notice periods, monetary amounts, defined terms, and exceptions.</li>
+                  <li>Check whether the summary omitted provisions that change the apparent rule.</li>
+                  <li>Separate express language from interpretation.</li>
+                </ul>
+              </div>
+
+              <div class="eu-triad__card">
+                <p class="eu-triad__head">For data analysis</p>
+                <ul>
+                  <li>Recalculate key figures.</li>
+                  <li>Confirm denominator and time period.</li>
+                  <li>Inspect missing values.</li>
+                  <li>Confirm the correct source columns were used.</li>
+                  <li>Test whether the conclusion changes under another reasonable assumption.</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>Current O'Mono already contains part of this idea through its filing verification gate, although it records that the user checked the work rather than independently verifying that the work was correct.<sup><a href="#note-7" id="ref-7">7</a></sup></p>
+
+            <h3>4. Instructing AI effectively</h3>
+
+            <p>This is where the current O'Mono belongs most clearly.</p>
+
+            <p>The eight fields, Role, Task, Context, Input, Constraints, Examples, Format, and Tone, are methods for instructing AI. O'Mono already teaches through verdicts, explanations, and rules attached to those fields.<sup><a href="#note-7">7</a></sup></p>
+
+            <p>The curriculum should teach questions such as:</p>
+
+            <ul>
+              <li>Did I clearly state what I want done?</li>
+              <li>Did I separate multiple deliverables?</li>
+              <li>Did I provide the relevant facts and source materials?</li>
+              <li>Did I identify the jurisdiction, audience, date, or decision context?</li>
+              <li>Did I specify what the model must not assume?</li>
+              <li>Did I define what a successful answer includes?</li>
+              <li>Would an example help, or would it improperly anchor the answer?</li>
+              <li>Am I asking the model to do something it cannot actually do?</li>
+            </ul>
+
+            <p>The eight fields are therefore retained. They become the internal structure of this competency rather than the entire literacy curriculum.</p>
+
+            <h3>6. Understanding human responsibility and affected persons</h3>
+
+            <p>The user should understand that AI assistance does not transfer responsibility to the system. O'Mono should ask:</p>
+
+            <ul>
+              <li>Who is responsible for the final work?</li>
+              <li>Is this output merely supporting a person, or influencing a decision?</li>
+              <li>Who could be affected if it is wrong?</li>
+              <li>How serious would the consequences be?</li>
+              <li>Does the reviewer have sufficient expertise and authority?</li>
+              <li>Does another person need to approve the result?</li>
+              <li>Must the use be disclosed?</li>
+              <li>Is the affected person entitled to explanation, correction, appeal, or human reconsideration?</li>
+            </ul>
+
+            <p>Examples:</p>
+
+            <ul>
+              <li>A lawyer remains responsible for the filing.</li>
+              <li>A manager remains responsible for an employment decision.</li>
+              <li>A doctor remains responsible for clinical judgment.</li>
+              <li>A company remains responsible for a customer eligibility decision.</li>
+              <li>A recruiter remains responsible for how an applicant is evaluated.</li>
+            </ul>
+
+            <p>This category prevents "human review" from becoming a meaningless checkbox.</p>
+
+            <h3>The clean architecture</h3>
+
+            <div class="eu-arch">
+              <div class="eu-arch__stage">
+                <p class="eu-arch__stage-name">Understand the situation</p>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">1</span>
+                  <p class="eu-arch__text">Recognize the task-specific risks.</p>
+                </div>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">2</span>
+                  <p class="eu-arch__text">Understand the AI system and its limits.</p>
+                </div>
+              </div>
+
+              <div class="eu-arch__stage">
+                <p class="eu-arch__stage-name">Control the work</p>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">3</span>
+                  <p class="eu-arch__text">Review and verify the output.</p>
+                </div>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">4</span>
+                  <p class="eu-arch__text">Instruct the AI effectively.</p>
+                </div>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">5</span>
+                  <p class="eu-arch__text">Select the appropriate system and use.</p>
+                </div>
+              </div>
+
+              <div class="eu-arch__stage">
+                <p class="eu-arch__stage-name">Own the consequence</p>
+                <div class="eu-arch__step">
+                  <span class="eu-arch__num" aria-hidden="true">6</span>
+                  <p class="eu-arch__text">Understand human responsibility and affected persons.</p>
+                </div>
+              </div>
+            </div>
+
+            <p>O'Mono should use embedded coaching, not quizzes. It teaches while helping the user complete real work: warn about the likely failure, explain why, build the protection into the prompt, tell the user what to verify, and tell the user exactly what to bring back if it fails.</p>
+
+            <p>That fits O'Mono's existing architecture. It already has an intermediary interpretation phase, explains its construction decisions, lets the user edit the result, and records whether the output worked.<sup><a href="#note-7">7</a></sup> The change is what the lesson contains. Instead of ending at a generic "rule of thumb," it should connect the task, risk, mitigation, verification, and recovery route. Current O'Mono already has the verdict, reason and lesson surface where this can live.<sup><a href="#note-7">7</a></sup></p>
+
+            <h3>The teaching unit</h3>
+
+            <p>For any material issue, O'Mono should show this:</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">The teaching unit</p>
+              <p><span class="eu-panel__term">Be careful:</span> [How this type of task commonly fails.]</p>
+              <p><span class="eu-panel__term">Why:</span> [The relevant limitation of AI or this system.]</p>
+              <p><span class="eu-panel__term">What I changed:</span> [What O'Mono added to the prompt or workflow to reduce the risk.]</p>
+              <p><span class="eu-panel__term">After you receive the answer:</span> [What the user must verify.]</p>
+              <p><span class="eu-panel__term">If it fails:</span> [Exactly what the user should bring back to O'Mono.]</p>
+            </div>
+
+            <p>No answer is required. No test interrupts the workflow. The user can read it, skim it, or ignore it. The lesson still changes the prompt and remains available in the reasoning.</p>
+
+            <h3>Full example</h3>
+
+            <p>The user enters:</p>
+
+            <blockquote class="eu-quote">
+              <p>Find recent New York cases supporting enforcement of a customer non-solicitation provision and draft a short argument.</p>
+            </blockquote>
+
+            <h4>1. Intermediary phase</h4>
+
+            <p>O'Mono interprets the task, then shows:</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">What matters for this task</p>
+              <p><span class="eu-panel__term">Be careful:</span> Legal research can fail even when the answer includes real-looking citations. A case may not exist, may not support the proposition stated, may no longer be good law, or may come from the wrong court. The model may also find supporting authority while missing contrary authority.</p>
+              <p><span class="eu-panel__term">Why:</span> A language model produces a plausible answer from the information and tools available to it. A citation in its answer is not proof that the authority exists, supports the proposition, or remains current.</p>
+              <p><span class="eu-panel__term">What I am changing:</span> I will require:</p>
+              <ul>
+                <li>New York jurisdiction and a current-through date.</li>
+                <li>Separate supporting and contrary authority.</li>
+                <li>The exact proposition each case supports.</li>
+                <li>Court, year, citation, and source link.</li>
+                <li>A statement when an authority cannot be verified.</li>
+                <li>No claim that a case remains good law unless that status comes from an approved citator.</li>
+              </ul>
+              <p><span class="eu-panel__term">After you receive the answer:</span> Open every authority in an approved legal research system. Check the proposition, quotation, court, date, and subsequent treatment.</p>
+              <p><span class="eu-panel__term">If it fails:</span> Return here and paste the citation together with the sentence that relied on it. If the problem is missing contrary authority, paste the answer and write: "Check for omitted contrary authority."</p>
+            </div>
+
+            <p>That teaches all six competencies without asking the user to prove anything:</p>
+
+            <ul>
+              <li>Task-specific risks: invented, mischaracterized, outdated, or incomplete authority.</li>
+              <li>AI limits: plausible language is not validation.</li>
+              <li>System selection: legal database for authority status; language model for synthesis.</li>
+              <li>Instructing: jurisdiction, date, source requirements, contrary authority.</li>
+              <li>Verification: exact checks to perform.</li>
+              <li>Responsibility: the lawyer must validate the result before relying on it.</li>
+            </ul>
+
+            <h4>2. Reasoning phase</h4>
+
+            <p>When O'Mono delivers the prompt, its reasoning says:</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">Why I built it this way</p>
+              <ul>
+                <li>I added a current-through date because a case can accurately describe an earlier legal rule and still be unusable today.</li>
+                <li>I separated supporting and contrary authority because a request framed around "supporting enforcement" can cause the model to confirm the desired conclusion instead of testing it.</li>
+                <li>I required the proposition supported by each case because a citation can be real while the surrounding sentence overstates or misstates the holding.</li>
+                <li>I did not ask the model to certify that a case remains good law. That determination should come from a current legal research source with treatment information.</li>
+                <li>The final legal conclusion remains with the responsible attorney.</li>
+              </ul>
+            </div>
+
+            <p>This is more useful than "rule of thumb: always verify citations." The user learns what can fail, why it fails, and what each prompt instruction is designed to prevent.</p>
+
+            <h4>3. Final prompt</h4>
+
+            <p>O'Mono produces:</p>
+
+            <div class="eu-prompt">
+              <p>You are assisting a New York attorney with preliminary legal research concerning the enforceability of a customer non-solicitation provision.</p>
+              <p>Identify recent, relevant New York authority current through August 4, 2026. Prioritize the New York Court of Appeals, the Appellate Division, and federal courts applying New York law.</p>
+              <p>Analyze:</p>
+              <ul>
+                <li>Authorities supporting enforcement.</li>
+                <li>Authorities refusing or limiting enforcement.</li>
+                <li>The factors that materially distinguish the outcomes.</li>
+                <li>Any uncertainty or unresolved issue requiring additional research.</li>
+              </ul>
+              <p>For every authority, provide:</p>
+              <ul>
+                <li>Full citation.</li>
+                <li>Court and year.</li>
+                <li>The precise proposition for which the case is offered.</li>
+                <li>A short quotation or description of the relevant holding.</li>
+                <li>Whether the authority is binding or persuasive.</li>
+                <li>A link or source location when available.</li>
+                <li>Any limitation on relying on the authority.</li>
+              </ul>
+              <p>Do not invent authorities, quotations, procedural history, or treatment. Do not state that an authority remains good law unless that status is established through an approved current citator. If an authority cannot be verified, clearly mark it "unverified."</p>
+              <p>Search for material contrary authority rather than presenting only cases supporting enforcement.</p>
+              <p>After the research table, draft a short argument based only on authorities identified in the table. Separate the authorities' holdings from your own analysis.</p>
+              <p>This output is research assistance. The responsible attorney must independently validate every authority and retain the final legal judgment.</p>
+            </div>
+
+            <p>The teaching appears in the reasoning, and the safeguards also operate inside the prompt.</p>
+
+            <h4>4. After-the-answer instruction</h4>
+
+            <p>The final screen should have a separate user-facing panel. This part is not copied into the model prompt.</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">Before relying on the answer</p>
+              <ul>
+                <li>Find every case in an approved research source.</li>
+                <li>Confirm that the case says what the answer claims.</li>
+                <li>Check the quoted language and cited page.</li>
+                <li>Check negative treatment and subsequent history.</li>
+                <li>Confirm that the court and date fit the intended use.</li>
+                <li>Search independently for material contrary authority.</li>
+              </ul>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">Bring it back if</p>
+              <ul>
+                <li>A citation cannot be found.</li>
+                <li>A case does not support the stated proposition.</li>
+                <li>Negative treatment changes the analysis.</li>
+                <li>The answer omits relevant adverse authority.</li>
+                <li>The authorities are real but the final argument overstates them.</li>
+              </ul>
+            </div>
+
+            <p>Paste only the citation, the questionable sentence, and any verified source passage necessary to diagnose the problem. The user now knows what failure looks like and how to recover from it.</p>
+
+            <h3>What happens when the user returns</h3>
+
+            <p>Suppose the answer cites a real case, but the case does not support the proposition. The user presses Fix this result and pastes:</p>
+
+            <blockquote class="eu-quote">
+              <p>AI answer: "Smith v. Jones establishes that customer non-solicitation provisions are routinely enforceable."</p>
+              <p>Verified source: The court declined to enforce the provision because it was geographically overbroad.</p>
+            </blockquote>
+
+            <p>O'Mono already knows:</p>
+
+            <ul>
+              <li>The original task.</li>
+              <li>Which lesson was shown.</li>
+              <li>Which safeguards were included.</li>
+              <li>Which model and system were selected.</li>
+              <li>Whether the user edited or removed a safeguard.</li>
+              <li>What the final prompt required.</li>
+            </ul>
+
+            <p>O'Mono responds:</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">What failed</p>
+              <p>The authority appears to be real, but the answer overstated its holding. This is a proposition-support failure, not merely a missing citation.</p>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">Why the original safeguard was insufficient</p>
+              <p>The prompt required the model to state the proposition supported by each case, but the model still mischaracterized the decision.</p>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">What will reduce this failure</p>
+              <p>Use verified excerpts from the case as the source material. Ask the model to analyze only those excerpts rather than reconstructing the holding from memory or incomplete retrieval.</p>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">Next step</p>
+              <p>Paste the verified passage and any relevant surrounding text. O'Mono will rebuild the analysis prompt using the source language as the controlling input.</p>
+            </div>
+
+            <p>The revised prompt might say:</p>
+
+            <div class="eu-prompt">
+              <p>Using only the supplied verified excerpt, explain:</p>
+              <ul>
+                <li>What the court held.</li>
+                <li>Why it declined to enforce the provision.</li>
+                <li>Which facts were material.</li>
+                <li>Whether the decision supports, limits, or contradicts the proposed argument.</li>
+              </ul>
+              <p>Do not rely on knowledge outside the supplied excerpt.</p>
+            </div>
+
+            <p>This is teaching through diagnosis and repair.</p>
+
+            <h3>What O'Mono records</h3>
+
+            <p>It does not need to export the client facts, original request, answer, citation, or source passage. It can record categories such as:</p>
+
+            <div class="omono-map" role="table" aria-label="Categories O'Mono records and an example of each">
+              <div class="omono-map__head" role="row">
+                <span role="columnheader">Recorded fact</span>
+                <span role="columnheader">Example</span>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Task type</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Legal research</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Risk shown</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Authority may be mischaracterized</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Lesson shown</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Confirm proposition against source</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Control inserted</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Proposition-by-authority table</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Control retained by user</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Yes</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Destination</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>General language model</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>User returned with failure</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Yes</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Failure category</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Real authority, wrong proposition</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Failure occurred despite control</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Yes</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Repair</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Ground analysis in verified excerpt</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">Recorded fact</span>Later recurrence</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">Example</span>Yes or no</p>
+              </div>
+            </div>
+
+            <h3>How to interpret repeated returns</h3>
+
+            <p>Repeated use of O'Mono means nothing by itself. The user may understand the lesson and still use the tool because it is convenient. The important signal is repeated preventable failure.</p>
+
+            <div class="omono-map" role="table" aria-label="What happened in the record and what it likely means">
+              <div class="omono-map__head" role="row">
+                <span role="columnheader">What happened</span>
+                <span role="columnheader">What it likely means</span>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>The lesson was shown, but the user removed the safeguard; the same failure returned</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Possible learning gap</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>The lesson was shown, the safeguard remained, and the model still failed</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Model, system, or workflow problem</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>The user returned because verification caught a problem</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Evidence that the user followed the lesson</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>The user repeatedly uses O'Mono but reports no failure</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Convenience; no conclusion about learning</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>A different safeguard consistently prevents the failure</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Evidence about what the curriculum should teach</p>
+              </div>
+
+              <div class="omono-map__row" role="row">
+                <p class="omono-map__control" role="cell"><span class="omono-map__label">What happened</span>Many users experience the same failure despite following instructions</p>
+                <p class="omono-map__req" role="cell"><span class="omono-map__label">What it likely means</span>Organizational tool or process problem, not user illiteracy</p>
+              </div>
+            </div>
+
+            <h3>How this builds a real curriculum</h3>
+
+            <p>The curriculum is built from failure-and-repair patterns, not from accumulated slogans. Suppose the aggregate record shows:</p>
+
+            <ul>
+              <li>120 legal research tasks.</li>
+              <li>O'Mono warned about citation reliability in 95.</li>
+              <li>Users returned with 31 citation-related failures.</li>
+              <li>In 22, the citation existed but did not support the proposition.</li>
+              <li>Generic "provide citations" instructions did not reduce the failure.</li>
+              <li>Requiring exact source passages reduced the failure.</li>
+              <li>Using verified passages as input reduced it further.</li>
+              <li>Good-law problems still required an approved citator.</li>
+            </ul>
+
+            <p>That produces a real curriculum module:</p>
+
+            <div class="eu-panel">
+              <p class="eu-panel__label">Module: why a real citation can still produce a false legal proposition</p>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">What users need to understand</p>
+              <ul>
+                <li>Existence, proposition support, quotation accuracy, jurisdictional fit, and good-law status are different questions.</li>
+                <li>A citation requirement does not solve all five.</li>
+                <li>A general language model and a legal citator perform different functions.</li>
+              </ul>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">What users should do</p>
+              <ul>
+                <li>Require the proposition supported by each authority.</li>
+                <li>Open and read the source.</li>
+                <li>Compare the answer with the source language.</li>
+                <li>Use an approved citator for treatment.</li>
+                <li>Give the model verified source text when precision matters.</li>
+              </ul>
+              <p class="eu-panel__label" style="margin-top: 1.2rem;">What the evidence showed</p>
+              <ul>
+                <li>Asking for citations did not prevent mischaracterization.</li>
+                <li>Source-grounded analysis reduced it.</li>
+                <li>Current authority status still required a different system.</li>
+              </ul>
+            </div>
+
+            <p>That teaches something substantive. It came from actual work, actual failures, and the measures that reduced those failures.</p>
+
+            <h3>The final model</h3>
+
+            <p>O'Mono teaches at four moments:</p>
+
+            <ul>
+              <li>Before the prompt: "This type of task commonly fails in these ways."</li>
+              <li>With the reasoning: "I added these protections because each prevents a specific failure."</li>
+              <li>After the prompt: "Verify these things before relying on the result."</li>
+              <li>When something fails: "Bring back this specific material; I will diagnose the failure and change the workflow."</li>
+            </ul>
+
+            <p>The resulting curriculum answers:</p>
+
+            <ul>
+              <li>What types of work are failing?</li>
+              <li>Why are they failing?</li>
+              <li>Which warnings users receive?</li>
+              <li>Which protections reduce the failure?</li>
+              <li>Which failures remain even after users follow the guidance?</li>
+              <li>Which problems require education?</li>
+              <li>Which require a better model, system, workflow, or organizational control?</li>
+            </ul>
+
+            <p>That is materially stronger than counting recurring rules of thumb.</p>
+
+            <h3>Note</h3>
+
+            <div class="article__notes">
+              <ol start="7">
+                <li id="note-7">O'Mono, <em>How It Works</em>, version 2.17, internal document. <a href="#ref-7" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              </ol>
+            </div>
+
+          </section>
+
+          <div class="article__cta">
+            <a href="/contact/" class="btn">Discuss this analysis</a>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <a class="eu-jump eu-jump--float" href="#enterprise-update" id="eu-jump-float" aria-hidden="true" tabindex="-1">
+    Enterprise Update
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M5.5 12.5 12 19l6.5-6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__text">Scroll</span>
+    <div class="scroll-indicator__line"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/animations.js"></script>
+  <script>
+    /* The floating jump pill. It is offered only while it is useful: after the
+       inline pill at the head of the article has scrolled out of view, and
+       before the reader has reached the update it points at. Hidden from the
+       accessibility tree and from tab order until it is actually on screen, so
+       it never becomes a duplicate of the inline link for keyboard and screen
+       reader users. */
+    (function () {
+      var inline = document.getElementById('eu-jump-inline');
+      var float = document.getElementById('eu-jump-float');
+      var target = document.getElementById('enterprise-update');
+      if (!inline || !float || !target || !('IntersectionObserver' in window)) return;
+
+      var pastInline = false;
+      var atTarget = false;
+
+      function apply() {
+        var show = pastInline && !atTarget;
+        float.classList.toggle('is-visible', show);
+        float.setAttribute('aria-hidden', show ? 'false' : 'true');
+        float.setAttribute('tabindex', show ? '0' : '-1');
+      }
+
+      new IntersectionObserver(function (entries) {
+        pastInline = !entries[0].isIntersecting;
+        apply();
+      }, { rootMargin: '-80px 0px 0px 0px' }).observe(inline);
+
+      new IntersectionObserver(function (entries) {
+        atTarget = entries[0].isIntersecting;
+        apply();
+      }, { rootMargin: '0px 0px -55% 0px' }).observe(target);
+    })();
+  </script>
+<script data-goatcounter="https://jhmacal.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
