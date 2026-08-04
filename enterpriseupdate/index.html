@@ -510,6 +510,31 @@
       margin: 0 0 1.4rem;
     }
 
+    /* /style.css leaves .article__body ul on the browser disc marker. Circle
+       bullets are out under the brand rules, so every unordered list in the
+       update takes the same short gold rule the triad cards use. Ordered lists
+       are untouched, so the note at the foot keeps its number. */
+    .article__body .eu-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .article__body .eu-section ul li {
+      position: relative;
+      padding-left: 0.95rem;
+    }
+
+    .article__body .eu-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+
     /* The worked example runs four phases under one h3, so it needs a fourth
        level. /style.css stops at h3, which would leave these at browser
        default and heavier than the h3 above them. */
@@ -821,6 +846,11 @@
 
       .article__body .eu-section h4 {
         color: #333333 !important;
+      }
+
+      .article__body .eu-section ul li::before {
+        background: #5d4618 !important;
+        opacity: 1;
       }
     }
   </style>
