@@ -133,6 +133,12 @@
     @media(max-width:760px){.ag-flow{grid-template-columns:1fr}.ag-arrow{transform:rotate(90deg);justify-self:center}.ag-pill{min-width:0}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 
+    /* The workflow decomposition ships two surfaces. The screen keeps the
+       filterable list; paper gets .wf-paper, a static table that carries the
+       same nine steps and the four definitions the filter reveals on click.
+       Screen never renders it, so the online page is unchanged. */
+    @media screen{.wf-paper{display:none!important}}
+
     /* ============================================================
        PRINT. The study's widgets carry their own navy-anchored custom
        properties and hard-coded rgba inks, which the shared print sheet
@@ -207,32 +213,63 @@
       .entity-detail strong{color:#111111!important}
       .entity-detail p{color:#333333!important}
 
-      /* workflow decomposition: the filter buttons are an on-screen control,
-         so paper gets the complete list at reading weight instead */
+      /* workflow decomposition: the filter row, the step cards, and the panel
+         the filter rewrites are all on-screen controls, so paper drops them
+         and prints .wf-paper instead: one table, the nine steps in order, the
+         kind of work banded down the right edge, definitions underneath. */
       /* Held whole: at this size the decomposition fits one page, and keeping
          it together costs no extra page. */
       .workflow-tool{
         margin:.16in 0!important;padding:.12in!important;
         page-break-inside:avoid;break-inside:avoid;
       }
-      .toggle-group{display:none!important}
-      .workflow-rows{gap:3px!important}
-      .workflow-row{
-        border-color:#d0d0d0!important;background:#ffffff!important;
-        padding:5px 8px!important;gap:8px!important;
+      .toggle-group,.workflow-rows,.adoption-note,.tool-heading h3{display:none!important}
+
+      .wf-paper{display:block!important}
+      .wf-paper__caption{
+        font-family:var(--jm-display);font-size:11.5pt!important;line-height:1.25!important;
+        color:#111111!important;margin:0 0 .13in!important;
+        page-break-after:avoid;break-after:avoid;
+      }
+      .wf-paper__table{display:block}
+      .wf-paper__row{
+        display:grid;grid-template-columns:.26in minmax(0,1fr) 1.45in;
+        gap:.1in;align-items:start;padding:3.4pt 0;
         page-break-inside:avoid;break-inside:avoid;
       }
-      .workflow-row.is-dimmed{display:grid!important}
-      .workflow-row.is-matched{background:#ffffff!important;border-color:#d0d0d0!important}
-      .workflow-row strong{font-size:9pt!important;color:#111111!important}
-      .workflow-row small{font-size:7.6pt!important;color:#333333!important;line-height:1.35}
-      .workflow-number{font-size:11pt!important;color:#5d4618!important}
-      .work-badge{font-size:6.4pt!important;color:#5d4618!important}
-      .adoption-note{
-        border-left-color:#6f5620!important;color:#333333!important;
-        font-size:8pt!important;padding:.08in .1in!important;margin:.12in 0 0!important;
+      .wf-n{
+        font-family:var(--jm-display);font-size:11pt;line-height:1.15;
+        color:#5d4618;text-align:right;
       }
-      [data-work-panel]{font-size:8pt!important}
+      .wf-step{display:block}
+      .wf-step strong{
+        display:block;font-size:9pt;font-weight:600;color:#111111;line-height:1.2;
+      }
+      .wf-step small{
+        display:block;font-size:7.6pt;color:#333333;line-height:1.35;margin-top:1.5pt;
+      }
+      .wf-kind{
+        display:block;font-size:6.2pt;font-weight:600;line-height:1.35;
+        letter-spacing:.11em;text-transform:uppercase;text-align:center;
+        padding:2.6pt 4pt;
+      }
+      .k-language{background:#e9eef5;color:#2f3d51}
+      .k-retrieval{background:#e6efea;color:#2b4438}
+      .k-judgment{background:#eeebf4;color:#3b3550}
+      .k-configuration{background:#ededf0;color:#3a3a42}
+
+      .wf-paper__defs{
+        display:grid;grid-template-columns:1fr 1fr;gap:.12in .18in;
+        margin-top:.14in;padding-top:.11in;border-top:1px solid #d5d5d5;
+      }
+      .wf-def{page-break-inside:avoid;break-inside:avoid}
+      .wf-def .wf-kind{
+        display:inline-block;margin-bottom:3.5pt;padding:2.2pt 5pt;text-align:left;
+      }
+      .wf-def p{
+        font-size:7.8pt!important;line-height:1.4!important;color:#333333!important;
+        margin:0!important;
+      }
 
       /* flowcharts: presentation-attribute ink does not respond to the
          shared sheet, so each fill and stroke is re-declared for paper */
@@ -396,6 +433,26 @@
         <button type="button" class="workflow-row" data-work="configuration"><span class="workflow-number">9</span><span><strong>Configure billing terms</strong><small>Pass: validated configurations clear; sampling replaces per-instance checks</small></span><span class="work-badge">Deterministic configuration</span></button>
       </div>
       <p class="adoption-note" data-work-panel>Four kinds of work run these nine steps. Language produces wording and fails by fluency. Source-backed retrieval produces facts that arrive holding their records and fails silently when a name arrives without one. Legal judgment is the attorney's call on the assembled evidence. Deterministic configuration applies rules the firm has already made.</p>
+      <div class="wf-paper" aria-hidden="true">
+        <p class="wf-paper__caption">Nine steps, sorted by the kind of work each performs. Placements follow what automation teams usually propose.</p>
+        <div class="wf-paper__table">
+          <div class="wf-paper__row"><span class="wf-n">1</span><span class="wf-step"><strong>Identify parties</strong><small>Pass: sources match client records clearly; Hold: new or ambiguous parties route</small></span><span class="wf-kind k-language">Language</span></div>
+          <div class="wf-paper__row"><span class="wf-n">2</span><span class="wf-step"><strong>Normalize names</strong><small>Pass: variants below the materiality threshold (too small to change the search) clear and log; Hold: material variants route</small></span><span class="wf-kind k-language">Language</span></div>
+          <div class="wf-paper__row"><span class="wf-n">3</span><span class="wf-step"><strong>Expand the company family</strong><small>Pass: source-linked relationships clear; Hold: unsourced completions and discrepancies route</small></span><span class="wf-kind k-retrieval">Source-backed retrieval</span></div>
+          <div class="wf-paper__row"><span class="wf-n">4</span><span class="wf-step"><strong>Search conflicts records</strong><small>Pass: deterministic search of the system of record; Hold: coverage failures route as degraded</small></span><span class="wf-kind k-retrieval">Source-backed retrieval</span></div>
+          <div class="wf-paper__row"><span class="wf-n">5</span><span class="wf-step"><strong>Summarize each hit</strong><small>Pass: plainly non-adverse hits clear with sources; Hold: anything touching adversity routes</small></span><span class="wf-kind k-language">Language</span></div>
+          <div class="wf-paper__row"><span class="wf-n">6</span><span class="wf-step"><strong>Assess adversity</strong><small>Hold by design: the attorney assesses; the system delivers the organized evidence</small></span><span class="wf-kind k-judgment">Legal judgment</span></div>
+          <div class="wf-paper__row"><span class="wf-n">7</span><span class="wf-step"><strong>Decide clearance</strong><small>Hold by design: the attorney decides; the call stays with counsel</small></span><span class="wf-kind k-judgment">Legal judgment</span></div>
+          <div class="wf-paper__row"><span class="wf-n">8</span><span class="wf-step"><strong>Approve engagement letter</strong><small>Pass: drafts from the approved template; Hold by design: release waits for the attorney</small></span><span class="wf-kind k-language">Language</span></div>
+          <div class="wf-paper__row"><span class="wf-n">9</span><span class="wf-step"><strong>Configure billing terms</strong><small>Pass: validated configurations clear; sampling replaces per-instance checks</small></span><span class="wf-kind k-configuration">Deterministic configuration</span></div>
+        </div>
+        <div class="wf-paper__defs">
+          <div class="wf-def"><span class="wf-kind k-language">Language</span><p>Language work produces wording: a party list drafted from an email, a proposed variant, a summary of an authorized record, a letter filled from an approved template. It fails by fluency, because a well-written draft and an accurate one look identical until someone opens the source. Steps 1, 2, and 5 clear with the source in view and log what they accept; step 8 waits for the attorney because a released letter can communicate acceptance.</p></div>
+          <div class="wf-def"><span class="wf-kind k-retrieval">Source-backed retrieval</span><p>Source-backed retrieval answers a factual question from named records, and the answer arrives holding the record that produced it: the registry, the date, the relationship the source states. At step 3 that evidence builds the company family; at step 4 the search runs inside the firm's system of record (its own conflicts database). It fails silently when a name arrives without a source, which is how the Singapore name enters the opening screen. Source-linked relationships clear into the search set; unsourced completions and unresolved discrepancies route to the reviewer.</p></div>
+          <div class="wf-def"><span class="wf-kind k-judgment">Legal judgment</span><p>Legal judgment is the attorney's call: adversity at step 6, and clearance, conditions, waiver, or decline at step 7. The rules on current clients, former clients, imputation, and prospective clients place the decision with a licensed person, and ABA Formal Opinion 512 keeps supervision there when AI enters the workflow. Nothing clears automatically at these two steps, by design. The system's work ends at organized evidence delivered to the person who owns the decision.</p></div>
+          <div class="wf-def"><span class="wf-kind k-configuration">Deterministic configuration</span><p>Deterministic configuration applies rules the firm has already made: rates, required fields, and outside counsel requirements (the billing and staffing rules clients impose on their firms) exist as versioned rules with one correct output for a given matter, so the system applies the rule and validation confirms the application against the current version. No drafting and no judgment enter step 9. Validated configurations clear, sampling audits stand in for per-instance verification, and validation failures route to an owner.</p></div>
+        </div>
+      </div>
     </div>
 <p>Steps 6 and 7 stay with the attorney: the conflict rules place adversity and clearance with a licensed person, and ABA Formal Opinion 512 holds supervision there when AI enters the workflow.<sup><a href="#fn1" id="ref1">1</a></sup> An attorney at those two steps lets everything upstream clear on evidence rather than wait on review: the volume lives at steps 1 through 5, 8, and 9, where source-linked work moves without a person in the path; the consequence lives at 6 and 7, where one person decides with the assembled record in front of them.</p>
 </section>
