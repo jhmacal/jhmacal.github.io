@@ -246,6 +246,10 @@ footer{border-top:1px solid var(--jm-rule);padding:64px 0 54px;margin-top:40px}
   .cue{transform:none!important}
   h1 .ln i{opacity:1!important;transform:none!important}
 }
+
+.lnk.lnk--ai{color:var(--gold,#c9a961)}
+.nav__new{display:inline-flex;align-items:center;margin-left:8px;font-family:var(--jm-util);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#c9a961);border:1px solid rgba(201,169,97,.55);border-radius:2px;padding:2px 5px;line-height:1;vertical-align:middle}
+.nav__new[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -256,9 +260,9 @@ footer{border-top:1px solid var(--jm-rule);padding:64px 0 54px;margin-top:40px}
     <a href="/" class="mark">Home</a>
     <nav aria-label="Primary">
       <ul>
+        <li><a data-nav-ai class="lnk lnk--ai" href="/ai/">AI Portfolio <span class="nav__new" data-nav-new hidden>New</span></a></li>
         <li><a class="lnk" href="/writing/">Articles</a></li>
         <li><a class="lnk" href="/studies/">Case Studies</a></li>
-        <li><a class="lnk" href="/ai/">AI Portfolio</a></li>
         <li><a class="lnk" href="/resume/">Resume</a></li>
         <li><a class="lnk" href="/books/">Books</a></li>
       </ul>

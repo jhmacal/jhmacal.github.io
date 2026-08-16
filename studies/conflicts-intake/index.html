@@ -361,11 +361,11 @@
     <div class="nav__inner">
       <a href="/" class="nav__monogram">Home</a>
       <ul class="nav__links">
-        <li><a href="/writing/">Articles</a></li>
-        <li><a href="/studies/" class="active" aria-current="page">Case Studies</a></li>
-        <li><a href="/ai/">AI Portfolio</a></li>
-        <li><a href="/resume/">Resume</a></li>
-        <li><a href="/books/">Books</a></li>
+        <li><a data-nav-ai class="nav__link--ai" href="/ai/">AI Portfolio <span class="nav__new" data-nav-new hidden>New</span></a></li>
+          <li><a href="/writing/">Articles</a></li>
+          <li><a href="/studies/" class="active" aria-current="page">Case Studies</a></li>
+          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/books/">Books</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
@@ -700,5 +700,6 @@
 
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+  <script src="/js/latest.js" defer></script>
 </body>
 </html>

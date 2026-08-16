@@ -48,10 +48,20 @@
 
         /* ---- AI page: mark the top row New until seen, then remember ---- */
         var row = document.querySelector('[data-ai-top]');
+        var onAiPage = !!row;
         if (row) {
           if (get(K_AI) !== aiLatest.id) row.classList.add('is-new');
-          set(K_AI, aiLatest.id); // seen on this visit; clears for next time
         }
+
+        /* ---- Nav: 'New' on the AI Portfolio menu item, every page ---- */
+        var navAi = document.querySelector('[data-nav-ai]');
+        if (navAi) {
+          var navBadge = navAi.querySelector('[data-nav-new]');
+          if (navBadge) navBadge.hidden = onAiPage || (get(K_AI) === aiLatest.id);
+        }
+
+        // Mark the AI page seen last, so the nav check above still reflects the prior visit.
+        if (onAiPage) set(K_AI, aiLatest.id);
       })
       .catch(function () { /* offline or blocked: baked-in HTML defaults remain */ });
   });

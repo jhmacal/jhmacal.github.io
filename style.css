@@ -2575,3 +2575,11 @@ input[type='range']::-moz-range-track {
     content: none !important;
   }
 }
+
+
+/* ---- AI Portfolio nav highlight (added) ---- */
+.nav__links li a.nav__link--ai { color: var(--gold); }
+.nav__new { display:inline-flex; align-items:center; margin-left:8px; font-family:'Inter',system-ui,sans-serif;
+  font-size:8.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+  border:1px solid rgba(201,169,97,.55); border-radius:2px; padding:2px 5px; line-height:1; vertical-align:middle; }
+.nav__new[hidden] { display:none; }
