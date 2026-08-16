@@ -1,0 +1,43 @@
+name: Regenerate Latest
+
+# Runs on every push that could change what "Latest" should be. It regenerates the
+# homepage strip from artifacts.json and fails if a new study/article was published
+# without being registered. The regenerated index.html is committed back with
+# [skip ci], and index.html is not in the trigger paths, so this never loops.
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'artifacts.json'
+      - 'studies/**'
+      - 'writing/**'
+      - 'ai/**'
+      - 'scripts/build-latest.js'
+
+permissions:
+  contents: write
+
+jobs:
+  latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Regenerate strip + guard against unregistered pages
+        run: node scripts/build-latest.js
+
+      - name: Commit regenerated Latest strip
+        run: |
+          if [ -n "$(git status --porcelain index.html)" ]; then
+            git config user.name "jhmacal-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "chore: regenerate Latest strip [skip ci]"
+            git push
+          else
+            echo "Latest strip already current — nothing to commit."
+          fi
