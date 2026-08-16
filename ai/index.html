@@ -14,6 +14,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
   <link rel="stylesheet" href="/atmosphere.css">
+  <style>
+    .ai-work-row__new{display:none;align-items:center;gap:6px;font-family:"Inter",system-ui,sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold,#c9a961);border:1px solid rgba(201,169,97,.55);border-radius:2px;padding:3px 6px;line-height:1;vertical-align:middle;margin-left:10px}
+    .ai-work-row.is-new .ai-work-row__new{display:inline-flex}
+    .ai-work-row.is-new{box-shadow:inset 3px 0 0 var(--gold,#c9a961);background:rgba(201,169,97,.05)}
+  </style>
 </head>
 <body>
 
@@ -55,9 +60,9 @@
           <span>Artifact</span>
           <span>Operating evidence</span>
         </div>
-        <a href="/writing/prompt-engineering-omono/" class="ai-work-row fade-in">
+        <a href="/writing/prompt-engineering-omono/" class="ai-work-row fade-in" data-ai-top data-latest-id="omono-2026-07">
           <span class="ai-work-row__status">Enablement &amp; Teaching</span>
-          <span class="ai-work-row__title">Prompt Engineering (O'Mono)</span>
+          <span class="ai-work-row__title">Prompt Engineering (O'Mono) <span class="ai-work-row__new" data-latest-new>New</span></span>
           <span class="ai-work-row__body">A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.</span>
         </a>
         <a href="/studies/conflicts-intake/" class="ai-work-row fade-in">
@@ -146,6 +151,7 @@
 
   <script src="/js/nav.js"></script>
   <script src="/js/animations.js"></script>
+  <script src="/js/latest.js" defer></script>
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

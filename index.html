@@ -114,6 +114,29 @@ h1 .ln:last-child i{text-indent:.06em}
 .intro p.big{font-family:var(--jm-display);font-size:clamp(21px,2.5vw,31px);line-height:1.44;font-weight:400;max-width:24ch;color:var(--jm-text)}
 .intro .side{font-size:15.5px;color:var(--jm-text-dim);max-width:46ch;padding-top:10px}
 
+/* ---------- latest strip (bold) ---------- */
+.latest{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-top:46px;
+  text-decoration:none;padding:22px 26px;border:1px solid rgba(201,169,97,.5);border-left:3px solid var(--gold,#c9a961);
+  border-radius:3px;overflow:hidden;
+  background:linear-gradient(100deg,rgba(201,169,97,.20),rgba(201,169,97,.06) 60%,rgba(201,169,97,0));
+  box-shadow:inset 0 1px 0 rgba(232,227,214,.05);
+  transition:padding-left .5s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.latest:hover{padding-left:34px;box-shadow:inset 0 1px 0 rgba(232,227,214,.08),0 0 0 1px rgba(201,169,97,.2)}
+.latest__kicker{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.latest__lab{font-family:var(--jm-util);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#c9a961)}
+.latest__new{display:inline-flex;align-items:center;gap:6px;font-family:var(--jm-util);font-size:8.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold,#c9a961);border:1px solid rgba(201,169,97,.55);border-radius:2px;padding:3px 6px;line-height:1}
+.latest__new[hidden]{display:none}
+.latest__dot{width:4px;height:4px;border-radius:50%;background:var(--gold,#c9a961);animation:jm-breathe 3s ease-in-out infinite}
+@keyframes jm-breathe{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+.latest__txt{font-family:var(--jm-display);font-weight:400;font-size:clamp(20px,2.5vw,30px);letter-spacing:-.012em;color:var(--gold,#c9a961);line-height:1.12}
+.latest__meta{font-family:var(--jm-util);font-size:11.5px;color:var(--jm-text-faint);margin-top:9px}
+.latest__arw{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.latest__arw i{display:block;width:52px;height:1px;background:var(--gold,#c9a961);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.latest:hover .latest__arw i{transform:scaleX(1.4)}
+.latest__arw span{font-family:var(--jm-util);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#c9a961)}
+@media(max-width:760px){.latest{flex-direction:column;align-items:flex-start;gap:16px}.latest__arw i{width:40px}}
+@media(prefers-reduced-motion:reduce){.latest__dot{animation:none}}
+
 /* ---------- sections ---------- */
 .section{padding:104px 0;border-top:1px solid var(--jm-rule-soft)}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:56px}
@@ -267,9 +290,24 @@ footer{border-top:1px solid var(--jm-rule);padding:64px 0 54px;margin-top:40px}
   </section>
 
   <section class="intro">
-    <div class="wrap lede">
-      <p class="big rv">Senior attorney in New York, specialized in IP and IT Law, designing legal workflows on AI.</p>
-      <p class="side rv">Decomposes workflows, designs the steps that should be rebuilt on retrieval and language models, and integrates the result into the tools, driving adoption through ordinary use. Embeds the controls underneath so the speed survives review and earns attorneys trust, optimizing enablement.</p>
+    <div class="wrap">
+      <div class="lede">
+        <p class="big rv">Senior attorney in New York, specialized in IP and IT Law, designing legal workflows on AI.</p>
+        <p class="side rv">Decomposes workflows, designs the steps that should be rebuilt on retrieval and language models, and integrates the result into the tools, driving adoption through ordinary use. Embeds the controls underneath so the speed survives review and earns attorneys trust, optimizing enablement.</p>
+      </div>
+      <!-- LATEST:start -->
+      <a class="latest rv" href="/writing/prompt-engineering-omono/" data-latest data-latest-id="omono-2026-07">
+        <div class="latest__l">
+          <div class="latest__kicker">
+            <span class="latest__lab">Latest</span>
+            <span class="latest__new" data-latest-new hidden><span class="latest__dot"></span>New</span>
+          </div>
+          <div class="latest__txt" data-latest-title>Prompt Engineering (O'Mono)</div>
+          <div class="latest__meta" data-latest-meta>Article · Enablement &amp; teaching · Jul 2026</div>
+        </div>
+        <span class="latest__arw"><i></i><span>Read</span></span>
+      </a>
+      <!-- LATEST:end -->
     </div>
   </section>
 
@@ -299,15 +337,6 @@ footer{border-top:1px solid var(--jm-rule);padding:64px 0 54px;margin-top:40px}
         <div><h3>Governance</h3><span class="tag">The edge</span></div>
         <p>Designs the controls, decision records, and release gates that let a firm move quickly without losing the audit trail. Governance built to keep adoption defensible instead of slowing it down.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="featured">
-    <div class="wrap">
-      <a href="/studies/conflicts-intake/" class="rv">
-        <span class="txt">Latest: Workflow Automation, Conflicts and New Matter Intake</span>
-        <span class="arw"><i></i><span>Read</span></span>
-      </a>
     </div>
   </section>
 
@@ -453,6 +482,7 @@ if(!reduce){
 })();
 </script>
 
+<script src="/js/latest.js" defer></script>
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

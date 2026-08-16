@@ -1,0 +1,64 @@
+{
+  "_comment": "Single source of truth for the homepage Latest strip and the AI Portfolio NEW marker. Newest first. When you publish a new study or article, add an entry at the TOP. Drafts (dirs not yet public) go in 'drafts' so the build guard stays quiet.",
+  "artifacts": [
+    {
+      "id": "omono-2026-07",
+      "title": "Prompt Engineering (O'Mono)",
+      "url": "/writing/prompt-engineering-omono/",
+      "kind": "Article",
+      "meta": "Article · Enablement & teaching · Jul 2026",
+      "date": "2026-07-29",
+      "onAI": true
+    },
+    {
+      "id": "conflicts-2026-07",
+      "title": "Workflow Automation: Conflicts and New Matter Intake",
+      "url": "/studies/conflicts-intake/",
+      "kind": "Case study",
+      "meta": "Case study · Workflow decomposition · Jul 2026",
+      "date": "2026-07-27",
+      "onAI": true
+    },
+    {
+      "id": "ai-gov-business-2026-07",
+      "title": "AI Governance for Business Professionals",
+      "url": "/studies/ai-governance-for-business/",
+      "kind": "Case study",
+      "meta": "Case study · Regulatory framework · Jul 2026",
+      "date": "2026-07-27",
+      "onAI": true
+    },
+    {
+      "id": "legal-reasoning-2026-07",
+      "title": "Legal Reasoning as a Strategic Asset",
+      "url": "/writing/legal-reasoning/",
+      "kind": "Article",
+      "meta": "Article · Published system · Jul 2026",
+      "date": "2026-07-27",
+      "onAI": true
+    },
+    {
+      "id": "authority-2026-06",
+      "title": "The Authority",
+      "url": "/studies/the-authority/",
+      "kind": "Case study",
+      "meta": "Case study · Legal AI governance · Jun 2026",
+      "date": "2026-06-29",
+      "onAI": true
+    },
+    {
+      "id": "omnibus-2026-05",
+      "title": "AI Governance: the EU AI Act",
+      "url": "/writing/the-eu-ai-act-omnibus/",
+      "kind": "Article",
+      "meta": "Article · Regulatory map · May 2026",
+      "date": "2026-05-19",
+      "onAI": true
+    }
+  ],
+  "drafts": [
+    "writing/ai-governance-guide-non-legal-people",
+    "writing/the-constraint",
+    "writing/the-steepening"
+  ]
+}
