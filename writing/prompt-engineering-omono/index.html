@@ -139,6 +139,24 @@
       box-shadow: 0 16px 38px rgba(3, 8, 18, 0.5);
     }
 
+    .omono-figure figcaption {
+      margin: 0;
+      color: rgba(244, 237, 224, 0.48);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    /* The landing bar is a translucent PNG with its own rounded edge and its own
+       stroke. A rectangular frame would cut its corners and box empty alpha, so
+       the asset carries its own boundary and the CSS frame comes off. */
+    .omono-figure--hero img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
     .omono-figure--hero {
       margin-top: 0.25rem;
       margin-bottom: 2.9rem;
@@ -275,6 +293,16 @@
       .omono-figure:nth-of-type(8)::before  { content: 'Figure 8'; }
       .omono-figure:nth-of-type(9)::before  { content: 'Figure 9'; }
       .omono-figure:nth-of-type(10)::before { content: 'Figure 10'; }
+      .omono-figure:nth-of-type(11)::before { content: 'Figure 11'; }
+      .omono-figure:nth-of-type(12)::before { content: 'Figure 12'; }
+
+      .omono-figure figcaption {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: 8.5pt !important;
+        line-height: 1.35 !important;
+        color: #555555 !important;
+        margin: 0 !important;
+      }
 
       .omono-figure img {
         border: 0.5pt solid #d7d7d7 !important;
@@ -434,163 +462,173 @@
           <p class="article__byline">By Julio Macedo</p>
 
           <figure class="omono-figure omono-figure--hero">
-            <img src="/assets/prompt-engineering-omono/01-input-bar.png" alt="The O'Mono input bar reading 'Type the idea the way it comes,' with a Write button, Text and Image attachment controls, a prompt count on the ledger, and Restore, History and Settings controls">
+            <img src="/assets/prompt-engineering-omono/01-landing-input-bar.png" alt="The O'Mono landing bar reading 'Type the idea the way it comes,' with a Write button beside it and Attach, Purpose and Menu controls below">
+            <figcaption>The landing screen: one sentence in ordinary words enters here.</figcaption>
           </figure>
 
-          <p class="lede">An associate types a sentence about a training session she must run on Thursday, and seconds later reads why the system decided her prompt needed a Role, why it drafted an example but refused to include it, and what rule she could carry into the next prompt she writes.</p>
+          <p class="lede">An associate opens the desktop application, types one sentence about a training session she must run on Thursday, and names the AI application that will receive the finished prompt. O'Mono does not answer the training question or send the request to that destination. It returns the reasoning that will shape the prompt, including who should speak, what the audience and timing require, which assumptions need confirmation, and which drafted material should be cut before the model receives it.</p>
 
-          <p>Sixty-nine percent of legal professionals now use generative AI at work, and fifty-four percent of their firms provide no training and have no plans to provide any.<sup><a href="#note-1" id="ref-1">1</a></sup> Asked what they expect from new lawyers, seventy-six percent of practicing attorneys named cite-checking AI output and fourteen percent named prompt engineering, which leaves the skill that decides what the model produces near the bottom of what the profession has agreed to require.<sup><a href="#note-2" id="ref-2">2</a></sup> Tools like O'Mono live in that gap.</p>
+          <p>Legal professionals are already doing this work inside firms that often have not trained them. The 2026 Legal Industry Report finds that sixty-nine percent use general-purpose generative AI for work while fifty-four percent of firms provide no training and have no plans to provide it.<sup><a href="#note-1" id="ref-1">1</a></sup> Bloomberg Law reports that seventy-six percent of practicing attorneys expect new lawyers to cite-check AI output and fourteen percent expect prompt-engineering skill,<sup><a href="#note-2" id="ref-2">2</a></sup> leaving the instruction that shapes the first answer far less expected than the work required to verify it.</p>
 
-          <h2>1. The Final Product</h2>
+          <h2>1. The Prompt</h2>
+
+          <p>O'Mono assembles the request through eight fields: Role, Task, Context, Input, Constraints, Examples, Format, and Tone. Each field receives a verdict and a reason written for this input, dimmed chips preserve fields that were considered and cut, and the prompt below carries only the material that changes the result. When the task itself needs checks before reliance, a verification block follows the eight fields. The user then clicks the Copy button and pastes the finished prompt into the destination's own application.</p>
 
           <figure class="omono-figure">
             <img src="/assets/prompt-engineering-omono/02-eight-fields-prompt.png" alt="The generated prompt screen showing eight field chips for Role, Task, Context, Input, Constraints, Examples, Format and Tone, with Input and Examples dimmed, above the assembled prompt text and a Copy prompt control">
+            <figcaption>The finished prompt: eight field chips above the assembled text, two of them dimmed where the field was drafted and left out.</figcaption>
           </figure>
 
-          <p>Eight fields come back from a single sentence of input, two of them deliberately left out of the prompt itself, each one carrying a verdict on whether it belongs, a reason written for this input, and a rule of thumb built to travel.</p>
-
-          <p>The reason expires with the input that produced it. The rule of thumb is registered on the machine and outlives both, since it is written for somebody who no longer has the application in front of them.</p>
+          <p>When the associate opens a field decision, the reason stays tied to her audience, deadline, and destination, with a short rule of thumb drawn from that choice. Because the controlling fact remains visible, she knows which part of the request to revise when she disagrees.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/03-role-field-verdict.png" alt="The Role field marked advisable, showing the drafted role text, a Why explanation written for this input, and a rule of thumb about naming a role by who it teaches">
+            <img src="/assets/prompt-engineering-omono/03-role-field-advisable.png" alt="The Role field opened, with a 'Why it is in' panel explaining that the idea named the audience and the hour but left open who is speaking, and a rule of thumb about putting the reader's counterpart in the Role">
+            <figcaption>The Role field marked advisable: why the field belongs in this particular prompt, and the rule of thumb it teaches.</figcaption>
           </figure>
 
-          <p>With her own prompt in front of her, the associate reads that once and learns what a training module could have told her in the abstract and never made stick.</p>
+          <p>A field that loses its place does not disappear without explanation. O'Mono keeps the cut verdict beside the reason, so the associate can see why the example would have repeated the Format instruction and decide whether that judgment should stand.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/04-examples-omitted.png" alt="The Examples field marked inadvisable, showing the drafted example text that was cut, the reason for omitting it, and the rule of thumb that an example inventing facts is worse than no example">
+            <img src="/assets/prompt-engineering-omono/04-examples-inadvisable.png" alt="The Examples field opened, with a 'Why it is out' panel explaining that Format already fixes the shape of the running order, and a rule of thumb that an example earns its place only when a style or judgment call cannot be described in words">
+            <figcaption>The Examples field marked inadvisable: why the drafted example was cut, and the rule of thumb behind it.</figcaption>
           </figure>
 
-          <p>The application drafts an example, decides against including it, and shows her the draft anyway, with the reason for leaving it out and the rule of thumb that follows from it.</p>
+          <p>Opening Why expands the same decision record across the whole prompt, including fields kept, fields cut, and the task or destination fact that controlled each one. A person who disagrees can return to the specific decision instead of rebuilding the request from the beginning.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/05-reasoning-strategy.png" alt="The Reasoning view labelled overall strategy, explaining how the deliverable shape was fixed, why failure modes were supplied, and why the drafted examples were cut">
+            <img src="/assets/prompt-engineering-omono/05-reasoning-strategy.png" alt="The Why: 8 decisions view showing an Overall Strategy card, explaining what the prompt spends its budget on, how the deliverable shape was fixed early, and why one drafted example was cut">
+            <figcaption>The Reasoning view labeled Overall Strategy, explaining how the deliverable shape was fixed and why the drafted example was cut.</figcaption>
           </figure>
 
-          <p>Above the field level sits the construction strategy for the whole prompt, and a toggle appends all of it, strategy and verdicts and rules of thumb together, to whatever gets copied. The teaching travels wherever the prompt travels, to the colleague who receives it and into the matter file where it lands.</p>
+          <h2>2. One Screen Between Idea and Prompt</h2>
 
-          <h2>2. Data</h2>
-
-          <p>The average conversation with a general AI tool runs two prompts, while the heaviest five percent of users average eighteen.<sup><a href="#note-3" id="ref-3">3</a></sup> Two prompts is a question, a disappointing answer, and a person deciding the tool is not for them. Nobody files a ticket to report that, so the department never learns it happened.</p>
-
-          <p>I designed and redesigned O'Mono repeatedly to find out whether the enablement layer could carry more weight, and what follows is what the building taught me. The record here exists because I kept meeting the same corrections and had no way to tell which ones they were. A recurrence a person can feel but cannot name is not yet a curriculum.</p>
-
-          <p>Every prompt it generates stores its rules of thumb, and months of those entries, read together, describe what one person keeps getting wrong.</p>
+          <p>Before O'Mono writes, it returns one sentence showing how it read the request, lets the person overwrite that reading, lists the assumptions while they can still be corrected, and asks only questions whose answers would change the result. For this task, session length changes the running order, the desired outcome changes what the training must produce, and the approved tools constrain which examples the session may use.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/06-learning-record.png" alt="The Learning view header showing 26 prompts and 20 rated across 78 days, with the first ranked rule of thumb about naming the reader rather than the document type">
-            <img src="/assets/prompt-engineering-omono/07-learning-record-gone.png" alt="Lower in the Learning view, the fourth ranked rule about constraining by what the reader can do, followed by the rest of the record including an entry marked gone">
+            <img src="/assets/prompt-engineering-omono/06-confirmation-screen.png" alt="The 'Before I write it' screen showing how O'Mono read the task, an overwrite field, three questions on session length, intended outcome and approved tools with suggested answers, and three editable assumptions">
+            <figcaption>The confirmation screen: how O'Mono read the idea, the questions whose answers change the result, and the assumptions it is making, each one editable.</figcaption>
           </figure>
 
-          <p>Each entry carries a direction, and the entry at the foot of that view shows a rule marked gone, meaning it stopped appearing partway through the record and has not come back, which is the closest thing to evidence that somebody learned it.</p>
+          <p>Local screening runs before any network call, while the machine can still prevent a transmission. LayerX reports that nearly half of enterprise AI conversations use personal rather than managed corporate identities, more than fourteen percent of conversations on corporate identities are tied to personal AI licenses, and more than six percent carry sensitive data.<sup><a href="#note-4" id="ref-4">4</a></sup> An enterprise license cannot govern traffic it never sees.</p>
 
-          <p>Two phrasings of one rule fold into a single entry, since a view that counted them separately would measure vocabulary where it means to measure habit. The horizon runs to the last prompt in the log, not to today, so that a week away from the application cannot present itself as progress.</p>
-
-          <p>That record is mine, and what it changed is the part I can vouch for directly. My prompts now carry the parts I used to leave out. I number the tasks so the model does not skip one, I name a role when the work is specific enough that the answer depends on who gives it, and I supply the fields the model treats loosely before it asks for them. None of that arrived in a course. It came from reading, on my own work, why a field was judged weak, one prompt at a time.</p>
-
-          <p>A department that has run this for a year holds something no vendor can sell: a dated account of what its own people found hard, what they stopped finding hard, and roughly when the change happened.</p>
-
-          <h3>2.1 The Enterprise's Curriculum</h3>
-
-          <p>In the enterprise version an administrator reaches only the central folder of reports, one file for each installation, and the page that merges them states its limits before it states a number, so the page cannot be opened onto a person by any setting:</p>
+          <p>While the person makes those decisions, one lesson chosen for the task and destination sits in the same flow without demanding an answer. The card names the phenomenon, explains the mechanism, states what should follow from it, and cites its source; scrolling past it does not change the prompt or block generation.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/08-enterprise-view-limits.png" alt="The merged enterprise report page headed 'What this view can and cannot show,' listing three things the view reports and three things it cannot, including who wrote any prompt and what anybody was working on">
+            <img src="/assets/prompt-engineering-omono/07-lesson-card.png" alt="A lesson card headed 'AI can invent a citation with the confidence of someone who remembers the paper,' explaining the prediction mechanism beneath it, instructing the reader to treat every AI-supplied citation as unverified, and citing OpenAI model documentation">
+            <figcaption>One lesson card: a phenomenon in plain words, the mechanism beneath it, the instruction that follows, and the source it rests on.</figcaption>
           </figure>
 
-          <p>From the prose a prompt produces, only the rules of thumb leave the user's machine, filed against the eight prompt fields: Role, Task, Context, Input, Constraints, Examples, Format and Tone. The export names the wording of the rule as a single literal path and refuses every other field against it. What leaves the machine is what somebody needed to learn, and never what they were working on.</p>
+          <p>When the request would carry sensitive material, the same flow adds one advisory line and its reason. The line does not stop generation, and the interface exposes no redaction control; work continues after the person decides what to change before copying anything into another system.</p>
 
-          <p>Across an enterprise with hundreds of users and months of usage, the data becomes curriculum.</p>
+          <h2>3. The Teaching Layer</h2>
 
-          <h2>3. Privilege</h2>
+          <p>Article 4 has applied generally to providers and deployers since 2 February 2025, and the 2026 Digital Omnibus now requires them to take measures that support the development of AI literacy while considering the knowledge and experience of the people involved and the context in which the systems are used.<sup><a href="#note-5" id="ref-5">5</a></sup> O'Mono works at that level of specificity by shaping the questions and lesson around the task being written, with any safeguard tied to the same task and destination rather than to a session delivered months earlier.</p>
+
+          <p>While O'Mono assembles the prompt, the writing state rotates lesson hooks. The line comes from the current lesson set; every generated lesson must name the phenomenon, explain the mechanism plainly, state the consequence, and cite a source before it can enter that set.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/09-privilege-stop.png" alt="An on-device stop message reading that the prompt was stopped on your Mac before anything was sent, that it looks like it carries client or privileged material, and offering Redact, an override with a reason, or editing the text">
+            <img src="/assets/prompt-engineering-omono/08-lesson-hook-rotation.png" alt="The O'Mono input bar while writing, carrying the rotating lesson hook 'Every model's knowledge stops on a specific day, and it will not always tell you,' with a single Cancel control at the right">
+            <figcaption>The input bar mid-thinking, showing a standalone lesson hook in rotation and a single quiet Cancel.</figcaption>
           </figure>
 
-          <p>A prompt carrying sensitive terms or data, or attaching a protected document or image, stops on the machine before any request leaves it, and the message names what it found in ordinary language rather than in a class code the reader would have to look up. The attorney can also explain to a client what happens to a document inside the application, showing it live.</p>
+          <p>After the person copies a prompt into its destination, O'Mono asks whether the last prompt worked and keeps the unresolved outcome with the prompt until the person answers. Opening Verification shows prompts previous prompts where the user can verify the outcomes. The response joins the ledger without importing the destination's answer; choosing Failed can reopen the prompt for repair, while the failure reaches the curriculum only as a category.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/10-redact-choices.png" alt="The Redact screen showing two of two findings changed, a note that nothing has been sent and that tokens keep their meaning and come back through Restore, and per-finding choices of Placeholder, Delete, Generalize, My own text and Not that">
+            <img src="/assets/prompt-engineering-omono/09-outcome-cue.png" alt="The landing bar carrying a typed idea about a 30-minute AI training, with a 'Did your last prompt work?' cue sitting above the Menu pill and a count of three on the Menu control">
+            <figcaption>The outcome cue above the Menu pill on the landing screen.</figcaption>
           </figure>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/11-what-will-be-sent.png" alt="A 'What will be sent' panel showing the redacted prompt text, a 'Why this is the right call' panel noting that the replaced values are never recorded, and a line confirming the text was re-checked after redaction and is clear to send">
+            <img src="/assets/prompt-engineering-omono/10-verification-screen.png" alt="The 'Did your last prompt work?' screen listing three previous prompts, each with Worked, Partly and Failed controls and an Open button, one of them already marked Worked">
+            <figcaption>The Verification screen: prompts awaiting an answer, with one-tap outcomes of Worked, Partly, and Failed, and Open to reopen the prompt itself.</figcaption>
           </figure>
 
-          <p>The check runs with no network involved, because the machine is the only place a transmission can be prevented. Every block arrives with a way forward, since hard stops without an alternative are what push people into unapproved tools.</p>
+          <h2>4. The Record, and the Curriculum It Becomes</h2>
 
-          <p>LayerX's State of AI Usage Report 2026 finds that nearly half of all enterprise AI conversations happen through personal identities rather than managed corporate accounts, and that over 14 percent of conversations on corporate identities are tied to personal AI licenses. Enterprise-shaped products like Copilot M365 and Gemini Enterprise are used mostly through managed accounts, while ChatGPT and Claude stay dominated by personal use even inside companies that bought the enterprise version. More than 6 percent of those conversations carry sensitive data.<sup><a href="#note-4" id="ref-4">4</a></sup> The constraint layer is not redundant in a firm with enterprise licenses: it is aimed at exactly the traffic the enterprise license does not cover.</p>
+          <p>Each generation adds an immutable ledger entry for the shape of the work: task type, included fields, safeguards, and engine version, with no prompt content. A later outcome adds its own record against that generation, so Worked, Partly, or Failed can inform learning without rewriting the original entry.</p>
 
-          <h2>4. Embedded AI Governance Frameworks</h2>
+          <p>On one machine, those entries become the Learning view, where covered areas appear in sentences, the largest gap is named, and the record states what it cannot establish. In the illustrative enterprise view below, the aggregate record has produced four lessons from recurring failures, uncovered destinations, and fields people repeatedly left empty. A candidate enters only if it names the phenomenon, explains the mechanism in plain language, states the consequence, and cites a source. Personal lessons go live immediately. Enterprise lessons draw from aggregate deployment data, go live for everyone by default, and remain subject to retirement or review by an administrator.</p>
 
-          <p>Every control in the application traces to a published requirement, and the table below sets each one beside the requirement it answers.</p>
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/11-enterprise-lessons.png" alt="A panel headed 'New this month, written from your own record,' listing four lessons on agents, cited authorities, model behaviour across apps, and pasting into an AI, each marked LIVE with a Retire control and a line explaining what in the record produced it">
+            <figcaption>New lessons written from the deployment's own record: added automatically, live for everyone, and retired by an administrator who does not want one.</figcaption>
+          </figure>
 
-          <div class="omono-map" role="table" aria-label="Controls in the code and the requirements they answer">
+          <p>The illustrative export reports the period's prompt count, recorded teaching moments, areas taught, and outcomes returned. It shows the strongest and weakest areas as the share of people who met each one at least once, then places a short analysis and evidence-linked recommendations beneath the figures. The percentages measure recorded exposure rather than mastery.</p>
+
+          <p>Enterprise administrators receive aggregate results without individual drill-down or free text, and the export withholds any cell that counts fewer than five people. The limits sit on the same page as the figures they qualify, where a reader sees them before deciding what the numbers can support.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/12-curriculum-export.png" alt="The curriculum export showing 83,412 prompts by 1,438 people over three months, teaching moments, areas taught and outcomes reported, then the strongest and weakest areas by share of people, an analysis, three ranked recommendations, and a footer stating the aggregate-only limits">
+            <figcaption>The curriculum export: the quarter in numbers, the strongest and weakest areas, the analysis, and what to teach next.</figcaption>
+          </figure>
+
+          <p>When an enterprise aggregate moves a signal off a person's machine, it carries what the system needed to teach and never the prompt or answer that produced the signal. Over time, a department gains a dated account of where work created difficulty, which areas later improved, and roughly when the change occurred.</p>
+
+          <h2>5. Embedded AI Governance</h2>
+
+          <p>Each row in the table maps a product control to a legal duty, professional rule, framework function, or standard clause that the control may support. The mapping shows correspondence at the level of design; it does not establish that O'Mono, a deployment, or a user has satisfied every condition attached to the cited authority.</p>
+
+          <div class="omono-map" role="table" aria-label="Controls in the code and the authorities they correspond to">
             <div class="omono-map__head" role="row">
               <span role="columnheader">Control in the code</span>
-              <span role="columnheader">Requirement it answers</span>
+              <span role="columnheader">Correspondence</span>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Field-level verdicts, reasons, and rules of thumb, written in non-specialist language for teaching and enablement</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 4, AI literacy for staff operating AI systems, and ABA Model Rule 1.1 comment 8, technology competence</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The lesson layer: one reviewed card per prompt, field verdicts and reasons in non-specialist language, a canon across eighteen literacy domains</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>EU AI Act Article 4, AI literacy for staff operating AI systems, and ABA Model Rule 1.1 comment 8, technology competence</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Human confirmation before generation, a contestable recommendation, and an override that records its reason</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MAP 3.5, human oversight, and EU AI Act Article 26(2), deployer oversight by competent natural persons</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Human confirmation before generation: a contestable reading of the task, editable assumptions, and a real Cancel that aborts the work</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>NIST AI RMF MAP 3.5, human oversight, and EU AI Act Article 26(2), deployer oversight by competent natural persons</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Hash-chained append-only record of every generation, override, redaction, and outcome, with the engine version on each entry</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>EU AI Act Article 12(1), automatic event recording, Article 26(6), deployer log retention, GDPR Article 5(2), accountability, and Article 32(1)(b), integrity of processing systems, alongside ISO/IEC 42001 A.6.2.8, AI system event logs</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>A hash-chained, append-only record of every generation, cancellation, redaction, outcome, and policy trail, with the engine version on each entry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>EU AI Act Article 12(1), automatic event recording, Article 26(6), deployer log retention, GDPR Article 5(2), accountability, and Article 32(1)(b), integrity of processing systems, alongside ISO/IEC 42001 A.6.2.8, AI system event logs</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Local screening, the matter list, redaction and restoration, all running before any network call</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.7, data for AI systems, GDPR Article 5(1)(c), data minimization, and Article 25, data protection by design and by default, alongside the confidentiality duty under ABA Model Rule 1.6</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Local screening of the prompt on the machine, before any network call</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>ISO/IEC 42001 A.7, data for AI systems, GDPR Article 5(1)(c), data minimization, and Article 25, data protection by design and by default, alongside the confidentiality duty under ABA Model Rule 1.6</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>Redaction of the terms the screen identifies, with restoration handled on the machine</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 4(5), pseudonymisation, and Article 32(1)(a), pseudonymisation as a measure appropriate to the risk</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The verification loop, the pre-filing checklist, and their elapsed-time record</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>ABA Formal Opinion 512 on verification of AI-assisted work, and NIST AI RMF MEASURE 2.5</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The pre-filing verification checklist and its elapsed-time record</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ABA Formal Opinion 512 on verification of AI-assisted work, and NIST AI RMF MEASURE 2.5</p>
-            </div>
-
-            <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The outcome loop and the repeated-lesson ranking</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>NIST AI RMF MANAGE 4.1 and ISO/IEC 42001 A.6.2.6, operation and monitoring</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The outcome loop, the curriculum's evidence floors, and the failure-and-repair modules</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>NIST AI RMF MANAGE 4.1 and ISO/IEC 42001 A.6.2.6, operation and monitoring</p>
             </div>
 
             <div class="omono-map__row" role="row">
               <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>One engine file holding every rule, version-stamped into each record entry</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>ISO/IEC 42001 A.6.2.7, technical documentation</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>ISO/IEC 42001 A.6.2.7, technical documentation</p>
             </div>
 
             <div class="omono-map__row" role="row">
-              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The register of assessed AI destinations, recording what each one permits, what it bars, and when the assessment expires</p>
-              <p class="omono-map__req" role="cell"><span class="omono-map__label">Requirement it answers</span>GDPR Article 30(1)(d), categories of recipients, and Article 28(1), the duty to use only processors offering sufficient guarantees</p>
+              <p class="omono-map__control" role="cell"><span class="omono-map__label">Control in the code</span>The tool-dossier register: what each destination is trusted with, every claim sourced and dated, every assessment carrying an expiry</p>
+              <p class="omono-map__req" role="cell"><span class="omono-map__label">Correspondence</span>GDPR Article 30(1)(d), categories of recipients, and Article 28(1), the duty to use only processors offering sufficient guarantees</p>
             </div>
           </div>
 
-          <p>Most of the AI Act obligations cited bind providers and deployers of high-risk systems specifically, while Article 4 binds providers and deployers of AI systems generally and has stood since 2 February 2025, untouched when the Digital Omnibus deferred the high-risk obligations to late 2027.<sup><a href="#note-5" id="ref-5">5</a></sup> The table shows that a control exists in the code and corresponds to a cited requirement, which is not the same as full compliance.</p>
+          <p>Article 4 reaches providers and deployers generally, while several other AI Act provisions in the table apply only to high-risk systems. Regulation (EU) 2026/1744 amended Article 4 in July 2026 and split the delayed high-risk dates: Annex III systems move to 2 December 2027, while systems embedded in products covered by Annex I move to 2 August 2028.<sup><a href="#note-5" id="ref-5b">5</a></sup> NIST and ISO provide frameworks and standards, and the ABA authorities address lawyers and professional responsibility rather than certify software.</p>
 
-          <p>A general counsel who buys a monitoring product in November 2027 will have bought inspection, and inspection answers a different question from the one Article 4 asks. What Article 4 asks for is evidence that the people operating these systems understood what they were operating, and that evidence is a history of what a team was taught, week by week, out of the work it was doing.<sup><a href="#note-6" id="ref-6">6</a></sup> A history of that kind cannot be bought in the quarter a regulator asks for it, which is the argument for building the teaching layer first.</p>
+          <p>When an organization keeps a dated learning record, it can show which literacy measures it took, for whom, in what context, and when. Article 4 does not prescribe O'Mono's workflow or require a week-by-week curriculum history,<sup><a href="#note-6" id="ref-6">6</a></sup> so the record can support an account of the measures without proving compliance by itself.</p>
 
-          <p>The professional rules did not move either. The ABA Model Rules bind lawyers rather than software, and no state bar's competence obligation changed when the European timetable did.</p>
+          <p>Professional-responsibility duties attach to lawyers under the rules adopted in their jurisdictions. The European implementation calendar does not suspend duties of competence, confidentiality, or verification.</p>
 
-          <h2>5. The Lesson</h2>
+          <h2>6. The Lesson</h2>
 
-          <p>The teaching layer changed behavior, and the governance layer settled how much of the real work that teaching could reach. A tool trusted with a real matter gets opened on that matter, gets read while somebody is deciding something, and leaves a rule of thumb behind that outlives the session, while a tool nobody trusts with anything sensitive teaches people on the easy half of their job.</p>
+          <p>LayerX places the median conversation at two prompts and the ninety-fifth percentile at eighteen.<sup><a href="#note-3" id="ref-3">3</a></sup> A shallow exchange can end with a disappointing answer and no report to the department, leaving the failure outside any training record.</p>
 
-          <p>Numbering the tasks is decomposition, naming a role decides who the answer is for, saying what not to do is a constraint, and naming the jurisdiction is scope. None of that is a trick about wording, and none of it arrives with a better model, because it encodes what the person wanted and intent is the part a lawyer is paid for. Stronger models make a vague instruction cheaper to survive. They do not remove the need to say what you want, and a system that runs forty steps before anybody looks raises the cost of not saying it.</p>
+          <p>When a professional names the task, assigns the right role, states the jurisdiction, and tells the model what to do, the prompt carries intent the model cannot supply. A stronger model may recover from vagueness more often, but an agent that acts through many steps raises the cost of every ambiguity left in the instruction.</p>
 
-          <p>Somewhere around the end of next year a regulator or a client or a bar will ask a department what its people understood about these systems and when they understood it, and the answer will be a history that already exists or an assurance nobody can check.</p>
+          <p>When a regulator, client, or bar later asks what a department did to develop AI literacy and how it knows, the answer will depend on the record the department kept while the work was happening.</p>
 
           <h2>Notes</h2>
 
@@ -598,24 +636,23 @@
             <ol>
               <li id="note-1">Sixty-nine percent using generative AI, and fifty-four percent of firms providing no training and having no plans to provide any: 8am, <em>2026 Legal Industry Report</em>, 1,300+ legal professionals, fielded 19 September to 18 October 2025. The sample skews small, 45 percent solo and 38 percent two-to-five lawyers, so it evidences the profession broadly rather than large firms. <a href="#ref-1" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
               <li id="note-2">Seventy-six percent expecting cite-checking of AI output and fourteen percent expecting prompt engineering: Bloomberg Law, <em>2026 Path to Practice Survey</em>, 1,800+ law students, faculty and practicing attorneys. <a href="#ref-2" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
-              <li id="note-3">Two prompts per conversation on average, eighteen among the heaviest five percent of users: LayerX Security, <em>State of AI Usage Report 2026</em>. <a href="#ref-3" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
-              <li id="note-4">Nearly half of enterprise AI conversations on personal identities, over 14 percent of conversations on corporate identities tied to personal licenses, Copilot M365 and Gemini Enterprise used mostly through managed accounts while ChatGPT and Claude remain dominated by personal use, and more than 6 percent of conversations carrying sensitive data: LayerX Security, <em>State of AI Usage Report 2026</em>. LayerX sells browser security and the figures are telemetry from its own deployments, so they evidence its customer base rather than the market. <a href="#ref-4" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
-              <li id="note-5">Article 4 binding providers and deployers of AI systems generally since 2 February 2025: Regulation (EU) 2024/1689, Article 4. Deferral of the high-risk obligations to late 2027: Regulation (EU) 2026/1744, the Digital Omnibus on AI. <a href="#ref-5" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-3">Median conversation length of two prompts and a ninety-fifth percentile of eighteen: LayerX Security, <em>State of AI Usage Report 2026</em>. <a href="#ref-3" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-4">Nearly half of enterprise AI conversations on personal identities, over fourteen percent of conversations on corporate identities tied to personal licenses, and more than six percent of conversations carrying sensitive data: LayerX Security, <em>State of AI Usage Report 2026</em>. LayerX sells browser security and the figures are telemetry from its own deployments, so they evidence its customer base rather than the market. <a href="#ref-4" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
+              <li id="note-5">Article 4 binding providers and deployers of AI systems generally since 2 February 2025: Regulation (EU) 2024/1689, Article 4. Amendment of Article 4 and the split high-risk dates, 2 December 2027 for Annex III systems and 2 August 2028 for systems embedded in Annex I products: Regulation (EU) 2026/1744, the Digital Omnibus on AI. <a href="#ref-5" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
               <li id="note-6">What Article 4 requires of providers and deployers: Regulation (EU) 2024/1689, Article 4. <a href="#ref-6" class="article__notes-back" aria-label="Back to text">&#8593;</a></li>
             </ol>
 
             <p class="article__notes-lead"><strong>Table citations, by row.</strong> No markers in the table; its right column carries the citation. Listed here for the record.</p>
 
             <ol start="7">
-              <li>Row 1: EU AI Act Article 4; ABA Model Rules of Professional Conduct, Rule 1.1 comment 8.</li>
+              <li>Row 1: EU AI Act Article 4; ABA Model Rule 1.1 comment 8.</li>
               <li>Row 2: NIST AI RMF 1.0, MAP 3.5; EU AI Act Article 26(2).</li>
               <li>Row 3: EU AI Act Articles 12(1) and 26(6); GDPR Articles 5(2) and 32(1)(b); ISO/IEC 42001:2023 A.6.2.8.</li>
               <li>Row 4: ISO/IEC 42001:2023 A.7; GDPR Articles 5(1)(c) and 25; ABA Model Rule 1.6.</li>
-              <li>Row 5: GDPR Articles 4(5) and 32(1)(a).</li>
-              <li>Row 6: ABA Formal Opinion 512; NIST AI RMF 1.0, MEASURE 2.5.</li>
-              <li>Row 7: NIST AI RMF 1.0, MANAGE 4.1; ISO/IEC 42001:2023 A.6.2.6.</li>
-              <li>Row 8: ISO/IEC 42001:2023 A.6.2.7.</li>
-              <li>Row 9: GDPR Articles 30(1)(d) and 28(1).</li>
+              <li>Row 5: ABA Formal Opinion 512; NIST AI RMF 1.0, MEASURE 2.5.</li>
+              <li>Row 6: NIST AI RMF 1.0, MANAGE 4.1; ISO/IEC 42001:2023 A.6.2.6.</li>
+              <li>Row 7: ISO/IEC 42001:2023 A.6.2.7.</li>
+              <li>Row 8: GDPR Articles 30(1)(d) and 28(1).</li>
             </ol>
           </div>
 
@@ -624,7 +661,7 @@
           <div class="article__notes">
             <ul>
               <li>Regulation (EU) 2024/1689, the EU AI Act, Articles 4, 12 and 26.</li>
-              <li>Regulation (EU) 2026/1744, the Digital Omnibus on AI, amending Regulation (EU) 2024/1689.</li>
+              <li>Regulation (EU) 2026/1744, the Digital Omnibus on AI.</li>
               <li>Regulation (EU) 2016/679, the General Data Protection Regulation.</li>
               <li>ABA Model Rules of Professional Conduct, Rules 1.1 and 1.6; ABA Formal Opinion 512.</li>
               <li>NIST AI Risk Management Framework 1.0.</li>
