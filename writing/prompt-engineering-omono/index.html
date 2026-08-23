@@ -295,6 +295,7 @@
       .omono-figure:nth-of-type(10)::before { content: 'Figure 10'; }
       .omono-figure:nth-of-type(11)::before { content: 'Figure 11'; }
       .omono-figure:nth-of-type(12)::before { content: 'Figure 12'; }
+      .omono-figure:nth-of-type(13)::before { content: 'Figure 13'; }
 
       .omono-figure figcaption {
         font-family: 'Cormorant Garamond', Georgia, serif !important;
@@ -310,6 +311,15 @@
         box-shadow: none !important;
         page-break-inside: avoid;
         break-inside: avoid;
+        /* Exhibit 2 is taller than the printable area at full column width.
+           Without a ceiling, page-break-inside: avoid cannot place it, and
+           Chromium emits an empty labelled card on one sheet and the image on
+           the next. Capping the height scales the tall exhibits to fit and
+           leaves every shorter one at its natural size. */
+        max-height: 8.1in !important;
+        width: auto !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
       }
 
       /* overflow: hidden only exists on screen to clip the rounded corners.
@@ -475,38 +485,38 @@
           <p>O'Mono assembles the request through eight fields: Role, Task, Context, Input, Constraints, Examples, Format, and Tone. Each field receives a verdict and a reason written for this input, dimmed chips preserve fields that were considered and cut, and the prompt below carries only the material that changes the result. When the task itself needs checks before reliance, a verification block follows the eight fields. The user then clicks the Copy button and pastes the finished prompt into the destination's own application.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/02-eight-fields-prompt.png" alt="The generated prompt screen showing eight field chips for Role, Task, Context, Input, Constraints, Examples, Format and Tone, with Input and Examples dimmed, above the assembled prompt text and a Copy prompt control">
-            <figcaption>The finished prompt: eight field chips above the assembled text, two of them dimmed where the field was drafted and left out.</figcaption>
+            <img src="/assets/prompt-engineering-omono/02-prompt-screen-fields-and-why.png" alt="The generated prompt screen headed 'Why: 14 decisions,' carrying a lesson card on AI sounding as sure when it is wrong as when it is right, eight field chips for Role, Task, Context, Input, Constraints, Examples, Format and Tone with Input and Examples dimmed, a 'Why built this way' panel listing the decisions behind the prompt, and a Copy prompt control beside an Include reasoning toggle">
+            <figcaption>The finished prompt screen: eight field chips, two of them dimmed where the field was drafted and left out, above the decision record and the Copy control.</figcaption>
           </figure>
 
-          <p>When the associate opens a field decision, the reason stays tied to her audience, deadline, and destination, with a short rule of thumb drawn from that choice. Because the controlling fact remains visible, she knows which part of the request to revise when she disagrees.</p>
+          <p>When the associate opens a field decision, the panel states what that field is doing for the prompt and follows it with a short rule of thumb she can carry to the next request. Because the controlling fact remains visible, she knows which part of the request to revise when she disagrees.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/03-role-field-advisable.png" alt="The Role field opened, with a 'Why it is in' panel explaining that the idea named the audience and the hour but left open who is speaking, and a rule of thumb about putting the reader's counterpart in the Role">
-            <figcaption>The Role field marked advisable: why the field belongs in this particular prompt, and the rule of thumb it teaches.</figcaption>
+            <img src="/assets/prompt-engineering-omono/03-role-field-advisable.png" alt="The Role field opened and marked advisable, carrying the drafted persona line, a 'Why it is in' panel stating that the persona line sets who is producing the output before anything else is read, a rule of thumb that a stated persona anchors register and defaults, and a Remove from prompt control">
+            <figcaption>The Role field marked advisable: why the field belongs in the prompt, and the rule of thumb it teaches.</figcaption>
           </figure>
 
           <p>A field that loses its place does not disappear without explanation. O'Mono keeps the cut verdict beside the reason, so the associate can see why the example would have repeated the Format instruction and decide whether that judgment should stand.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/04-examples-inadvisable.png" alt="The Examples field opened, with a 'Why it is out' panel explaining that Format already fixes the shape of the running order, and a rule of thumb that an example earns its place only when a style or judgment call cannot be described in words">
+            <img src="/assets/prompt-engineering-omono/04-examples-inadvisable.png" alt="The Examples field opened and marked inadvisable, carrying the drafted worked example, a 'Why it is out' panel explaining that Format already fixes the shape of the running order so the example would demonstrate what the instruction states outright, a rule of thumb that an example earns its place when a style or a judgment call cannot be described in words, and an Add to prompt control">
             <figcaption>The Examples field marked inadvisable: why the drafted example was cut, and the rule of thumb behind it.</figcaption>
           </figure>
 
           <p>Opening Why expands the same decision record across the whole prompt, including fields kept, fields cut, and the task or destination fact that controlled each one. A person who disagrees can return to the specific decision instead of rebuilding the request from the beginning.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/05-reasoning-strategy.png" alt="The Why: 8 decisions view showing an Overall Strategy card, explaining what the prompt spends its budget on, how the deliverable shape was fixed early, and why one drafted example was cut">
-            <figcaption>The Reasoning view labeled Overall Strategy, explaining how the deliverable shape was fixed and why the drafted example was cut.</figcaption>
+            <img src="/assets/prompt-engineering-omono/05-why-built-this-way.png" alt="The panel headed 'Why built this way,' explaining that the prompt was built around a fixed length and an audience that already uses these tools, because the failure mode here is a session that teaches what they already know, and that the three take-aways are written as acceptance criteria so the session can be tested against them">
+            <figcaption>The decision record headed Why built this way: what the prompt was built around, and why the three take-aways are written as acceptance criteria.</figcaption>
           </figure>
 
           <h2>2. One Screen Between Idea and Prompt</h2>
 
-          <p>Before O'Mono writes, it returns one sentence showing how it read the request, lets the person overwrite that reading, lists the assumptions while they can still be corrected, and asks only questions whose answers would change the result. For this task, session length changes the running order, the desired outcome changes what the training must produce, and the approved tools constrain which examples the session may use.</p>
+          <p>Before O'Mono writes, it returns one sentence showing how it read the request, lets the person overwrite that reading, lists the assumptions while they can still be corrected, and asks only questions whose answers would change the result. For this task, who is in the room decides which failure modes will read as credible, who delivers the session decides whether the deliverable is a curriculum outline or speaker notes, and what already worries the person about current use decides whether the session opens with concrete examples and red flags or with frameworks and accountability. Each question carries the reason it is being asked and a suggested answer the person can overrule.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/06-confirmation-screen.png" alt="The 'Before I write it' screen showing how O'Mono read the task, an overwrite field, three questions on session length, intended outcome and approved tools with suggested answers, and three editable assumptions">
-            <figcaption>The confirmation screen: how O'Mono read the idea, the questions whose answers change the result, and the assumptions it is making, each one editable.</figcaption>
+            <img src="/assets/prompt-engineering-omono/06-confirmation-questions.png" alt="Three questions from the confirmation screen, asking who is in the room, who is delivering the session, and what worries the person most about how the audience uses these tools now, each carrying a line on what the answer changes and a suggested answer already selected among the options">
+            <figcaption>The confirmation screen: the questions whose answers change the result, each carrying what it decides and a suggested answer the person can overrule.</figcaption>
           </figure>
 
           <p>Local screening runs before any network call, while the machine can still prevent a transmission. LayerX reports that nearly half of enterprise AI conversations use personal rather than managed corporate identities, more than fourteen percent of conversations on corporate identities are tied to personal AI licenses, and more than six percent carry sensitive data.<sup><a href="#note-4" id="ref-4">4</a></sup> An enterprise license cannot govern traffic it never sees.</p>
@@ -514,7 +524,7 @@
           <p>While the person makes those decisions, one lesson chosen for the task and destination sits in the same flow without demanding an answer. The card names the phenomenon, explains the mechanism, states what should follow from it, and cites its source; scrolling past it does not change the prompt or block generation.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/07-lesson-card.png" alt="A lesson card headed 'AI can invent a citation with the confidence of someone who remembers the paper,' explaining the prediction mechanism beneath it, instructing the reader to treat every AI-supplied citation as unverified, and citing OpenAI model documentation">
+            <img src="/assets/prompt-engineering-omono/07-lesson-card.png" alt="A lesson card headed 'AI's brainstorm options tend to be small variations on one idea,' explaining that models pull toward the statistical center of their training data so option lists repeat one skeleton in different outfits, instructing the reader to demand structural differences and then check the skeletons, with a line on the thirty-minute session and a citation to NIST AI 600-1">
             <figcaption>One lesson card: a phenomenon in plain words, the mechanism beneath it, the instruction that follows, and the source it rests on.</figcaption>
           </figure>
 
@@ -527,40 +537,47 @@
           <p>While O'Mono assembles the prompt, the writing state rotates lesson hooks. The line comes from the current lesson set; every generated lesson must name the phenomenon, explain the mechanism plainly, state the consequence, and cite a source before it can enter that set.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/08-lesson-hook-rotation.png" alt="The O'Mono input bar while writing, carrying the rotating lesson hook 'Every model's knowledge stops on a specific day, and it will not always tell you,' with a single Cancel control at the right">
+            <img src="/assets/prompt-engineering-omono/08-lesson-hook-rotation.png" alt="The O'Mono input bar while writing, carrying the rotating lesson hook 'A chatbot can make mistakes, an agent can make mistakes for you,' with a single Cancel control at the right">
             <figcaption>The input bar mid-thinking, showing a standalone lesson hook in rotation and a single quiet Cancel.</figcaption>
           </figure>
 
-          <p>After the person copies a prompt into its destination, O'Mono asks whether the last prompt worked and keeps the unresolved outcome with the prompt until the person answers. Opening Verification shows prompts previous prompts where the user can verify the outcomes. The response joins the ledger without importing the destination's answer; choosing Failed can reopen the prompt for repair, while the failure reaches the curriculum only as a category.</p>
+          <p>After the person copies a prompt into its destination, O'Mono asks whether the last prompt worked and keeps the unresolved outcome with the prompt until the person answers. Opening Verification lists the prompts still waiting on an answer, each carrying its own one-tap outcome, with older ones kept in History. The response joins the ledger without importing the destination's answer; choosing Failed can reopen the prompt for repair, while the failure reaches the curriculum only as a category.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/09-outcome-cue.png" alt="The landing bar carrying a typed idea about a 30-minute AI training, with a 'Did your last prompt work?' cue sitting above the Menu pill and a count of three on the Menu control">
-            <figcaption>The outcome cue above the Menu pill on the landing screen.</figcaption>
+            <img src="/assets/prompt-engineering-omono/09-outcome-cue.png" alt="The landing bar carrying the typed idea about a 30-minute internal training session on using AI in corporate practice, with a 'Did your last prompt work?' cue pointing down at the Menu pill and a count of three on the Menu control">
+            <figcaption>The outcome cue pointing at the Menu pill on the landing screen, with three prompts still unanswered.</figcaption>
           </figure>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/10-verification-screen.png" alt="The 'Did your last prompt work?' screen listing three previous prompts, each with Worked, Partly and Failed controls and an Open button, one of them already marked Worked">
-            <figcaption>The Verification screen: prompts awaiting an answer, with one-tap outcomes of Worked, Partly, and Failed, and Open to reopen the prompt itself.</figcaption>
+            <img src="/assets/prompt-engineering-omono/10-verification-screen.png" alt="The 'Did your last prompt work?' screen listing three prompts awaiting an answer, each truncated to its opening line and carrying Worked, Partly and Failed controls, above a note that older prompts are in History and a Close control">
+            <figcaption>The Verification screen: prompts awaiting an answer, with one-tap outcomes of Worked, Partly, and Failed, and older prompts kept in History.</figcaption>
           </figure>
 
           <h2>4. The Record, and the Curriculum It Becomes</h2>
 
           <p>Each generation adds an immutable ledger entry for the shape of the work: task type, included fields, safeguards, and engine version, with no prompt content. A later outcome adds its own record against that generation, so Worked, Partly, or Failed can inform learning without rewriting the original entry.</p>
 
-          <p>On one machine, those entries become the Learning view, where covered areas appear in sentences, the largest gap is named, and the record states what it cannot establish. In the illustrative enterprise view below, the aggregate record has produced four lessons from recurring failures, uncovered destinations, and fields people repeatedly left empty. A candidate enters only if it names the phenomenon, explains the mechanism in plain language, states the consequence, and cites a source. Personal lessons go live immediately. Enterprise lessons draw from aggregate deployment data, go live for everyone by default, and remain subject to retirement or review by an administrator.</p>
+          <p>On one machine, those entries become the Learning view, where covered areas appear in sentences, the largest gap is named, and the record states what it cannot establish. In the illustrative enterprise view below, the combined record wrote one hundred and fifty lessons that day and shows four of them: an area no lesson covered while prompts moved to agent surfaces, the failure repaired most often across the deployment, the same task carried unchanged between nine different tools, and attachments whose advisory line was dismissed without redaction. Each card states in one line what in the record produced it. A candidate enters only if it names the phenomenon, explains the mechanism in plain language, states the consequence, and cites a source, and three candidates were rejected that day for failing those checks. Personal lessons go live immediately. Enterprise lessons draw from aggregate deployment data, go live for everyone by default, and remain subject to retirement or review by an administrator.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/11-enterprise-lessons.png" alt="A panel headed 'New this month, written from your own record,' listing four lessons on agents, cited authorities, model behaviour across apps, and pasting into an AI, each marked LIVE with a Retire control and a line explaining what in the record produced it">
-            <figcaption>New lessons written from the deployment's own record: added automatically, live for everyone, and retired by an administrator who does not want one.</figcaption>
+            <img src="/assets/prompt-engineering-omono/11-enterprise-lessons.png" alt="A Learning panel headed 'New today, written from enterprise's combined record,' with counts for lessons new today, created, available, retired and rejected, then four lessons on agents, cited authorities, model behaviour across apps, and pasting into an AI, each labelled with its curriculum area, marked LIVE with a Retire control, and carrying a line explaining what in the record produced it">
+            <figcaption>New lessons written from the deployment's own combined record: added automatically, live for everyone, and retired by an administrator who does not want one.</figcaption>
           </figure>
 
-          <p>The illustrative export reports the period's prompt count, recorded teaching moments, areas taught, and outcomes returned. It shows the strongest and weakest areas as the share of people who met each one at least once, then places a short analysis and evidence-linked recommendations beneath the figures. The percentages measure recorded exposure rather than mastery.</p>
+          <p>The illustrative export opens by naming what the file is and how it was built, then reports the period's work records, complete lesson displays, and recorded outcomes. Beneath them the quarter divides into worked, partly worked, failed, and unreported results, alongside repeated failures, repairs completed, work returned for correction, and failures that occurred despite protections. Recorded outcomes count only the prompts on which somebody answered, so that figure sits well below the count of prompts.</p>
 
           <p>Enterprise administrators receive aggregate results without individual drill-down or free text, and the export withholds any cell that counts fewer than five people. The limits sit on the same page as the figures they qualify, where a reader sees them before deciding what the numbers can support.</p>
 
           <figure class="omono-figure">
-            <img src="/assets/prompt-engineering-omono/12-curriculum-export.png" alt="The curriculum export showing 83,412 prompts by 1,438 people over three months, teaching moments, areas taught and outcomes reported, then the strongest and weakest areas by share of people, an analysis, three ranked recommendations, and a footer stating the aggregate-only limits">
-            <figcaption>The curriculum export: the quarter in numbers, the strongest and weakest areas, the analysis, and what to teach next.</figcaption>
+            <img src="/assets/prompt-engineering-omono/12-cohort-report-measures.png" alt="The first page of the cohort report, stating that 1,438 report files were merged with none rejected and that cells are withheld below five people, then headline measures of 1,438 users, 83,412 work records, 11,627 complete lesson displays and 6,153 recorded outcomes for the period 2026-01-01 to 2026-03-31 on engine 3.0.0, then the quarter's results and a summary">
+            <figcaption>The cohort report: what the file is, the quarter's headline measures, the results the record returned, and the summary beneath them.</figcaption>
+          </figure>
+
+          <p>The second page names the curriculum itself, reporting how many areas it covers, which areas it taught most and least in the period, and the sections it maintains for different kinds of work. Beneath them sit the curriculum decisions, each carrying a finding, the evidence supporting it, and the action it recommends. A pattern appears only when at least thirty work records from at least five people support it, and it changes the curriculum automatically only after the same pattern repeats in the next reporting period. The counts measure recorded exposure rather than mastery.</p>
+
+          <figure class="omono-figure">
+            <img src="/assets/prompt-engineering-omono/13-cohort-report-curriculum.png" alt="The second page of the cohort report, showing an active curriculum of 18 areas and 13,469 lessons, the areas taught most and least with their counts, the eight curriculum sections for different kinds of work, then four curriculum decisions on failure clusters, task-specific tracks, verification for source-heavy work and lesson display against later outcomes, each with a finding, its evidence, a recommended action, and a WATCHLIST marker">
+            <figcaption>The second page: what the curriculum covers, what it taught most and least, and the decisions the record supports, each held on a watchlist until the pattern repeats.</figcaption>
           </figure>
 
           <p>When an enterprise aggregate moves a signal off a person's machine, it carries what the system needed to teach and never the prompt or answer that produced the signal. Over time, a department gains a dated account of where work created difficulty, which areas later improved, and roughly when the change occurred.</p>
