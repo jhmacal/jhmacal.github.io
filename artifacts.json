@@ -2,6 +2,15 @@
   "_comment": "Single source of truth for the homepage Latest strip and the AI Portfolio NEW marker. Newest first. When you publish a new study or article, add an entry at the TOP. Drafts (dirs not yet public) go in 'drafts' so the build guard stays quiet.",
   "artifacts": [
     {
+      "id": "precedent-lifecycle-2026-10",
+      "title": "The Modern Precedent Lifecycle Workflow",
+      "url": "/writing/big-law-knowledge-management/",
+      "kind": "Article",
+      "meta": "Article · Knowledge management · Oct 2026",
+      "date": "2026-10-04",
+      "onAI": true
+    },
+    {
       "id": "omono-2026-07",
       "title": "Prompt Engineering (O'Mono)",
       "url": "/writing/prompt-engineering-omono/",
