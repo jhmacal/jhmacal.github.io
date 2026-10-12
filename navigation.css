@@ -1,0 +1,69 @@
+/* One navigation component, shared by the homepage and interior pages. */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap');
+html:root { --nav-height:67px; }
+#nav.nav {
+  position:fixed; inset:0 0 auto; width:100%; height:var(--nav-height);
+  z-index:100; margin:0; padding:0;
+  font:400 16px/1.7 'Inter',system-ui,sans-serif;
+  background:rgba(10,22,40,.72); border:0; border-bottom:1px solid rgba(232,227,214,.09);
+  backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
+}
+#nav.nav .nav__inner {
+  display:flex; align-items:center; justify-content:space-between; position:relative;
+  max-width:1180px; height:66px; margin:0 auto; padding:0 40px; gap:24px;
+}
+#nav.nav .nav__monogram {
+  font:400 19px/1.7 'Bodoni Moda','Cormorant Garamond',Georgia,serif;
+  color:#fff; letter-spacing:.02em; text-decoration:none; flex-shrink:0;
+}
+#nav.nav .nav__links {
+  display:flex; position:static; inset:auto; flex-direction:row; align-items:center;
+  justify-content:normal; gap:30px; list-style:none; width:auto; height:auto;
+  padding:0; margin:0; background:transparent; transform:none; visibility:visible; opacity:1; z-index:auto;
+}
+#nav.nav .nav__links li { margin:0; padding:0; list-style:none; }
+#nav.nav .nav__links li a {
+  display:inline-block; position:relative; padding:0 0 3px;
+  font:500 11.5px/1.7 'Inter',system-ui,sans-serif;
+  letter-spacing:.13em; text-transform:uppercase; color:#94a0b2; text-decoration:none;
+}
+#nav.nav .nav__links li a::after {
+  content:''; position:absolute; inset:auto 0 0; height:1px; width:100%;
+  background:#c9a961; transform:scaleX(0); transform-origin:left;
+  transition:transform .35s ease;
+}
+#nav.nav .nav__links li a:hover, #nav.nav .nav__links li a:focus-visible { color:#fff; }
+#nav.nav .nav__links li a.active, #nav.nav .nav__links li a[data-nav-ai] { color:#c9a961; }
+#nav.nav .nav__links li a:hover::after, #nav.nav .nav__links li a.active::after { transform:scaleX(1); }
+#nav.nav .nav__monogram:focus-visible, #nav.nav a:focus-visible, #nav.nav button:focus-visible { outline:2px solid #c9a961; outline-offset:5px; }
+#nav.nav .nav__toggle {
+  display:none; width:auto; min-width:66px; height:36px; padding:8px 12px;
+  border:1px solid rgba(201,169,97,.22); background:transparent; color:#fff;
+  font:400 11px/1.5 'Inter',system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase;
+  cursor:pointer; position:static; transform:none;
+}
+#nav.nav .nav__toggle span { display:none; }
+#nav.nav .nav__toggle::after { content:'Menu'; }
+#nav.nav .nav__toggle[aria-expanded=true]::after { content:'Close'; }
+#nav.nav .nav__new { font-family:'Inter',system-ui,sans-serif; font-size:8px; line-height:1; }
+body.home-page { padding-top:var(--nav-height); }
+@media(max-width:900px) {
+  #nav.nav .nav__inner { padding-inline:22px; }
+  #nav.nav .nav__toggle { display:flex; align-items:center; justify-content:center; }
+  #nav.nav .nav__links {
+    display:none; position:absolute; inset:66px 0 auto; flex-direction:column; align-items:stretch;
+    gap:0; padding:8px 22px 20px; height:auto; max-height:calc(100dvh - 67px); overflow:auto;
+    background:rgba(10,22,40,.98); border-bottom:1px solid rgba(232,227,214,.09);
+  }
+  #nav.nav .nav__links.open { display:flex; }
+  #nav.nav .nav__links li { padding:6px 0; border-bottom:1px solid rgba(232,227,214,.09); }
+  #nav.nav .nav__links li:last-child { border:0; }
+  #nav.nav .nav__links li a { display:flex; align-items:center; min-height:44px; font-size:12.5px; padding:0; }
+  html:not(.navigation-ready) #nav.nav { position:relative; height:auto; }
+  html:not(.navigation-ready) #nav.nav .nav__inner { flex-wrap:wrap; height:auto; padding-block:16px; }
+  html:not(.navigation-ready) #nav.nav .nav__links { display:flex; position:static; flex-direction:row; flex-wrap:wrap; width:100%; gap:8px 20px; padding:0; border:0; background:none; }
+  html:not(.navigation-ready) #nav.nav .nav__toggle { display:none; }
+  html:not(.navigation-ready) body.home-page { padding-top:0; }
+}
+@media(prefers-reduced-motion:reduce) { #nav.nav * { transition:none; } }
+@media print { #nav.nav { display:none; } body.home-page { padding-top:0; } }

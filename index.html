@@ -256,25 +256,27 @@ footer{border-top:1px solid var(--jm-rule);padding:64px 0 54px;margin-top:40px}
 .nav__new{display:inline-flex;align-items:center;margin-left:8px;font-family:var(--jm-util);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#c9a961);border:1px solid rgba(201,169,97,.55);border-radius:2px;padding:2px 5px;line-height:1;vertical-align:middle}
 .nav__new[hidden]{display:none}
 </style>
+<link rel="stylesheet" href="/navigation.css?v=20261012">
+<script src="/js/nav.js?v=20261012" defer></script>
 </head>
-<body>
+<body class="home-page">
 <a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <div class="wrap navrow">
-    <a href="/" class="mark">Home</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a data-nav-ai class="lnk lnk--ai" href="/ai/">AI Portfolio <span class="nav__new" data-nav-new hidden>New</span></a></li>
-        <li><a class="lnk" href="/writing/">Articles</a></li>
-        <li><a class="lnk" href="/studies/">Case Studies</a></li>
-        <li><a class="lnk" href="/resume/">Resume</a></li>
-        <li><a class="lnk" href="/books/">Books</a></li>
-      </ul>
-    </nav>
-    <button class="menu-btn" aria-label="Open menu">Menu</button>
-  </div>
-</header>
+<nav aria-label="Primary" class="nav" id="nav">
+<div class="nav__inner">
+<a class="nav__monogram" href="/">Home</a>
+<ul class="nav__links" id="primary-nav-links">
+<li><a class="nav__link--ai" data-nav-ai="" href="/ai/">AI Portfolio <span class="nav__new" data-nav-new="" hidden="">New</span></a></li>
+<li><a href="/writing/">Articles</a></li>
+<li><a href="/studies/">Case Studies</a></li>
+<li><a class="" href="/resume/">Resume</a></li>
+<li><a href="/books/">Books</a></li>
+</ul>
+<button aria-controls="primary-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav__toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
 
 <main id="main">
 
@@ -476,19 +478,7 @@ if(!reduce){
   window.addEventListener('scroll', () => { armed ? update() : arm(); }, {passive:true});
 })();
 
-(function(){
-  var btn=document.querySelector('.menu-btn'), list=document.querySelector('.navrow ul');
-  if(!btn||!list) return;
-  btn.setAttribute('aria-expanded','false');
-  btn.addEventListener('click',function(){
-    var open=list.classList.toggle('open');
-    btn.setAttribute('aria-expanded',String(open));
-    btn.textContent=open?'Close':'Menu';
-  });
-  list.addEventListener('click',function(e){
-    if(e.target.tagName==='A'){list.classList.remove('open');btn.textContent='Menu';btn.setAttribute('aria-expanded','false');}
-  });
-})();
+
 </script>
 
 <script src="/js/latest.js" defer></script>

@@ -1,5 +1,5 @@
 /* Resume v3. Prototype styles are confined to .resume-content. */
-.resume-content{--navy:#0a1628;--raised:#0d1a30;--gold:#c9a961;--bright:#d4b068;--white:#FFFFFF;--muted:rgba(255,255,255,.76);--line:rgba(201,169,97,.27);--soft:rgba(255,255,255,.14);--rail:246px;--header:var(--nav-height);--gutter:clamp(30px,4.5vw,86px);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',Arial,sans-serif;color-scheme:dark}
+.resume-content{--navy:#0a1628;--raised:#0d1a30;--gold:#c9a961;--bright:#d4b068;--white:#FFFFFF;--muted:rgba(255,255,255,.76);--line:rgba(201,169,97,.27);--soft:rgba(255,255,255,.14);--rail:246px;--header:var(--nav-height);--gutter:clamp(30px,4.5vw,86px);--serif:'Bodoni Moda','Cormorant Garamond',Georgia,serif;--sans:'Inter',Arial,sans-serif;color-scheme:dark}
 .resume-content *{box-sizing:border-box}
 html:has(body.resume-v3){scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-height) + 26px)}
 .resume-content{margin:0;background:var(--navy);color:var(--white);font:400 16px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
@@ -432,3 +432,24 @@ html[data-motion=off] .resume-content *,html[data-motion=off] .resume-content *:
 .resume-content h1,.resume-content h2,.resume-content h3,.resume-content h4{color:var(--white)}
 .resume-content .page-layout{min-width:0}
 @media print{.resume-content{padding-top:0}}
+
+/* Each figure receives its own scroll track. Copy and art never share a viewport-height gate. */
+html.scroll-scenes .resume-content .evidence-chapter{min-height:0;padding-top:30px}
+html.scroll-scenes .resume-content .evidence-pin{position:relative;top:auto;align-items:start;padding-bottom:46px}
+.resume-content .scene-track{min-width:0}
+html.scroll-scenes .resume-content .scene-track{min-height:calc(var(--scene-size) + var(--travel))}
+html.scroll-scenes .resume-content .scene-track[data-pin=true]>.evidence-scene{position:sticky;top:calc(var(--header) + 16px)}
+html.scroll-scenes .resume-content .evidence-pin .work-copy[data-pin=true]{position:sticky;top:calc(var(--header) + 22px)}
+html.scroll-scenes .resume-content .scene-art{height:var(--art-height,510px);max-height:none}
+.resume-content .scene-surface{min-height:var(--mobile-size,0px)}
+.resume-content figcaption{min-height:var(--caption-size,120px)}
+@media(max-width:1279px){html.scroll-scenes .resume-content .evidence-pin .work-copy[data-pin=true]{position:static}}
+@media(max-width:540px){html.scroll-scenes .resume-content .evidence-pin{padding-bottom:30px}}
+@media print{html.scroll-scenes .resume-content .scene-track{min-height:0}html.scroll-scenes .resume-content .evidence-pin .work-copy[data-pin=true],html.scroll-scenes .resume-content .scene-track[data-pin=true]>.evidence-scene{position:static}.resume-content .scene-surface{min-height:0}}
+
+/* Bodoni has wider proportions than the former display face. Keep the name within the rail. */
+@media(min-width:801px){.resume-content .profile-rail h1{font-size:52px}}
+@media(min-width:801px) and (max-width:1279px){.resume-content .profile-rail h1{font-size:49px}}
+@media(min-width:1750px){.resume-content .profile-rail h1{font-size:60px}}
+/* Preserve the authored illustration typography and its text fit. */
+.resume-content .scene-art .serif{font-family:'Cormorant Garamond',Georgia,serif}
