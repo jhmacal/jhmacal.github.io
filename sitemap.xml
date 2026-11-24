@@ -3,77 +3,77 @@
 
   <url>
     <loc>https://www.jhmacal.com/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/writing/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/studies/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/studies/the-authority/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/studies/conflicts-intake/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/ai/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/resume/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/books/</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/writing/prompt-engineering-omono/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/writing/big-law-knowledge-management/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -85,71 +85,65 @@
 
   <url>
     <loc>https://www.jhmacal.com/contact/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/studies/ai-governance-for-business/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/writing/legal-reasoning/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/legal-reasoning/legal-assets-master-timeline.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/imtheom/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/imtheom/document/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/imtheom/annex-a/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/imtheom/annex-b/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.jhmacal.com/imtheom/annex-c/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <url>
-    <loc>https://www.jhmacal.com/quant-study/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
 </urlset>

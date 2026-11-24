@@ -10,11 +10,11 @@
   --om-ink: #142030;
   --om-muted: #526070;
   --om-line: #aebccc;
-  --om-navy: var(--navy, #0a1628);
+  --om-navy: var(--navy, #080C14);
   --om-navy-soft: #132742;
   --om-white: #ffffff;
-  --om-gold: var(--gold, #c9a961);
-  --om-gold-deep: #a6822c;
+  --om-gold: var(--gold, #F2C200);
+  --om-gold-deep: #8A6F04;
   --om-doc-serif: "Times New Roman", Times, serif;
 }
 
@@ -43,8 +43,8 @@ body.om-landing {
 }
 
 .om-landing .nav {
-  background-color: rgba(10, 22, 40, 0.92);
-  border-bottom: 1px solid rgba(201, 169, 97, 0.12);
+  background-color: rgba(8,12,20, 0.92);
+  border-bottom: 1px solid rgba(242,194,0, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -67,7 +67,7 @@ body.om-landing {
 .om-table th,
 .om-back-link,
 .om-pill {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
 }
 
 .om-eyebrow {
@@ -138,7 +138,7 @@ body.om-landing {
 .om-select:focus,
 .om-rail-input:focus,
 .om-rail-select:focus {
-  border-color: rgba(201, 169, 97, 0.75);
+  border-color: rgba(242,194,0, 0.75);
   background: rgba(255, 255, 255, 0.075);
 }
 
@@ -150,7 +150,7 @@ body.om-landing {
 .om-field-note {
   margin: 0.55rem 0 0;
   color: rgba(255, 255, 255, 0.62);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.82rem;
   line-height: 1.62;
 }
@@ -205,7 +205,7 @@ body.om-landing {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 4px;
   color: rgba(255, 255, 255, 0.78);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -232,9 +232,9 @@ body.om-landing {
 
 .om-toggle:has(input:checked),
 .om-market-mini:has(input:checked) {
-  border-color: rgba(201, 169, 97, 0.72);
+  border-color: rgba(242,194,0, 0.72);
   color: var(--om-white);
-  background: rgba(201, 169, 97, 0.08);
+  background: rgba(242,194,0, 0.08);
 }
 
 .om-toggle:has(input:checked)::before,
@@ -256,7 +256,7 @@ body.om-landing {
 
 .om-disclaimer strong {
   color: var(--om-white);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.78rem;
   font-style: normal;
   font-weight: 600;
@@ -299,18 +299,18 @@ body.om-annex {
   top: 1rem;
   right: 1rem;
   z-index: 30;
-  border: 1px solid rgba(201, 169, 97, 0.48);
+  border: 1px solid rgba(242,194,0, 0.48);
   border-radius: 999px;
   background: rgba(238, 243, 248, 0.92);
   color: var(--om-navy);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   padding: 0.58rem 0.82rem;
   text-decoration: none;
   text-transform: uppercase;
-  box-shadow: 0 18px 48px -34px rgba(10, 22, 40, 0.7);
+  box-shadow: 0 18px 48px -34px rgba(8,12,20, 0.7);
   backdrop-filter: blur(10px);
 }
 
@@ -358,7 +358,7 @@ body.om-landing .om-home-pill:hover {
   display: block;
   margin-top: 0.25rem;
   color: var(--om-muted);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -483,7 +483,7 @@ body.om-landing .om-home-pill:hover {
   border-radius: 3px;
   background: var(--om-sheet) var(--om-body-image) top center / 100% auto repeat-y;
   font-family: var(--om-doc-serif);
-  box-shadow: 0 1px 0 rgba(10, 22, 40, 0.04), 0 26px 65px -42px rgba(10, 22, 40, 0.36);
+  box-shadow: 0 1px 0 rgba(8,12,20, 0.04), 0 26px 65px -42px rgba(8,12,20, 0.36);
 }
 
 .om-sheet {
@@ -505,7 +505,7 @@ body.om-landing .om-home-pill:hover {
 .om-section-mark,
 .om-annex-kicker {
   color: var(--om-gold-deep);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -550,7 +550,7 @@ body.om-landing .om-home-pill:hover {
 .om-print-config {
   margin: 1.2rem 0 1.35rem;
   color: var(--om-muted);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.94rem;
   line-height: 1.6;
 }
@@ -566,7 +566,7 @@ body.om-landing .om-home-pill:hover {
 
 .om-term {
   position: relative;
-  border-bottom: 1px solid rgba(166, 130, 44, 0.58);
+  border-bottom: 1px solid rgba(138,111,4, 0.58);
   cursor: help;
   text-decoration: none;
 }
@@ -578,13 +578,13 @@ body.om-landing .om-home-pill:hover {
   z-index: 5;
   width: min(18rem, 78vw);
   padding: 0.58rem 0.68rem;
-  border: 1px solid rgba(166, 130, 44, 0.38);
+  border: 1px solid rgba(138,111,4, 0.38);
   border-radius: 3px;
   background: var(--om-surface);
-  box-shadow: 0 18px 36px -26px rgba(10, 22, 40, 0.48);
+  box-shadow: 0 18px 36px -26px rgba(8,12,20, 0.48);
   color: var(--om-navy);
   content: attr(data-definition);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   line-height: 1.45;
@@ -679,7 +679,7 @@ body.om-landing .om-home-pill:hover {
 .om-exhibit__label {
   margin-bottom: 0.75rem;
   color: var(--om-navy);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -720,7 +720,7 @@ body.om-landing .om-home-pill:hover {
   z-index: 1;
   color: var(--om-gold-deep);
   content: ">";
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   transform: translateY(-50%);
@@ -731,7 +731,7 @@ body.om-landing .om-home-pill:hover {
 .om-tier-ladder__item strong {
   display: block;
   color: var(--om-navy);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -743,7 +743,7 @@ body.om-landing .om-home-pill:hover {
 .om-tier-ladder__item span,
 .om-registry-map span {
   display: block;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.72rem;
   line-height: 1.45;
 }
@@ -869,20 +869,20 @@ body.om-landing .om-home-pill:hover {
 .om-annex-link-line a {
   color: var(--om-navy);
   text-decoration: none;
-  border-bottom: 1px solid rgba(166, 130, 44, 0.35);
+  border-bottom: 1px solid rgba(138,111,4, 0.35);
 }
 
 .om-request-only-block {
   position: relative;
   margin: 0.6rem 0 0;
   padding: 0.55rem 0.75rem 0.05rem;
-  border-left: 2px solid rgba(201, 169, 97, 0.28);
+  border-left: 2px solid rgba(242,194,0, 0.28);
   outline: none;
 }
 
 .om-request-only-block:hover,
 .om-request-only-block:focus {
-  border-left-color: rgba(166, 130, 44, 0.72);
+  border-left-color: rgba(138,111,4, 0.72);
 }
 
 .om-helper-message {
@@ -892,12 +892,12 @@ body.om-landing .om-home-pill:hover {
   z-index: 2;
   width: min(22rem, calc(100% - 1.5rem));
   padding: 0.62rem 0.74rem;
-  border: 1px solid rgba(166, 130, 44, 0.38);
+  border: 1px solid rgba(138,111,4, 0.38);
   border-radius: 4px;
   background: rgba(238, 243, 248, 0.97);
-  box-shadow: 0 18px 40px -28px rgba(10, 22, 40, 0.46);
+  box-shadow: 0 18px 40px -28px rgba(8,12,20, 0.46);
   color: var(--om-navy);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.72rem;
   line-height: 1.45;
   opacity: 0;
@@ -932,7 +932,7 @@ body.om-landing .om-home-pill:hover {
 
 .om-doc-identity span {
   color: var(--om-muted);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -976,7 +976,7 @@ body.om-doc .om-external-actions {
 
 .om-print-button,
 .om-back-link {
-  border: 1px solid rgba(166, 130, 44, 0.65);
+  border: 1px solid rgba(138,111,4, 0.65);
   border-radius: 4px;
   color: var(--om-navy);
   font-size: 0.72rem;
@@ -997,7 +997,7 @@ body.om-doc .om-print-button {
   line-height: 1;
   padding: 0;
   text-align: center;
-  box-shadow: 0 18px 48px -30px rgba(10, 22, 40, 0.78);
+  box-shadow: 0 18px 48px -30px rgba(8,12,20, 0.78);
   backdrop-filter: blur(10px);
 }
 
@@ -1013,7 +1013,7 @@ body.om-doc .om-print-button svg {
 
 .om-print-button:hover,
 .om-back-link:hover {
-  background: rgba(201, 169, 97, 0.1);
+  background: rgba(242,194,0, 0.1);
 }
 
 body.om-doc .om-print-button:hover {
@@ -1072,7 +1072,7 @@ body.om-doc .om-print-button:hover {
   width: 10rem;
   background: var(--om-surface-soft);
   color: var(--om-navy);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -1424,7 +1424,7 @@ body.om-doc .om-print-button:hover {
   .om-document-kicker,
   .om-section-mark,
   .om-annex-kicker {
-    color: #a6822c !important;
+    color: #8A6F04 !important;
   }
   .om-section h2,
   .om-doc-contents h2,

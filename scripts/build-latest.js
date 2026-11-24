@@ -58,17 +58,15 @@ ok('guard passed: every published study and article is registered');
 /* ---- 3. regenerate the Latest strip in index.html ---- */
 const latest = artifacts[0];
 const stripHTML =
-`<a class="latest rv" href="${latest.url}" data-latest data-latest-id="${latest.id}">
-        <div class="latest__l">
-          <div class="latest__kicker">
-            <span class="latest__lab">Latest</span>
-            <span class="latest__new" data-latest-new hidden><span class="latest__dot"></span>New</span>
-          </div>
-          <div class="latest__txt" data-latest-title>${esc(latest.title)}</div>
-          <div class="latest__meta" data-latest-meta>${esc(latest.meta || '')}</div>
-        </div>
-        <span class="latest__arw"><i></i><span>Read</span></span>
-      </a>`;
+`<a class="m-latest" href="${latest.url}" data-latest data-latest-id="${latest.id}">
+<span class="m-latest-top" aria-hidden="true"></span>
+<span class="m-latest-main">
+<span class="m-latest-kicker"><span class="m-signal" aria-hidden="true"></span><span class="m-latest-lab">Latest</span><span class="m-new">New</span></span>
+<span class="m-latest-title" data-latest-title>${esc(latest.title)}</span>
+<span class="m-latest-meta" data-latest-meta>${esc(latest.meta || '')}</span>
+</span>
+<span class="m-latest-arw"><span class="m-latest-cta">Read</span><span class="m-latest-line"></span></span>
+</a>`;
 
 const idxPath = path.join(ROOT, 'index.html');
 let html = fs.readFileSync(idxPath, 'utf8');

@@ -15,49 +15,46 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
   <link rel="canonical" href="https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
-  <link rel="stylesheet" href="/atmosphere.css">
+  <link rel="stylesheet" href="/style.css?v=20261124">
+  <link rel="stylesheet" href="/atmosphere.css?v=20261124">
   <style>
     /* Article-local rules only. Anything global lives in /style.css. */
 
     .article__byline {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.02em;
       font-style: italic;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       margin: 0 0 2.5rem;
     }
 
     .article__footnotes {
       margin-top: 3rem;
       padding-top: 1.5rem;
-      border-top: 0.5px solid rgba(201, 169, 97, 0.2);
+      border-top: 0.5px solid rgba(242,194,0, 0.2);
     }
     .article__footnotes ol {
       padding-left: 1.25rem;
       margin: 0;
     }
     .article__footnotes li {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.8rem;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       line-height: 1.65;
       margin-bottom: 0.75rem;
     }
     .article__footnotes a {
-      color: rgba(201, 169, 97, 0.7);
+      color: rgba(242,194,0, 0.7);
       text-decoration: none;
     }
     .article__footnotes a:hover {
-      color: #c9a961;
+      color: #F2C200;
     }
     sup a {
-      color: var(--gold, #c9a961);
+      color: var(--gold, #F2C200);
       text-decoration: none;
       font-size: 0.75em;
     }
@@ -77,7 +74,7 @@
       font-weight: 500;
       letter-spacing: 0;
       font-variant: normal;
-      color: #c9a961;
+      color: #F2C200;
       line-height: 1.2;
     }
     .article__body .article__byline + h2 {
@@ -86,21 +83,21 @@
     .article__cta {
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(201, 169, 97, 0.15);
+      border-top: 1px solid rgba(242,194,0, 0.15);
     }
 
     /* ===== Interactive seven-node timeline ===== */
     .omnibus-timeline {
-      background: #0d1a30;
+      background: #0C121D;
       border-radius: 12px;
       padding: 1.5rem 1.25rem 1.25rem;
       margin: 2.5rem 0;
     }
     .omnibus-timeline__label {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.22em;
-      color: rgba(201, 169, 97, 0.85);
+      color: rgba(242,194,0, 0.85);
       text-transform: uppercase;
       text-align: center;
       margin: 0 0 0.4rem;
@@ -110,7 +107,7 @@
       font-family: var(--jm-display);
       font-size: 1.3rem;
       font-style: italic;
-      color: rgba(240, 230, 210, 0.75);
+      color: rgba(238,242,247, 0.75);
       text-align: center;
       margin: 0 0 1.5rem;
       font-weight: 400;
@@ -130,7 +127,7 @@
       left: 7.14%;
       right: 7.14%;
       height: 1px;
-      background: rgba(201, 169, 97, 0.25);
+      background: rgba(242,194,0, 0.25);
       z-index: 0;
     }
     .timeline-node {
@@ -153,54 +150,54 @@
     .timeline-node .node-circle {
       width: 18px;
       height: 18px;
-      border: 1.5px solid rgba(201, 169, 97, 0.6);
+      border: 1.5px solid rgba(242,194,0, 0.6);
       border-radius: 50%;
-      background: #0d1a30;
+      background: #0C121D;
       transition: all 0.25s ease;
       margin-bottom: 0.65rem;
     }
     .timeline-node.active .node-circle {
-      background: #c9a961;
-      border-color: #c9a961;
-      box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.18);
+      background: #F2C200;
+      border-color: #F2C200;
+      box-shadow: 0 0 0 4px rgba(242,194,0, 0.18);
     }
     .timeline-node:not(.active):hover .node-circle {
-      border-color: #c9a961;
-      background: rgba(201, 169, 97, 0.18);
+      border-color: #F2C200;
+      background: rgba(242,194,0, 0.18);
     }
     .timeline-node .node-year {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 0.95rem;
       font-weight: 500;
-      color: #c9a961;
+      color: #F2C200;
       margin-bottom: 0.1rem;
       line-height: 1.1;
     }
     .timeline-node .node-label {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.08em;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       text-transform: uppercase;
       line-height: 1.3;
     }
     .timeline-node.active .node-label {
-      color: #f0e6d2;
+      color: #EEF2F7;
     }
     .omnibus-timeline__detail {
       margin: 1.5rem 0 0;
       padding: 1.3rem 1.5rem;
-      background: rgba(244, 237, 224, 0.025);
-      border: 0.5px solid rgba(201, 169, 97, 0.18);
+      background: rgba(238,242,247, 0.025);
+      border: 0.5px solid rgba(242,194,0, 0.18);
       border-radius: 6px;
       min-height: 170px;
       transition: opacity 0.25s ease;
     }
     .omnibus-timeline__detail .detail-date {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.18em;
-      color: #c9a961;
+      color: #F2C200;
       text-transform: uppercase;
       margin-bottom: 0.65rem;
       font-weight: 500;
@@ -208,15 +205,15 @@
     .omnibus-timeline__detail h4 {
       font-family: var(--jm-display);
       font-size: 1.25rem;
-      color: #f0e6d2;
+      color: #EEF2F7;
       font-weight: 400;
       margin: 0 0 0.55rem;
       line-height: 1.25;
     }
     .omnibus-timeline__detail p {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.9rem;
-      color: rgba(240, 230, 210, 0.82);
+      color: rgba(238,242,247, 0.82);
       line-height: 1.65;
       margin: 0;
       text-align: left;
@@ -226,22 +223,22 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 0.78rem;
-      color: rgba(240, 230, 210, 0.4);
+      color: rgba(238,242,247, 0.4);
       text-align: center;
       margin: 0.9rem 0 0;
       padding-top: 0.6rem;
-      border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+      border-top: 0.5px solid rgba(242,194,0, 0.15);
     }
     .omnibus-timeline__byline {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 0.7rem;
       line-height: 1.3;
-      color: rgba(240, 230, 210, 0.35);
+      color: rgba(238,242,247, 0.35);
       text-align: right;
       margin-top: 0.8rem;
       padding-top: 0.6rem;
-      border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+      border-top: 0.5px solid rgba(242,194,0, 0.15);
     }
     .omnibus-timeline__print-list {
       display: none;
@@ -282,26 +279,26 @@
       .compare-grid { grid-template-columns: 1fr; }
     }
     .compare-panel {
-      background: #0d1a30;
-      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      background: #0C121D;
+      border: 0.5px solid rgba(242,194,0, 0.3);
       border-radius: 12px;
       padding: 1.5rem;
     }
     .compare-panel__label {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 500;
       margin: 0 0 0.7rem;
     }
-    .compare-panel.moved .compare-panel__label { color: rgba(240, 230, 210, 0.45); }
-    .compare-panel.stayed .compare-panel__label { color: #c9a961; }
+    .compare-panel.moved .compare-panel__label { color: rgba(238,242,247, 0.45); }
+    .compare-panel.stayed .compare-panel__label { color: #F2C200; }
     .compare-panel h4 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 400;
-      color: #f0e6d2;
+      color: #EEF2F7;
       margin: 0 0 0.9rem;
       line-height: 1.3;
     }
@@ -311,13 +308,13 @@
       margin: 0;
     }
     .compare-panel li {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.85rem;
       line-height: 1.5;
-      color: rgba(240, 230, 210, 0.82);
+      color: rgba(238,242,247, 0.82);
       padding: 0.55rem 0 0.55rem 0.95rem;
       position: relative;
-      border-bottom: 0.5px solid rgba(244, 237, 224, 0.06);
+      border-bottom: 0.5px solid rgba(238,242,247, 0.06);
     }
     .compare-panel li:last-child { border-bottom: none; }
     .compare-panel li::before {
@@ -327,11 +324,11 @@
       top: 1.05rem;
       width: 5px;
       height: 1px;
-      background: #c9a961;
+      background: #F2C200;
       opacity: 0.6;
     }
     .compare-panel li strong {
-      color: #f0e6d2;
+      color: #EEF2F7;
       font-weight: 500;
     }
     .compare-panel li .li-date {
@@ -339,14 +336,14 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 0.78rem;
-      color: rgba(201, 169, 97, 0.8);
+      color: rgba(242,194,0, 0.8);
       margin-top: 0.2rem;
     }
 
     /* ===== Regulatory stack SVG ===== */
     .stack-figure {
-      background: #0d1a30;
-      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      background: #0C121D;
+      border: 0.5px solid rgba(242,194,0, 0.3);
       border-radius: 12px;
       padding: 1.75rem 1.5rem 1.5rem;
       margin: 2rem 0;
@@ -362,7 +359,7 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 0.85rem;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       margin: 1rem auto 0;
       max-width: 540px;
       line-height: 1.5;
@@ -372,12 +369,12 @@
     .article__quote {
       margin: 1.6rem 0 1.8rem;
       padding: 0.4rem 1.4rem;
-      border-left: 2px solid rgba(201, 169, 97, 0.5);
+      border-left: 2px solid rgba(242,194,0, 0.5);
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 1.15rem;
       line-height: 1.55;
-      color: rgba(240, 230, 210, 0.86);
+      color: rgba(238,242,247, 0.86);
     }
 
     /* ===== Dual independent carousels ===== */
@@ -390,8 +387,8 @@
       max-width: 680px;
     }
     .carousel {
-      background: #0d1a30;
-      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      background: #0C121D;
+      border: 0.5px solid rgba(242,194,0, 0.3);
       border-radius: 12px;
       padding: 1.15rem 1.2rem 1rem;
       display: flex;
@@ -405,10 +402,10 @@
       gap: 0.7rem;
       margin-bottom: 0.65rem;
       padding-bottom: 0.55rem;
-      border-bottom: 0.5px solid rgba(244, 237, 224, 0.07);
+      border-bottom: 0.5px solid rgba(238,242,247, 0.07);
     }
     .carousel__label {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.72rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -417,18 +414,18 @@
       border-radius: 3px;
     }
     .carousel__label--live {
-      color: #0d1a30;
-      background: #c9a961;
+      color: #0C121D;
+      background: #F2C200;
     }
     .carousel__label--postponed {
-      color: #f0e6d2;
+      color: #EEF2F7;
       background: rgba(184, 120, 60, 0.85);
     }
     .carousel__sub {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 0.85rem;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
     }
     .carousel__viewport {
       overflow: hidden;
@@ -454,22 +451,22 @@
       font-size: 2.05rem;
       font-weight: 500;
       line-height: 1.05;
-      color: #f0e6d2;
+      color: #EEF2F7;
       letter-spacing: -0.005em;
     }
     .carousel__obligation {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.82rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(240, 230, 210, 0.62);
+      color: rgba(238,242,247, 0.62);
       font-weight: 500;
     }
     .carousel__definition {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.86rem;
       line-height: 1.5;
-      color: rgba(240, 230, 210, 0.85);
+      color: rgba(238,242,247, 0.85);
       margin: 0.15rem 0 0;
     }
     .carousel__date {
@@ -478,7 +475,7 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 0.98rem;
       font-weight: 500;
-      color: #c9a961;
+      color: #F2C200;
       letter-spacing: 0.01em;
       line-height: 1.2;
     }
@@ -489,12 +486,12 @@
       gap: 0.8rem;
       margin-top: 0.65rem;
       padding-top: 0.55rem;
-      border-top: 0.5px solid rgba(244, 237, 224, 0.07);
+      border-top: 0.5px solid rgba(238,242,247, 0.07);
     }
     .carousel__arrow {
       background: transparent;
-      border: 0.5px solid rgba(201, 169, 97, 0.45);
-      color: #c9a961;
+      border: 0.5px solid rgba(242,194,0, 0.45);
+      color: #F2C200;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -502,25 +499,25 @@
       font-size: 1.15rem;
       line-height: 1;
       transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
     }
     .carousel__arrow:hover {
-      background: rgba(201, 169, 97, 0.16);
-      border-color: #c9a961;
-      color: #f0e6d2;
+      background: rgba(242,194,0, 0.16);
+      border-color: #F2C200;
+      color: #EEF2F7;
     }
     .carousel__arrow:disabled {
       opacity: 0.35;
       cursor: default;
     }
     .carousel__counter {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.78rem;
       letter-spacing: 0.12em;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       font-variant-numeric: tabular-nums;
     }
-    .carousel__counter [data-current] { color: #c9a961; }
+    .carousel__counter [data-current] { color: #F2C200; }
 
     /* Constrain interactive blocks to match prose column width */
     .gov-reveal,
@@ -541,11 +538,11 @@
       font-style: italic;
       font-size: 0.7rem;
       line-height: 1.3;
-      color: rgba(240, 230, 210, 0.35);
+      color: rgba(238,242,247, 0.35);
       text-align: right;
       margin-top: 0.55rem;
       padding-top: 0.45rem;
-      border-top: 0.5px solid rgba(201, 169, 97, 0.15);
+      border-top: 0.5px solid rgba(242,194,0, 0.15);
     }
 
     /* Block-level watermark used under carousels and the 2x2 grid */
@@ -554,7 +551,7 @@
       font-style: italic;
       font-size: 0.72rem;
       line-height: 1.55;
-      color: rgba(240, 230, 210, 0.35);
+      color: rgba(238,242,247, 0.35);
       text-align: right;
       margin: 0.4rem 0 2.5rem;
     }
@@ -569,8 +566,8 @@
     }
     .gov-reveal__card {
       position: relative;
-      background: #0d1a30;
-      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      background: #0C121D;
+      border: 0.5px solid rgba(242,194,0, 0.3);
       border-radius: 12px;
       padding: 1rem 1.1rem 0.9rem;
       min-height: 112px;
@@ -580,7 +577,7 @@
     }
     .gov-reveal__card:hover,
     .gov-reveal__card:focus-within {
-      border-color: rgba(201, 169, 97, 0.6);
+      border-color: rgba(242,194,0, 0.6);
       background: #0e1c34;
     }
     .gov-reveal__card:focus-visible { outline: none; }
@@ -588,7 +585,7 @@
       font-family: var(--jm-display);
       font-size: 1.9rem;
       font-weight: 500;
-      color: #c9a961;
+      color: #F2C200;
       line-height: 1.1;
       margin: 0;
       position: absolute;
@@ -609,10 +606,10 @@
       height: 100%;
     }
     .gov-reveal__body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.82rem;
       line-height: 1.48;
-      color: rgba(240, 230, 210, 0.86);
+      color: rgba(238,242,247, 0.86);
       margin: 0;
       flex: 1;
     }
@@ -621,10 +618,10 @@
       font-style: italic;
       font-size: 0.72rem;
       line-height: 1.38;
-      color: rgba(240, 230, 210, 0.5);
+      color: rgba(238,242,247, 0.5);
       margin: 0.65rem 0 0;
       padding-top: 0.4rem;
-      border-top: 0.5px solid rgba(244, 237, 224, 0.05);
+      border-top: 0.5px solid rgba(238,242,247, 0.05);
     }
     .gov-reveal__byline {
       margin-top: 0.45rem;
@@ -654,16 +651,16 @@
       margin: 0;
       padding: 0;
       border: 0;
-      border-bottom: 1px dotted rgba(201, 169, 97, 0.65);
+      border-bottom: 1px dotted rgba(242,194,0, 0.65);
       background: transparent;
-      color: #d4b068;
+      color: #F2C200;
       font: inherit;
       line-height: inherit;
       text-align: inherit;
       cursor: help;
     }
     .define__trigger:focus-visible {
-      outline: 1px solid rgba(201, 169, 97, 0.8);
+      outline: 1px solid rgba(242,194,0, 0.8);
       outline-offset: 2px;
       border-radius: 2px;
     }
@@ -675,12 +672,12 @@
       width: max-content;
       max-width: min(280px, calc(100vw - 2rem));
       padding: 0.6rem 0.78rem;
-      border: 0.5px solid rgba(201, 169, 97, 0.45);
+      border: 0.5px solid rgba(242,194,0, 0.45);
       border-radius: 7px;
-      background: #0d1a30;
+      background: #0C121D;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
       color: #ffffff;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.78rem;
       font-style: normal;
       font-weight: 400;
@@ -702,7 +699,7 @@
       height: 8px;
     }
     .define__tooltip a {
-      color: #d4b068;
+      color: #F2C200;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
@@ -783,13 +780,13 @@
       .dual-carousels::before,
       .gov-reveal::before {
         display: block;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Instrument Sans', sans-serif;
         font-size: 7.5pt;
         font-weight: 700;
         letter-spacing: 0.12em;
         line-height: 1.2;
         text-transform: uppercase;
-        color: #5d4618 !important;
+        color: #6B5600 !important;
         margin-bottom: 0.08in;
       }
 
@@ -843,7 +840,7 @@
       }
 
       .omnibus-timeline__track::before {
-        background: #b8a674 !important;
+        background: #F2C200 !important;
         top: calc(0.04in + 7px) !important;
       }
 
@@ -858,7 +855,7 @@
         height: 14px !important;
         margin-bottom: 0.04in !important;
         background: #ffffff !important;
-        border-color: #6f5620 !important;
+        border-color: #7A6200 !important;
       }
 
       .timeline-node.active .node-circle,
@@ -867,13 +864,13 @@
       }
 
       .timeline-node.active .node-circle {
-        background: #6f5620 !important;
+        background: #7A6200 !important;
       }
 
       .timeline-node .node-year,
       .timeline-node .node-label,
       .timeline-node.active .node-label {
-        color: #5d4618 !important;
+        color: #6B5600 !important;
       }
 
       .timeline-node .node-year {
@@ -894,7 +891,7 @@
       .omnibus-print-card {
         position: relative;
         border: 0.8pt solid #d7d7d7;
-        border-left: 2.5pt solid #6f5620;
+        border-left: 2.5pt solid #7A6200;
         padding: 0.08in 0.09in;
         min-height: 0;
         page-break-inside: avoid;
@@ -907,7 +904,7 @@
       .carousel__obligation,
       .gov-reveal__source,
       .block-watermark {
-        color: #5d4618 !important;
+        color: #6B5600 !important;
       }
 
       .omnibus-print-card__date {
@@ -922,7 +919,7 @@
       }
 
       .omnibus-print-card p {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Instrument Sans', sans-serif;
         font-size: 8pt;
         line-height: 1.35;
         color: #222222 !important;
@@ -961,7 +958,7 @@
       }
 
       .article__quote {
-        border-left-color: #6f5620 !important;
+        border-left-color: #7A6200 !important;
         background: #ffffff !important;
       }
 
@@ -1052,6 +1049,26 @@
       }
     }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The AI Act After the Omnibus",
+  "description": "The Digital Omnibus delayed Annex III high-risk AI obligations to December 2027. The legal deadline changed, but regulated institutions still need to build the governance record that supervisors will read.",
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-08-19",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.jhmacal.com/#person",
+    "name": "Julio Macedo",
+    "url": "https://www.jhmacal.com/resume/"
+  },
+  "mainEntityOfPage": "https://www.jhmacal.com/writing/the-eu-ai-act-omnibus/",
+  "inLanguage": "en"
+}
+</script>
+<link rel="stylesheet" href="/fonts.css?v=20261124">
+<link rel="stylesheet" href="/theme.css?v=20261124">
 </head>
 <body>
 
@@ -1087,7 +1104,7 @@
       <article class="article">
         <div class="article__body">
 
-          <p class="article__byline">By Julio Macedo</p>
+          <p class="article__byline">By <a href="/resume/">Julio Macedo</a></p>
 
           <h2>What the delay means</h2>
 
@@ -1100,7 +1117,7 @@
           <p>The EU failed to finalize the standards and support measures in time, which bought companies more time to build cleanly. The institutions that use that time well will not treat AI governance as a 2027 project.</p>
 
           <div class="omnibus-timeline">
-            <p class="omnibus-timeline__title" style="margin-top: 0.2rem; margin-bottom: 1.4rem; font-style: normal; font-size: 1.45rem; color: #c9a961; font-weight: 500;">The EU AI Act in Seven Moves</p>
+            <p class="omnibus-timeline__title" style="margin-top: 0.2rem; margin-bottom: 1.4rem; font-style: normal; font-size: 1.45rem; color: #F2C200; font-weight: 500;">The EU AI Act in Seven Moves</p>
 
             <div class="omnibus-timeline__track" role="tablist">
               <button class="timeline-node active" data-step="1" role="tab" aria-selected="true">
@@ -1249,14 +1266,14 @@
 
           <p>Enforcement powers for General-purpose AI providers will attach from 2 August 2026. The Commission will have authority to require providers to give documentation, training information, and explanations; conduct or commission evaluations of GPAI models, including access to the model for testing; require providers to take corrective action where compliance gaps are found.</p>
 
-          <div class="ts-stat-feature" style="background: #0d1a30; border: 0.5px solid rgba(201, 169, 97, 0.45); border-radius: 14px; padding: 2.25rem 2rem; margin: 2.25rem 0; display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 2rem; align-items: start;">
-            <div style="font-family: var(--jm-display); font-size: 88px; font-weight: 500; color: #c9a961; line-height: 1; letter-spacing: -0.02em;">7%</div>
+          <div class="ts-stat-feature" style="background: #0C121D; border: 0.5px solid rgba(242,194,0, 0.45); border-radius: 14px; padding: 2.25rem 2rem; margin: 2.25rem 0; display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 2rem; align-items: start;">
+            <div style="font-family: var(--jm-display); font-size: 88px; font-weight: 500; color: #F2C200; line-height: 1; letter-spacing: -0.02em;">7%</div>
             <div style="display: flex; flex-direction: column; height: 100%;">
               <div>
-                <div style="font-size: 16px; color: #f0e6d2; line-height: 1.55; margin-bottom: 10px; font-weight: 500;">Of worldwide annual turnover, or &euro;35 million, whichever is higher. Maximum fine under Article 99 for breaching the Article 5 prohibitions on unacceptable AI.</div>
-                <div style="font-size: 12px; color: rgba(240, 230, 210, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
+                <div style="font-size: 16px; color: #EEF2F7; line-height: 1.55; margin-bottom: 10px; font-weight: 500;">Of worldwide annual turnover, or &euro;35 million, whichever is higher. Maximum fine under Article 99 for breaching the Article 5 prohibitions on unacceptable AI.</div>
+                <div style="font-size: 12px; color: rgba(238,242,247, 0.55); font-style: italic;">Regulation (EU) 2024/1689, Article 99</div>
               </div>
-              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 0.7rem; line-height: 1.3; color: rgba(240, 230, 210, 0.35); text-align: right; margin-top: auto; padding-top: 0.6rem; border-top: 0.5px solid rgba(201, 169, 97, 0.15);">By Julio Macedo<br>jhmacal.com</div>
+              <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 0.7rem; line-height: 1.3; color: rgba(238,242,247, 0.35); text-align: right; margin-top: auto; padding-top: 0.6rem; border-top: 0.5px solid rgba(242,194,0, 0.15);">By Julio Macedo<br>jhmacal.com</div>
             </div>
           </div>
 
@@ -1512,8 +1529,8 @@
     </div>
   </footer>
 
-  <script src="/js/nav.js"></script>
-  <script src="/js/animations.js"></script>
+  <script src="/js/nav.js?v=20261124"></script>
+  <script src="/js/animations.js?v=20261124"></script>
 
   <script>
   (function () {
@@ -1685,7 +1702,7 @@
   }());
   </script>
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-  <script src="/js/latest.js" defer></script>
+        async src="//gc.zgo.at/count.js?v=20261124"></script>
+  <script src="/js/latest.js?v=20261124" defer></script>
 </body>
 </html>

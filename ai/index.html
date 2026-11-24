@@ -8,160 +8,482 @@
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Portfolio | Julio Macedo | Senior Counsel, Legal AI Operator</title>
-  <meta name="description" content="AI tools and projects by Julio Macedo. Built for legal operations at scale.">
-  <meta property="og:title" content="AI Portfolio | Julio Macedo | Senior Counsel, Legal AI Operator">
-  <meta property="og:description" content="AI tools and projects by Julio Macedo. Built for legal operations at scale.">
+  <title>AI Portfolio | Julio Macedo | Senior Attorney and Legal AI Operator</title>
+  <meta name="description" content="Legal AI systems built by Julio Macedo: a prompt-engineering application, a configurable AI governance operating model, a conflicts-intake design and a knowledge management workflow, each with its method published.">
+  <meta property="og:title" content="AI Portfolio | Julio Macedo | Senior Attorney and Legal AI Operator">
+  <meta property="og:description" content="Legal AI systems built by Julio Macedo: a prompt-engineering application, a configurable AI governance operating model, a conflicts-intake design and a knowledge management workflow, each with its method published.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://www.jhmacal.com/ai/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261012-nav">
-  <link rel="stylesheet" href="/atmosphere.css">
-  <style>
-    .ai-work-row__new{display:none;align-items:center;gap:6px;font-family:"Inter",system-ui,sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold,#c9a961);border:1px solid rgba(201,169,97,.55);border-radius:2px;padding:3px 6px;line-height:1;vertical-align:middle;margin-left:10px}
-    .ai-work-row.is-new .ai-work-row__new{display:inline-flex}
-    .ai-work-row.is-new{box-shadow:inset 3px 0 0 var(--gold,#c9a961);background:rgba(201,169,97,.05)}
-  </style>
+  
+<link rel="preload" href="/assets/fonts/bodoni-moda-var-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css?v=20261124">
+<style>
+/* AI Portfolio page, direction 3, corridor. No scripts.
+   Order of this sheet: page basics, header, the still version (the default), the corridor (only where the browser supports scroll-linked CSS and motion is allowed), footer, small screens, reduced motion. */
+@property --c{syntax:"<number>";inherits:true;initial-value:0}
+html{background:#080C14;scroll-behavior:smooth}
+body{margin:0;background:#080C14}
+.m-root,.m-root *,.m-root *::before,.m-root *::after{box-sizing:border-box}
+.m-root{background:#080C14;color:#EEF2F7;font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.65;font-weight:400;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;--nav:67px;--wrap:48px}
+.m-root ::selection{background:#F2C200;color:#080C14}
+.m-root :focus-visible{outline:2px solid #F2C200;outline-offset:4px}
+.m-wrap{max-width:1296px;margin:0 auto;padding:0 var(--wrap);position:relative}
+
+/* header: the same component as the earlier mockups */
+.m-header{position:sticky;top:0;z-index:40;background:#080C14;border-bottom:1px solid #1A2231}
+.m-navrow{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:66px}
+.m-mark{display:inline-flex;align-items:center;gap:11px;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-size:20px;letter-spacing:.01em;text-decoration:none;color:#EEF2F7;padding:12px 0;transition:color .3s ease}
+.m-signal{display:block;width:6px;height:6px;background:#F2C200;flex:none}
+.m-nav{display:flex;flex-wrap:wrap;gap:0 30px;list-style:none;margin:0;padding:0}
+.m-nav-item{margin:0;padding:0}
+.m-lnk{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A9B3C4;text-decoration:none;padding:16px 0;position:relative;transition:color .3s ease}
+.m-lnk-on{color:#F2C200}
+.m-navt{display:none}
+.m-toggle{display:none}
+.m-mark:hover{color:#F2C200}
+.m-lnk::after{content:"";position:absolute;left:0;right:0;bottom:11px;height:1px;background:#F2C200;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.m-lnk:hover{color:#EEF2F7}
+.m-lnk:hover::after{transform:scaleX(1)}
+.m-lnk-on::after{transform:scaleX(1)}
+.m-lnk-on:hover{color:#F2C200}
+
+/* ---------- the still version: headline, a framed list of the 13 artifacts, the closing call ---------- */
+.m-cor{position:relative}
+.m-stage{position:relative;display:flex;flex-direction:column}
+.m-thr{order:0;position:relative;border-bottom:1px solid #2A3448}
+.m-thr-in{position:relative;max-width:1296px;margin:0 auto;padding:68px var(--wrap) 56px}
+.m-eyebrow{margin:0;padding:0;display:flex;align-items:center;gap:12px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#F2C200}
+.m-rule{height:1px;width:min(100%,520px);background:#2A3448;margin:24px 0 30px;transform-origin:left}
+.m-title{margin:0;padding:0;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-weight:400;font-size:clamp(52px,calc(7.9vw - 4px),116px);line-height:.95;letter-spacing:-.022em;color:#EEF2F7;font-variation-settings:'opsz' 96}
+.m-tl{display:block;overflow:hidden;padding:.09em .08em .2em 0;margin:-.09em 0 -.2em 0}
+.m-tl-in{display:block}
+.m-tl-code{color:#F2C200;font-style:italic}
+.m-cue{margin:46px 0 0;padding:0;display:flex;align-items:center;gap:14px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#F2C200}
+.m-cue-line{display:block;width:46px;height:1px;background:#F2C200;transform-origin:left}
+.m-strip{order:1;width:100%;max-width:1296px;margin:0 auto;padding:26px var(--wrap) 0}
+.m-legend{margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 0;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:500;letter-spacing:.14em;line-height:1.5;text-transform:uppercase;color:#8490A5}
+.m-lh{display:block}
+.m-lh + .m-lh::before{content:"/";margin:0 14px;color:#2A3448}
+.m-rail{display:none;list-style:none;margin:0;padding:0}
+.m-marks{display:none}
+.m-hall{order:2;position:relative}
+.m-deco{display:none}
+.m-rays{display:none}
+.m-doors{list-style:none;margin:0 auto;padding:18px var(--wrap) 0;max-width:1296px;display:grid;gap:14px;counter-reset:art}
+.m-door{position:relative;margin:0;padding:26px 30px 30px;border:1px solid #2A3448;display:grid;grid-template-columns:70px minmax(0,1fr);column-gap:6px;row-gap:14px;align-items:start}
+.m-door::before{counter-increment:art;content:counter(art,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-style:italic;font-weight:400;font-size:44px;line-height:1;color:#8490A5;font-variation-settings:'opsz' 40}
+.m-door-int{border-style:dashed}
+.m-door-new{border-color:#846C09}
+.m-door-new::before{color:#F2C200}
+.m-type{margin:0;padding:0;grid-column:2;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:500;letter-spacing:.12em;line-height:1.6;text-transform:uppercase;color:#F2C200}
+.m-plq{grid-column:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:44px;align-items:start;color:#EEF2F7;text-decoration:none}
+.m-art{display:block;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-weight:400;font-size:32px;line-height:1.12;letter-spacing:-.012em;color:#EEF2F7;font-variation-settings:'opsz' 22;transition:color .3s ease}
+.m-new{display:inline-block;vertical-align:middle;margin:-5px 0 0 8px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-style:normal;color:#F2C200;border:1px solid #846C09;padding:4px 6px 3px;line-height:1;font-variation-settings:normal}
+.m-ev{display:block;padding-top:5px;font-size:16px;line-height:1.62;color:#A9B3C4;max-width:64ch;transition:color .3s ease}
+.m-plq-link .m-art::after{content:"\00a0\2197";font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.5em;line-height:1;vertical-align:.35em;color:#F2C200;font-style:normal;letter-spacing:0}
+.m-plq-link:hover .m-art{color:#F2C200}
+.m-plq-link:hover .m-ev{color:#CFD6E2}
+.m-end{position:relative;max-width:1296px;width:100%;margin:56px auto 0;padding:0 var(--wrap);border-top:1px solid #2A3448}
+.m-cta-link{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:92px 0 98px;text-decoration:none;color:#EEF2F7;position:relative}
+.m-cta-t{display:block;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-weight:400;font-size:clamp(40px,7.4vw,108px);line-height:1;letter-spacing:-.022em;color:#EEF2F7;font-variation-settings:'opsz' 96;transition:color .35s ease}
+.m-cta-arw{display:flex;align-items:center;flex:none;padding-right:6px}
+.m-cta-line{display:block;width:120px;height:1px;background:#F2C200;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.m-cta-arw::after{content:"";display:block;width:11px;height:11px;margin-left:-11px;border-top:1px solid #F2C200;border-right:1px solid #F2C200;transform:rotate(45deg)}
+.m-cta-link:hover .m-cta-t{color:#F2C200}
+.m-cta-link:hover .m-cta-line{width:176px}
+
+/* footer: the same component as the earlier mockups */
+.m-footer{border-top:1px solid #2A3448;padding:64px 0 56px;position:relative;background:#080C14}
+.m-frow{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.m-fcopy{margin:0;padding:0}
+.m-sig{display:block;font-family:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;font-size:30px;line-height:1.1;color:#EEF2F7}
+.m-fmeta{display:block;margin-top:10px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8490A5}
+.m-flinks{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.m-fitem{margin:0;padding:0}
+.m-flink{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A9B3C4;text-decoration:none;border-bottom:1px solid transparent;padding:16px 0 10px;transition:color .3s ease,border-color .3s ease}
+.m-flink:hover{color:#EEF2F7;border-color:#F2C200}
+
+/* entrance of the headline (time-based, once) */
+@keyframes m-draw{
+  from{transform:scaleX(0)}
+  to{transform:scaleX(1)}
+}
+@keyframes m-rise{
+  from{transform:translateY(126%)}
+  to{transform:translateY(0)}
+}
+@keyframes m-fade{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes m-show{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes m-blink{
+  0%,100%{opacity:1}
+  50%{opacity:.3}
+}
+@media screen and (prefers-reduced-motion:no-preference){
+  .m-eyebrow{animation:m-fade .9s ease .1s both}
+  .m-rule{animation:m-draw 1.1s cubic-bezier(.2,.7,.2,1) .25s both}
+  .m-tl-in{animation:m-rise 1.1s cubic-bezier(.2,.7,.2,1) .38s both}
+  .m-tl:nth-child(2) .m-tl-in{animation-delay:.5s}
+  .m-tl:nth-child(3) .m-tl-in{animation-delay:.62s}
+  .m-cue{animation:m-fade 1s ease 1.2s both}
+  .m-signal{animation:m-blink 2.2s ease-in-out infinite}
+}
+
+/* small screens, still version */
+@media (max-width:980px){
+  .m-root{--wrap:22px}
+  .m-navrow{position:relative;min-height:66px}
+  .m-navt{display:block;position:absolute;right:0;top:50%;width:78px;height:44px;margin:-22px 0 0;padding:0;opacity:0;cursor:pointer;z-index:2}
+  .m-toggle{display:flex;align-items:center;justify-content:center;min-width:66px;height:36px;padding:8px 12px;border:1px solid #2A3448;color:#EEF2F7;font-size:11px;font-weight:600;letter-spacing:.12em;line-height:1.5;text-transform:uppercase}
+  .m-toggle::after{content:"Menu"}
+  .m-navt:checked + .m-toggle::after{content:"Close"}
+  .m-navt:focus-visible + .m-toggle{outline:2px solid #F2C200;outline-offset:4px}
+  .m-nav{display:none;position:absolute;left:-22px;right:-22px;top:100%;flex-direction:column;flex-wrap:nowrap;gap:0;margin:0;padding:8px 22px 20px;background:#080C14;border-top:1px solid #1A2231;border-bottom:1px solid #1A2231}
+  .m-navt:checked ~ .m-nav{display:flex}
+  .m-nav-item{border-bottom:1px solid #1A2231}
+  .m-nav-item:last-child{border-bottom:none}
+  .m-lnk{display:flex;min-height:44px;padding:6px 0;font-size:12.5px}
+  .m-lnk::after{display:none}
+  .m-thr-in{padding-top:56px;padding-bottom:48px}
+  .m-title{font-size:clamp(52px,calc(9.4vw - 12px),80px)}
+  .m-cue{margin-top:34px}
+  .m-door{padding:22px 20px 24px;grid-template-columns:56px minmax(0,1fr)}
+  .m-door::before{font-size:36px}
+  .m-plq{grid-template-columns:minmax(0,1fr);row-gap:8px}
+  .m-art{font-size:27px}
+  .m-ev{font-size:15.5px}
+  .m-cta-link{padding:62px 0 66px;gap:22px}
+  .m-cta-line{width:54px}
+  .m-cta-link:hover .m-cta-line{width:70px}
+}
+@media (max-width:760px){
+  .m-title{font-size:clamp(52px,11.4vw,84px)}
+}
+@media (max-width:460px){
+  .m-door{padding:20px 16px 22px;grid-template-columns:46px minmax(0,1fr)}
+  .m-door::before{font-size:30px}
+  .m-art{font-size:25px}
+  .m-cta-arw{display:none}
+}
+
+/* ---------- the corridor ----------
+   One number, --c, is the walker's position: 0 at the headline, 1 to 13 at the doorways, 14 at the closing call.
+   Scrolling moves --c (keyframes m-cam, generated: it rests at each doorway, then moves on).
+   A doorway k sits at distance d = k - c and is drawn at f / (f + d) of its size around the vanishing point,
+   which is exactly how a frame facing the viewer shrinks with distance. */
+@supports (animation-timeline:view()) and (view-timeline-inset:1px){
+@media screen and (prefers-reduced-motion:no-preference) and (min-height:650px) and (min-width:340px){
+  .m-root{--sh:calc(100vh - var(--nav));--u:19vh;--f:1;--vy:32%;--dl:max(14%,calc(50% - 640px));--dt:8%;--dbn:.14;--db:calc(var(--dbn) * 100%);--sx:19vw;--sy:0px;--pad:clamp(20px,min(2.1vw,3.4vh),30px);--num:clamp(38px,min(4.1vw,6.5vh),58px);--art:clamp(26px,min(2.7vw,4.3vh),40px);--evs:clamp(13.5px,min(1.1vw,1.75vh),16px)}
+  @supports (height:1svh){
+    .m-root{--sh:calc(100svh - var(--nav));--u:19svh}
+  }
+  .m-cor{height:calc(var(--sh) + var(--u) * 30.0);view-timeline:--cor block;view-timeline-inset:var(--nav) 0px}
+  .m-stage{position:sticky;top:var(--nav);height:var(--sh);display:block;overflow:hidden;animation:m-cam linear both;animation-timeline:--cor;animation-range:contain 0% contain 100%}
+
+  /* the headline is the entrance: it grows and clears as the walk starts */
+  .m-thr{position:absolute;top:0;right:0;bottom:0;left:0;z-index:3;border:0;pointer-events:none;--d:calc(0 - var(--c));transform-origin:50% calc(var(--dt) + (100% - var(--dt) - var(--db)) * 0.32);transform:scale(calc(var(--f) / max(var(--f) * .42, var(--f) + var(--d))));opacity:clamp(0, calc((var(--d) + var(--f) * .5) / (var(--f) * .38)), 1)}
+  .m-thr-in{position:absolute;top:0;right:0;left:0;bottom:var(--db);max-width:none;margin:0;padding:clamp(26px,7.5vh,76px) var(--wrap) 0}
+  .m-title{font-size:clamp(52px,min(calc(7.2vw - 2px),13.2vh),112px)}
+  .m-cue{position:absolute;left:var(--wrap);top:100%;height:calc(var(--sh) * var(--dbn));margin:0}
+
+  /* the hall: a light and a short cross at the far end, then the doorways */
+  .m-hall{position:absolute;top:0;right:0;bottom:0;left:0;translate:calc(clamp(0, 1 - var(--c) / 0.7, 1) * var(--sx)) calc(clamp(0, 1 - var(--c) / 0.7, 1) * var(--sy));animation:m-show 1.3s ease .55s both}
+  .m-deco{display:block;position:absolute;left:var(--dl);right:var(--dl);top:var(--dt);bottom:var(--db);pointer-events:none}
+  .m-glow{position:absolute;left:50%;top:var(--vy);width:66%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(52,66,255,.27),rgba(52,66,255,.09) 48%,rgba(52,66,255,0))}
+  .m-edges{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+  .m-edges line{stroke-width:1;vector-effect:non-scaling-stroke}
+  .m-rays{display:block;position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;opacity:var(--a)}
+  .m-rays line{stroke:#3A4761;stroke-width:1;vector-effect:non-scaling-stroke}
+  .m-doors{position:absolute;top:0;right:0;bottom:0;left:0;display:block;max-width:none;margin:0;padding:0}
+  .m-door,.m-end{position:absolute;left:var(--dl);right:var(--dl);top:var(--dt);bottom:var(--db);width:auto;max-width:none;margin:0;padding:0;display:block;--d:calc(var(--k) - var(--c));--a:clamp(0, calc((.22 - max(var(--d), -1 * var(--d))) / .1), 1);transform-origin:50% var(--vy);transform:scale(calc(var(--f) / max(var(--f) * .42, var(--f) + var(--d))));opacity:clamp(0, min(calc((5.2 - var(--d)) / 4.6), calc((var(--d) + var(--f) * .5) / (var(--f) * .38))), 1);border:1px solid color-mix(in srgb, #F2C200 calc(var(--a) * 100%), #62739A);border-width:clamp(1px, calc(1px * (var(--f) + var(--d)) / var(--f)), 7px);box-shadow:0 0 46px rgba(242,194,0,calc(var(--a) * .1));will-change:transform,opacity}
+  .m-door-int{border-style:dashed}
+  .m-door::before{position:absolute;left:var(--pad);top:calc(var(--pad) - var(--num) * .14);font-size:var(--num);color:color-mix(in srgb, #F2C200 calc(var(--a) * 100%), #8490A5)}
+  .m-type{position:absolute;left:calc(var(--pad) + var(--num) * 1.28);right:var(--pad);top:calc(var(--pad) + var(--num) * .2);opacity:clamp(0, calc((.5 - var(--d)) / .3), 1)}
+  .m-plq{position:absolute;left:var(--pad);right:var(--pad);bottom:calc(var(--pad) - 4px);align-items:end}
+  .m-art{font-size:var(--art)}
+  .m-ev{padding:0 0 4px;font-size:var(--evs);line-height:1.54;max-width:none;opacity:clamp(0, calc((.55 - var(--d)) / .3), 1)}
+  .m-root .m-door:focus-within{transform:none;opacity:1;z-index:9;background:#080C14;border-color:#F2C200}
+  .m-root .m-door:focus-within .m-ev,.m-root .m-door:focus-within .m-type{opacity:1}
+
+  /* the closing call is the last doorway: a solid end wall */
+  .m-end{background:linear-gradient(180deg,rgba(242,194,0,.08),rgba(242,194,0,0) 72%),#0A0F19;display:grid;place-items:center}
+  .m-cta-link{flex-direction:column;justify-content:center;gap:26px;padding:0 var(--pad);text-align:center}
+  .m-cta-t{font-size:clamp(38px,min(5.8vw,11vh),88px)}
+
+  /* the strip under the hall: what each doorway shows, and where you are */
+  .m-strip{position:absolute;left:0;right:0;bottom:0;height:var(--db);max-width:none;margin:0;padding:0 var(--wrap);display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:4;background:linear-gradient(180deg,rgba(8,12,20,0),#080C14 34%);opacity:clamp(0, calc((var(--c) - .25) / .4), 1)}
+  .m-rail{display:flex;counter-reset:rk}
+  .m-rk{display:block;margin:0;padding:0;--d:calc(var(--k) - var(--c));--a:clamp(0, calc((.5 - max(var(--d), -1 * var(--d))) / .25), 1);--p:clamp(0, calc((.5 - var(--d)) / .25), 1)}
+  .m-rk-a{display:block;position:relative;width:24px;height:40px;text-decoration:none}
+  .m-rk-a::before{content:"";position:absolute;left:50%;top:4px;width:1px;height:calc(9px + var(--a) * 9px);margin-left:-.5px;background:color-mix(in srgb, #F2C200 calc(var(--a) * 100%), color-mix(in srgb, #A9B3C4 calc(var(--p) * 100%), #3A4761))}
+  .m-rk-a::after{counter-increment:rk;content:counter(rk,decimal-leading-zero);position:absolute;left:50%;top:25px;translate:-50% 0;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10px;font-weight:500;letter-spacing:.08em;line-height:1;color:#F2C200;opacity:var(--a)}
+  .m-rk-a:hover::before{background:#EEF2F7;height:18px}
+  .m-marks{display:block}
+  .m-mk{position:absolute;left:0;top:calc(var(--u) * 30.0 * var(--t));width:1px;height:1px;scroll-margin-top:var(--nav)}
+  .m-footer{position:relative;z-index:1}
+
+  @media (max-width:1180px){
+    .m-root{--dl:10%;--art:clamp(24px,min(2.9vw,4vh),32px);--evs:clamp(13px,min(1.4vw,1.75vh),15px)}
+    .m-plq{column-gap:30px}
+  }
+  @media (max-width:980px){
+    .m-root{--f:.8;--dl:7%;--sx:19vw;--pad:clamp(18px,2.6vw,24px);--num:clamp(36px,min(5.6vw,5.4vh),48px);--art:clamp(22px,min(3.4vw,3.4vh),28px);--evs:clamp(13px,min(1.85vw,1.6vh),15px)}
+    .m-title{font-size:clamp(46px,min(calc(8.6vw - 8px),12vh),78px)}
+    .m-rk-a{width:20px}
+  }
+  @media (max-width:760px){
+    .m-root{--f:.68;--dl:5%;--dt:5%;--dbn:.16;--sx:0px;--tp:clamp(16px,3.4vh,32px);--hfs:clamp(40px,min(12.4vw,8.2vh),84px);--sy:max(0px,calc(var(--tp) + 55px + var(--hfs) * 3 + 34px - var(--sh) * 0.1782));--pad:clamp(14px,4.4vw,20px);--num:clamp(30px,min(10vw,5.2vh),42px);--art:clamp(20px,min(6.2vw,2.9vh),26px);--evs:clamp(12px,min(3.45vw,1.62vh),14px)}
+    .m-thr-in{padding-top:var(--tp)}
+    .m-title{font-size:var(--hfs)}
+    .m-rule{margin:16px 0 20px}
+    .m-plq{grid-template-columns:minmax(0,1fr);row-gap:7px}
+    .m-ev{line-height:1.5}
+    .m-strip{flex-direction:column;align-items:stretch;justify-content:center;gap:6px}
+    .m-legend{font-size:9.5px;justify-content:center}
+    .m-lh + .m-lh::before{margin:0 9px}
+    .m-rail{justify-content:space-between}
+    .m-rk-a{width:22px;height:36px}
+    .m-cta-t{font-size:clamp(34px,min(10.4vw,7vh),60px)}
+  }
+  @media (max-width:380px){
+    .m-rk-a{width:18px}
+  }
+  @keyframes m-cam{
+    0%{--c:0;animation-timing-function:linear}
+    1.667%{--c:0.03;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    5%{--c:0.67;animation-timing-function:linear}
+    9.333%{--c:0.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    12.667%{--c:1.67;animation-timing-function:linear}
+    17%{--c:1.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    20.333%{--c:2.67;animation-timing-function:linear}
+    24.667%{--c:2.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    28%{--c:3.67;animation-timing-function:linear}
+    32.333%{--c:3.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    35.667%{--c:4.67;animation-timing-function:linear}
+    40%{--c:4.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    43.333%{--c:5.67;animation-timing-function:linear}
+    47.667%{--c:5.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    51%{--c:6.67;animation-timing-function:linear}
+    55.333%{--c:6.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    58.667%{--c:7.67;animation-timing-function:linear}
+    63%{--c:7.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    66.333%{--c:8.67;animation-timing-function:linear}
+    70.667%{--c:8.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    74%{--c:9.67;animation-timing-function:linear}
+    78.333%{--c:9.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    81.667%{--c:10.67;animation-timing-function:linear}
+    86%{--c:10.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    89.333%{--c:11.67;animation-timing-function:linear}
+    93.667%{--c:11.73;animation-timing-function:cubic-bezier(.3333,0,.6667,1)}
+    97%{--c:12.67;animation-timing-function:linear}
+    100%{--c:12.7}
+  }
+}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .m-root *,.m-root *::before,.m-root *::after{transition:none !important;animation:none !important}
+}
+
+/* print: the still list, dark ink on white, each entry kept whole */
+@media print{
+  html,body,.m-root{background:#fff!important}
+  .m-root *{color:#111!important;background:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important}
+  .m-header{position:static;border-bottom:1px solid #999}
+  .m-toggle,.m-navt,.m-deco,.m-cue{display:none!important}
+  .m-title{break-after:avoid;page-break-after:avoid}
+  .m-door{break-inside:avoid;page-break-inside:avoid}
+  .m-new{border-color:#777!important}
+}
+</style>
 </head>
 <body>
-
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__monogram">Home</a>
-      <ul class="nav__links">
-        <li><a data-nav-ai href="/ai/" class="active nav__link--ai">AI Portfolio <span class="nav__new" data-nav-new hidden>New</span></a></li>
-          <li><a href="/writing/">Articles</a></li>
-          <li><a href="/studies/">Case Studies</a></li>
-          <li><a href="/resume/">Resume</a></li>
-          <li><a href="/books/">Books</a></li>
-      </ul>
-      <button class="nav__toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <section class="ai-portfolio-hero">
-      <div class="plates" aria-hidden="true">
-        <div class="plate p1"></div><div class="plate p2"></div><div class="plate p3"></div>
-      </div>
-    <div class="container">
-      <div class="ai-portfolio-hero__grid">
-        <div>
-          <p class="page-header__eyebrow fade-in">AI Portfolio</p>
-          <h1 class="ai-portfolio-hero__title fade-in fade-in-delay-1">Operating artifacts <span>built in code</span></h1>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ai-portfolio-ledger" aria-label="AI portfolio work register">
-    <div class="container">
-      <div class="ai-ledger">
-        <div class="ai-ledger__head" aria-hidden="true">
-          <span>Type</span>
-          <span>Artifact</span>
-          <span>Operating evidence</span>
-        </div>
-        <a href="/writing/big-law-knowledge-management/" class="ai-work-row fade-in" data-ai-top data-latest-id="precedent-lifecycle-2026-10">
-          <span class="ai-work-row__status">Knowledge management</span>
-          <span class="ai-work-row__title">The Modern Precedent Lifecycle Workflow <span class="ai-work-row__new" data-latest-new>New</span></span>
-          <span class="ai-work-row__body">A four-step Knowledge Management workflow for Big Law practice groups that turns a closed document into organized, source-linked firm knowledge: workflow decomposition and capture, data structuring, content and AI governance, and integration with a user feedback loop.</span>
-        </a>
-        <a href="/writing/prompt-engineering-omono/" class="ai-work-row fade-in" data-latest-id="omono-2026-07">
-          <span class="ai-work-row__status">Enablement &amp; Teaching</span>
-          <span class="ai-work-row__title">Prompt Engineering (O'Mono)</span>
-          <span class="ai-work-row__body">A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.</span>
-        </a>
-        <a href="/studies/conflicts-intake/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Workflow decomposition and integration</span>
-          <span class="ai-work-row__title">Workflow Automation: Conflicts</span>
-          <span class="ai-work-row__body">Conflicts and new matter intake decomposed into nine steps across language, source-backed retrieval, legal judgment, and deterministic configuration, with provenance, confidentiality, supervision, adoption, and measurement built into the design.</span>
-        </a>
-        <a href="/imtheom/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Live tool</span>
-          <span class="ai-work-row__title">AI Governance Operating Model</span>
-          <span class="ai-work-row__body">A configurable AI governance operating model. Includes risk classification, review gates, intake, model registry, vendor diligence, escalation, and regulatory overlays.</span>
-        </a>
-        <a href="/studies/the-authority/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">AI governance as a strategic enabler</span>
-          <span class="ai-work-row__title">The Authority</span>
-          <span class="ai-work-row__body">A legal AI governance case study on why models cannot certify themselves. The record moves through self-review failure, release gates, bypass pressure, and the human layer that remains outside the model.</span>
-        </a>
-        <a href="/studies/ai-governance-for-business/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Executive readiness</span>
-          <span class="ai-work-row__title">AI Governance for Business Professionals</span>
-          <span class="ai-work-row__body">The questions and vocabulary that decide whether AI output becomes action. U.S. and EU regimes, Mobley v. Workday, adverse impact, and the human release gate, mapped for business professionals with sourced authorities.</span>
-        </a>
-        <a href="/writing/legal-reasoning/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Published system</span>
-          <span class="ai-work-row__title">Legal Reasoning as a Strategic Asset</span>
-          <span class="ai-work-row__body">Interactive article on the productization of legal reasoning, authority selection, and practitioner judgment as an asset class.</span>
-        </a>
-        <a href="/writing/the-eu-ai-act-omnibus/" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Regulatory tracking</span>
-          <span class="ai-work-row__title">AI Governance: the EU AI Act</span>
-          <span class="ai-work-row__body">Digital Omnibus reading with the in-force stack, pre-2027 operating obligations, and an interactive timeline of the Act in seven moves.</span>
-        </a>
-        <a href="/quant-study" class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Strategic brief</span>
-          <span class="ai-work-row__title">Quantitative Finance Governance Brief</span>
-          <span class="ai-work-row__body">Data analytical presentation for a quantitative finance environment, with regulatory risk exposure, governance strategy, and cost optimization.</span>
-        </a>
-        <div class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Built stack</span>
-          <span class="ai-work-row__title">Practitioner-built Code</span>
-          <span class="ai-work-row__body">This site, the data pipelines behind the studies, and the interactive components inside the articles, built directly in Python, HTML, CSS, and Markdown.</span>
-        </div>
-        <div class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Internal system</span>
-          <span class="ai-work-row__title">Program-scale Reporting</span>
-          <span class="ai-work-row__body">Automated reporting infrastructure for program health, cost leakage, and pathway eligibility at portfolio level.</span>
-        </div>
-        <div class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Internal system</span>
-          <span class="ai-work-row__title">AI-augmented Case Research</span>
-          <span class="ai-work-row__body">Research pipelines for precedents, response strategy, and comparison analysis, built for attorney review rather than generic retrieval.</span>
-        </div>
-        <div class="ai-work-row fade-in">
-          <span class="ai-work-row__status">Engagement work</span>
-          <span class="ai-work-row__title">AI Reasoning Environment Design</span>
-          <span class="ai-work-row__body">Multi-authority case narratives, ground-truth datasets, and grading rubrics for machine-evaluable federal administrative law reasoning.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section ai-portfolio-cta">
-    <div class="container--narrow">
-      <div class="article__cta fade-in">
-        <a href="/contact/" class="btn">Start a conversation</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="scroll-indicator" aria-hidden="true">
-    <span class="scroll-indicator__text">Scroll</span>
-    <div class="scroll-indicator__line"></div>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <p class="footer__copy">Julio Macedo &copy; 2026 &middot; New York</p>
-        <ul class="footer__links">
-          <li><a href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/nav.js?v=20261012"></script>
-  <script src="/js/animations.js"></script>
-  <script src="/js/latest.js" defer></script>
+<div class="m-root" id="top">
+<header class="m-header">
+<div class="m-wrap">
+<nav class="m-navrow">
+<a class="m-mark" href="/"><span class="m-signal" aria-hidden="true"></span>Home</a>
+<input class="m-navt" type="checkbox" id="m-navt" aria-label="Toggle navigation">
+<label class="m-toggle" for="m-navt" aria-hidden="true"></label>
+<ul class="m-nav">
+<li class="m-nav-item"><a class="m-lnk m-lnk-on" href="#top" aria-current="page">AI Portfolio</a></li>
+<li class="m-nav-item"><a class="m-lnk" href="/writing/">Articles</a></li>
+<li class="m-nav-item"><a class="m-lnk" href="/studies/">Case Studies</a></li>
+<li class="m-nav-item"><a class="m-lnk" href="/resume/">Resume</a></li>
+<li class="m-nav-item"><a class="m-lnk" href="/books/">Books</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="m-cor" aria-label="AI portfolio work register">
+<div class="m-stage">
+<div class="m-thr">
+<div class="m-thr-in">
+<p class="m-eyebrow">AI Portfolio</p>
+<div class="m-rule"></div>
+<h1 class="m-title"><span class="m-tl"><span class="m-tl-in">Operating</span></span> <span class="m-tl"><span class="m-tl-in">artifacts</span></span> <span class="m-tl m-tl-code"><span class="m-tl-in">built in code</span></span></h1>
+<p class="m-cue" aria-hidden="true">Scroll<span class="m-cue-line"></span></p>
+</div>
+</div>
+<div class="m-hall">
+<div class="m-deco" aria-hidden="true"><div class="m-glow"></div><svg class="m-edges" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><linearGradient id="m-eg1" gradientUnits="userSpaceOnUse" x1="43" y1="27.52" x2="38" y2="24.32"><stop offset="0" stop-color="#2A3448" stop-opacity="1"></stop><stop offset="1" stop-color="#2A3448" stop-opacity="0"></stop></linearGradient><linearGradient id="m-eg2" gradientUnits="userSpaceOnUse" x1="57" y1="27.52" x2="62" y2="24.32"><stop offset="0" stop-color="#2A3448" stop-opacity="1"></stop><stop offset="1" stop-color="#2A3448" stop-opacity="0"></stop></linearGradient><linearGradient id="m-eg3" gradientUnits="userSpaceOnUse" x1="43" y1="41.52" x2="38" y2="48.32"><stop offset="0" stop-color="#2A3448" stop-opacity="1"></stop><stop offset="1" stop-color="#2A3448" stop-opacity="0"></stop></linearGradient><linearGradient id="m-eg4" gradientUnits="userSpaceOnUse" x1="57" y1="41.52" x2="62" y2="48.32"><stop offset="0" stop-color="#2A3448" stop-opacity="1"></stop><stop offset="1" stop-color="#2A3448" stop-opacity="0"></stop></linearGradient></defs><line style="stroke:url(#m-eg1)" x1="48.5" y1="31.04" x2="38" y2="24.32"></line><line style="stroke:url(#m-eg2)" x1="51.5" y1="31.04" x2="62" y2="24.32"></line><line style="stroke:url(#m-eg3)" x1="48.5" y1="34.04" x2="38" y2="48.32"></line><line style="stroke:url(#m-eg4)" x1="51.5" y1="34.04" x2="62" y2="48.32"></line></svg></div>
+<ol class="m-doors">
+<li class="m-door m-door-new" style="--k:0.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Knowledge management</p>
+<a class="m-plq m-plq-link" href="/writing/big-law-knowledge-management/">
+<span class="m-art">The Modern Precedent Lifecycle Workflow <span class="m-new">New</span></span>
+<span class="m-ev">A four-step Knowledge Management workflow for Big Law practice groups that turns a closed document into organized, source-linked firm knowledge: workflow decomposition and capture, data structuring, content and AI governance, and integration with a user feedback loop.</span>
+</a>
+</li>
+<li class="m-door" style="--k:1.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Enablement &amp; Teaching</p>
+<a class="m-plq m-plq-link" href="/writing/prompt-engineering-omono/">
+<span class="m-art">Prompt Engineering (O'Mono)</span>
+<span class="m-ev">A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.</span>
+</a>
+</li>
+<li class="m-door" style="--k:2.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Workflow decomposition and integration</p>
+<a class="m-plq m-plq-link" href="/studies/conflicts-intake/">
+<span class="m-art">Workflow Automation: Conflicts</span>
+<span class="m-ev">Conflicts and new matter intake decomposed into nine steps across language, source-backed retrieval, legal judgment, and deterministic configuration, with provenance, confidentiality, supervision, adoption, and measurement built into the design.</span>
+</a>
+</li>
+<li class="m-door" style="--k:3.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Live tool</p>
+<a class="m-plq m-plq-link" href="/imtheom/">
+<span class="m-art">AI Governance Operating Model</span>
+<span class="m-ev">A configurable AI governance operating model. Includes risk classification, review gates, intake, model registry, vendor diligence, escalation, and regulatory overlays.</span>
+</a>
+</li>
+<li class="m-door" style="--k:4.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">AI governance as a strategic enabler</p>
+<a class="m-plq m-plq-link" href="/studies/the-authority/">
+<span class="m-art">The Authority</span>
+<span class="m-ev">A legal AI governance case study on why models cannot certify themselves. The record moves through self-review failure, release gates, bypass pressure, and the human layer that remains outside the model.</span>
+</a>
+</li>
+<li class="m-door" style="--k:5.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Executive readiness</p>
+<a class="m-plq m-plq-link" href="/studies/ai-governance-for-business/">
+<span class="m-art">AI Governance for Business Professionals</span>
+<span class="m-ev">The questions and vocabulary that decide whether AI output becomes action. U.S. and EU regimes, Mobley v. Workday, adverse impact, and the human release gate, mapped for business professionals with sourced authorities.</span>
+</a>
+</li>
+<li class="m-door" style="--k:6.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Published system</p>
+<a class="m-plq m-plq-link" href="/writing/legal-reasoning/">
+<span class="m-art">Legal Reasoning as a Strategic Asset</span>
+<span class="m-ev">Interactive article on the productization of legal reasoning, authority selection, and practitioner judgment as an asset class.</span>
+</a>
+</li>
+<li class="m-door" style="--k:7.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Regulatory tracking</p>
+<a class="m-plq m-plq-link" href="/writing/the-eu-ai-act-omnibus/">
+<span class="m-art">AI Governance: the EU AI Act</span>
+<span class="m-ev">Digital Omnibus reading with the in-force stack, pre-2027 operating obligations, and an interactive timeline of the Act in seven moves.</span>
+</a>
+</li>
+<li class="m-door m-door-int" style="--k:8.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Built stack</p>
+<div class="m-plq">
+<span class="m-art">Practitioner-built Code</span>
+<span class="m-ev">This site, the data pipelines behind the studies, and the interactive components inside the articles, built directly in Python, HTML, CSS, and Markdown.</span>
+</div>
+</li>
+<li class="m-door m-door-int" style="--k:9.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Internal system</p>
+<div class="m-plq">
+<span class="m-art">Program-scale Reporting</span>
+<span class="m-ev">Automated reporting infrastructure for program health, cost leakage, and pathway eligibility at portfolio level.</span>
+</div>
+</li>
+<li class="m-door m-door-int" style="--k:10.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Internal system</p>
+<div class="m-plq">
+<span class="m-art">AI-augmented Case Research</span>
+<span class="m-ev">Research pipelines for precedents, response strategy, and comparison analysis, built for attorney review rather than generic retrieval.</span>
+</div>
+</li>
+<li class="m-door m-door-int" style="--k:11.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<p class="m-type">Engagement work</p>
+<div class="m-plq">
+<span class="m-art">AI Reasoning Environment Design</span>
+<span class="m-ev">Multi-authority case narratives, ground-truth datasets, and grading rubrics for machine-evaluable federal administrative law reasoning.</span>
+</div>
+</li>
+</ol>
+<div class="m-end" style="--k:12.7">
+<svg class="m-rays" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="-160" y2="-102.4"></line><line x1="100" y1="0" x2="260" y2="-102.4"></line><line x1="0" y1="100" x2="-160" y2="317.6"></line><line x1="100" y1="100" x2="260" y2="317.6"></line></svg>
+<a class="m-cta-link" href="/contact/"><span class="m-cta-t">Start a conversation</span><span class="m-cta-arw" aria-hidden="true"><span class="m-cta-line"></span></span></a>
+</div>
+</div>
+<div class="m-strip" aria-hidden="true">
+<p class="m-legend"><span class="m-lh">Type</span><span class="m-lh">Artifact</span><span class="m-lh">Operating evidence</span></p>
+<ol class="m-rail">
+<li class="m-rk" style="--k:0.7"><a class="m-rk-a" href="#s01" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:1.7"><a class="m-rk-a" href="#s02" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:2.7"><a class="m-rk-a" href="#s03" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:3.7"><a class="m-rk-a" href="#s04" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:4.7"><a class="m-rk-a" href="#s05" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:5.7"><a class="m-rk-a" href="#s06" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:6.7"><a class="m-rk-a" href="#s07" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:7.7"><a class="m-rk-a" href="#s08" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:8.7"><a class="m-rk-a" href="#s09" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:9.7"><a class="m-rk-a" href="#s10" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:10.7"><a class="m-rk-a" href="#s11" tabindex="-1"></a></li>
+<li class="m-rk" style="--k:11.7"><a class="m-rk-a" href="#s12" tabindex="-1"></a></li>
+</ol>
+</div>
+</div>
+<div class="m-marks" aria-hidden="true">
+<span class="m-mk" id="s01" style="--t:0.07167"></span>
+<span class="m-mk" id="s02" style="--t:0.14833"></span>
+<span class="m-mk" id="s03" style="--t:0.22500"></span>
+<span class="m-mk" id="s04" style="--t:0.30167"></span>
+<span class="m-mk" id="s05" style="--t:0.37833"></span>
+<span class="m-mk" id="s06" style="--t:0.45500"></span>
+<span class="m-mk" id="s07" style="--t:0.53167"></span>
+<span class="m-mk" id="s08" style="--t:0.60833"></span>
+<span class="m-mk" id="s09" style="--t:0.68500"></span>
+<span class="m-mk" id="s10" style="--t:0.76167"></span>
+<span class="m-mk" id="s11" style="--t:0.83833"></span>
+<span class="m-mk" id="s12" style="--t:0.91500"></span>
+</div>
+</section>
+</main>
+<footer class="m-footer">
+<div class="m-wrap">
+<div class="m-frow">
+<p class="m-fcopy"><span class="m-sig">Julio Macedo</span> <span class="m-fmeta">© 2026 · New York</span></p>
+<ul class="m-flinks">
+<li class="m-fitem"><a class="m-flink" href="https://www.linkedin.com/in/juliomacedoesq" target="_blank" rel="noopener">LinkedIn</a></li>
+<li class="m-fitem"><a class="m-flink" href="/contact/">Contact</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</div>
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

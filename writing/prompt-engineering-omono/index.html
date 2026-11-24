@@ -15,21 +15,18 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.jhmacal.com/writing/prompt-engineering-omono/">
   <link rel="canonical" href="https://www.jhmacal.com/writing/prompt-engineering-omono/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260614-print-packet">
-  <link rel="stylesheet" href="/atmosphere.css">
+  <link rel="stylesheet" href="/style.css?v=20261124">
+  <link rel="stylesheet" href="/atmosphere.css?v=20261124">
   <style>
     /* Article-local rules only. Anything global lives in /style.css. */
 
     .article__byline {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.02em;
       font-style: italic;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       margin: 0 0 2.5rem;
     }
 
@@ -47,7 +44,7 @@
       font-weight: 500;
       letter-spacing: 0;
       font-variant: normal;
-      color: #c9a961;
+      color: #F2C200;
       line-height: 1.2;
     }
 
@@ -58,14 +55,14 @@
       font-size: 1.3rem;
       font-weight: 500;
       letter-spacing: 0;
-      color: rgba(201, 169, 97, 0.82);
+      color: rgba(242,194,0, 0.82);
       line-height: 1.25;
     }
 
     .article__cta {
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(201, 169, 97, 0.15);
+      border-top: 1px solid rgba(242,194,0, 0.15);
     }
 
     /* ===== Notes and Sources =====
@@ -78,9 +75,9 @@
     }
 
     .article__notes li {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
       font-size: 0.8rem;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       line-height: 1.65;
       margin-bottom: 0.7rem;
     }
@@ -90,20 +87,20 @@
     }
 
     .article__notes-lead {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
       font-size: 0.8rem;
-      color: rgba(240, 230, 210, 0.55);
+      color: rgba(238,242,247, 0.55);
       line-height: 1.65;
       margin: 1.35rem 0 0.8rem;
     }
 
     .article__notes-lead strong {
-      color: rgba(244, 237, 224, 0.8);
+      color: rgba(238,242,247, 0.8);
       font-weight: 500;
     }
 
     .article__notes-back {
-      color: rgba(201, 169, 97, 0.65);
+      color: rgba(242,194,0, 0.65);
       text-decoration: none;
       margin-left: 0.2rem;
     }
@@ -140,13 +137,13 @@
       width: 100%;
       height: auto;
       border-radius: 10px;
-      border: 0.5px solid rgba(201, 169, 97, 0.3);
+      border: 0.5px solid rgba(242,194,0, 0.3);
       box-shadow: 0 16px 38px rgba(3, 8, 18, 0.5);
     }
 
     .omono-figure figcaption {
       margin: 0;
-      color: rgba(244, 237, 224, 0.48);
+      color: rgba(238,242,247, 0.48);
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 0.9rem;
       font-style: italic;
@@ -173,9 +170,9 @@
        600px so no cell loses its heading. */
     .omono-map {
       margin: 2.2rem 0 2.8rem;
-      border: 0.5px solid rgba(201, 169, 97, 0.28);
+      border: 0.5px solid rgba(242,194,0, 0.28);
       border-radius: 12px;
-      background: rgba(13, 26, 48, 0.72);
+      background: rgba(12,18,29, 0.72);
       overflow: hidden;
       break-inside: avoid;
       page-break-inside: avoid;
@@ -190,12 +187,12 @@
     }
 
     .omono-map__head {
-      background: rgba(201, 169, 97, 0.07);
-      border-bottom: 0.5px solid rgba(201, 169, 97, 0.25);
+      background: rgba(242,194,0, 0.07);
+      border-bottom: 0.5px solid rgba(242,194,0, 0.25);
     }
 
     .omono-map__head span {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
       font-size: 0.66rem;
       font-weight: 600;
       letter-spacing: 0.18em;
@@ -205,7 +202,7 @@
     }
 
     .omono-map__row {
-      border-bottom: 0.5px solid rgba(244, 237, 224, 0.07);
+      border-bottom: 0.5px solid rgba(238,242,247, 0.07);
       align-items: start;
     }
 
@@ -216,18 +213,18 @@
     .omono-map__control,
     .omono-map__req {
       margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
       line-height: 1.55;
     }
 
     .omono-map__control {
       font-size: 0.85rem;
-      color: rgba(244, 237, 224, 0.92);
+      color: rgba(238,242,247, 0.92);
     }
 
     .omono-map__req {
       font-size: 0.8rem;
-      color: rgba(244, 237, 224, 0.62);
+      color: rgba(238,242,247, 0.62);
     }
 
     .omono-map__label {
@@ -236,7 +233,7 @@
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(201, 169, 97, 0.8);
+      color: rgba(242,194,0, 0.8);
       margin-bottom: 0.35rem;
     }
 
@@ -278,13 +275,13 @@
 
       .omono-figure::before {
         display: block;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Instrument Sans', sans-serif;
         font-size: 7.5pt;
         font-weight: 700;
         letter-spacing: 0.12em;
         line-height: 1.2;
         text-transform: uppercase;
-        color: #5d4618 !important;
+        color: #6B5600 !important;
         margin-bottom: 0.06in;
       }
 
@@ -353,7 +350,7 @@
 
       .omono-map__head span {
         font-size: 7pt !important;
-        color: #5d4618 !important;
+        color: #6B5600 !important;
       }
 
       .omono-map__row {
@@ -439,6 +436,26 @@
       }
     }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Prompt Engineering (O'Mono)",
+  "description": "A reusable API-powered prompt-engineering application that exposes field-level rationale, functioning as embedded training and self-service enablement, endowing AI literacy that compounds and scales.",
+  "datePublished": "2026-07-29",
+  "dateModified": "2026-08-23",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.jhmacal.com/#person",
+    "name": "Julio Macedo",
+    "url": "https://www.jhmacal.com/resume/"
+  },
+  "mainEntityOfPage": "https://www.jhmacal.com/writing/prompt-engineering-omono/",
+  "inLanguage": "en"
+}
+</script>
+<link rel="stylesheet" href="/fonts.css?v=20261124">
+<link rel="stylesheet" href="/theme.css?v=20261124">
 </head>
 <body>
 
@@ -474,7 +491,7 @@
       <article class="article">
         <div class="article__body">
 
-          <p class="article__byline">By Julio Macedo</p>
+          <p class="article__byline">By <a href="/resume/">Julio Macedo</a></p>
 
           <figure class="omono-figure omono-figure--hero">
             <img src="/assets/prompt-engineering-omono/01-landing-input-bar.png" alt="The O'Mono landing bar reading 'Type the idea the way it comes,' with a Write button beside it and Attach, Purpose and Menu controls below">
@@ -718,10 +735,10 @@
     </div>
   </footer>
 
-  <script src="/js/nav.js"></script>
-  <script src="/js/animations.js"></script>
+  <script src="/js/nav.js?v=20261124"></script>
+  <script src="/js/animations.js?v=20261124"></script>
 <script data-goatcounter="https://jhmacal.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-  <script src="/js/latest.js" defer></script>
+        async src="//gc.zgo.at/count.js?v=20261124"></script>
+  <script src="/js/latest.js?v=20261124" defer></script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+:root{--navy:#080C14;--navy-light:#0C121D;--cream:#EEF2F7;--cream-warm:#EEF2F7;--gold:#F2C200;--gold-light:#F2C200}
+::selection{background:#F2C200;color:#080C14}
+/* header, matched to the direction 3 header */
+#nav.nav{background:#080C14;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid #1A2231}
+#nav.nav .nav__inner{max-width:1296px;padding:0 48px}
+#nav.nav .nav__monogram{display:inline-flex;align-items:center;gap:11px;font-size:20px;letter-spacing:.01em;color:#EEF2F7}
+#nav.nav .nav__monogram::before{content:"";display:block;width:6px;height:6px;background:#F2C200;flex:none}
+#nav.nav .nav__monogram:hover{color:#F2C200}
+#nav.nav .nav__links li a{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.14em;color:#A9B3C4}
+#nav.nav .nav__links li a[data-nav-ai]{color:#A9B3C4}
+#nav.nav .nav__links li a:hover,#nav.nav .nav__links li a:focus-visible{color:#EEF2F7}
+#nav.nav .nav__links li a.active{color:#F2C200}
+#nav.nav .nav__links li a::after{background:#F2C200}
+#nav.nav [data-nav-new],#nav.nav [data-nav-new][hidden]{display:inline-block!important;margin-left:9px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F2C200;border:1px solid #846C09;border-radius:0;padding:3px 5px 2px;line-height:1;background:none;vertical-align:middle}
+#nav.nav .nav__toggle{border:1px solid #2A3448;border-radius:0;color:#EEF2F7;font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif;font-weight:600;letter-spacing:.12em}
+@media (max-width:980px){#nav.nav .nav__inner{padding:0 22px}}
+/* small labels take the mono face of direction 3 */
+.page-header__eyebrow,.section-eyebrow,.books__eyebrow,.studies-card__eyebrow,.article__eyebrow,.writing-item__meta,.writing-item__eyebrow,[class*="__eyebrow"],[class*="-eyebrow"]{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;letter-spacing:.14em}
+/* footer */
+.footer{border-top:1px solid #2A3448}
+.footer a{color:#A9B3C4}.footer a:hover{color:#EEF2F7}
