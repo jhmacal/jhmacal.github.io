@@ -208,8 +208,8 @@ body{margin:0;background:#080C14}
   .m-plq{position:absolute;left:var(--pad);right:var(--pad);bottom:calc(var(--pad) - 4px);align-items:end}
   .m-art{font-size:var(--art)}
   .m-ev{padding:0 0 4px;font-size:var(--evs);line-height:1.54;max-width:none;opacity:clamp(0, calc((.55 - var(--d)) / .3), 1)}
-  .m-root .m-door:focus-within{transform:none;opacity:1;z-index:9;background:#080C14;border-color:#F2C200}
-  .m-root .m-door:focus-within .m-ev,.m-root .m-door:focus-within .m-type{opacity:1}
+  .m-root .m-door:has(:focus-visible){transform:none;opacity:1;z-index:9;background:#080C14;border-color:#F2C200}
+  .m-root .m-door:has(:focus-visible) .m-ev,.m-root .m-door:has(:focus-visible) .m-type{opacity:1}
 
   /* the closing call is the last doorway: a solid end wall */
   .m-end{background:linear-gradient(180deg,rgba(242,194,0,.08),rgba(242,194,0,0) 72%),#0A0F19;display:grid;place-items:center}
